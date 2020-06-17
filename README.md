@@ -15,8 +15,11 @@ Clone a version of SEDBYS to your local machine using git clone. If you are new 
 [gitLab basics: start using git](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html) to get started.
 
 Save the SEDBYS directory path as environment variable `$SED_BUILDER` on your local machine. E.g. in your .bashrc file:
+
 `export SED_BUILDER=/path/to/SEDBYS/on/local/machine`
+
 or in your .cshrc file:
+
 `setenv SED_BUILDER /path/to/SEDBYS/on/local/machine`
 
 (Remember: you will need to source your .bashrc or .cshrc file for these changes to become active).
