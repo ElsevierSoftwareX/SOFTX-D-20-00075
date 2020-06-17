@@ -48,7 +48,9 @@ Any retrieved spectra wll also be saved (in .fits format) to this directory. The
 4. Inspecting the collated photometry and building the SED
  
 Use the `inspectSED.py` script to flux convert the photometry and inspect the compiled SED. For example, running
+
 `inspectPhot.py --phot=HD283571/HD283571_phot.dat --spec=HD283571/cassis_yaaar_spcfw_26141184t.fits`
+
 will display the following plot:
 
 ![examples/HD283571_sed.pdf](examples/HD283571_sed.pdf)
