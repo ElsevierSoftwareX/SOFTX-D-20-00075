@@ -21,12 +21,16 @@ description = \
 description:
     script to pull photometry from set catalogs in VizieR 
     (specified in cat_setup.py) and from local database of
-    data tables not presently in VizieR.
+    data tables not presently in VizieR. If optional 
+    argument --getSpect is set equal to True (boolean), 
+    the script will also pull flux calibrated infrared
+    spectra from the CASSIS low resolution Spitzer
+    Atlas and Gregory C Sloan's ISO/SWS Atlas.
 """
 epilog = \
 """
 examples:
-    queryDB.py --obj=HD_283571 --rad=120s --ldb=./ --queryAll=True
+    queryDB.py --obj=HD_283571 --rad=10s --getSpect=True
 """
 
 parser = argparse.ArgumentParser(description=description,epilog=epilog,
@@ -83,18 +87,6 @@ else:
             print('Exiting...')
             sys.exit()
         ldbN,ldbR,ldbW,ldbA,ldbM,ldbE,ldbU,ldbB = [[]]*8
-
-
-print('')
-print('---------------------------------------------')
-print('| Running queryDB.py                        |')
-print('|                                           |')
-print('| If you use this script as part of your    |')
-print('| research, please include                  |')
-print('| Claire L. Davies (c.davies3@exeter.ac.uk) |')
-print('| as a co-author.                           |')
-print('|___________________________________________|')
-print('')
 
 ##########
 # Initialise outputs:
