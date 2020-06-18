@@ -280,6 +280,8 @@ for o in ldbN:
 ##############
 # Write output to ascii file:
 ##############
+resS = Simbad.query_object(obj)
+
 subprocess.call('mkdir -p '+os.getcwd()+'/'+obj.replace(" ", ""), shell = True)
 output = os.getcwd()+'/'+obj.replace(" ", "")+'/'+obj.replace(" ", "")+'_phot.dat'
 if os.path.exists(output) == True and qu == 'True':
@@ -295,7 +297,8 @@ elif os.path.exists(output) == True and qu != 'True':
 
 else:
     f = open(output, mode='w')
-    f.write('#Photometry obtained for '+obj+' using search radius of '+searchR+'\n')
+    f.write('#Photometry obtained for '+obj+': RA='+str(resS['RA'][0]))
+    f.write(', Dec='+str(resS['DEC'][0])+', cone search radius='+searchR+'\n')
     f.write("lam band mag e_mag f_mag u_mag beam ref\n")
     for i in range(0, len(wvlen)):
         oLINE = str(wvlen[i])+' '+str(band[i])+' '+str(mag[i])+' '+str(emag[i])+' -- '+str(units[i])+' '+str(beam[i])+' '+str(ref[i])
@@ -305,7 +308,6 @@ f.close()
 
 if argopt.getSpect == True:
     # objRA = str(65.48922), objDEC = str(28.443204)
-    resS = Simbad.query_object(obj)
     objPos = coord.SkyCoord(resS['RA'][0]+' '+resS['DEC'][0], unit=(u.hourangle, u.deg))
     RA = objPos.ra.value
     DEC = objPos.dec.value
