@@ -78,7 +78,7 @@ Running `inspectSED.py --phot=HD283571_phot_cleaned_0.dat` will display the clea
 
 Additional optional arguments for `inspectSED.py`:
 *  `--scale`: a scale factor which may be used to shift the spectral data in the y-direction where necessary.
-*  `--pltR`: comma-separated lower and upper limits to the x-axis for plotting in case the user wishes the zoom-in on a particular region or produce plots with uniform axes across a sample or target stars.
+*  `--pltR`: comma-separated lower and upper limits to the x-axis (in microns) for plotting in case the user wishes the zoom-in on a particular region or produce plots with uniform axes across a sample or target stars (e.g. --pltR=0.1,1000).
 *  `--savePlt`: a boolean (default = False) instructing the script whether to automatically save plots of the full and cleaned SED. If True, the file naming is handled automatically. In our example above, the full SED would be saved as HD283571_sed_0.pdf and the cleaned SED would be saved as HD283571_sed_cleaned_0.dat. As before, the numerical indexes are used to ensure that existing files are not over-written.
   
 
