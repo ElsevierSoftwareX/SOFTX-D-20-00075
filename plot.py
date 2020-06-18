@@ -1,4 +1,9 @@
 from numpy import ndarray, where, array, zeros, ones, float64
+import matplotlib.pyplot as plt
+from sed_input import read_spectrum
+import warnings
+
+warnings.filterwarnings('ignore', category=RuntimeWarning)
 
 def fixaxis(data,err,lolims):
     """
@@ -54,3 +59,37 @@ def fixaxis(data,err,lolims):
         lolims[negerrs]=ones(len(negerrs))
         
         return data,newerr.T,lolims
+
+def pltSED(infile, x_range, f, ef, wvlen, specFiles=None, specS=None, interactive=False):
+    fig1 = plt.figure(1, figsize=(6., 4.))
+    ax1 = plt.subplot2grid((1,1), (0,0))
+    ax1.set_xlabel("${\lambda}$ [${\mu}m$]")
+    ax1.set_ylabel("${\lambda}\,F_{\lambda}$ [W m$^{-2}$]")
+    ax1.set_title(infile.split('/')[-1].split('_')[0])
+    if x_range != 'default':
+        ax1.set_xlim(float(x_range[0]), float(x_range[1]))
+    if specFiles:
+        for sF in range(0, len(specFiles)):
+            wave_s, flux_s, eflux_s, colS = read_spectrum(specFiles[sF])
+            x1,xerr1,xlolims1=fixaxis(wave_s,None,False)
+            y1,yerr1,uplims1=fixaxis([fx*specS[sF] for fx in flux_s],[fx*specS[sF] for fx in eflux_s],False)
+            ax1.errorbar(x1,y1,yerr1,xerr1,color=colS,ms=5,ls='-')
+
+    
+    ax1.loglog()
+    yuplim = []
+    for fl in range(0, len(f)):
+        if float(f[fl]) == float(ef[fl]):
+            yuplim.append(1)
+        else:
+            yuplim.append(0)
+    
+    x,xerr,xlolims=fixaxis([w*1e6 for w in wvlen],None,False)
+    y,yerr,uplims=fixaxis(f,ef,yuplim) # convert flux and its error to log space
+    if interactive == True:
+        ax1.errorbar(x,y,yerr,xerr,uplims=uplims,xlolims=xlolims,color='k',marker='o',ms=5,
+                     ls='none',picker=2)
+        return fig1
+    else:
+        ax1.errorbar(x,y,yerr,xerr,uplims=uplims,xlolims=xlolims,color='k',marker='o',ms=5,
+                     ls='none')
