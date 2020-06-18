@@ -34,7 +34,7 @@ parser.add_argument("--spec",dest='spec',default='',type=str,
 parser.add_argument("--scale",dest='specScale',default='',type=str,
                     help='Scale factor to be applied to spectral flux')
 parser.add_argument("--pltR",dest='plt_range',default='[]',type=str,
-                    help='X-range for plot window (free by default)')
+                    help='X-range (in microns) for plot window (free by default)')
 parser.add_argument("--savePlt",dest='saveplt',default=False,type=bool,
                     help='Save a .pdf copy of the full and cleaned SEDs (default False)')
 

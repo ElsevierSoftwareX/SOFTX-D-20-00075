@@ -1,9 +1,14 @@
 import os, sys
-from buildDB import addToLocal
+from buildDB import addToLocal, check_ldb
 import argparse
 import subprocess
 from astroquery.simbad import Simbad
 import datetime
+
+import warnings
+
+warnings.filterwarnings('ignore', category=UserWarning)
+
 
 # Describe the script:
 description = \
@@ -145,27 +150,29 @@ if not all(len(l)) == th_len for l in it1):
 
 # e) Each target name should be as-in SIMBAD (or as in SIMBAD plus a binary identifier):
 for f in fc:
-    objIDs = [a[0] for a in Simbad.query_objectids(f.split(',')[0])]
-    if not objIDs:
+    objID = Simbad.query_objectids(f.split(',')[0])
+    if not objID:
         print('')
         print('Warning: object name '+f.split(',')[0]+' not recognised by SIMBAD!')
         # Try treat it as photometry of binary component (expect e.g. A or A+B label)
-        print(' - blindly assuming multiplicity: check '+f.split(',')[0].split(' ')[:-1]))
-        obj = [a[0] for a in Simbad.query_objectids(f.split(',')[0].split(' ')[:-1])]
-        if not obj:
-            print('Error: not multiple. Object name not registered in SIMBAD!')
-            endhere = True
-        else:
-            print(' - '+f.split(',')[0].split(' ')[:-1])+' recognised by SIMBAD')
-            if f.split(',')[0].split(' ')[:-1] not in [o.replace('  ', ' ') for o in obj]:
+        print(' - blindly assuming multiplicity: check '+' '.join(f.split(',')[0].split(' ')[:-1])))
+        try:
+            obj = [a[0] for a in Simbad.query_objectids(' '.join(f.split(',')[0].split(' ')[:-1]))]
+            print(' - '+' '.join(f.split(',')[0].split(' ')[:-1])+' recognised by SIMBAD')
+            if ' '.join(f.split(',')[0].split(' ')[:-1]) not in [o.replace('  ', ' ') for o in obj]:
                 print(' but object name appears differently in SIMBAD!')
                 for o in obj:
-                    if f.split(',')[0].split(' ')[:-1] in o:
+                    if ' '.join(f.split(',')[0].split(' ')[:-1]) in o:
                         print('Suggestion: use '+o+' '+f.split(',')[0].split(' ')[-1]+' instead.')
                 endhere = True
             else:
                 print(' and we are fine to continue...')
-    elif f.split(',')[0] not in [o.replace('  ', ' ') for o in objIDs]:
+        except TypeError:
+            print('Error: not multiple. Object name not registered in SIMBAD!')
+            endhere = True
+    else:
+        objIDs = [a[0] for a in Simbad.query_objectids(f.split(',')[0])]
+        f.split(',')[0] not in [o.replace('  ', ' ') for o in objIDs]:
         print('Error: object name '+f.split(',')[0]+' appears differently in SIMBAD!')
         for o in objIDs:
             if f.split(',')[0] in o:
