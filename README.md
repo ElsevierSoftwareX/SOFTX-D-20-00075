@@ -22,9 +22,14 @@ or in your .cshrc file:
 
 `setenv SED_BUILDER /path/to/SEDBYS/on/local/machine`
 
+To ensure that the SEDBYS scripts `queryDB.py` and `inspectSED.py` can be run from anywhere on your local machine, you will also need to add the SEDBYS directory to your $PATH and $PYTHONPATH. e.g. in your .cshrc file:
+
+`setenv PATH $SED_BUILDER:$PATH`
+
+`setenv PYTHONPATH $SED_BUILDER:$PYTHONPATH`
+
 (Remember: you will need to source your .bashrc or .cshrc file for these changes to become active).
 
-This ensures that the SEDBYS scripts can be run from anywhere on your local machine.
 
 
 3. Compiling photometric data from the online and local databases
