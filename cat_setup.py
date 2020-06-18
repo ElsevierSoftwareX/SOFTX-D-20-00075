@@ -8,8 +8,8 @@ def src_localDB(localDB):
     ldbN = {'Herschel1'  : localDB+'/database/herschel_phot.csv',
             'Herschel2'  : localDB+'/database/herschel_ribas.csv',
             'Herschel3'  : localDB+'/database/herschel_cha.csv',
-            'KITT PEAK1' : localDB+'/database/mdm_kittpeak_JHKphot.dat',
-            'KITT PEAK2' : localDB+'/database/mdm_kittpeak_phot.dat',
+            'KITTPEAK1' : localDB+'/database/mdm_kittpeak_JHKphot.dat',
+            'KITTPEAK2' : localDB+'/database/mdm_kittpeak_phot.dat',
             'SEST' : localDB+'/database/sest_henning.csv',
             'ALMA17' : localDB+'/database/alma_ricci.csv',
             'IRAM' : localDB+'/database/iramPdBI_pietu.csv',
@@ -116,7 +116,7 @@ def src_localDB(localDB):
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
-            print (ldbN[item])
+            print ('Error: '+ldbN[item]+' not found!')
             return
     
     # bibliographic reference for catalog/paper (these are searchable within
@@ -124,8 +124,8 @@ def src_localDB(localDB):
     ldbR = {'Herschel1'  : '2016A&A...586A...6P',
             'Herschel2'  : '2017ApJ...849...63R',
             'Herschel3'  : '2012A&A...545A.145W',
-            'KITT PEAK1' : '2008ApJ...689..513T',
-            'KITT PEAK2' : '2008ApJ...689..513T',
+            'KITTPEAK1' : '2008ApJ...689..513T',
+            'KITTPEAK2' : '2008ApJ...689..513T',
             'SEST' : '1993A&A...276..129H',
             'ALMA17' : '2014ApJ...791...20R',
             'IRAM' : '2014A&A...564A..95P',
@@ -233,8 +233,8 @@ def src_localDB(localDB):
     ldbW = {'Herschel1'  : [70e-6, 100e-6, 160e-6],
             'Herschel2'  : [70e-6, 100e-6, 160e-6, 250e-6, 350e-6, 500e-6],
             'Herschel3'  : [70e-6, 160e-6, 250e-6, 350e-6, 500e-6],
-            'KITT PEAK1' : [1.25e-6, 1.60e-6, 2.18e-6],
-            'KITT PEAK2' : [364e-9, 442e-9, 540e-9, 647e-9, 786.5e-9],
+            'KITTPEAK1' : [1.25e-6, 1.60e-6, 2.18e-6],
+            'KITTPEAK2' : [364e-9, 442e-9, 540e-9, 647e-9, 786.5e-9],
             'SEST' : [1300.0e-6],
             'ALMA17' : [886.960e-6,3223.575e-6],
             'IRAM' : [1360.0e-6],
@@ -343,8 +343,8 @@ def src_localDB(localDB):
     ldbA = {'Herschel1'  : [(1.22*w/3.5)*206265 for w in ldbW['Herschel1']],
             'Herschel2'  : [(1.22*w/3.5)*206265 for w in ldbW['Herschel2']],
             'Herschel3'  : [(1.22*w/3.5)*206265 for w in ldbW['Herschel3']],
-            'KITT PEAK1' : [(1.22*w/2.4)*206265 for w in ldbW['KITT PEAK1']],
-            'KITT PEAK2' : [(1.22*w/2.4)*206265 for w in ldbW['KITT PEAK2']],
+            'KITTPEAK1' : [(1.22*w/2.4)*206265 for w in ldbW['KITT PEAK1']],
+            'KITTPEAK2' : [(1.22*w/2.4)*206265 for w in ldbW['KITT PEAK2']],
             'SEST' : [21.8],
             'ALMA17' : [0.4,0.4],
             'IRAM' : [10.0],
@@ -452,8 +452,8 @@ def src_localDB(localDB):
     ldbM = {'Herschel1'  : ['F70', 'F100', 'F160'],
             'Herschel2'  : ['F70', 'F100', 'F160', 'F250', 'F350', 'F500'],
             'Herschel3'  : ['F_70um', 'F_160um', 'F_250um', 'F_350um', 'F_500um'],
-            'KITT PEAK1' : ['Jmag', 'Hmag', 'Kmag'],
-            'KITT PEAK2' : ['Umag', 'Bmag', 'Vmag', 'Rmag', 'Imag'],
+            'KITTPEAK1' : ['Jmag', 'Hmag', 'Kmag'],
+            'KITTPEAK2' : ['Umag', 'Bmag', 'Vmag', 'Rmag', 'Imag'],
             'SEST' : ['F1300'],
             'ALMA17' : ['F887','F3224'],
             'IRAM' : ['F1360'],
@@ -561,8 +561,8 @@ def src_localDB(localDB):
     ldbE = {'Herschel1'  : ['eF70', 'eF100', 'eF160'],
             'Herschel2'  : ['eF70', 'eF100', 'eF160', 'eF250', 'eF350', 'eF500'],
             'Herschel3'  : ['e_70um', 'e_160um', 'e_250um', 'e_350um', 'e_500um'],
-            'KITT PEAK1' : ['eJmag', 'eHmag', 'eKmag'],
-            'KITT PEAK2' : ['eUmag', 'eBmag', 'eVmag', 'eRmag', 'eImag'],
+            'KITTPEAK1' : ['eJmag', 'eHmag', 'eKmag'],
+            'KITTPEAK2' : ['eUmag', 'eBmag', 'eVmag', 'eRmag', 'eImag'],
             'SEST' : ['e_F1300'],
             'ALMA17' : ['e_F887','e_F3224'],
             'IRAM' : ['e_F1360'],
@@ -670,8 +670,8 @@ def src_localDB(localDB):
     ldbU = {'Herschel1'  : ['Jy', 'Jy', 'Jy'],
             'Herschel2'  : ['mJy', 'mJy', 'mJy', 'mJy', 'mJy', 'mJy'],
             'Herschel3'  : ['Jy', 'Jy', 'Jy', 'Jy', 'Jy', 'Jy'],
-            'KITT PEAK1' : ['mag', 'mag', 'mag'],
-            'KITT PEAK2' : ['mag', 'mag', 'mag', 'mag', 'mag'],
+            'KITTPEAK1' : ['mag', 'mag', 'mag'],
+            'KITTPEAK2' : ['mag', 'mag', 'mag', 'mag', 'mag'],
             'SEST' : ['mJy'],
             'ALMA17' : ['mJy','mJy'],
             'IRAM' : ['mJy'],
@@ -783,8 +783,8 @@ def src_localDB(localDB):
                             'Herschel:SPIRE:F500'],
             'Herschel3'  : ['Herschel:PACS:F70', 'Herschel:PACS:F160', 'Herschel:SPIRE:F250', 
                             'Herschel:SPIRE:F350', 'Herschel:SPIRE:F500'],
-            'KITT PEAK1' : ['Johnson:J', 'Johnson:H', 'Johnson:K'],
-            'KITT PEAK2' : ['Johnson:U', 'Johnson:B', 'Johnson:V', 'Cousins:Rc', 'Cousins:Ic'],
+            'KITTPEAK1' : ['Johnson:J', 'Johnson:H', 'Johnson:K'],
+            'KITTPEAK2' : ['Johnson:U', 'Johnson:B', 'Johnson:V', 'Cousins:Rc', 'Cousins:Ic'],
             'SEST' : ['SEST:F1300'],
             'ALMA17' : ['ALMA:F887','ALMA:F3224'],
             'IRAM' : ['IRAM:PdBI:F1360'],
@@ -897,9 +897,9 @@ def src_onlineDB(query='simbad'):
     """
     # catalog name dictionary:
     catN = {'2MASS'    : ['FLUX_BIBCODE_J', 'FLUX_BIBCODE_H', 'FLUX_BIBCODE_K'],
-           'TYCHO-2'   : 'I/259/tyc2',
-           'AKARI irc' : 'II/297/irc',
-           'AKARI fis' : 'II/298/fis',
+           'TYCHO22'   : 'I/259/tyc2',
+           'AKARIirc' : 'II/297/irc',
+           'AKARIfis' : 'II/298/fis',
            'WISE'      : 'II/311/wise',
            'SCUBA'     : 'J/ApJS/175/277/maps',
            'IRAS'      : 'II/125/main',
@@ -925,9 +925,9 @@ def src_onlineDB(query='simbad'):
 
     # catalog reference dictionary
     catR = {'2MASS'    : '2003yCat.2246....0C',
-           'TYCHO-2'   : '2000A&A...355L..27H',
-           'AKARI irc' : '2010A&A...514A...1I',
-           'AKARI fis' : '2010yCat.2298....0Y',
+           'TYCHO2'   : '2000A&A...355L..27H',
+           'AKARIirc' : '2010A&A...514A...1I',
+           'AKARIfis' : '2010yCat.2298....0Y',
            'WISE'      : '2012wise.rept....1C',
            'SCUBA'     : '2008ApJS..175..277D',
            'IRAS'      : '1994yCat.2125....0J',
@@ -953,9 +953,9 @@ def src_onlineDB(query='simbad'):
 
     # catalog wavelength dictionary
     catW = {'2MASS'    : [1.25e-6, 1.65e-6, 2.15e-6],
-           'TYCHO-2'   : [426e-9, 532e-9],
-           'AKARI irc' : [9e-6, 18e-6],
-           'AKARI fis' : [65e-6, 90e-6, 140e-6, 160e-6],
+           'TYCHO2'   : [426e-9, 532e-9],
+           'AKARIirc' : [9e-6, 18e-6],
+           'AKARIfis' : [65e-6, 90e-6, 140e-6, 160e-6],
            'WISE'      : [3.35e-6, 4.6e-6, 11.6e-6, 22.1e-6],
            'SCUBA'     : [850e-6, 450e-6],
            'IRAS'      : [12e-6, 25e-6, 60e-6, 100e-6],
@@ -981,9 +981,9 @@ def src_onlineDB(query='simbad'):
 
     # catalog angular resolution / beam size
     catA = {'2MASS'    : [(1.22*w/1.3)*206265 for w in catW['2MASS']],
-           'TYCHO-2'   : [(1.22*w/0.29)*206265 for w in catW['TYCHO-2']],
-           'AKARI irc' : [(1.22*w/0.685)*206265 for w in catW['AKARI irc']],
-           'AKARI fis' : [(1.22*w/0.685)*206265 for w in catW['AKARI fis']],
+           'TYCHO2'   : [(1.22*w/0.29)*206265 for w in catW['TYCHO-2']],
+           'AKARIirc' : [(1.22*w/0.685)*206265 for w in catW['AKARI irc']],
+           'AKARIfis' : [(1.22*w/0.685)*206265 for w in catW['AKARI fis']],
            'WISE'      : [(1.22*w/0.4)*206265 for w in catW['WISE']],
            'SCUBA'     : [13.8, 7.8],
            'IRAS'      : [(1.22*w/0.57)*206265 for w in catW['IRAS']],
@@ -1009,9 +1009,9 @@ def src_onlineDB(query='simbad'):
 
     # catalog magnitude name
     catM = {'2MASS'    : ['FLUX_J', 'FLUX_H', 'FLUX_K'],
-           'TYCHO-2'   : ['BTmag', 'VTmag'],
-           'AKARI irc' : ['S09', 'S18'],
-           'AKARI fis' : ['S65', 'S90', 'S140', 'S160'],
+           'TYCHO2'   : ['BTmag', 'VTmag'],
+           'AKARIirc' : ['S09', 'S18'],
+           'AKARIfis' : ['S65', 'S90', 'S140', 'S160'],
            'WISE'      : ['W1mag', 'W2mag', 'W3mag', 'W4mag'],
            'SCUBA'     : ['F850', 'F450'],
            'IRAS'      : ['Fnu_12', 'Fnu_25', 'Fnu_60', 'Fnu_100'],
@@ -1039,9 +1039,9 @@ def src_onlineDB(query='simbad'):
     # float which will be used as a percentage uncertainty on the retrieved magnitude/flux 
     # value retrieved from the catalog
     catE = {'2MASS'    : ['FLUX_ERROR_J', 'FLUX_ERROR_H', 'FLUX_ERROR_K'],
-           'TYCHO-2'   : ['e_BTmag', 'e_VTmag'],
-           'AKARI irc' : ['e_S09', 'e_S18'],
-           'AKARI fis' : ['e_S65', 'e_S90', 'e_S140', 'e_S160'],
+           'TYCHO2'   : ['e_BTmag', 'e_VTmag'],
+           'AKARIirc' : ['e_S09', 'e_S18'],
+           'AKARIfis' : ['e_S65', 'e_S90', 'e_S140', 'e_S160'],
            'WISE'      : ['e_W1mag', 'e_W2mag', 'e_W3mag', 'e_W4mag'],
            'SCUBA'     : [0.3, 1.0],
            'IRAS'      : ['e_Fnu_12', 'e_Fnu_25', 'e_Fnu_60', 'e_Fnu_100'],
@@ -1067,9 +1067,9 @@ def src_onlineDB(query='simbad'):
 
     # catalog magnitude unit name
     catU = {'2MASS'    : ['mag', 'mag', 'mag'],
-           'TYCHO-2'   : ['mag', 'mag'],
-           'AKARI irc' : ['Jy', 'Jy'],
-           'AKARI fis' : ['Jy', 'Jy', 'Jy', 'Jy'],
+           'TYCHO2'   : ['mag', 'mag'],
+           'AKARIirc' : ['Jy', 'Jy'],
+           'AKARIfis' : ['Jy', 'Jy', 'Jy', 'Jy'],
            'WISE'      : ['mag', 'mag', 'mag', 'mag'],
            'SCUBA'     : ['Jy', 'Jy'],
            'IRAS'      : ['Jy', 'Jy', 'Jy', 'Jy'],
@@ -1095,9 +1095,9 @@ def src_onlineDB(query='simbad'):
 
     # catalog waveband name
     catB = {'2MASS'    : ['2MASS:J', '2MASS:H', '2MASS:Ks'],
-           'TYCHO-2'   : ['HIP:BT', 'HIP:VT'],
-           'AKARI irc' : ['AKARI:S9W', 'AKARI:L18W'],
-           'AKARI fis' : ['AKARI:N60', 'AKARI:WIDE-S', 'AKARI:WIDE-L', 'AKARI:N160'],
+           'TYCHO2'   : ['HIP:BT', 'HIP:VT'],
+           'AKARIirc' : ['AKARI:S9W', 'AKARI:L18W'],
+           'AKARIfis' : ['AKARI:N60', 'AKARI:WIDE-S', 'AKARI:WIDE-L', 'AKARI:N160'],
            'WISE'      : ['WISE:W1', 'WISE:W2', 'WISE:W3', 'WISE:W4'],
            'SCUBA'     : ['SCUBA:850', 'SCUBA:450'],
            'IRAS'      : ['IRAS:12', 'IRAS:25', 'IRAS:60', 'IRAS:100'],
