@@ -7,19 +7,20 @@ def check_ldb(ldb):
     Function to test whether SEDBYS has been installed and
     set-up correctly. 
     """
+    
     class cd:
-    """
-    Context manager for changing the current working directory
-    """
-    def __init__(self, newPath):
-        self.newPath = os.path.expanduser(newPath)
+        """
+        Context manager for changing the current working directory
+        """
+        def __init__(self, newPath):
+            self.newPath = os.path.expanduser(newPath)
 
-    def __enter__(self):
-        self.savedPath = os.getcwd()
-        os.chdir(self.newPath)
+        def __enter__(self):
+            self.savedPath = os.getcwd()
+            os.chdir(self.newPath)
 
-    def __exit__(self, etype, value, traceback):
-        os.chdir(self.savedPath)
+        def __exit__(self, etype, value, traceback):
+            os.chdir(self.savedPath)
     
     if ldb == '':
         localDB_trunk = os.getenv('SED_BUILDER')
@@ -42,16 +43,16 @@ def check_ldb(ldb):
         localDB_trunk = ldb
     
     with cd(localDB_trunk):
-    print('Ensuring local SEDBYS git repo is up-to-date...')
-    uptodate = subprocess.call('git pull', shell=True)
-    if uptodate == 1:
-        print('')
-        print('Error: local changes clash with repository updates!')
-        print('Please rectify these before continuing.')
-        print('')
-        sys.exit()
-    else:
-        print('   Passed: check complete.')
+        print('Ensuring local SEDBYS git repo is up-to-date...')
+        uptodate = subprocess.call('git pull', shell=True)
+        if uptodate == 1:
+            print('')
+            print('Error: local changes clash with repository updates!')
+            print('Please rectify these before continuing.')
+            print('')
+            sys.exit()
+        else:
+            print('   Passed: check complete.')
     
     return localDB_trunk
 

@@ -343,8 +343,8 @@ def src_localDB(localDB):
     ldbA = {'Herschel1'  : [(1.22*w/3.5)*206265 for w in ldbW['Herschel1']],
             'Herschel2'  : [(1.22*w/3.5)*206265 for w in ldbW['Herschel2']],
             'Herschel3'  : [(1.22*w/3.5)*206265 for w in ldbW['Herschel3']],
-            'KITTPEAK1' : [(1.22*w/2.4)*206265 for w in ldbW['KITT PEAK1']],
-            'KITTPEAK2' : [(1.22*w/2.4)*206265 for w in ldbW['KITT PEAK2']],
+            'KITTPEAK1' : [(1.22*w/2.4)*206265 for w in ldbW['KITTPEAK1']],
+            'KITTPEAK2' : [(1.22*w/2.4)*206265 for w in ldbW['KITTPEAK2']],
             'SEST' : [21.8],
             'ALMA17' : [0.4,0.4],
             'IRAM' : [10.0],
@@ -981,9 +981,9 @@ def src_onlineDB(query='simbad'):
 
     # catalog angular resolution / beam size
     catA = {'2MASS'    : [(1.22*w/1.3)*206265 for w in catW['2MASS']],
-           'TYCHO2'   : [(1.22*w/0.29)*206265 for w in catW['TYCHO-2']],
-           'AKARIirc' : [(1.22*w/0.685)*206265 for w in catW['AKARI irc']],
-           'AKARIfis' : [(1.22*w/0.685)*206265 for w in catW['AKARI fis']],
+           'TYCHO2'   : [(1.22*w/0.29)*206265 for w in catW['TYCHO2']],
+           'AKARIirc' : [(1.22*w/0.685)*206265 for w in catW['AKARIirc']],
+           'AKARIfis' : [(1.22*w/0.685)*206265 for w in catW['AKARIfis']],
            'WISE'      : [(1.22*w/0.4)*206265 for w in catW['WISE']],
            'SCUBA'     : [13.8, 7.8],
            'IRAS'      : [(1.22*w/0.57)*206265 for w in catW['IRAS']],
