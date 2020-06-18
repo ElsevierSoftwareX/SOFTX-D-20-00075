@@ -35,8 +35,10 @@ To ensure that the SEDBYS scripts `queryDB.py` and `inspectSED.py` can be run fr
 3. Compiling photometric data from the online and local databases
 
 Use the `queryDB.py` script to retrieve photometry from the online and local databses. For example, running
+
 `queryDB.py --obj=HD_283571 --rad=10s`
-will search for photometry for young stellar object HD 283571. A cone search radius of 10 arcseconds will be used when querying the online database.
+
+will search for photometry for young stellar object HD 283571. A cone search radius of 10 arcseconds around the object's RA and Dec (retrieved from SIMBAD) will be used when querying the online catalogs. The object name, together with all aliases (retrieved from SIMBAD), will be used when querying the local database.
 
 Additional optional arguments for `queryDB.py`:
 *  `--getSpect`: set to 'True' to additionally retrieve fully processed, flux-calibrated infrared spectra from ISO/SWS and Spitzer
@@ -45,7 +47,7 @@ Additional optional arguments for `queryDB.py`:
 
 For each search, a new directory will be created in the current working directory. The directory name is taken from the object name parsed to `--obj` i.e., in the above example, a HD283571/ directory will be created.
 
-The collated photometry will be saved to file in this new directory. In the above example, this is called HD283571_phot.dat.
+The collated photometry will be saved to file in this new directory. In the above example, this is called HD283571_phot.dat. The header of this photometry file contains the object name used in the search, the RA and Dec retrieved from SIMBAD, and the cone search radius used.
 
 Any retrieved spectra wll also be saved (in .fits format) to this directory. The original file names used in the ISO/SWS and CASSIS atlases are retained. 
 
@@ -58,7 +60,7 @@ Use the `inspectSED.py` script to flux convert the photometry and inspect the co
 
 will display the following plot:
 
-![examples/HD283571_sed.pdf](examples/HD283571_sed.pdf)
+[![examples/HD283571_sed.pdf]](examples/HD283571_sed.pdf)
 
 From this plot, we can clearly see that the SED for HD 283571 is contaminated. We can clean this plot, and remove contaminant photometry which may be saturated or arising from an incorrect cross-match, for instance. The plot that is displayed when running `inspectSED.py` is interactive and clicking on erreanous data points will flag them for removal. You can see if a click is registered by monitoring the terminal output which will provide details of the waveband of the respective data. 
 
