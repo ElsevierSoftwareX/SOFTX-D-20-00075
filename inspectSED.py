@@ -6,7 +6,7 @@ import sys, os
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import errorbar, loglog
 import numpy as np
-from plot import fixaxis
+from plot import pltSED
 
 description = \
 """
@@ -35,6 +35,8 @@ parser.add_argument("--scale",dest='specScale',default='',type=str,
                     help='Scale factor to be applied to spectral flux')
 parser.add_argument("--pltR",dest='plt_range',default='[]',type=str,
                     help='X-range for plot window (free by default)')
+parser.add_argument("--savePlt",dest='saveplt',default=False,type=bool,
+                    help='Save a .pdf copy of the full and cleaned SEDs (default False)')
 
 argopt = parser.parse_args()
 
@@ -53,15 +55,28 @@ if infile.split('.')[-1] == 'dat':
         wvlen,wband,jy,ejy,flag,unit,beam,ref = read_ascii(infile)
     else:
         wvlen,wband,f,ef,flag,beam,ref = read_cleaned(infile)
+        jy = None
 else:
-    print('Code limited to plotting ascii files output by queryDB.py at present.')
-    print('To plot data from other files, please edit the code.')
+    print('')
+    print('File name error: this function is limited to plotting ascii files output by queryDB.py.')
+    print('')
     sys.exit()
+
+# If provided, read in the spectroscopic data:
+if argopt.spec != '':
+    specFiles = argopt.spec.split(',')
+    if argopt.specScale != '':
+        specS = [float(s) for s in argopt.specScale.split(',')]
+    else:
+        specS = [1]*len(specFiles)
+else:
+    specData = None
+    specS = None
 
 ############
 # 2. Convert photometry data to W/m^2 (lamFlam): 
 ############
-try:
+if jy:
     for i in range(0, len(jy)):
         if ejy[i] == '--':
             ejy[i] = np.nan
@@ -80,15 +95,40 @@ try:
     for i in range(0, len(wvlen)):
         f.append(JyToLamFlam(jy[i],ejy[i],wvlen[i])[0])
         ef.append(JyToLamFlam(jy[i],ejy[i],wvlen[i])[1])
-except NameError:
-    print('No flux conversion needed')
+
 
 ############
 # 5. Plot SED:
 ############
+if argopt.plt_range != '[]':
+    try:
+        x_range = argopt.plt_range.split(',')
+    except:
+        print('Error: format of plot limits not recognised')
+        print('Defaults will be used instead')
+        x_range = 'default'
+else:
+    x_range = 'default'
+
+if argopt.saveplt == True:
+    pltSED(infile, x_range, f, ef, wvlen, specFiles, specS, interactive=False)
+    if infile[0] == '/':
+        sedOutF = '/'+'/'.join(infile.split('/')[:-1])+'/'+infile.split('/')[-1].split('_')[0]+'_sed.pdf'
+    else:
+        sedOutF = '/'.join(infile.split('/')[:-1])+'/'+infile.split('/')[-1].split('_')[0]+'_sed.pdf'
+    k = 0
+    while os.path.exists(sedOutF.replace('sed.pdf', 'sed_'+str(k)+'.pdf')):
+        k += 1 # avoids over-writing existing files
+    plt.savefig(sedOutF.replace('sed.pdf', 'sed_'+str(k)+'.pdf'))
+    
+print('')
 print('-----------------------------------------------')
 print('| The plot displays your input SED data.      |')
 print('|                                             |')
+if argopt.saveplt == True:
+    print('| A copy of this plot has been saved to       |')
+    print('| '+sedOutF.replace('sed.pdf', 'sed_'+str(k)+'.pdf'))
+    print('|                                             |')
 print('| Please click on any photometry points you   |')
 print('| wish to remove from the final data set.     |')
 print('|                                             |')
@@ -99,46 +139,7 @@ print('|                                             |')
 print('| When you are finished, please close the     |')
 print('| plot window.                                |')
 print('-----------------------------------------------')
-
-fig1 = plt.figure(1, figsize=(6., 4.))
-ax1 = plt.subplot2grid((1,1), (0,0))
-ax1.set_xlabel("${\lambda}$ [${\mu}m$]")
-ax1.set_ylabel("${\lambda}\,F_{\lambda}$ [W m$^{-2}$]")
-ax1.set_title(infile.split('/')[-1].split('_')[0])
-
-if argopt.plt_range != '[]':
-    try:
-        x_range = argopt.plt_range.split(',')
-        ax1.set_xlim(float(x_range[0]), float(x_range[1]))
-    except:
-        print('Error: format of plot limits not recognised')
-        print('Defaults will be used instead')
-
-# If provided, read in the spectroscopic data and plot it:
-if argopt.spec != '':
-    specFiles = argopt.spec.split(',')
-    if argopt.specScale != '':
-        specS = [float(s) for s in argopt.specScale.split(',')]
-    else:
-        specS = [1]*len(specFiles)
-    for sF in range(0, len(specFiles)):
-        wave_s, flux_s, eflux_s, colS = read_spectrum(specFiles[sF])
-        x1,xerr1,xlolims1=fixaxis(wave_s,None,False)
-        y1,yerr1,uplims1=fixaxis([fx*specS[sF] for fx in flux_s],[fx*specS[sF] for fx in eflux_s],False)
-        ax1.errorbar(x1,y1,yerr1,xerr1,color=colS,ms=5,ls='-')
-
-ax1.loglog()
-yuplim = []
-for fl in range(0, len(f)):
-    if float(f[fl]) == float(ef[fl]):
-        yuplim.append(1)
-    else:
-        yuplim.append(0)
-
-x,xerr,xlolims=fixaxis([w*1e6 for w in wvlen],None,False)
-y,yerr,uplims=fixaxis(f,ef,yuplim) # convert flux and its error to log space
-ax1.errorbar(x,y,yerr,xerr,uplims=uplims,xlolims=xlolims,color='k',marker='o',ms=5,
-             ls='none',picker=2)
+fig1 = pltSED(infile, x_range, f, ef, wvlen, specFiles, specS, interactive=True)
 
 indices = []
 
@@ -163,39 +164,47 @@ plt.show()
 ############
 if 'cleaned' not in infile.split('/')[-1] or indices != []:
     print('')
-    print('Writing data to new file:')
-    if infile.split('.')[-1] == 'dat':
-        if 'cleaned' not in infile.split('/')[-1]:
-            outfile = '.'.join(infile.split('.')[:-1])+'_cleaned_'
-        else:
-            outfile = '.'.join(infile.split('.')[:-1])[:-1]
-        j = 0
-        while os.path.exists(outfile+str(j)+'.dat'):
-            j += 1 # avoids over-writing other attempts to clean data file
-    
-        print(outfile+str(j)+'.dat') # name of file to be written
-        print('')
-        with open(outfile+str(j)+'.dat','w') as f_out:
-            with open(infile, 'r') as f_in:
-                for line in f_in:
-                    try:
-                        a = float(line[0])
-                    except ValueError:
-                        f_out.write(line.replace('mag','lamFlam').replace('m -- -- --','m -- W/m^2 W/m^2'))
-            for i in range(0, len(wvlen)):
-                if i not in indices:
-                    f_out.write(' '.join([str(x) for x in [wvlen[i], # wavelength in m
-                                                           wband[i], # waveband 
-                                                           f[i],     # flux in W/m^2
-                                                           ef[i],    # flux error in W/m^2
-                                                           flag[i],  # flag on flux
-                                                           beam[i],  # beam size (may be dummy value)
-                                                           ref[i]]])+'\n') # reference for original data
-                else:
-                    print('Skipping', wband[i])
+    print('Writing cleaned data to new file:')
+    if 'cleaned' not in infile.split('/')[-1]:
+        outfile = '.'.join(infile.split('.')[:-1])+'_cleaned_'
     else:
-        print('Code limited to plotting ascii files output by queryDB.py at present.')
-        print('To plot data from other files, please edit the code.')
-        sys.exit()
+        outfile = '.'.join(infile.split('.')[:-1])[:-1]
+    j = 0
+    while os.path.exists(outfile+str(j)+'.dat'):
+        j += 1 # avoids over-writing other attempts to clean data file
 
+    print(outfile+str(j)+'.dat') # name of file to be written
+    print('')
+    with open(outfile+str(j)+'.dat','w') as f_out:
+        with open(infile, 'r') as f_in:
+            for line in f_in:
+                try:
+                    a = float(line[0])
+                except ValueError:
+                    f_out.write(line.replace('mag','lamFlam').replace('m -- -- --','m -- W/m^2 W/m^2'))
+        for i in range(0, len(wvlen)):
+            if i not in indices:
+                f_out.write(' '.join([str(x) for x in [wvlen[i], # wavelength in m
+                                                       wband[i], # waveband 
+                                                       f[i],     # flux in W/m^2
+                                                       ef[i],    # flux error in W/m^2
+                                                       flag[i],  # flag on flux
+                                                       beam[i],  # beam size (may be dummy value)
+                                                       ref[i]]])+'\n') # reference for original data
+
+############
+# 6. Save cleaned version of SED plot to file
+############
+if argopt.saveplt == True and indices != []:
+    # read in cleaned data:
+    wvlen,wband,f,ef,flag,beam,ref = read_cleaned(outfile+str(j)+'.dat')
+    
+    pltSED(infile, x_range, f, ef, wvlen, specFiles, specS, interactive=False)
+    h = 0
+    while os.path.exists(sedOutF.replace('sed.pdf', 'sed_cleaned_'+str(h)+'.pdf')):
+        h += 1 # avoids over-writing existing files
+    plt.savefig(sedOutF.replace('sed.pdf', 'sed_cleaned_'+str(h)+'.pdf'))
+    print('')
+    print('Info: Plot of cleaned SED saved to '+sedOutF.replace('sed.pdf', 'sed_cleaned_'+str(h)+'.pdf'))
+    print('')
 
