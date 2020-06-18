@@ -51,21 +51,7 @@ searchR = argopt.rad
 
 
 # Check that the local database can be found:
-if argopt.ldb == '':
-    localDB_trunk = os.getenv('SED_BUILDER')
-    if localDB_trunk == None:
-        print('Error: Local database directory trunk not specified!')
-        print('Use option --ldb or set environment variable $SED_BUILDER')
-        print('to specify full path to local database trunk.')
-        print('')
-        sys.exit()
-elif not os.path.isdir(argopt.ldb):
-    print('Error: Local database directory trunk does not exist!')
-    print('Please fix this before continuing.')
-    print('')
-    sys.exit()
-else:
-    localDB_trunk = argopt.ldb
+localDB_trunk = check_ldb(argopt.ldb)
 
 qu = argopt.query
 # Read in the details of the VizieR catalogs to be queried: 
@@ -127,6 +113,11 @@ cS.add_votable_fields('flux_error(J)', 'flux_error(H)', 'flux_error(K)')
 cS.add_votable_fields('flux_bibcode(J)', 'flux_bibcode(H)', 'flux_bibcode(K)')
 cS.remove_votable_fields('coordinates')
 objsim = cS.query_object(obj)
+if not objsim:
+    print('Error: object name not recognised by SIMBAD!')
+    print('Please check spelling or try an alias.')
+    print('')
+    sys.exit
 
 for o in catN:
     resM, resE = [], []
