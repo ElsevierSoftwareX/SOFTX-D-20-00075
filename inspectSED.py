@@ -139,7 +139,7 @@ print('|                                             |')
 print('| When you are finished, please close the     |')
 print('| plot window.                                |')
 print('-----------------------------------------------')
-fig1 = pltSED(infile, x_range, f, ef, wvlen, specFiles, specS, interactive=True)
+fig = pltSED(infile, x_range, f, ef, wvlen, specFiles, specS, interactive=True)
 
 indices = []
 
@@ -154,8 +154,9 @@ def on_pick(event):
     print('Detected mouse click at:')
     print('x=', x[ind[0]], 'm; y=', y[ind[0]], 'W/m^2')
     print('Corresponding to waveband:',wband[ind[0]])
+    print('')
 
-fig1.canvas.callbacks.connect('pick_event', on_pick)
+plt.connect('pick_event', on_pick)
 
 plt.show()
 
