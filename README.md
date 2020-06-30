@@ -11,7 +11,7 @@ SEDBYS uses existing functions from astropy and other standard python packages. 
 
 2. Setting up:
 
-Clone a version of SEDBYS to your local machine using git clone. If you are new to git, see 
+Clone a version of SEDBYS to your local machine. If you are new to git, see 
 [gitLab basics: start using git](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html) to get started.
 
 Save the SEDBYS directory path as environment variable `$SED_BUILDER` on your local machine. E.g. in your .bashrc file:
@@ -38,7 +38,9 @@ Use the `queryDB.py` script to retrieve photometry from the online and local dat
 
 `queryDB.py --obj=HD_283571 --rad=10s`
 
-will search for photometry for young stellar object HD 283571. A cone search radius of 10 arcseconds around the object's RA and Dec (retrieved from SIMBAD) will be used when querying the online catalogs. The object name, together with all aliases (retrieved from SIMBAD), will be used when querying the local database.
+will search for photometry for young stellar object HD 283571. A cone search radius of 10 arcseconds around the object's RA and Dec (retrieved from SIMBAD) will be used when querying the online catalogs. If multiple entries are found in the same catalog within the search cone radius, the user will be prompted to enter the "_r" value corresponding to their target. This "_r" value is the separation between the search coordinates of the object and the coordinates of the match in the catalog (in arcseconds). Using optional argument `--closest=True` (see below) is recommended if the user wishes to automatically retrieve the closest entry to the search coordinates. 
+
+The object name provided (together with all aliases retrieved from SIMBAD, where applicable - see note below on the object name restrictions), will be used when querying the local database. The cone search radius is not used here. 
 
 Additional optional arguments for `queryDB.py`:
 *  `--getSpect`: set to 'True' to additionally retrieve fully processed, flux-calibrated infrared spectra from ISO/SWS and Spitzer
@@ -86,3 +88,12 @@ Additional optional arguments for `inspectSED.py`:
 5. Adding new entries to the local and online databases
 
 (details to be provided soon)
+
+
+6. Object name restrictions
+
+The database relies on being able to cross-match common object names and aliases from different catalogs using SIMBAD. All entries in the local database are thus SIMBAD-compatible and, moreover, are entered as they appear in full on SIMBAD. For instance, entries for our example case above may appear as HD 283571 or as V* RY Tau, but not as the short-hand name RY Tau. However, as, in this instance, the short-hand name is recognised by SIMBAD, parsing `--obj=RY_Tau` when using `queryDB.py` will work.
+
+Some photometry exists in the local database for objects that are not in SIMBAD. These have been assumed to be the individual components of a binary or higher order multiple system. These objects appear in the local database using the SIMBAD-compatible name of their parent star with a suffix (e.g. ' A', ' Aa' or ' B+C') which relates to their multiplicity. For example, the individual components of the binary young stellar object XZ Tau would appear in the local database as V* XZ Tau A and V* XZ Tau B. If individual component photometry is available in the local database, this is will not be automatically retrieved when conducting a search for the parent star (e.g. XZ Tau). Instead, a warning will be printed to screen to make the user aware that photometry exists for individual components of this system, alerting the user to conduct a separate search for these components individually if necessary. 
+
+**CAUTION: the identification of a binary component as primary or secondary etc may be wavelength or time dependent or simply vary between studies. The user is advised to check the references provided to ensure the naming is consistent between studies.**
