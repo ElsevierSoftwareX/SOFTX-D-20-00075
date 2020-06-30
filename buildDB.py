@@ -73,9 +73,9 @@ def check_fmt(ref, nam, ldb, fluxU, fluxB):
     
     # 2. Will the catalog identifier be unique to the database?...
     print('')
-    print('Ensuring '+nam+' is indeed a unique and valid identifier...')
-    catN = src_onlineDB('simbad')[0], src_onlineDB('simbad')[1]
-    ldbN = src_localDB(ldb)[0], src_localDB(ldb)[1]
+    print('Ensuring '+nam+' is a unique and valid identifier...')
+    catN = src_onlineDB('simbad')[0]
+    ldbN = src_localDB(ldb)[0]
     if nam in catN.keys() or nam in ldbN.keys():
         print('')
         print('Error: catalog identifier '+nam+' already in use!')
@@ -177,6 +177,8 @@ def addToLocal(outlist, localDB_trunk):
     subprocess.call('mv '+localDB_trunk+'/cat_setup_edit.py '+localDB_trunk+'/cat_setup.py', shell=True)
     print('')
     print('cat_setup.py successfully updated.')
+    print('')
+    print('-------------------------------------------------------------------')
     print('Please add your changes to the SEDBYS git repository e.g.')
     print('')
     print(' > cd '+localDB_trunk)
@@ -187,6 +189,7 @@ def addToLocal(outlist, localDB_trunk):
     print(' > git push')
     print('')
     print('You will be prompted for your git username to confirm your changes.')
+    print('-------------------------------------------------------------------')
     print('')
 
 def addToCat(outlist, localDB_trunk):

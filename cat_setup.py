@@ -27,7 +27,6 @@ def src_localDB(localDB):
             'ALMA3' : localDB+'/database/alma_manara.csv',
             'ALMA4' : localDB+'/database/alma_vdmarel.csv',
             'ALMA5' : localDB+'/database/alma_pinilla.csv',
-            'ALMA18' : localDB+'/database/alma_andrews.csv',
             'CTIO' : localDB+'/database/lupus_phot.csv',
             'UKT14' : localDB+'/database/ukt14_phot.csv',
             'UKT142' : localDB+'/database/ukt14_phot2.csv',
@@ -112,7 +111,8 @@ def src_localDB(localDB):
             'VARIOUS4' : localDB+'/database/mm_banzatti.csv',
             'VARIOUS5' : localDB+'/database/various_hillenbrand.csv',
             'IRAM9' : localDB+'/database/iram_nurnberger.csv',
-            'IRAM10' : localDB+'/database/iram_ricci.csv'}
+            'IRAM10' : localDB+'/database/iram_ricci.csv',
+            'ALMA18' : localDB+'/database/alma_andrews.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -143,7 +143,6 @@ def src_localDB(localDB):
             'ALMA3' : '2019A&A...628A..95M',
             'ALMA4' : '2018ApJ...854..177V',
             'ALMA5' : '2018ApJ...859...32P',
-            'ALMA18' : '2018ApJ...869L..41A',
             'CTIO' : '1994AJ....108.1071H',
             'UKT14' : '1994MNRAS.267..361M',
             'UKT142' : '1996MNRAS.279..915S',
@@ -228,7 +227,8 @@ def src_localDB(localDB):
             'VARIOUS4' : '2011A&A...525A..12B',
             'VARIOUS5' : '1992ApJ...397..613H',
             'IRAM9' : '1998A&A...330..549N',
-            'IRAM10' : '2010A&A...512A..15R'}
+            'IRAM10' : '2010A&A...512A..15R',
+            'ALMA18' : '2018ApJ...869L..41A'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'Herschel1'  : [70e-6, 100e-6, 160e-6],
             'Herschel2'  : [70e-6, 100e-6, 160e-6, 250e-6, 350e-6, 500e-6],
@@ -252,7 +252,6 @@ def src_localDB(localDB):
             'ALMA3' : [1300e-6],
             'ALMA4' : [890.0e-6],
             'ALMA5' : [890e-6,880e-6,850e-6,1300e-6,435e-6],
-            'ALMA18' : [1254e-6,1293e-6,1283e-6],
             'CTIO' : [0.44e-6,0.55e-6,0.71e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6,3.54e-6,4.80e-6],
             'UKT14' : [2000e-6,1300e-6,1100e-6,850e-6,800e-6,600e-6,450e-6,350e-6],
             'UKT142' : [0.00045,0.0008,0.0011,0.0013,0.002],
@@ -337,7 +336,8 @@ def src_localDB(localDB):
             'VARIOUS4' : [870e-6,1300e-6,2700e-6,13400e-6,35700e-6],
             'VARIOUS5' : [0.36e-6,0.44e-6,0.55e-6,0.6938e-6,0.71e-6,0.878e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6,3.54e-6,4.80e-6,1300e-6],
             'IRAM9' : [1300e-6],
-            'IRAM10' : [2970e-6,3230e-6,3450e-6,3490e-6,3530e-6,3570e-6]}
+            'IRAM10' : [2970e-6,3230e-6,3450e-6,3490e-6,3530e-6,3570e-6],
+            'ALMA18' : [1254e-6,1293e-6,1283e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'Herschel1'  : [(1.22*w/3.5)*206265 for w in ldbW['Herschel1']],
@@ -362,7 +362,6 @@ def src_localDB(localDB):
             'ALMA3' : [1.0],
             'ALMA4' : [1.0],
             'ALMA5' : [1.0,1.0,1.0,1.0,1.0],
-            'ALMA18' : [1.0,1.0,1.0],
             'CTIO' : [0.11,0.14,0.18,0.20,0.13,0.16,0.22,0.36,0.48],
             'UKT14' : [27.5,19.5,18.5,17.8,16.8,17.5,17.5,18.5],
             'UKT142' : [17.5,16.8,18.5,19.5,27.5],
@@ -447,7 +446,8 @@ def src_localDB(localDB):
             'VARIOUS4' : [1,1,1,1,1],
             'VARIOUS5' : [0.09,0.11,0.14,0.17,0.18,0.22,0.20,0.05,0.07,0.09,0.15,0.20,28.0],
             'IRAM9' : [12],
-            'IRAM10' : [2,2,2,2,2,2]}
+            'IRAM10' : [2,2,2,2,2,2],
+            'ALMA18' : [0.01,0.01,0.01]}
     # Magnitude/Flux column name
     ldbM = {'Herschel1'  : ['F70', 'F100', 'F160'],
             'Herschel2'  : ['F70', 'F100', 'F160', 'F250', 'F350', 'F500'],
@@ -471,7 +471,6 @@ def src_localDB(localDB):
             'ALMA3' : ['F1300'],
             'ALMA4' : ['F890'],
             'ALMA5' : ['F890','F880','F850','F1300','F435'],
-            'ALMA18' : ['F1254','F1293','F1283'],
             'CTIO' : ['Bmag','Vmag','Rmag','Imag','Jmag','Hmag','Kmag','Lmag','Mmag'],
             'UKT14' : ['F2000','F1300','F1100','F850','F800','F600','F450','F350'],
             'UKT142' : ['F450','F800','F1100','F1300','F2000'],
@@ -556,7 +555,8 @@ def src_localDB(localDB):
             'VARIOUS4' : ['F870','F1300','F2700','F13400','F35700'],
             'VARIOUS5' : ['U','B','V','R','Rc','I','Ic','J','H','K','L','M','F1300'],
             'IRAM9' : ['F1300'],
-            'IRAM10' : ['F2970','F3230','F3450','F3490','F3530','F3570']}
+            'IRAM10' : ['F2970','F3230','F3450','F3490','F3530','F3570'],
+            'ALMA18' : ['F1254','F1293','F1283']}
     # Magnitude/Flux error column name
     ldbE = {'Herschel1'  : ['eF70', 'eF100', 'eF160'],
             'Herschel2'  : ['eF70', 'eF100', 'eF160', 'eF250', 'eF350', 'eF500'],
@@ -580,7 +580,6 @@ def src_localDB(localDB):
             'ALMA3' : ['e_F1300'],
             'ALMA4' : ['e_F890'],
             'ALMA5' : ['e_F890','e_F880','e_F850','e_F1300','e_F435'],
-            'ALMA18' : ['e_F1254','e_F1293','e_F1283'],
             'CTIO' : ['eBmag','eVmag','eRmag','eImag','eJmag','eHmag','eKmag','eLmag','eMmag'],
             'UKT14' : ['e_F2000','e_F1300','e_F1100','e_F850','e_F800','e_F600','e_F450','e_F350'],
             'UKT142' : ['e_F450','e_F800','e_F1100','e_F1300','e_F2000'],
@@ -665,7 +664,8 @@ def src_localDB(localDB):
             'VARIOUS4' : ['eF870','eF1300','eF2700','eF13400','eF35700'],
             'VARIOUS5' : ['e_U','e_B','e_V','e_R','e_Rc','e_I','e_Ic','e_J','e_H','e_K','e_L','e_M','e_F1300'],
             'IRAM9' : ['eF1300'],
-            'IRAM10' : ['eF2970','eF3230','eF3450','eF3490','eF3530','eF3570']}
+            'IRAM10' : ['eF2970','eF3230','eF3450','eF3490','eF3530','eF3570'],
+            'ALMA18' : ['e_F1254','e_F1293','e_F1283']}
     # Units for each of the magnitude/flux entries
     ldbU = {'Herschel1'  : ['Jy', 'Jy', 'Jy'],
             'Herschel2'  : ['mJy', 'mJy', 'mJy', 'mJy', 'mJy', 'mJy'],
@@ -689,7 +689,6 @@ def src_localDB(localDB):
             'ALMA3' : ['mJy'],
             'ALMA4' : ['mJy'],
             'ALMA5' : ['mJy','mJy','mJy','mJy','mJy'],
-            'ALMA18' : ['mJy','mJy','mJy'],
             'CTIO' : ['mag','mag','mag','mag','mag','mag','mag','mag','mag'],
             'UKT14' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy'],
             'UKT142' : ['mJy','mJy','mJy','mJy','mJy'],
@@ -774,7 +773,8 @@ def src_localDB(localDB):
             'VARIOUS4' : ['mJy','mJy','mJy','mJy','mJy'],
             'VARIOUS5' : ['mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','Jy'],
             'IRAM9' : ['mJy'],
-            'IRAM10' : ['mJy','mJy','mJy','mJy','mJy','mJy']}
+            'IRAM10' : ['mJy','mJy','mJy','mJy','mJy','mJy'],
+            'ALMA18' : ['mJy','mJy','mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'Herschel1'  : ['Herschel:PACS:F70', 'Herschel:PACS:F100', 'Herschel:PACS:F160'],
@@ -802,7 +802,6 @@ def src_localDB(localDB):
             'ALMA3' : ['ALMA:F1300'],
             'ALMA4' : ['ALMA:F890'],
             'ALMA5' : ['ALMA:F890','ALMA:F880','ALMA:F850','ALMA:F1300','ALMA:F435'],
-            'ALMA18' : ['ALMA:F1254','ALMA:F1293','ALMA:F1283'],
             'CTIO' : ['Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K','Johnson:L','Johnson:M'],
             'UKT14' : ['UKT14:F2000','UKT14:F1300','UKT14:F1100','UKT14:F850','UKT14:F800','UKT14:F600','UKT14:F450','UKT14:350'],
             'UKT142' : ['UKT14:F450','UKT14:F800','UKT14:F1100','UKT14:F1300','UKT14:F2000'],
@@ -887,7 +886,8 @@ def src_localDB(localDB):
             'VARIOUS4' : ['SMA:F870','IRAM:PdBI:F1300','IRAM:PdBI:F2700','VLA:F13400','VLA:F35700'],
             'VARIOUS5' : ['Johnson:U','Johnson:B','Johnson:V','Johnson:R','Cousins:Rc','Johnson:I','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K','Johnson:L','Johnson:M','CSO:F1300'],
             'IRAM9' : ['IRAM:PdBI:F1300'],
-            'IRAM10' : ['IRAM:PdBI:F2970','IRAM:PdBI:F3230','IRAM:PdBI:F3450','IRAM:PdBI:F3490','IRAM:PdBI:F3530','IRAM:PdBI:F3570']}
+            'IRAM10' : ['IRAM:PdBI:F2970','IRAM:PdBI:F3230','IRAM:PdBI:F3450','IRAM:PdBI:F3490','IRAM:PdBI:F3530','IRAM:PdBI:F3570'],
+            'ALMA18' : ['ALMA:F1254','ALMA:F1293','ALMA:F1283']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 

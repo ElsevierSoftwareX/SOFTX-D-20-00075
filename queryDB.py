@@ -128,7 +128,7 @@ if not objsim:
         print(' references to ensure consistent naming.    ')
         print('--------------------------------------------')
         print('')
-        if ' '.join(obj.split(' ')[:-1]) not in [o.replace('  ', ' ') for o in objB]:
+        if ' '.join(obj.split(' ')[:-1]) not in [' '.join(o.split()) for o in objB]:
             for o in objB:
                 # Retrieve full name of parent star from SIMBAD (in case e.g. XZ Tau 
                 # parsed instead of V* XZ Tau):
@@ -287,10 +287,10 @@ for o in ldbN:
         entries = [a for a in reader]
     
     targs = [row['Target'] for row in entries]
-    match = list(set(targs).intersection([a.replace('  ', ' ') for a in altIDs]))
+    match = list(set(targs).intersection([' '.join(a.split()) for a in altIDs]))
     # check for entries where any of [a for altIDs] match local database catalog 
     # entry.split(' ')[:-1] (i.e. the portion of the name up to the final space)
-    smatch = list(set([' '.join(t.split(' ')[:-1]) for t in targs]).intersection([a.replace('  ', ' ') for a in altIDs]))
+    smatch = list(set([' '.join(t.split(' ')[:-1]) for t in targs]).intersection([' '.join(a.split()) for a in altIDs]))
     if len(match) == 0 and len(smatch) == 0:
         print(' - no match.')
     elif len(match) == 0 and len(smatch) != 0:

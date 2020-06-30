@@ -1,5 +1,5 @@
 import os, sys
-from buildDB import addToLocal, check_ldb
+from buildDB import addToLocal, check_ldb, check_fmt
 import argparse
 import subprocess
 from astroquery.simbad import Simbad
@@ -118,6 +118,7 @@ oB = "['"+"','".join(fluxB)+"']" # waveband name to match with zeropoints table
 ######
 
 # 1. Is the file in the right format?...
+print('')
 print('Ensuring file contents are correctly formatted...')
 endhere = False
 fc = []
@@ -143,7 +144,7 @@ if any([', ' in f for f in [head]+fc]):
 # d) All lines should have the same number of entries as the header:
 it1 = iter([h.split(',') for h in [head]+fc])
 th_len = len(next(it1))
-if not all(len(l)) == th_len for l in it1):
+if not all(len(l) == th_len for l in it1):
     print('')
     print('Error: lines in file have different lengths!')
     endhere = True
@@ -155,7 +156,7 @@ for f in fc:
         print('')
         print('Warning: object name '+f.split(',')[0]+' not recognised by SIMBAD!')
         # Try treat it as photometry of binary component (expect e.g. A or A+B label)
-        print(' - blindly assuming multiplicity: check '+' '.join(f.split(',')[0].split(' ')[:-1])))
+        print(' - blindly assuming multiplicity: check '+' '.join(f.split(',')[0].split(' ')[:-1]))
         try:
             obj = [a[0] for a in Simbad.query_objectids(' '.join(f.split(',')[0].split(' ')[:-1]))]
             print(' - '+' '.join(f.split(',')[0].split(' ')[:-1])+' recognised by SIMBAD')
@@ -172,28 +173,28 @@ for f in fc:
             endhere = True
     else:
         objIDs = [a[0] for a in Simbad.query_objectids(f.split(',')[0])]
-        f.split(',')[0] not in [o.replace('  ', ' ') for o in objIDs]:
-        print('Error: object name '+f.split(',')[0]+' appears differently in SIMBAD!')
-        for o in objIDs:
-            if f.split(',')[0] in o:
-                print(' - Suggestion: use '+o+' instead.')
-        endhere = True
+        if f.split(',')[0] not in [' '.join(o.split()) for o in objIDs]:
+            print('Error: object name '+f.split(',')[0]+' appears differently in SIMBAD!')
+            for o in objIDs:
+                if f.split(',')[0] in o:
+                    print(' - Suggestion: use '+o+' instead.')
+            endhere = True
 
 # f) Observation date column should exist:
-if head.split(',')[-1] != 'ObsDate':
+if head.strip().split(',')[-1] != 'ObsDate':
     print('')
     print('Error: observation date column header ("ObsDate") not found in file!')
     print('Info: Expect this to be the final column header.')
     print('Suggestion: If observation date is unknown, use "unknown".')
     endhere = True
 
-# g) Observation date should be in format YYYYMmmDD or be 'unknown':
+# g) Observation date should be in format YYYYMmmDD or be 'unknown' or 'averaged':
 for f in fc:
     try:
-        obsD = datetime.datetime.strptime(f.split(',')[-1], '%Y%b%d')
+        obsD = datetime.datetime.strptime(f.strip().split(',')[-1], '%Y%b%d')
     except ValueError:
-        if f.split(',')[-1] != 'unknown':
-            print('Error:'+f.split(',')[-1]+' is in incorrect date format!')
+        if f.strip().split(',')[-1] not in ['unknown', 'averaged']:
+            print('Error:'+f.strip().split(',')[-1]+' is in incorrect date format!')
             print('Info: required format is YYYYMmmDD')
             endhere = True
 
