@@ -5,7 +5,7 @@ import random
 import string
 from sed_input import read_ascii, read_cleaned, magToJy, JyToLamFlam
 import argparse
-import sys
+import sys, os
 import numpy as np
 
 description = \
@@ -13,7 +13,7 @@ description = \
 description:
     Read in photometric data and output it in
     a LaTeX-ready tabulated format with 
-    corresponding .bib file
+    corresponding bibTeX file
     
 """
 epilog = \
@@ -26,7 +26,7 @@ examples:
 parser = argparse.ArgumentParser(description=description,epilog=epilog,
          formatter_class=argparse.RawDescriptionHelpFormatter)
 parser.add_argument("--phot",dest="phot",default='',type=str,
-                    help='Full path to photometry data file.')
+                    help='Path from current working directory to photometry data file.')
 
 argopt = parser.parse_args()
 
@@ -40,10 +40,14 @@ if infile.split('.')[-1] == 'dat':
     else:
         wvlen,wband,f,ef,flag,beam,ref = read_cleaned(infile)
         jy = None
+elif os.path.exists(infile):
+    print('')
+    print('Error: this function is limited to plotting ascii files output by queryDB.py.')
+    print('')
+    sys.exit()
 else:
     print('')
-    print('File name error: this function is limited to plotting ascii files output by queryDB.py.')
-    print('')
+    print('Error: file not found!')
     sys.exit()
 
 ############
