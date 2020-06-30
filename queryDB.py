@@ -103,7 +103,7 @@ beam, ref = ['arcsec'], ['--']
 # Collect SIMBAD names and VizieR catalog matches
 ##########
 
-# Create custom SIMBAD (cS) query 
+# Create custom SIMBAD (cS) query to retrieve 2MASS flux
 cS = Simbad() 
 cS.add_votable_fields('flux(J)', 'flux(H)', 'flux(K)')
 cS.add_votable_fields('flux_error(J)', 'flux_error(H)', 'flux_error(K)')
@@ -117,14 +117,26 @@ if not objsim:
     print(' - blindly assuming multiplicity: checking "'+' '.join(obj.split(' ')[:-1])+'"')
     try:
         objB = [a[0] for a in Simbad.query_objectids(' '.join(obj.split(' ')[:-1]))]
-        print(' - '+' '.join(obj.split(' ')[:-1])+' recognised by SIMBAD!')
-        print('The photometry search for '+obj+' will be limited to the local database')
+        # If we get to here, the object is a component of a multiple system
+        print(' - Success! '+' '.join(obj.split(' ')[:-1])+' recognised by SIMBAD!')
+        print('Info: photometry search will be limited to the local database')
+        print('--------------------------------------------')
+        print('                CAUTION:                    ')
+        print(' Individual component identifiers can vary  ')
+        print(' according to wavelength or between studies.')
+        print(' You are advised to check the collated      ')
+        print(' references to ensure consistent naming.    ')
+        print('--------------------------------------------')
         print('')
         if ' '.join(obj.split(' ')[:-1]) not in [o.replace('  ', ' ') for o in objB]:
             for o in objB:
+                # Retrieve full name of parent star from SIMBAD (in case e.g. XZ Tau 
+                # parsed instead of V* XZ Tau):
                 if ' '.join(obj.split(' ')[:-1]) in o:
                     obj2 = o+' '+obj.split(' ')[-1]
         else:
+            # Parsed name matches required format of full simbad name of parent star plus
+            # component flag (e.g. A).
             print('')
             obj2 = obj
         altIDs = [obj2]
@@ -134,7 +146,8 @@ if not objsim:
         print('')
         sys.exit()
 else:
-    # Only search for photometry from online catalogs if the object identifier is simbad-compatible
+    # Only get here if the object identifier is simbad-compatible
+    # Retrieve data from online catalogs:
     for o in catN:
         resM, resE = [], []
         found = ''
@@ -275,8 +288,17 @@ for o in ldbN:
     
     targs = [row['Target'] for row in entries]
     match = list(set(targs).intersection([a.replace('  ', ' ') for a in altIDs]))
-    if len(match) == 0:
-        print('No match.')
+    # check for entries where any of [a for altIDs] match local database catalog 
+    # entry.split(' ')[:-1] (i.e. the portion of the name up to the final space)
+    smatch = list(set([' '.join(t.split(' ')[:-1]) for t in targs]).intersection([a.replace('  ', ' ') for a in altIDs]))
+    if len(match) == 0 and len(smatch) == 0:
+        print(' - no match.')
+    elif len(match) == 0 and len(smatch) != 0:
+        # Alert the user to the fact that there are entries for individual components of 
+        # the target they are querying.
+        print(' - no match found for '+obj+' but data for exists for:')
+        for ind in list(locate([' '.join(t.split(' ')[:-1]) for t in targs], lambda a: a == smatch[0])):
+            print('   '+str(targs[ind]))
     else:
         for ind in list(locate(targs, lambda a: a == match[0])):
             resM = []
@@ -291,6 +313,10 @@ for o in ldbN:
                 addData(resM[m], resE[m], ldbB[o][m], ldbW[o][m], ldbA[o][m], ldbU[o][m],
                         ldbR[o], opt='vizier', m=mag, em=emag, b1=band, u=units, 
                         b2=beam, r=ref, w=wvlen)
+        if len(smatch) != 0:
+            print(' - Note: data also exists (but not retrieved) for:')
+            for ind in list(locate([' '.join(t.split(' ')[:-1]) for t in targs], lambda a: a == smatch[0])):
+                print('   '+str(targs[ind]))
 
 ##############
 # Write output to ascii file:
