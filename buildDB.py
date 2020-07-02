@@ -111,7 +111,7 @@ def check_fmt(ref, nam, ldb, fluxU, fluxB):
         head1 = zpF.readline()
         head2 = zpF.readline()
         for line in zpF:
-            filNames.append(line.split()[0])
+            filNames.append(line.split()[0].replace('"', ''))
     
     endhere = False
     for f in range(0, len(fluxU)):
