@@ -279,7 +279,7 @@ else:
 ##########
 # Then deal with local data base of tables not on VizieR:
 ##########
-
+suggestAlt = []
 for o in ldbN:
     print('Retrieving photometry from '+o+' ('+ldbR[o]+') ...')
     with open(ldbN[o]) as f_in:
@@ -296,10 +296,11 @@ for o in ldbN:
     elif len(match) == 0 and len(smatch) != 0:
         # Alert the user to the fact that there are entries for individual components of 
         # the target they are querying.
-        print(' - no match found for '+obj+' but data for exists for:')
+        print(' - no match for '+obj+' but individual component/blended photometry exists')
         for ind in list(locate([' '.join(t.split(' ')[:-1]) for t in targs], lambda a: a == smatch[0])):
-            print('   '+str(targs[ind]))
+            suggestAlt.append(str(targs[ind]))
     else:
+        # Identical matches are found:
         for ind in list(locate(targs, lambda a: a == match[0])):
             resM = []
             resE = []
@@ -314,10 +315,28 @@ for o in ldbN:
                         ldbR[o], opt='vizier', m=mag, em=emag, b1=band, u=units, 
                         b2=beam, r=ref, w=wvlen)
         if len(smatch) != 0:
-            print(' - Note: data also exists (but not retrieved) for:')
+            # ...AND potential individual component photometry exists in the table:
             for ind in list(locate([' '.join(t.split(' ')[:-1]) for t in targs], lambda a: a == smatch[0])):
-                print('   '+str(targs[ind]))
+                suggestAlt.append(str(targs[ind]))
 
+if len(suggestAlt) != 0:
+    print('')
+    print('------------------------------------------------------')
+    print('       !!!             CAUTION             !!!        ')
+    print('------------------------------------------------------')
+    print('Individual component or blended photometry also found!')
+    print(' - Data exists in local database for:')
+    for sA in list(set(suggestAlt)):
+        print('   '+str(sA))
+    print('')
+    print('Suggestion: use each of the target IDs with queryDB.py')
+    print('to collate all available photometry.')
+    print('')
+    print('Important note: collated photometry may contain       ')
+    print('contributions from any/all of these components. Use   ')
+    print('inspectSED.py to check this.')
+    print('------------------------------------------------------')
+    print('')
 ##############
 # Write output to ascii file:
 ##############
@@ -350,6 +369,8 @@ else:
         f.write(oLINE+"\n")
 
 f.close()
+print('Collated photometry written to ',output)
+print('')
 
 if argopt.getSpect == True:
     # objRA = str(65.48922), objDEC = str(28.443204)
@@ -358,9 +379,6 @@ if argopt.getSpect == True:
     DEC = objPos.dec.value
     queryCASSIS(obj, str(RA), str(DEC), searchR=str(20))
     queryISO(obj, str(RA), str(DEC), searchR=str(20))
-
-print('...done')
-print('')
 
 
 
