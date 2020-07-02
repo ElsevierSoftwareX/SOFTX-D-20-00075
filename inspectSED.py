@@ -70,7 +70,7 @@ if argopt.spec != '':
     else:
         specS = [1]*len(specFiles)
 else:
-    specData = None
+    specFiles = None
     specS = None
 
 ############
