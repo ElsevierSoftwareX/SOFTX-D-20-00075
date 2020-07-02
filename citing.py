@@ -1,5 +1,7 @@
 import urllib.request
 import string
+import os
+from datetime import date
 
 def getBibTeX(bibref,tag_suf,outFile):
     """
