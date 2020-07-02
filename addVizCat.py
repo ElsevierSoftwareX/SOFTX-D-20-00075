@@ -1,9 +1,8 @@
-from buildDB import addToCat, check_ldb
+from buildDB import addToCat, check_ldb, check_fmt
 from cat_setup import src_localDB, src_onlineDB
 from astroquery.vizier import Vizier
 import sys, os
 import argparse
-import urllib
 
 # Describe the script:
 description = \
@@ -15,7 +14,7 @@ description:
 epilog = \
 """
 examples:
-    addLocal.py --nam=TYCHO2 --cat='I/259/tyc2' 
+    python3 addVizCat.py --nam=TYCHO2 --cat='I/259/tyc2' 
      --ref='2000A&A...355L..27H' --wav=426e-9,532e-9 
      --res=0.37,0.462 --fna=BTmag,VTmag --ena=e_BTmag,e_VTmag
      --una=mag,mag --bna=HIP:BT,HIP:VT

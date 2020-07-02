@@ -917,8 +917,8 @@ def src_onlineDB(query='simbad'):
            'GAIA' : 'I/345/gaia2',
            'GALEX' : 'II/312/ais',
            'ALMA7' : 'J/A+A/626/A11/table13',
-           'Herschel6' : 'J/A+A/619/A52/tablea16',
-           'MSX' : 'V/114/msx6_gp'}
+           'MSX' : 'V/114/msx6_gp',
+           'Herschel6' : 'J/A+A/619/A52/tablea16'}
 
     # catalog reference dictionary
     catR = {'2MASS'    : '2003yCat.2246....0C',
@@ -945,8 +945,8 @@ def src_onlineDB(query='simbad'):
            'GAIA' : '2018A&A...616A...1G',
            'GALEX' : '2011Ap&SS.335..161B',
            'ALMA7' : '2019A&A...626A..11C',
-           'Herschel6' : '2018A&A...619A..52B',
-           'MSX' : '2003yCat.5114....0E'}
+           'MSX' : '2003yCat.5114....0E',
+           'Herschel6' : '2018A&A...619A..52B'}
 
     # catalog wavelength dictionary
     catW = {'2MASS'    : [1.25e-6, 1.65e-6, 2.15e-6],
@@ -973,8 +973,8 @@ def src_onlineDB(query='simbad'):
            'GAIA' : [0.64050e-6,0.51311e-6,0.77776e-6],
            'GALEX' : [0.1539e-6,0.2316e-6],
            'ALMA7' : [1300e-6],
-           'Herschel6' : [70e-6,160e-6,250e-6,350e-6,500e-6],
-           'MSX' : [4.29e-6,4.35e-6,8.28e-6,12.13e-6,14.65e-6,21.34e-6]}
+           'MSX' : [4.29e-6,4.35e-6,8.28e-6,12.13e-6,14.65e-6,21.34e-6],
+           'Herschel6' : [70e-6,160e-6,250e-6,350e-6,500e-6]}
 
     # catalog angular resolution / beam size
     catA = {'2MASS'    : [(1.22*w/1.3)*206265 for w in catW['2MASS']],
@@ -1001,8 +1001,8 @@ def src_onlineDB(query='simbad'):
            'GAIA' : [1.,1.,1.],
            'GALEX' : [10.,10.],
            'ALMA7' : [1.0],
-           'Herschel6' : [1.0,1.0,1.0,1.0,1.0],
-           'MSX' : [1,1,1,1,1,1]}
+           'MSX' : [1,1,1,1,1,1],
+           'Herschel6' : [5.03,11.50,17.97,25.16,35.95]}
 
     # catalog magnitude name
     catM = {'2MASS'    : ['FLUX_J', 'FLUX_H', 'FLUX_K'],
@@ -1029,8 +1029,8 @@ def src_onlineDB(query='simbad'):
            'GAIA' : ['Gmag','BPmag','RPmag'],
            'GALEX' : ['FUV','NUV'],
            'ALMA7' : ['F1300'],
-           'Herschel6' : ['Stot070','Stot160','Stot250','Stot350','Stot500'],
-           'MSX' : ['B1','B2','A','C','D','E']}
+           'MSX' : ['B1','B2','A','C','D','E'],
+           'Herschel6' : ['Stot070','Stot160','Stot250','Stot350','Stot500']}
 
     # catalog magnitude error name (or, if an error isn't given in the catalog, provide a 
     # float which will be used as a percentage uncertainty on the retrieved magnitude/flux 
@@ -1059,8 +1059,8 @@ def src_onlineDB(query='simbad'):
            'GAIA' : ['e_Gmag','e_BPmag','e_RPmag'],
            'GALEX' : ['e_FUV','e_NUV'],
            'ALMA7' : ['e_F1300'],
-           'Herschel6' : ['e_Stot070','e_Stot160','e_Stot250','e_Stot350','e_Stot500'],
-           'MSX' : ['e_B1','e_B2','e_A','e_C','e_D','e_E']}
+           'MSX' : ['e_B1','e_B2','e_A','e_C','e_D','e_E'],
+           'Herschel6' : ['e_Stot070','e_Stot160','e_Stot250','e_Stot350','e_Stot500']}
 
     # catalog magnitude unit name
     catU = {'2MASS'    : ['mag', 'mag', 'mag'],
@@ -1087,8 +1087,8 @@ def src_onlineDB(query='simbad'):
            'GAIA' : ['mag','mag','mag'],
            'GALEX' : ['mag','mag'],
            'ALMA7' : ['mJy'],
-           'Herschel6' : ['Jy','Jy','Jy','Jy','Jy'],
-           'MSX' : ['Jy','Jy','Jy','Jy','Jy','Jy']}
+           'MSX' : ['Jy','Jy','Jy','Jy','Jy','Jy'],
+           'Herschel6' : ['Jy','Jy','Jy','Jy','Jy']}
 
     # catalog waveband name
     catB = {'2MASS'    : ['2MASS:J', '2MASS:H', '2MASS:Ks'],
@@ -1115,7 +1115,7 @@ def src_onlineDB(query='simbad'):
            'GAIA' : ['Gaia:G','Gaia:GBP','Gaia:GRP'],
            'GALEX' : ['GALEX:FUV','GALEX:NUV'],
            'ALMA7' : ['ALMA:F1300'],
-           'Herschel6' : ['Herschel:PACS:F70','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
-           'MSX' : ['MSX6C:B1','MSX6C:B2','MSX6C:A','MSX6C:C','MSX6C:D','MSX6C:E']}
+           'MSX' : ['MSX6C:B1','MSX6C:B2','MSX6C:A','MSX6C:C','MSX6C:D','MSX6C:E'],
+           'Herschel6' : ['Herschel:PACS:F70','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500']}
     
     return catN, catR, catW, catA, catM, catE, catU, catB

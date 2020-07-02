@@ -21,7 +21,7 @@ description:
 epilog = \
 """
 examples:
-    addLocal.py --nam=HERSCHEL1 --fil=database/herschel_phot.csv 
+    python3 addLocal.py --nam=HERSCHEL1 --fil=database/herschel_phot.csv 
      --ref='2016A&A...586A...6P' --wav=70e-6,100e-6,160e-6 
      --res=5.033,7.190,11.504 --fna=F70,F100,F160
      --ena=eF70,eF100,eF160 --una=Jy,Jy,Jy 
