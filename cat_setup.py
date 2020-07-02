@@ -111,7 +111,8 @@ def src_localDB(localDB):
             'Herschel4' : localDB+'/database/herschel_green.csv',
             'Herschel5' : localDB+'/database/herschel_sicilia_aguilar.csv',
             'Spitzer5' : localDB+'/database/spitzer_sicilia_aguilar.csv',
-            'Herschel7' : localDB+'/database/herschel_cieza.csv'}
+            'Herschel7' : localDB+'/database/herschel_cieza.csv',
+            'Herschel8' : localDB+'/database/herschel_bustamante.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -226,7 +227,8 @@ def src_localDB(localDB):
             'Herschel4' : '2013ApJ...772..117G',
             'Herschel5' : '2013A&A...551A..34S',
             'Spitzer5' : '2013A&A...551A..34S',
-            'Herschel7' : '2013ApJ...762..100C'}
+            'Herschel7' : '2013ApJ...762..100C',
+            'Herschel8' : '2015A&A...578A..23B'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'KITTPEAK1' : [1.25e-6, 1.60e-6, 2.18e-6],
             'KITTPEAK2' : [364e-9, 442e-9, 540e-9, 647e-9, 786.5e-9],
@@ -334,7 +336,8 @@ def src_localDB(localDB):
             'Herschel4' : [70e-6,100e-6,160e-6,250e-6,350e-6,500e-6],
             'Herschel5' : [100e-6,160e-6],
             'Spitzer5' : [70e-6],
-            'Herschel7' : [70e-6,160e-6,250e-6,350e-6,500e-6]}
+            'Herschel7' : [70e-6,160e-6,250e-6,350e-6,500e-6],
+            'Herschel8' : [70e-6,100e-6,160e-6,250e-6,350e-6,500e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'KITTPEAK1' : [(1.22*w/2.4)*206265 for w in ldbW['KITTPEAK1']],
@@ -443,7 +446,8 @@ def src_localDB(localDB):
             'Herschel4' : [5.03,7.19,11.50,17.97,25.16,35.95],
             'Herschel5' : [7.19,11.50],
             'Spitzer5' : [20.7],
-            'Herschel7' : [5.03,11.50,17.97,25.16,35.95]}
+            'Herschel7' : [5.03,11.50,17.97,25.16,35.95],
+            'Herschel8' : [5.03,7.19,11.50,17.97,25.16,35.95]}
     # Magnitude/Flux column name
     ldbM = {'KITTPEAK1' : ['Jmag', 'Hmag', 'Kmag'],
             'KITTPEAK2' : ['Umag', 'Bmag', 'Vmag', 'Rmag', 'Imag'],
@@ -551,7 +555,8 @@ def src_localDB(localDB):
             'Herschel4' : ['F70','F100','F160','F250','F350','F500'],
             'Herschel5' : ['F100','F160'],
             'Spitzer5' : ['F70'],
-            'Herschel7' : ['F70','F160','F250','F350','F500']}
+            'Herschel7' : ['F70','F160','F250','F350','F500'],
+            'Herschel8' : ['F70','F100','F160','F250','F350','F500']}
     # Magnitude/Flux error column name
     ldbE = {'KITTPEAK1' : ['eJmag', 'eHmag', 'eKmag'],
             'KITTPEAK2' : ['eUmag', 'eBmag', 'eVmag', 'eRmag', 'eImag'],
@@ -659,7 +664,8 @@ def src_localDB(localDB):
             'Herschel4' : ['eF70','eF100','eF160','eF250','eF350','eF500'],
             'Herschel5' : ['eF100','eF160'],
             'Spitzer5' : ['eF70'],
-            'Herschel7' : ['eF70','eF160','eF250','eF350','eF500']}
+            'Herschel7' : ['eF70','eF160','eF250','eF350','eF500'],
+            'Herschel8' : ['eF70','eF100','eF160','eF250','eF350','eF500']}
     # Units for each of the magnitude/flux entries
     ldbU = {'KITTPEAK1' : ['mag', 'mag', 'mag'],
             'KITTPEAK2' : ['mag', 'mag', 'mag', 'mag', 'mag'],
@@ -767,7 +773,8 @@ def src_localDB(localDB):
             'Herschel4' : ['Jy','Jy','Jy','Jy','Jy','Jy'],
             'Herschel5' : ['Jy','Jy'],
             'Spitzer5' : ['Jy'],
-            'Herschel7' : ['mJy','mJy','mJy','mJy','mJy']}
+            'Herschel7' : ['mJy','mJy','mJy','mJy','mJy'],
+            'Herschel8' : ['Jy','Jy','Jy','Jy','Jy','Jy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'KITTPEAK1' : ['Johnson:J', 'Johnson:H', 'Johnson:K'],
@@ -876,7 +883,8 @@ def src_localDB(localDB):
             'Herschel4' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
             'Herschel5' : ['Herschel:PACS:F100','Herschel:PACS:F160'],
             'Spitzer5' : ['Spitzer:MIPS:F70'],
-            'Herschel7' : ['Herschel:PACS:F70','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500']}
+            'Herschel7' : ['Herschel:PACS:F70','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
+            'Herschel8' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
