@@ -30,7 +30,6 @@ def src_localDB(localDB):
             'ISOPHOT' : localDB+'/database/isophot.csv',
             'CTIAO' : localDB+'/database/ctiao_opt_phot.csv',
             'PALOMAR' : localDB+'/database/palomar_opt.csv',
-            'SEST4' : localDB+'/database/sest_stanke.csv',
             'CTIAO2' : localDB+'/database/ctiao_opt_padgett.csv',
             'MCDO' : localDB+'/database/mcdo_opt_padgett.csv',
             'TIMESERIES' : localDB+'/database/grankin_time_series.txt',
@@ -112,7 +111,8 @@ def src_localDB(localDB):
             'KITTPEAK2' : localDB+'/database/mdm_kittpeak_phot.csv',
             'SEST1' : localDB+'/database/sest_henning.csv',
             'SEST2' : localDB+'/database/sest_henning2.csv',
-            'SEST3' : localDB+'/database/sest_nurnberger.csv'}
+            'SEST3' : localDB+'/database/sest_nurnberger.csv',
+            'SEST4' : localDB+'/database/sest_stanke.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -146,7 +146,6 @@ def src_localDB(localDB):
             'ISOPHOT' : '2005A&A...443..541G',
             'CTIAO' : '2005AJ....130.1733W',
             'PALOMAR' : '2005ApJ...623..952E',
-            'SEST4' : '2006A&A...447..609S',
             'CTIAO2' : '2006ApJ...645.1283P',
             'MCDO' : '2006ApJ...645.1283P',
             'TIMESERIES' : '2007A&A...461..183G',
@@ -228,7 +227,8 @@ def src_localDB(localDB):
             'KITTPEAK2' : '2008ApJ...689..513T',
             'SEST1' : '1993A&A...276..129H',
             'SEST2' : '1994A&A...291..546H',
-            'SEST3' : '1997A&A...324.1036N'}
+            'SEST3' : '1997A&A...324.1036N',
+            'SEST4' : '2006A&A...447..609S'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'IRAM' : [1360.0e-6],
@@ -255,7 +255,6 @@ def src_localDB(localDB):
             'ISOPHOT' : [4.8e-6,7.7e-6,10e-6,12e-6,12.8e-6,15e-6,20e-6,60e-6,100e-6,0.44e-6,0.55e-6,0.71e-6,0.79e-6],
             'CTIAO' : [0.79e-6,0.71e-6],
             'PALOMAR' : [0.36e-6,0.44e-6,0.55e-6,0.71e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6],
-            'SEST4' : [1200e-6],
             'CTIAO2' : [0.55e-6,0.71e-6,0.79e-6],
             'MCDO' : [0.55e-6,0.71e-6,0.79e-6],
             'TIMESERIES' : [0.55e-6],
@@ -337,7 +336,8 @@ def src_localDB(localDB):
             'KITTPEAK2' : [364e-9,442e-9,540e-9,647e-9,786.5e-9],
             'SEST1' : [1300.0e-6],
             'SEST2' : [1300.0e-6],
-            'SEST3' : [1300.0e-6]}
+            'SEST3' : [1300.0e-6],
+            'SEST4' : [1200.0e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -365,7 +365,6 @@ def src_localDB(localDB):
             'ISOPHOT' : [0.12,0.19,0.25,0.30,0.32,0.16,0.22,0.13,0.21,0.1,0.1,0.1,0.1],
             'CTIAO' : [0.1,0.1],
             'PALOMAR' : [0.06,0.07,0.09,0.12,0.14,0.21,0.27,0.37],
-            'SEST4' : [24],
             'CTIAO2' : [0.15,0.20,0.22],
             'MCDO' : [0.17,0.22,0.25],
             'TIMESERIES' : [0.1],
@@ -447,7 +446,8 @@ def src_localDB(localDB):
             'KITTPEAK2' : [0.04,0.05,0.06,0.07,0.08],
             'SEST1' : [21.8],
             'SEST2' : [21.8],
-            'SEST3' : [21.8]}
+            'SEST3' : [21.8],
+            'SEST4' : [24]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'IRAM' : ['F1360'],
@@ -474,7 +474,6 @@ def src_localDB(localDB):
             'ISOPHOT' : ['F4.8','F7.7','F10','F12','F12.8','F15','F20','F60','F100','B','V','Rc','Ic'],
             'CTIAO' : ['Ic','Rc'],
             'PALOMAR' : ['U','B','V','R','I','J','H','K'],
-            'SEST4' : ['F1200'],
             'CTIAO2' : ['V','R','I'],
             'MCDO' : ['V','R','I'],
             'TIMESERIES' : ['V'],
@@ -556,7 +555,8 @@ def src_localDB(localDB):
             'KITTPEAK2' : ['Umag','Bmag','Vmag','Rmag','Imag'],
             'SEST1' : ['F1300'],
             'SEST2' : ['F1300'],
-            'SEST3' : ['F1300']}
+            'SEST3' : ['F1300'],
+            'SEST4' : ['F1200']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'IRAM' : ['e_F1360'],
@@ -583,7 +583,6 @@ def src_localDB(localDB):
             'ISOPHOT' : ['e_F4.8','e_F7.7','e_F10','e_F12','e_F12.8','e_F15','e_F20','e_F60','e_F100','e_B','e_V','e_Rc','e_Ic'],
             'CTIAO' : ['eIc','eRc'],
             'PALOMAR' : ['e_U','e_B','e_V','e_R','e_I','e_J','e_H','e_K'],
-            'SEST4' : ['e_F1200'],
             'CTIAO2' : ['e_V','e_R','e_I'],
             'MCDO' : ['e_V','e_R','e_I'],
             'TIMESERIES' : ['e_V'],
@@ -665,7 +664,8 @@ def src_localDB(localDB):
             'KITTPEAK2' : ['eUmag','eBmag','eVmag','eRmag','eImag'],
             'SEST1' : ['e_F1300'],
             'SEST2' : ['e_F1300'],
-            'SEST3' : ['e_F1300']}
+            'SEST3' : ['e_F1300'],
+            'SEST4' : ['e_F1200']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'IRAM' : ['mJy'],
@@ -692,7 +692,6 @@ def src_localDB(localDB):
             'ISOPHOT' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','mag','mag','mag','mag'],
             'CTIAO' : ['mag','mag'],
             'PALOMAR' : ['mag','mag','mag','mag','mag','mag','mag','mag'],
-            'SEST4' : ['mJy'],
             'CTIAO2' : ['mag','mag','mag'],
             'MCDO' : ['mag','mag','mag'],
             'TIMESERIES' : ['mag'],
@@ -774,7 +773,8 @@ def src_localDB(localDB):
             'KITTPEAK2' : ['mag','mag','mag','mag','mag'],
             'SEST1' : ['mJy'],
             'SEST2' : ['mJy'],
-            'SEST3' : ['mJy']}
+            'SEST3' : ['mJy'],
+            'SEST4' : ['mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -802,7 +802,6 @@ def src_localDB(localDB):
             'ISOPHOT' : ['ISOPHOT:1','ISOPHOT:2','ISOPHOT:3','ISOPHOT:4','ISOPHOT:5','ISOPHOT:6','ISOPHOT:7','ISOPHOT:8','ISOPHOT:9','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic'],
             'CTIAO' : ['Cousins:Ic','Cousins:Rc'],
             'PALOMAR' : ['Johnson:U','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K'],
-            'SEST4' : ['SEST:F1200'],
             'CTIAO2' : ['Johnson:V','Cousins:Rc','Cousins:Ic'],
             'MCDO' : ['Johnson:V','Cousins:Rc','Cousins:Ic'],
             'TIMESERIES' : ['Johnson:V'],
@@ -884,7 +883,8 @@ def src_localDB(localDB):
             'KITTPEAK2' : ['Johnson:U','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic'],
             'SEST1' : ['SEST:F1300'],
             'SEST2' : ['SEST:F1300'],
-            'SEST3' : ['SEST:F1300']}
+            'SEST3' : ['SEST:F1300'],
+            'SEST4' : ['SEST:F1200']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
