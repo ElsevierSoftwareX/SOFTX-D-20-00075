@@ -1,33 +1,33 @@
-Target,f_F1300,F1300,e_F1300
-V* V1012 Ori,--,52,11
-V* T Ori,--,88,22
-V* V380 Ori,--,8,21
-HD 37411,--,5,31
-IRAS 06567-0350,--,203,13
-IRAS 06571-0441,--,265,18
-HD 52721,--,23,14
-EM* LkHa 218,--,9,23
-V* Z CMa,--,562,15
-EM* LkHa 220,<,1,1
-HD 53367,--,27,36
-CoD-44 3318,--,20,17
-HD 76534,<,17,17
-RCW 34,--,361,20
-CD-42 4834,<,3,3
-RCW 36,--,32,21
-HD 97048,--,452,34
-HD 100546,--,465,20
-HD 104237,--,92,19
-SS73 44,--,4,22
-HR 5999,--,20,16
-HD 150193,<,16,16
-CoD-42 11721,--,425,13
-V* KK Oph,--,52,15
-HD 163296,--,743,15
-EM* LkHa 118,<,25,25
-EM* MWC 297,--,237,12
-EM* MWC 300,--,54,15
-EM* AS 310,--,199,13
-V* R CrA,--,821,22
-V* T CrA,--,219,11
-V* VV CrA,--,469,21
+Target,F1300,e_F1300,ObsDate
+V* V1012 Ori,52,11,unknown
+V* T Ori,88,22,unknown
+V* V380 Ori,8,21,unknown
+HD 37411,5,31,unknown
+IRAS 06567-0350,203,13,unknown
+IRAS 06571-0441,265,18,unknown
+HD 52721,23,14,unknown
+EM* LkHA 218,9,23,unknown
+V* Z CMa,562,15,unknown
+EM* LkHA 220,1,1,unknown
+HD 53367,27,36,unknown
+CD-44 3318,20,17,unknown
+HD 76534,17,17,unknown
+RCW 34,361,20,unknown
+CD-42 4834,3,3,unknown
+RCW 36,32,21,unknown
+HD 97048,452,34,unknown
+HD 100546,465,20,unknown
+HD 104237,92,19,unknown
+SS73 44,4,22,unknown
+HR 5999,20,16,unknown
+HD 150193,16,16,unknown
+CD-42 11721,425,13,unknown
+V* KK Oph,52,15,unknown
+HD 163296,743,15,unknown
+EM* LkHA 118,25,25,unknown
+EM* MWC 297,237,12,unknown
+EM* MWC 300,54,15,unknown
+EM* AS 310,199,13,unknown
+V* R CrA,821,22,unknown
+V* T CrA,219,11,unknown
+V* VV CrA,469,21,unknown
