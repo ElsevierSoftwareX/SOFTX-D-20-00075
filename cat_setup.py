@@ -82,7 +82,6 @@ def src_localDB(localDB):
             'ALMA33' : localDB+'/database/alma_vterwisga.csv',
             'VLAPdBI2' : localDB+'/database/vla_pdbi_alonso-albi.csv',
             'SMA8' : localDB+'/database/sma_manoj.csv',
-            'IRAM3' : localDB+'/database/pdbi_fuente.csv',
             'OVRO2' : localDB+'/database/ovro_mannings.csv',
             'CARMA2' : localDB+'/database/carma_hamidouche.csv',
             'VLAPdBI3' : localDB+'/database/pdbi_alonso-albi.csv',
@@ -112,7 +111,8 @@ def src_localDB(localDB):
             'SEST4' : localDB+'/database/sest_stanke.csv',
             'IRAM1' : localDB+'/database/iramPdBI_pietu.csv',
             'IRAM2' : localDB+'/database/iram_sest_mm.csv',
-            'IRAM11' : localDB+'/database/pdbi_boissier.csv'}
+            'IRAM11' : localDB+'/database/pdbi_boissier.csv',
+            'IRAM3' : localDB+'/database/pdbi_fuente.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -198,7 +198,6 @@ def src_localDB(localDB):
             'ALMA33' : '2019A&A...623A.150V',
             'VLAPdBI2' : '2009A&A...497..117A',
             'SMA8' : '2007ApJ...667L.187M',
-            'IRAM3' : '2006ApJ...649L.119F',
             'OVRO2' : '2000ApJ...529..391M',
             'CARMA2' : '2010ApJ...722..204H',
             'VLAPdBI3' : '2008ApJ...680.1289A',
@@ -228,7 +227,8 @@ def src_localDB(localDB):
             'SEST4' : '2006A&A...447..609S',
             'IRAM1' : '2014A&A...564A..95P',
             'IRAM2' : '1998A&A...336..565H',
-            'IRAM11' : '2011A&A...531A..50B'}
+            'IRAM11' : '2011A&A...531A..50B',
+            'IRAM3' : '2006ApJ...649L.119F'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ATCA' : [3300.0e-6],
@@ -307,7 +307,6 @@ def src_localDB(localDB):
             'ALMA33' : [869e-6],
             'VLAPdBI2' : [1300e-6,1400e-6,2600e-6,2700e-6,6917e-6,7000e-6,13000e-6,13350e-6,36000e-6],
             'SMA8' : [1300e-6],
-            'IRAM3' : [1300e-6],
             'OVRO2' : [1300e-6,2600e-6],
             'CARMA2' : [1300e-6,2700e-6],
             'VLAPdBI3' : [6920e-6,2600e-6,1300e-6],
@@ -337,7 +336,8 @@ def src_localDB(localDB):
             'SEST4' : [1200.0e-6],
             'IRAM1' : [1360.0e-6],
             'IRAM2' : [1300e-6],
-            'IRAM11' : [1100e-6,1300e-6,1400e-6,3000e-6,3400e-6,3500e-6]}
+            'IRAM11' : [1100e-6,1300e-6,1400e-6,3000e-6,3400e-6,3500e-6],
+            'IRAM3' : [1300e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -417,7 +417,6 @@ def src_localDB(localDB):
             'ALMA33' : [0.5],
             'VLAPdBI2' : [2,2,5,5,5,5,5,5,10],
             'SMA8' : [3.1],
-            'IRAM3' : [1.3],
             'OVRO2' : [2,5],
             'CARMA2' : [1,1],
             'VLAPdBI3' : [2,4,2],
@@ -447,7 +446,8 @@ def src_localDB(localDB):
             'SEST4' : [24],
             'IRAM1' : [10.0],
             'IRAM2' : [11],
-            'IRAM11' : [1.12,2,2,2.7,7.5,1.4]}
+            'IRAM11' : [1.12,2,2,2.7,7.5,1.4],
+            'IRAM3' : [0.72]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ATCA' : ['F3300'],
@@ -526,7 +526,6 @@ def src_localDB(localDB):
             'ALMA33' : ['F869'],
             'VLAPdBI2' : ['F1300','F1400','F2600','F2700','F6917','F7000','F13000','F13350','F36000'],
             'SMA8' : ['F1300'],
-            'IRAM3' : ['F1300'],
             'OVRO2' : ['F1300','F2600'],
             'CARMA2' : ['F1300','F2700'],
             'VLAPdBI3' : ['F6920','F2600','F1300'],
@@ -556,7 +555,8 @@ def src_localDB(localDB):
             'SEST4' : ['F1200'],
             'IRAM1' : ['F1360'],
             'IRAM2' : ['F1300'],
-            'IRAM11' : ['F1100','F1300','F1400','F3000','F3400','F3500']}
+            'IRAM11' : ['F1100','F1300','F1400','F3000','F3400','F3500'],
+            'IRAM3' : ['F1300']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ATCA' : ['e_F3300'],
@@ -635,7 +635,6 @@ def src_localDB(localDB):
             'ALMA33' : ['eF869'],
             'VLAPdBI2' : ['eF1300','eF1400','eF2600','eF2700','eF6917','eF7000','eF13000','eF13350','eF36000'],
             'SMA8' : ['eF1300'],
-            'IRAM3' : ['eF1300'],
             'OVRO2' : ['eF1300','eF2600'],
             'CARMA2' : ['eF1300','eF2700'],
             'VLAPdBI3' : ['eF6920','eF2600','eF1300'],
@@ -665,7 +664,8 @@ def src_localDB(localDB):
             'SEST4' : ['e_F1200'],
             'IRAM1' : ['e_F1360'],
             'IRAM2' : ['e_F1300'],
-            'IRAM11' : ['eF1100','eF1300','eF1400','eF3000','eF3400','eF3500']}
+            'IRAM11' : ['eF1100','eF1300','eF1400','eF3000','eF3400','eF3500'],
+            'IRAM3' : ['eF1300']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ATCA' : ['mJy'],
@@ -744,7 +744,6 @@ def src_localDB(localDB):
             'ALMA33' : ['mJy'],
             'VLAPdBI2' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy'],
             'SMA8' : ['mJy'],
-            'IRAM3' : ['mJy'],
             'OVRO2' : ['mJy','mJy'],
             'CARMA2' : ['mJy','mJy'],
             'VLAPdBI3' : ['mJy','mJy','mJy'],
@@ -774,7 +773,8 @@ def src_localDB(localDB):
             'SEST4' : ['mJy'],
             'IRAM1' : ['mJy'],
             'IRAM2' : ['Jy'],
-            'IRAM11' : ['mJy','mJy','mJy','mJy','mJy','mJy']}
+            'IRAM11' : ['mJy','mJy','mJy','mJy','mJy','mJy'],
+            'IRAM3' : ['mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -854,7 +854,6 @@ def src_localDB(localDB):
             'ALMA33' : ['ALMA:F869'],
             'VLAPdBI2' : ['IRAM:PdBI:F1300','IRAM:PdBI:F1400','IRAM:PdBI:F2600','IRAM:PdBI:F2700','VLA:F6917','VLA:F7000','VLA:F13000','VLA:F13350','VLA:F36000'],
             'SMA8' : ['SMA:F1300'],
-            'IRAM3' : ['IRAM:PdBI:F1300'],
             'OVRO2' : ['OVRO:F1300','OVRO:F2600'],
             'CARMA2' : ['CARMA:F1300','CARMA:F2700'],
             'VLAPdBI3' : ['VLA:F6920','IRAM:PdBI:F2600','IRAM:PdBI:F1300'],
@@ -884,7 +883,8 @@ def src_localDB(localDB):
             'SEST4' : ['SEST:F1200'],
             'IRAM1' : ['IRAM:PdBI:F1360'],
             'IRAM2' : ['MM:F1300'],
-            'IRAM11' : ['IRAM:PdBI:F1100','IRAM:PdBI:F1300','IRAM:PdBI:F1400','IRAM:PdBI:F3000','IRAM:PdBI:F3400','IRAM:PdBI:F3500']}
+            'IRAM11' : ['IRAM:PdBI:F1100','IRAM:PdBI:F1300','IRAM:PdBI:F1400','IRAM:PdBI:F3000','IRAM:PdBI:F3400','IRAM:PdBI:F3500'],
+            'IRAM3' : ['IRAM:PdBI:F1300']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
