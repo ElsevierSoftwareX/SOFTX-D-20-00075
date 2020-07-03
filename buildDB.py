@@ -1,6 +1,7 @@
 import subprocess, sys, os
 import urllib.request
 from cat_setup import src_localDB, src_onlineDB
+import datetime
 
 def check_ldb(ldb):
     """
@@ -242,3 +243,14 @@ def addToCat(outlist, localDB_trunk):
     print('You will be prompted for your git username to confirm your changes.')
     print('')
 
+def check_date(d):
+    try:
+        obsD = datetime.datetime.strptime(d, '%Y%b%d')
+        return obsD
+    except ValueError:
+        pass
+    try:
+        obsD = datetime.datetime.strptime(d, '%Y%b')
+        return obsD
+    except ValueError:
+        return 'fail'

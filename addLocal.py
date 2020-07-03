@@ -1,9 +1,8 @@
 import os, sys
-from buildDB import addToLocal, check_ldb, check_fmt
+from buildDB import addToLocal, check_ldb, check_fmt, check_date
 import argparse
 import subprocess
 from astroquery.simbad import Simbad
-import datetime
 
 import warnings
 
@@ -190,9 +189,8 @@ if head.strip().split(',')[-1] != 'ObsDate':
 
 # g) Observation date should be in format YYYYMmmDD or be 'unknown' or 'averaged':
 for f in fc:
-    try:
-        obsD = datetime.datetime.strptime(f.strip().split(',')[-1], '%Y%b%d')
-    except ValueError:
+    obsD = check_date(f.strip().split(',')[-1])
+    if obsD == 'fail':
         if f.strip().split(',')[-1] not in ['unknown', 'averaged']:
             print('Error:'+f.strip().split(',')[-1]+' is in incorrect date format!')
             print('Info: required format is YYYYMmmDD')
