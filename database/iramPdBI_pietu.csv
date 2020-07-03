@@ -1,10 +1,10 @@
-Target,F1360,e_F1360
-V* FM Tau,11.3,0.2
-V* CW Tau,58.7,0.4
-V* CX Tau,9.6,0.2
-V* DE Tau,29.5,0.2
-V* FZ Tau,14.7,0.1
-V* HO Tau,17.7,0.2
-V* DS Tau,20.1,0.3
-V* SU Aur,22.5,0.2
-V* V836 Tau,28.0,0.7
+Target,F1360,e_F1360,ObsDate
+V* FM Tau,11.3,0.2,averaged
+V* CW Tau,58.7,0.4,averaged
+V* CX Tau,9.6,0.2,averaged
+V* DE Tau,29.5,0.2,averaged
+V* FZ Tau,14.7,0.1,averaged
+V* HO Tau,17.7,0.2,averaged
+V* DS Tau,20.1,0.3,averaged
+V* SU Aur,22.5,0.2,averaged
+V* V836 Tau,28.0,0.7,averaged

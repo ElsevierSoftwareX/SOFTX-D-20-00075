@@ -6,7 +6,6 @@ def src_localDB(localDB):
     """
     # local path to each local data base file:
     ldbN = {'ALMA17' : localDB+'/database/alma_ricci.csv',
-            'IRAM' : localDB+'/database/iramPdBI_pietu.csv',
             'ATCA' : localDB+'/database/atca_ricci.csv',
             'ALMA2' : localDB+'/database/alma_testi.csv',
             'MEEUS12' : localDB+'/database/mm_meeus.csv',
@@ -112,7 +111,8 @@ def src_localDB(localDB):
             'SEST1' : localDB+'/database/sest_henning.csv',
             'SEST2' : localDB+'/database/sest_henning2.csv',
             'SEST3' : localDB+'/database/sest_nurnberger.csv',
-            'SEST4' : localDB+'/database/sest_stanke.csv'}
+            'SEST4' : localDB+'/database/sest_stanke.csv',
+            'IRAM1' : localDB+'/database/iramPdBI_pietu.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -122,7 +122,6 @@ def src_localDB(localDB):
     # bibliographic reference for catalog/paper (these are searchable within
     # NASA ADS and SIMBAD for traceability)
     ldbR = {'ALMA17' : '2014ApJ...791...20R',
-            'IRAM' : '2014A&A...564A..95P',
             'ATCA' : '2010A&A...521A..66R',
             'ALMA2' : '2016A&A...593A.111T',
             'MEEUS12' : '2012A&A...544A..78M',
@@ -228,10 +227,10 @@ def src_localDB(localDB):
             'SEST1' : '1993A&A...276..129H',
             'SEST2' : '1994A&A...291..546H',
             'SEST3' : '1997A&A...324.1036N',
-            'SEST4' : '2006A&A...447..609S'}
+            'SEST4' : '2006A&A...447..609S',
+            'IRAM1' : '2014A&A...564A..95P'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
-            'IRAM' : [1360.0e-6],
             'ATCA' : [3300.0e-6],
             'ALMA2' : [890.0e-6],
             'MEEUS12' : [1200e-6,1300e-6],
@@ -337,11 +336,11 @@ def src_localDB(localDB):
             'SEST1' : [1300.0e-6],
             'SEST2' : [1300.0e-6],
             'SEST3' : [1300.0e-6],
-            'SEST4' : [1200.0e-6]}
+            'SEST4' : [1200.0e-6],
+            'IRAM1' : [1360.0e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
-            'IRAM' : [10.0],
             'ATCA' : [10.0],
             'ALMA2' : [1.0],
             'MEEUS12' : [10.0,10.0],
@@ -447,10 +446,10 @@ def src_localDB(localDB):
             'SEST1' : [21.8],
             'SEST2' : [21.8],
             'SEST3' : [21.8],
-            'SEST4' : [24]}
+            'SEST4' : [24],
+            'IRAM1' : [10.0]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
-            'IRAM' : ['F1360'],
             'ATCA' : ['F3300'],
             'ALMA2' : ['F890'],
             'MEEUS12' : ['F1200','F1300'],
@@ -556,10 +555,10 @@ def src_localDB(localDB):
             'SEST1' : ['F1300'],
             'SEST2' : ['F1300'],
             'SEST3' : ['F1300'],
-            'SEST4' : ['F1200']}
+            'SEST4' : ['F1200'],
+            'IRAM1' : ['F1360']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
-            'IRAM' : ['e_F1360'],
             'ATCA' : ['e_F3300'],
             'ALMA2' : ['e_F890'],
             'MEEUS12' : ['e_F1200','e_F1300'],
@@ -665,10 +664,10 @@ def src_localDB(localDB):
             'SEST1' : ['e_F1300'],
             'SEST2' : ['e_F1300'],
             'SEST3' : ['e_F1300'],
-            'SEST4' : ['e_F1200']}
+            'SEST4' : ['e_F1200'],
+            'IRAM1' : ['e_F1360']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
-            'IRAM' : ['mJy'],
             'ATCA' : ['mJy'],
             'ALMA2' : ['mJy'],
             'MEEUS12' : ['mJy','mJy'],
@@ -774,11 +773,11 @@ def src_localDB(localDB):
             'SEST1' : ['mJy'],
             'SEST2' : ['mJy'],
             'SEST3' : ['mJy'],
-            'SEST4' : ['mJy']}
+            'SEST4' : ['mJy'],
+            'IRAM1' : ['mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
-            'IRAM' : ['IRAM:PdBI:F1360'],
             'ATCA' : ['ATCA:F3300'],
             'ALMA2' : ['ALMA:F890'],
             'MEEUS12' : ['MAMBO:F1200','SMA:F1300'],
@@ -884,7 +883,8 @@ def src_localDB(localDB):
             'SEST1' : ['SEST:F1300'],
             'SEST2' : ['SEST:F1300'],
             'SEST3' : ['SEST:F1300'],
-            'SEST4' : ['SEST:F1200']}
+            'SEST4' : ['SEST:F1200'],
+            'IRAM1' : ['IRAM:PdBI:F1360']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
