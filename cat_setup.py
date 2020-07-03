@@ -23,7 +23,6 @@ def src_localDB(localDB):
             'CTIO' : localDB+'/database/lupus_phot.csv',
             'UKT14' : localDB+'/database/ukt14_phot.csv',
             'UKT142' : localDB+'/database/ukt14_phot2.csv',
-            'SEST3' : localDB+'/database/sest_nurnberger.csv',
             'OVRO' : localDB+'/database/ovro_mm.csv',
             'IRAM2' : localDB+'/database/iram_sest_mm.csv',
             'UKT143' : localDB+'/database/ukt14_phot3.csv',
@@ -112,7 +111,8 @@ def src_localDB(localDB):
             'KITTPEAK1' : localDB+'/database/mdm_kittpeak_JHKphot.csv',
             'KITTPEAK2' : localDB+'/database/mdm_kittpeak_phot.csv',
             'SEST1' : localDB+'/database/sest_henning.csv',
-            'SEST2' : localDB+'/database/sest_henning2.csv'}
+            'SEST2' : localDB+'/database/sest_henning2.csv',
+            'SEST3' : localDB+'/database/sest_nurnberger.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -139,7 +139,6 @@ def src_localDB(localDB):
             'CTIO' : '1994AJ....108.1071H',
             'UKT14' : '1994MNRAS.267..361M',
             'UKT142' : '1996MNRAS.279..915S',
-            'SEST3' : '1997A&A...324.1036N',
             'OVRO' : '1997ApJ...490..792M',
             'IRAM2' : '1998A&A...336..565H',
             'UKT143' : '1998MNRAS.301.1049D',
@@ -228,7 +227,8 @@ def src_localDB(localDB):
             'KITTPEAK1' : '2008ApJ...689..513T',
             'KITTPEAK2' : '2008ApJ...689..513T',
             'SEST1' : '1993A&A...276..129H',
-            'SEST2' : '1994A&A...291..546H'}
+            'SEST2' : '1994A&A...291..546H',
+            'SEST3' : '1997A&A...324.1036N'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'IRAM' : [1360.0e-6],
@@ -248,7 +248,6 @@ def src_localDB(localDB):
             'CTIO' : [0.44e-6,0.55e-6,0.71e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6,3.54e-6,4.80e-6],
             'UKT14' : [2000e-6,1300e-6,1100e-6,850e-6,800e-6,600e-6,450e-6,350e-6],
             'UKT142' : [0.00045,0.0008,0.0011,0.0013,0.002],
-            'SEST3' : [1300e-6],
             'OVRO' : [1300e-6,2600e-6,2700e-6],
             'IRAM2' : [1300e-6],
             'UKT143' : [1100e-6,800e-6,450e-6,350e-6],
@@ -337,7 +336,8 @@ def src_localDB(localDB):
             'KITTPEAK1' : [1.25e-6,1.60e-6,2.18e-6],
             'KITTPEAK2' : [364e-9,442e-9,540e-9,647e-9,786.5e-9],
             'SEST1' : [1300.0e-6],
-            'SEST2' : [1300.0e-6]}
+            'SEST2' : [1300.0e-6],
+            'SEST3' : [1300.0e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -358,7 +358,6 @@ def src_localDB(localDB):
             'CTIO' : [0.11,0.14,0.18,0.20,0.13,0.16,0.22,0.36,0.48],
             'UKT14' : [27.5,19.5,18.5,17.8,16.8,17.5,17.5,18.5],
             'UKT142' : [17.5,16.8,18.5,19.5,27.5],
-            'SEST3' : [21.8],
             'OVRO' : [5,5,5],
             'IRAM2' : [11],
             'UKT143' : [18.5,16.8,17.5,18.5],
@@ -447,7 +446,8 @@ def src_localDB(localDB):
             'KITTPEAK1' : [0.13,0.17,0.23],
             'KITTPEAK2' : [0.04,0.05,0.06,0.07,0.08],
             'SEST1' : [21.8],
-            'SEST2' : [21.8]}
+            'SEST2' : [21.8],
+            'SEST3' : [21.8]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'IRAM' : ['F1360'],
@@ -467,7 +467,6 @@ def src_localDB(localDB):
             'CTIO' : ['Bmag','Vmag','Rmag','Imag','Jmag','Hmag','Kmag','Lmag','Mmag'],
             'UKT14' : ['F2000','F1300','F1100','F850','F800','F600','F450','F350'],
             'UKT142' : ['F450','F800','F1100','F1300','F2000'],
-            'SEST3' : ['F1300'],
             'OVRO' : ['F1300','F2600','F2700'],
             'IRAM2' : ['F1300'],
             'UKT143' : ['F1100','F800','F450','F350'],
@@ -556,7 +555,8 @@ def src_localDB(localDB):
             'KITTPEAK1' : ['Jmag','Hmag','Kmag'],
             'KITTPEAK2' : ['Umag','Bmag','Vmag','Rmag','Imag'],
             'SEST1' : ['F1300'],
-            'SEST2' : ['F1300']}
+            'SEST2' : ['F1300'],
+            'SEST3' : ['F1300']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'IRAM' : ['e_F1360'],
@@ -576,7 +576,6 @@ def src_localDB(localDB):
             'CTIO' : ['eBmag','eVmag','eRmag','eImag','eJmag','eHmag','eKmag','eLmag','eMmag'],
             'UKT14' : ['e_F2000','e_F1300','e_F1100','e_F850','e_F800','e_F600','e_F450','e_F350'],
             'UKT142' : ['e_F450','e_F800','e_F1100','e_F1300','e_F2000'],
-            'SEST3' : ['e_F1300'],
             'OVRO' : ['e_F1300','e_F2600','e_F2700'],
             'IRAM2' : ['e_F1300'],
             'UKT143' : ['e_F1100','e_F800','e_F450','e_F350'],
@@ -665,7 +664,8 @@ def src_localDB(localDB):
             'KITTPEAK1' : ['eJmag','eHmag','eKmag'],
             'KITTPEAK2' : ['eUmag','eBmag','eVmag','eRmag','eImag'],
             'SEST1' : ['e_F1300'],
-            'SEST2' : ['e_F1300']}
+            'SEST2' : ['e_F1300'],
+            'SEST3' : ['e_F1300']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'IRAM' : ['mJy'],
@@ -685,7 +685,6 @@ def src_localDB(localDB):
             'CTIO' : ['mag','mag','mag','mag','mag','mag','mag','mag','mag'],
             'UKT14' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy'],
             'UKT142' : ['mJy','mJy','mJy','mJy','mJy'],
-            'SEST3' : ['mJy'],
             'OVRO' : ['mJy','mJy','mJy'],
             'IRAM2' : ['Jy'],
             'UKT143' : ['Jy','Jy','Jy','Jy'],
@@ -774,7 +773,8 @@ def src_localDB(localDB):
             'KITTPEAK1' : ['mag','mag','mag'],
             'KITTPEAK2' : ['mag','mag','mag','mag','mag'],
             'SEST1' : ['mJy'],
-            'SEST2' : ['mJy']}
+            'SEST2' : ['mJy'],
+            'SEST3' : ['mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -795,7 +795,6 @@ def src_localDB(localDB):
             'CTIO' : ['Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K','Johnson:L','Johnson:M'],
             'UKT14' : ['UKT14:F2000','UKT14:F1300','UKT14:F1100','UKT14:F850','UKT14:F800','UKT14:F600','UKT14:F450','UKT14:350'],
             'UKT142' : ['UKT14:F450','UKT14:F800','UKT14:F1100','UKT14:F1300','UKT14:F2000'],
-            'SEST3' : ['SEST:F1300'],
             'OVRO' : ['OVRO:F1300','OVRO:F2600','OVRO:F2700'],
             'IRAM2' : ['MM:F1300'],
             'UKT143' : ['UKT14:F1100','UKT14:F800','UKT14:F450','UKT14:350'],
@@ -884,7 +883,8 @@ def src_localDB(localDB):
             'KITTPEAK1' : ['Johnson:J','Johnson:H','Johnson:K'],
             'KITTPEAK2' : ['Johnson:U','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic'],
             'SEST1' : ['SEST:F1300'],
-            'SEST2' : ['SEST:F1300']}
+            'SEST2' : ['SEST:F1300'],
+            'SEST3' : ['SEST:F1300']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
