@@ -112,7 +112,8 @@ def src_localDB(localDB):
             'IRAM10' : localDB+'/database/iram_ricci.csv',
             'CSOIRAM' : localDB+'/database/cso_and_iram.csv',
             'VLAPdBI2' : localDB+'/database/vla_pdbi_alonso-albi.csv',
-            'VLAPdBI3' : localDB+'/database/pdbi_alonso-albi.csv'}
+            'VLAPdBI3' : localDB+'/database/pdbi_alonso-albi.csv',
+            'Herschel2' : localDB+'/database/herschel_ribas.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -228,7 +229,8 @@ def src_localDB(localDB):
             'IRAM10' : '2010A&A...512A..15R',
             'CSOIRAM' : '2009A&A...497..409R',
             'VLAPdBI2' : '2009A&A...497..117A',
-            'VLAPdBI3' : '2008ApJ...680.1289A'}
+            'VLAPdBI3' : '2008ApJ...680.1289A',
+            'Herschel2' : '2017ApJ...849...63R'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ATCA' : [3300.0e-6],
@@ -337,7 +339,8 @@ def src_localDB(localDB):
             'IRAM10' : [2970e-6,3230e-6,3450e-6,3490e-6,3530e-6,3570e-6],
             'CSOIRAM' : [350e-6,1200e-6],
             'VLAPdBI2' : [1300e-6,1400e-6,2600e-6,2700e-6,6917e-6,7000e-6,13000e-6,13350e-6,36000e-6],
-            'VLAPdBI3' : [6920e-6,2600e-6,1300e-6]}
+            'VLAPdBI3' : [6920e-6,2600e-6,1300e-6],
+            'Herschel2' : [70e-6,100e-6,160e-6,250e-6,350e-6,500e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -447,7 +450,8 @@ def src_localDB(localDB):
             'IRAM10' : [4,4,4,4,4,4],
             'CSOIRAM' : [8.5,11],
             'VLAPdBI2' : [3.3,3,6.8,7,2,1.9,3.9,4,9.2],
-            'VLAPdBI3' : [2.2,4.0,1.7]}
+            'VLAPdBI3' : [2.2,4.0,1.7],
+            'Herschel2' : [5.03,7.19,11.50,17.97,25.16,35.95]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ATCA' : ['F3300'],
@@ -556,7 +560,8 @@ def src_localDB(localDB):
             'IRAM10' : ['F2970','F3230','F3450','F3490','F3530','F3570'],
             'CSOIRAM' : ['F350','F1200'],
             'VLAPdBI2' : ['F1300','F1400','F2600','F2700','F6917','F7000','F13000','F13350','F36000'],
-            'VLAPdBI3' : ['F6920','F2600','F1300']}
+            'VLAPdBI3' : ['F6920','F2600','F1300'],
+            'Herschel2' : ['F70','F100','F160','F250','F350','F500']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ATCA' : ['e_F3300'],
@@ -665,7 +670,8 @@ def src_localDB(localDB):
             'IRAM10' : ['eF2970','eF3230','eF3450','eF3490','eF3530','eF3570'],
             'CSOIRAM' : ['e_F350','e_F1200'],
             'VLAPdBI2' : ['eF1300','eF1400','eF2600','eF2700','eF6917','eF7000','eF13000','eF13350','eF36000'],
-            'VLAPdBI3' : ['eF6920','eF2600','eF1300']}
+            'VLAPdBI3' : ['eF6920','eF2600','eF1300'],
+            'Herschel2' : ['eF70','eF100','eF160','eF250','eF350','eF500']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ATCA' : ['mJy'],
@@ -774,7 +780,8 @@ def src_localDB(localDB):
             'IRAM10' : ['mJy','mJy','mJy','mJy','mJy','mJy'],
             'CSOIRAM' : ['mJy','mJy'],
             'VLAPdBI2' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy'],
-            'VLAPdBI3' : ['mJy','mJy','mJy']}
+            'VLAPdBI3' : ['mJy','mJy','mJy'],
+            'Herschel2' : ['mJy','mJy','mJy','mJy','mJy','mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -884,7 +891,8 @@ def src_localDB(localDB):
             'IRAM10' : ['IRAM:PdBI:F2970','IRAM:PdBI:F3230','IRAM:PdBI:F3450','IRAM:PdBI:F3490','IRAM:PdBI:F3530','IRAM:PdBI:F3570'],
             'CSOIRAM' : ['CSO:F350','IRAM:F1200'],
             'VLAPdBI2' : ['IRAM:PdBI:F1300','IRAM:PdBI:F1400','IRAM:PdBI:F2600','IRAM:PdBI:F2700','VLA:F6917','VLA:F7000','VLA:F13000','VLA:F13350','VLA:F36000'],
-            'VLAPdBI3' : ['VLA:F6920','IRAM:PdBI:F2600','IRAM:PdBI:F1300']}
+            'VLAPdBI3' : ['VLA:F6920','IRAM:PdBI:F2600','IRAM:PdBI:F1300'],
+            'Herschel2' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
