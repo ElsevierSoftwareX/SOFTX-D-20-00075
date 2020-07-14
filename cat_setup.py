@@ -22,7 +22,6 @@ def src_localDB(localDB):
             'CTIAO2' : localDB+'/database/ctiao_opt_padgett.csv',
             'MCDO' : localDB+'/database/mcdo_opt_padgett.csv',
             'TIMESERIES' : localDB+'/database/grankin_time_series.txt',
-            'CARMA' : localDB+'/database/carma_isella.csv',
             'VARIOUS2' : localDB+'/database/cytau_perez.csv',
             'ALMA19' : localDB+'/database/alma_qi.csv',
             'ALMA8' : localDB+'/database/alma_huang.csv',
@@ -113,7 +112,8 @@ def src_localDB(localDB):
             'SMACARMAVLA' : localDB+'/database/doar25_perez.csv',
             'ALMA13' : localDB+'/database/alma_cox.csv',
             'OVRO' : localDB+'/database/ovro_mm.csv',
-            'OVRO2' : localDB+'/database/ovro_mannings.csv'}
+            'OVRO2' : localDB+'/database/ovro_mannings.csv',
+            'CARMA' : localDB+'/database/carma_isella.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -139,7 +139,6 @@ def src_localDB(localDB):
             'CTIAO2' : '2006ApJ...645.1283P',
             'MCDO' : '2006ApJ...645.1283P',
             'TIMESERIES' : '2007A&A...461..183G',
-            'CARMA' : '2009ApJ...701..260I',
             'VARIOUS2' : '2015ApJ...813...41P',
             'ALMA19' : '2015ApJ...813..128Q',
             'ALMA8' : '2016ApJ...823L..18H',
@@ -230,7 +229,8 @@ def src_localDB(localDB):
             'SMACARMAVLA' : '2015ApJ...813...41P',
             'ALMA13' : '2017ApJ...851...83C',
             'OVRO' : '1997ApJ...490..792M',
-            'OVRO2' : '2000ApJ...529..391M'}
+            'OVRO2' : '2000ApJ...529..391M',
+            'CARMA' : '2009ApJ...701..260I'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ALMA2' : [890.0e-6],
@@ -249,7 +249,6 @@ def src_localDB(localDB):
             'CTIAO2' : [0.55e-6,0.71e-6,0.79e-6],
             'MCDO' : [0.55e-6,0.71e-6,0.79e-6],
             'TIMESERIES' : [0.55e-6],
-            'CARMA' : [1300e-6],
             'VARIOUS2' : [1300e-6,2800e-6,7100e-6,50000e-6],
             'ALMA19' : [1073e-6,1373e-6],
             'ALMA8' : [1400e-6],
@@ -340,7 +339,8 @@ def src_localDB(localDB):
             'SMACARMAVLA' : [900e-6,2800e-6,8000e-6,9800e-6,50000e-6],
             'ALMA13' : [870e-6],
             'OVRO' : [1300e-6,2600e-6,2700e-6],
-            'OVRO2' : [1300e-6,2600e-6]}
+            'OVRO2' : [1300e-6,2600e-6],
+            'CARMA' : [1300e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -360,7 +360,6 @@ def src_localDB(localDB):
             'CTIAO2' : [0.15,0.20,0.22],
             'MCDO' : [0.17,0.22,0.25],
             'TIMESERIES' : [0.1],
-            'CARMA' : [1.0],
             'VARIOUS2' : [1.0,1.0,10.0,10.0],
             'ALMA19' : [1.0,1.0],
             'ALMA8' : [1.0],
@@ -451,7 +450,8 @@ def src_localDB(localDB):
             'SMACARMAVLA' : [0.48,0.64,0.15,0.18,0.7],
             'ALMA13' : [0.2],
             'OVRO' : [5,5,5],
-            'OVRO2' : [2,5]}
+            'OVRO2' : [2,5],
+            'CARMA' : [0.7]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ALMA2' : ['F890'],
@@ -470,7 +470,6 @@ def src_localDB(localDB):
             'CTIAO2' : ['V','R','I'],
             'MCDO' : ['V','R','I'],
             'TIMESERIES' : ['V'],
-            'CARMA' : ['F1300'],
             'VARIOUS2' : ['F1300','F2800','F7100','F50000'],
             'ALMA19' : ['F1073','F1373'],
             'ALMA8' : ['F1400'],
@@ -561,7 +560,8 @@ def src_localDB(localDB):
             'SMACARMAVLA' : ['F900','F2800','F8000','F9800','F50000'],
             'ALMA13' : ['F870'],
             'OVRO' : ['F1300','F2600','F2700'],
-            'OVRO2' : ['F1300','F2600']}
+            'OVRO2' : ['F1300','F2600'],
+            'CARMA' : ['F1300']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ALMA2' : ['e_F890'],
@@ -580,7 +580,6 @@ def src_localDB(localDB):
             'CTIAO2' : ['e_V','e_R','e_I'],
             'MCDO' : ['e_V','e_R','e_I'],
             'TIMESERIES' : ['e_V'],
-            'CARMA' : ['e_F1300'],
             'VARIOUS2' : ['e_F1300','e_F2800','e_F7100','e_F50000'],
             'ALMA19' : ['e_F1073','e_F1373'],
             'ALMA8' : ['e_F1400'],
@@ -671,7 +670,8 @@ def src_localDB(localDB):
             'SMACARMAVLA' : ['e_F900','e_F2800','e_F8000','e_F9800','e_F50000'],
             'ALMA13' : ['e_F870'],
             'OVRO' : ['e_F1300','e_F2600','e_F2700'],
-            'OVRO2' : ['eF1300','eF2600']}
+            'OVRO2' : ['eF1300','eF2600'],
+            'CARMA' : ['e_F1300']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ALMA2' : ['mJy'],
@@ -690,7 +690,6 @@ def src_localDB(localDB):
             'CTIAO2' : ['mag','mag','mag'],
             'MCDO' : ['mag','mag','mag'],
             'TIMESERIES' : ['mag'],
-            'CARMA' : ['mJy'],
             'VARIOUS2' : ['mJy','mJy','mJy','mJy'],
             'ALMA19' : ['mJy','mJy'],
             'ALMA8' : ['mJy'],
@@ -781,7 +780,8 @@ def src_localDB(localDB):
             'SMACARMAVLA' : ['mJy','mJy','mJy','mJy','mJy'],
             'ALMA13' : ['mJy'],
             'OVRO' : ['mJy','mJy','mJy'],
-            'OVRO2' : ['mJy','mJy']}
+            'OVRO2' : ['mJy','mJy'],
+            'CARMA' : ['mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -801,7 +801,6 @@ def src_localDB(localDB):
             'CTIAO2' : ['Johnson:V','Cousins:Rc','Cousins:Ic'],
             'MCDO' : ['Johnson:V','Cousins:Rc','Cousins:Ic'],
             'TIMESERIES' : ['Johnson:V'],
-            'CARMA' : ['CARMA:F1300'],
             'VARIOUS2' : ['CARMA:F1300','CARMA:F2800','VLA:F7100','VLA:F50000'],
             'ALMA19' : ['ALMA:F1073','ALMA:F1373'],
             'ALMA8' : ['ALMA:F1400'],
@@ -892,7 +891,8 @@ def src_localDB(localDB):
             'SMACARMAVLA' : ['SMA:F900','CARMA:F2800','VLA:F8000','VLA:F9800','VLA:F50000'],
             'ALMA13' : ['ALMA:F870'],
             'OVRO' : ['OVRO:F1300','OVRO:F2600','OVRO:F2700'],
-            'OVRO2' : ['OVRO:F1300','OVRO:F2600']}
+            'OVRO2' : ['OVRO:F1300','OVRO:F2600'],
+            'CARMA' : ['CARMA:F1300']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
