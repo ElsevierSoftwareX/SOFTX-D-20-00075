@@ -159,11 +159,12 @@ for f in fc:
         try:
             obj = [a[0] for a in Simbad.query_objectids(' '.join(f.split(',')[0].split(' ')[:-1]))]
             print(' - '+' '.join(f.split(',')[0].split(' ')[:-1])+' recognised by SIMBAD')
-            if ' '.join(f.split(',')[0].split(' ')[:-1]) not in [o.replace('  ', ' ') for o in obj]:
+            if ' '.join(f.split(',')[0].split(' ')[:-1]) not in [' '.join(o.split()) for o in obj]:
                 print(' but object name appears differently in SIMBAD!')
                 for o in obj:
-                    if ' '.join(f.split(',')[0].split(' ')[:-1]) in o:
-                        print('Suggestion: use '+o+' '+f.split(',')[0].split(' ')[-1]+' instead.')
+                    if ' '.join(f.split(',')[0].split(' ')[:-1]) in ' '.join(o.split()):
+                        o1 = ' '.join(o.split())
+                        print('Suggestion: use '+o1+' '+f.split(',')[0].split(' ')[-1]+' instead.')
                 endhere = True
             else:
                 print(' and we are fine to continue...')
@@ -175,8 +176,9 @@ for f in fc:
         if f.split(',')[0] not in [' '.join(o.split()) for o in objIDs]:
             print('Error: object name '+f.split(',')[0]+' appears differently in SIMBAD!')
             for o in objIDs:
-                if f.split(',')[0] in o:
-                    print(' - Suggestion: use '+o+' instead.')
+                if f.split(',')[0] in ' '.join(o.split()):
+                    o1 = ' '.join(o.split())
+                    print(' - Suggestion: use '+o1+' instead.')
             endhere = True
 
 # f) Observation date column should exist:
