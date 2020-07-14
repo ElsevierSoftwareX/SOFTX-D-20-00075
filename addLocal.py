@@ -218,8 +218,8 @@ for i in range(0, len(colnames)):
 
 if endhere == True:
     print('')
-    print('The available column names for '+argopt.cat+' are:')
-    print(catalog[argopt.cat].keys())
+    print('The available column names for '+argopt.fil+' are:')
+    print(head.split(','))
     print()
     sys.exit()
 else:
