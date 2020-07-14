@@ -112,14 +112,17 @@ colnames = fluxN+fluxE
 endhere = False
 for i in range(0, len(colnames)):
     if colnames[i] not in attempt[argopt.cat].keys():
-        print('')
-        print('Error: column name '+colnames[i]+' not found in '+argopt.cat)
-        endhere = True
+        try:
+            colfloat = float(colnames[i])
+        except ValueError:
+            print('')
+            print('Error: column name '+colnames[i]+' not found in '+argopt.cat)
+            endhere = True
 
 if endhere == True:
     print('')
     print('The available column names for '+argopt.cat+' are:')
-    print(catalog[argopt.cat].keys())
+    print(attempt[argopt.cat].keys())
     print()
     sys.exit()
 else:
