@@ -113,7 +113,7 @@ def src_localDB(localDB):
             'SMA8' : localDB+'/database/sma_manoj.csv',
             'IRAMSMA' : localDB+'/database/mm_meeus.csv',
             'SMACARMAVLA' : localDB+'/database/doar25_perez.csv',
-            'SMA9' : localDB+'/database/alma_cox.csv'}
+            'ALMA13' : localDB+'/database/alma_cox.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -230,7 +230,7 @@ def src_localDB(localDB):
             'SMA8' : '2007ApJ...667L.187M',
             'IRAMSMA' : '2012A&A...544A..78M',
             'SMACARMAVLA' : '2015ApJ...813...41P',
-            'SMA9' : '2017ApJ...851...83C'}
+            'ALMA13' : '2017ApJ...851...83C'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ALMA2' : [890.0e-6],
@@ -340,7 +340,7 @@ def src_localDB(localDB):
             'SMA8' : [1300e-6],
             'IRAMSMA' : [1200e-6,1300e-6],
             'SMACARMAVLA' : [900e-6,2800e-6,8000e-6,9800e-6,50000e-6],
-            'SMA9' : [870e-6]}
+            'ALMA13' : [870e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -451,7 +451,7 @@ def src_localDB(localDB):
             'SMA8' : [3.1],
             'IRAMSMA' : [10.0,3.5],
             'SMACARMAVLA' : [0.48,0.64,0.15,0.18,0.7],
-            'SMA9' : [0.2]}
+            'ALMA13' : [0.2]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ALMA2' : ['F890'],
@@ -561,7 +561,7 @@ def src_localDB(localDB):
             'SMA8' : ['F1300'],
             'IRAMSMA' : ['F1200','F1300'],
             'SMACARMAVLA' : ['F900','F2800','F8000','F9800','F50000'],
-            'SMA9' : ['F870']}
+            'ALMA13' : ['F870']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ALMA2' : ['e_F890'],
@@ -671,7 +671,7 @@ def src_localDB(localDB):
             'SMA8' : ['eF1300'],
             'IRAMSMA' : ['e_F1200','e_F1300'],
             'SMACARMAVLA' : ['e_F900','e_F2800','e_F8000','e_F9800','e_F50000'],
-            'SMA9' : ['e_F870']}
+            'ALMA13' : ['e_F870']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ALMA2' : ['mJy'],
@@ -781,7 +781,7 @@ def src_localDB(localDB):
             'SMA8' : ['mJy'],
             'IRAMSMA' : ['mJy','mJy'],
             'SMACARMAVLA' : ['mJy','mJy','mJy','mJy','mJy'],
-            'SMA9' : ['mJy']}
+            'ALMA13' : ['mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -892,7 +892,7 @@ def src_localDB(localDB):
             'SMA8' : ['SMA:F1300'],
             'IRAMSMA' : ['IRAM:MAMBO2:F1200','SMA:F1300'],
             'SMACARMAVLA' : ['SMA:F900','CARMA:F2800','VLA:F8000','VLA:F9800','VLA:F50000'],
-            'SMA9' : ['SMA:F870']}
+            'ALMA13' : ['ALMA:F870']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
