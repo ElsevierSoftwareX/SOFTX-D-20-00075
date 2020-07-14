@@ -1,7 +1,7 @@
-Target,F1300,eF1300,F2600,eF2600
-EM* MWC 614,70.8,7.0,7.6,1.4
-HD 34282,--,--,23.8,3.0
-EM* MWC 758,82.5,5.5,--,--
-MacC H12,--,--,10.0,1.4
-V* CQ Tau,143,8.4,--,--
-EM* LkHa 259,--,--,6,6
+Target,F1300,eF1300,F2600,eF2600,ObsDate
+EM* MWC 614,70.8,7.0,7.6,1.4,averaged
+HD 34282,--,--,23.8,3.0,averaged
+EM* MWC 758,82.5,5.5,--,--,averaged
+MacC H12,--,--,10.0,1.4,averaged
+V* CQ Tau,143,8.4,--,--,averaged
+EM* LkHA 259,--,--,6,6,averaged
