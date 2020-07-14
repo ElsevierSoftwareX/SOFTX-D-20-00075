@@ -1,16 +1,16 @@
-Target,f_F3300,F3300,rms
-V* SY Cha,<,4.8,1.6
-V* CR Cha,--,6.1,1.5
-V* CS Cha,--,8.8,1.5
-V* DI Cha,<,3.9,1.3
-[KG2001] 28,<,3.9,1.3
-Glass I,<,3.0,1.0
-[KG2001] 49,--,29.5,1.5
-V* WW Cha,--,33.1,1.2
-V* XX Cha,<,4.5,1.5
-V* T Cha,--,7.0,1.0
-V* HT Lup,--,12.0,1.1
-V* GW Lup,--,9.5,1.9
-V* IM Lup,--,13.1,1.3
-V* RU Lup,--,15.6,1.0
-V* HK Lup,--,9.1,2.1
+Target,F3300,eF3300,ObsDate
+V* SY Cha,4.8,4.8,unknown
+V* CR Cha,6.1,1.5,unknown
+V* CS Cha,8.8,1.5,unknown
+V* DI Cha,3.9,3.9,unknown
+[KG2001] 28,3.9,3.9,unknown
+Glass I,3.0,3.0,unknown
+[KG2001] 49,29.5,1.5,unknown
+V* WW Cha,33.1,1.2,unknown
+V* XX Cha,4.5,4.5,unknown
+V* T Cha,7.0,1.0,unknown
+V* HT Lup,12.0,1.1,unknown
+V* GW Lup,9.5,1.9,unknown
+V* IM Lup,13.1,1.3,unknown
+V* RU Lup,15.6,1.0,unknown
+V* HK Lup,9.1,2.1,unknown
