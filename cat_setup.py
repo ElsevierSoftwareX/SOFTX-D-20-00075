@@ -12,7 +12,6 @@ def src_localDB(localDB):
             'SAAO' : localDB+'/database/saao_opt_sylvester.csv',
             'MKII' : localDB+'/database/mkii_jhkl_sylvester.csv',
             'UKIRT' : localDB+'/database/ukirt_coulson.csv',
-            'SCUBA2' : localDB+'/database/jcmt_sandell.csv',
             'VLA2' : localDB+'/database/vla_skinner.csv',
             'ESO' : localDB+'/database/eso_jhklm_phot.csv',
             'ALMA3' : localDB+'/database/alma_manara.csv',
@@ -113,7 +112,8 @@ def src_localDB(localDB):
             'VLAPdBI3' : localDB+'/database/pdbi_alonso-albi.csv',
             'VARIOUS1' : localDB+'/database/mm_isella.csv',
             'VARIOUS4' : localDB+'/database/mm_banzatti.csv',
-            'JCMT1' : localDB+'/database/jcmt_sheret.csv'}
+            'JCMT1' : localDB+'/database/jcmt_sheret.csv',
+            'JCMT2' : localDB+'/database/jcmt_sandell.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -129,7 +129,6 @@ def src_localDB(localDB):
             'SAAO' : '2000MNRAS.313...73S',
             'MKII' : '2000MNRAS.313...73S',
             'UKIRT' : '1998MNRAS.296..934C',
-            'SCUBA2' : '2011ApJ...727...26S',
             'VLA2' : '1993ApJS...87..217S',
             'ESO' : '1992ApJ...398..254B',
             'ALMA3' : '2019A&A...628A..95M',
@@ -230,7 +229,8 @@ def src_localDB(localDB):
             'VLAPdBI3' : '2008ApJ...680.1289A',
             'VARIOUS1' : '2007A&A...469..213I',
             'VARIOUS4' : '2011A&A...525A..12B',
-            'JCMT1' : '2004MNRAS.348.1282S'}
+            'JCMT1' : '2004MNRAS.348.1282S',
+            'JCMT2' : '2011ApJ...727...26S'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ATCA' : [3300.0e-6],
@@ -239,7 +239,6 @@ def src_localDB(localDB):
             'SAAO' : [364e-9,442e-9,540e-9,647e-9,786.5e-9],
             'MKII' : [1.25e-6,1.60e-6,2.18e-6,3.54e-6],
             'UKIRT' : [1.25e-6,1.65e-6,2.20e-6,3.45e-6],
-            'SCUBA2' : [850.0e-6,450.0e-6],
             'VLA2' : [20000e-6,36000e-6,60000e-6,200000e-6],
             'ESO' : [1.23e-6,1.63e-6,2.19e-6,3.79e-6,4.64e-6,9.69e-6,8.38e-6,12.89e-6],
             'ALMA3' : [1300e-6],
@@ -340,7 +339,8 @@ def src_localDB(localDB):
             'VLAPdBI3' : [6920e-6,2600e-6,1300e-6],
             'VARIOUS1' : [870e-6,1300e-6,2800e-6,7000e-6],
             'VARIOUS4' : [870e-6,1300e-6,2700e-6,13400e-6,35700e-6],
-            'JCMT1' : [450.0e-6,850.0e-6]}
+            'JCMT1' : [450.0e-6,850.0e-6],
+            'JCMT2' : [850.0e-6,450.0e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -350,7 +350,6 @@ def src_localDB(localDB):
             'SAAO' : [0.18,0.22,0.27,0.33,0.40],
             'MKII' : [0.42,0.54,0.73,1.19],
             'UKIRT' : [0.08,0.11,0.15,0.23],
-            'SCUBA2' : [7.8,13.8],
             'VLA2' : [2.0,1.0,5.0,20.0],
             'ESO' : [0.31,0.41,0.55,0.95,1.17,2.44,2.11,3.24],
             'ALMA3' : [1.0],
@@ -451,7 +450,8 @@ def src_localDB(localDB):
             'VLAPdBI3' : [2.2,4.0,1.7],
             'VARIOUS1' : [3.14,1.95,3.3,1.71],
             'VARIOUS4' : [0.85,0.45,0.91,0.33,0.91],
-            'JCMT1' : [7.8,13.8]}
+            'JCMT1' : [7.8,13.8],
+            'JCMT2' : [13.8,7.8]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ATCA' : ['F3300'],
@@ -460,7 +460,6 @@ def src_localDB(localDB):
             'SAAO' : ['Umag','Bmag','Vmag','Rcmag','Icmag'],
             'MKII' : ['Jmag','Hmag','Kmag','Lmag'],
             'UKIRT' : ['Jmag','Hmag','Kmag','Lmag'],
-            'SCUBA2' : ['F850','F450'],
             'VLA2' : ['S2cm','S3.6cm','S6cm','S20cm'],
             'ESO' : ['Jmag','Hmag','Kmag','Lmag','Mmag','N2mag','N1mag','N3mag'],
             'ALMA3' : ['F1300'],
@@ -561,7 +560,8 @@ def src_localDB(localDB):
             'VLAPdBI3' : ['F6920','F2600','F1300'],
             'VARIOUS1' : ['F870','F1300','F2800','F7000'],
             'VARIOUS4' : ['F870','F1300','F2700','F13400','F35700'],
-            'JCMT1' : ['F450','F850']}
+            'JCMT1' : ['F450','F850'],
+            'JCMT2' : ['F850','F450']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ATCA' : ['e_F3300'],
@@ -570,7 +570,6 @@ def src_localDB(localDB):
             'SAAO' : ['eUmag','eBmag','eVmag','eRcmag','eIcmag'],
             'MKII' : ['eJmag','eHmag','eKmag','eLmag'],
             'UKIRT' : ['eJmag','eHmag','eKmag','eLmag'],
-            'SCUBA2' : ['e_F850','e_F450'],
             'VLA2' : ['e_S2cm','e_S3.6cm','e_S6cm','e_S20cm'],
             'ESO' : ['eJmag','eHmag','eKmag','eLmag','eMmag','eN2mag','eN1mag','eN3mag'],
             'ALMA3' : ['e_F1300'],
@@ -671,7 +670,8 @@ def src_localDB(localDB):
             'VLAPdBI3' : ['eF6920','eF2600','eF1300'],
             'VARIOUS1' : ['e_F870','e_F1300','e_F2800','e_F7000'],
             'VARIOUS4' : ['eF870','eF1300','eF2700','eF13400','eF35700'],
-            'JCMT1' : ['e_F450','e_F850']}
+            'JCMT1' : ['e_F450','e_F850'],
+            'JCMT2' : ['e_F850','e_F450']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ATCA' : ['mJy'],
@@ -680,7 +680,6 @@ def src_localDB(localDB):
             'SAAO' : ['mag','mag','mag','mag','mag'],
             'MKII' : ['mag','mag','mag','mag'],
             'UKIRT' : ['mag','mag','mag','mag'],
-            'SCUBA2' : ['mJy','mJy'],
             'VLA2' : ['mJy','mJy','mJy','mJy'],
             'ESO' : ['mag','mag','mag','mag','mag','mag','mag','mag'],
             'ALMA3' : ['mJy'],
@@ -781,7 +780,8 @@ def src_localDB(localDB):
             'VLAPdBI3' : ['mJy','mJy','mJy'],
             'VARIOUS1' : ['mJy','mJy','mJy','mJy'],
             'VARIOUS4' : ['mJy','mJy','mJy','mJy','mJy'],
-            'JCMT1' : ['Jy','Jy']}
+            'JCMT1' : ['Jy','Jy'],
+            'JCMT2' : ['mJy','mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -791,7 +791,6 @@ def src_localDB(localDB):
             'SAAO' : ['Johnson:U','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic'],
             'MKII' : ['Johnson:J','Johnson:H','Johnson:K','Johnson:L'],
             'UKIRT' : ['UKIRT:J','UKIRT:H','UKIRT:K','UKIRT:L'],
-            'SCUBA2' : ['SCUBA:450','SCUBA:850'],
             'VLA2' : ['VLA:F2cm','VLA:F3.6cm','VLA:F6cm','VLA:F20cm'],
             'ESO' : ['ESO:J','ESO:H','ESO:K','ESO:L','ESO:M','ESO:N2','ESO:N1','ESO:N3'],
             'ALMA3' : ['ALMA:F1300'],
@@ -892,7 +891,8 @@ def src_localDB(localDB):
             'VLAPdBI3' : ['VLA:F6920','IRAM:PdBI:F2600','IRAM:PdBI:F1300'],
             'VARIOUS1' : ['SMA:F870','PdBI:F1300','PdBI:F2800','VLA:F7000'],
             'VARIOUS4' : ['SMA:F870','IRAM:PdBI:F1300','IRAM:PdBI:F2700','VLA:F13400','VLA:F35700'],
-            'JCMT1' : ['JCMT:SCUBA:F450','JCMT:SCUBA:F850']}
+            'JCMT1' : ['JCMT:SCUBA:F450','JCMT:SCUBA:F850'],
+            'JCMT2' : ['JCMT:SCUBA:F850','JCMT:SCUBA:F450']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
