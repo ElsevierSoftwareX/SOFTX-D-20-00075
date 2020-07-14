@@ -112,7 +112,8 @@ def src_localDB(localDB):
             'JCMT2' : localDB+'/database/jcmt_sandell.csv',
             'JCMT4' : localDB+'/database/ukt14_phot.csv',
             'JCMT5' : localDB+'/database/ukt14_phot2.csv',
-            'JCMT6' : localDB+'/database/ukt14_phot3.csv'}
+            'JCMT6' : localDB+'/database/ukt14_phot3.csv',
+            'JCMT7' : localDB+'/database/ukt14_jensen.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -228,7 +229,8 @@ def src_localDB(localDB):
             'JCMT2' : '2011ApJ...727...26S',
             'JCMT4' : '1994MNRAS.267..361M',
             'JCMT5' : '1996MNRAS.279..915S',
-            'JCMT6' : '1998MNRAS.301.1049D'}
+            'JCMT6' : '1998MNRAS.301.1049D',
+            'JCMT7' : '1996ApJ...458..312J'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ATCA' : [3300.0e-6],
@@ -337,7 +339,8 @@ def src_localDB(localDB):
             'JCMT2' : [850.0e-6,450.0e-6],
             'JCMT4' : [2000e-6,1300e-6,1100e-6,850e-6,800e-6,600e-6,450e-6,350e-6],
             'JCMT5' : [0.00045,0.0008,0.0011,0.0013,0.002],
-            'JCMT6' : [1100e-6,800e-6,450e-6,350e-6]}
+            'JCMT6' : [1100e-6,800e-6,450e-6,350e-6],
+            'JCMT7' : [1100e-6,800e-6,450e-6,350e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -447,7 +450,8 @@ def src_localDB(localDB):
             'JCMT2' : [13.8,7.8],
             'JCMT4' : [27.5,19.5,18.5,17.8,16.8,17.5,17.5,18.5],
             'JCMT5' : [17.5,16.8,18.5,19.5,27.5],
-            'JCMT6' : [18.5,16.8,17.5,18.5]}
+            'JCMT6' : [18.5,16.8,17.5,18.5],
+            'JCMT7' : [18.5,16.8,17.5,18.5]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ATCA' : ['F3300'],
@@ -556,7 +560,8 @@ def src_localDB(localDB):
             'JCMT2' : ['F850','F450'],
             'JCMT4' : ['F2000','F1300','F1100','F850','F800','F600','F450','F350'],
             'JCMT5' : ['F450','F800','F1100','F1300','F2000'],
-            'JCMT6' : ['F1100','F800','F450','F350']}
+            'JCMT6' : ['F1100','F800','F450','F350'],
+            'JCMT7' : ['F1100','F800','F450','F350']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ATCA' : ['e_F3300'],
@@ -665,7 +670,8 @@ def src_localDB(localDB):
             'JCMT2' : ['e_F850','e_F450'],
             'JCMT4' : ['e_F2000','e_F1300','e_F1100','e_F850','e_F800','e_F600','e_F450','e_F350'],
             'JCMT5' : ['e_F450','e_F800','e_F1100','e_F1300','e_F2000'],
-            'JCMT6' : ['e_F1100','e_F800','e_F450','e_F350']}
+            'JCMT6' : ['e_F1100','e_F800','e_F450','e_F350'],
+            'JCMT7' : ['eF1100','eF800','eF450','eF350']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ATCA' : ['mJy'],
@@ -774,7 +780,8 @@ def src_localDB(localDB):
             'JCMT2' : ['mJy','mJy'],
             'JCMT4' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy'],
             'JCMT5' : ['mJy','mJy','mJy','mJy','mJy'],
-            'JCMT6' : ['Jy','Jy','Jy','Jy']}
+            'JCMT6' : ['Jy','Jy','Jy','Jy'],
+            'JCMT7' : ['mJy','mJy','mJy','mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -884,7 +891,8 @@ def src_localDB(localDB):
             'JCMT2' : ['JCMT:SCUBA:F850','JCMT:SCUBA:F450'],
             'JCMT4' : ['JCMT:UKT14:F2000','JCMT:UKT14:F1300','JCMT:UKT14:F1100','JCMT:UKT14:F850','JCMT:UKT14:F800','JCMT:UKT14:F600','JCMT:UKT14:F450','JCMT:UKT14:F350'],
             'JCMT5' : ['JCMT:UKT14:F450','JCMT:UKT14:F800','JCMT:UKT14:F1100','JCMT:UKT14:F1300','JCMT:UKT14:F2000'],
-            'JCMT6' : ['JCMT:UKT14:F1100','JCMT:UKT14:F800','JCMT:UKT14:F450','JCMT:UKT14:F350']}
+            'JCMT6' : ['JCMT:UKT14:F1100','JCMT:UKT14:F800','JCMT:UKT14:F450','JCMT:UKT14:F350'],
+            'JCMT7' : ['JCMT:UKT14:F1100','JCMT:UKT14:F800','JCMT:UKT14:F450','JCMT:UKT14:F350']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
