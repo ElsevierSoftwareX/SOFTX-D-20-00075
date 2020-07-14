@@ -55,7 +55,6 @@ def src_localDB(localDB):
             'SPITZER4' : localDB+'/database/spitzer_currie.csv',
             'DUCATI' : localDB+'/database/johnson_ducati.csv',
             'RADIO' : localDB+'/database/radio_altenhoff.csv',
-            'SMA7' : localDB+'/database/sma_andrews3.csv',
             'VLA3' : localDB+'/database/vla_ribas.csv',
             'MIRLIN' : localDB+'/database/keck_mirlin_koerner.csv',
             'ALMA32' : localDB+'/database/alma_ansdell.csv',
@@ -113,7 +112,8 @@ def src_localDB(localDB):
             'SMA3' : localDB+'/database/sma_andrews09.csv',
             'SMA4' : localDB+'/database/sma_oberg.csv',
             'SMA5' : localDB+'/database/sma_tripathi.csv',
-            'SMA6' : localDB+'/database/sma_andrews2.csv'}
+            'SMA6' : localDB+'/database/sma_andrews2.csv',
+            'SMA7' : localDB+'/database/sma_andrews3.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -172,7 +172,6 @@ def src_localDB(localDB):
             'SPITZER4' : '2011ApJ...732...24C',
             'DUCATI' : '2002yCat.2237....0D',
             'RADIO' : '1976A&A....46...11A',
-            'SMA7' : '2011ApJ...732...42A',
             'VLA3' : '2018ApJ...865...77R',
             'MIRLIN' : '2000ApJ...533L..37K',
             'ALMA32' : '2018ApJ...859...21A',
@@ -230,7 +229,8 @@ def src_localDB(localDB):
             'SMA3' : '2010ApJ...723.1241A',
             'SMA4' : '2011ApJ...734...98O',
             'SMA5' : '2017ApJ...845...44T',
-            'SMA6' : '2010ApJ...710..462A'}
+            'SMA6' : '2010ApJ...710..462A',
+            'SMA7' : '2011ApJ...732...42A'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ALMA2' : [890.0e-6],
@@ -282,7 +282,6 @@ def src_localDB(localDB):
             'SPITZER4' : [3.6e-6,4.5e-6,5.8e-6,8.0e-6,24e-6],
             'DUCATI' : [0.55e-6,0.36e-6,0.44e-6,0.71e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6,3.54e-6,4.80e-6,10.6e-6],
             'RADIO' : [28044.2e-6,59958.5e-6,214137.5e-6],
-            'SMA7' : [880e-6],
             'VLA3' : [8820e-6,49600e-6],
             'MIRLIN' : [4.68e-6,7.91e-6,8.81e-6,9.69e-6,10.27e-6,11.70e-6,12.49e-6,17.93e-6,20.81e-6,24.48e-6],
             'ALMA32' : [1330e-6],
@@ -340,7 +339,8 @@ def src_localDB(localDB):
             'SMA3' : [880e-6],
             'SMA4' : [1375e-6,1123e-6],
             'SMA5' : [880e-6],
-            'SMA6' : [880e-6]}
+            'SMA6' : [880e-6],
+            'SMA7' : [880e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -393,7 +393,6 @@ def src_localDB(localDB):
             'SPITZER4' : [1.07,1.33,1.72,2.37,7.11],
             'DUCATI' : [5,5,5,5,5,5,5,5,5,5,5],
             'RADIO' : [10,10,10],
-            'SMA7' : [1.0],
             'VLA3' : [10.0,10.0],
             'MIRLIN' : [10,10,10,10,10,10,10,10,10,10],
             'ALMA32' : [0.5],
@@ -451,7 +450,8 @@ def src_localDB(localDB):
             'SMA3' : [1.0],
             'SMA4' : [5.5,6.6],
             'SMA5' : [1.7],
-            'SMA6' : [4.0]}
+            'SMA6' : [4.0],
+            'SMA7' : [0.8]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ALMA2' : ['F890'],
@@ -503,7 +503,6 @@ def src_localDB(localDB):
             'SPITZER4' : ['F3.6','F4.5','F5.8','F8.0','F24'],
             'DUCATI' : ['V','U','B','R','I','J','H','K','L','M','N'],
             'RADIO' : ['F28000','F60000','F210000'],
-            'SMA7' : ['F880'],
             'VLA3' : ['F8820','F49600'],
             'MIRLIN' : ['F1','F2','F3','F4','F5','F6','F7','F8','F9','F10'],
             'ALMA32' : ['F1330'],
@@ -561,7 +560,8 @@ def src_localDB(localDB):
             'SMA3' : ['F880'],
             'SMA4' : ['F1375','F1123'],
             'SMA5' : ['F880'],
-            'SMA6' : ['F880']}
+            'SMA6' : ['F880'],
+            'SMA7' : ['F880']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ALMA2' : ['e_F890'],
@@ -613,7 +613,6 @@ def src_localDB(localDB):
             'SPITZER4' : ['eF3.6','eF4.5','eF5.8','eF8.0','eF24'],
             'DUCATI' : ['eV','eU','eB','eR','eI','eJ','eH','eK','eL','eM','eN'],
             'RADIO' : ['eF28000','eF60000','eF210000'],
-            'SMA7' : ['eF880'],
             'VLA3' : ['eF8820','eF49600'],
             'MIRLIN' : ['eF1','eF2','eF3','eF4','eF5','eF6','eF7','eF8','eF9','eF10'],
             'ALMA32' : ['eF1330'],
@@ -671,7 +670,8 @@ def src_localDB(localDB):
             'SMA3' : ['e_F880'],
             'SMA4' : ['e_F1375','e_F1123'],
             'SMA5' : ['e_F880'],
-            'SMA6' : ['eF880']}
+            'SMA6' : ['eF880'],
+            'SMA7' : ['eF880']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ALMA2' : ['mJy'],
@@ -723,7 +723,6 @@ def src_localDB(localDB):
             'SPITZER4' : ['mag','mag','mag','mag','mag'],
             'DUCATI' : ['mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','mag'],
             'RADIO' : ['mJy','mJy','mJy'],
-            'SMA7' : ['Jy'],
             'VLA3' : ['mJy','mJy'],
             'MIRLIN' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy'],
             'ALMA32' : ['mJy'],
@@ -781,7 +780,8 @@ def src_localDB(localDB):
             'SMA3' : ['mJy'],
             'SMA4' : ['mJy','mJy'],
             'SMA5' : ['Jy'],
-            'SMA6' : ['mJy']}
+            'SMA6' : ['mJy'],
+            'SMA7' : ['Jy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -834,7 +834,6 @@ def src_localDB(localDB):
             'SPITZER4' : ['SPITZER:I1','SPITZER:I2','SPITZER:I3','SPITZER:I4','SPITZER:M1'],
             'DUCATI' : ['Johnson:V','Johnson:U','Johnson:B','Cousins:Rc','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K','Johnson:L','Johnson:M','Johnson:N'],
             'RADIO' : ['Radio:10.69GHz','Radio:5GHz','Radio:1.4GHz'],
-            'SMA7' : ['SMA:F880'],
             'VLA3' : ['VLA:F8820','VLA:F49600'],
             'MIRLIN' : ['MIRLIN:F1','MIRLIN:F2','MIRLIN:F3','MIRLIN:F4','MIRLIN:F5','MIRLIN:F6','MIRLIN:F7','MIRLIN:F8','MIRLIN:F9','MIRLIN:F10'],
             'ALMA32' : ['ALMA:F1330'],
@@ -892,7 +891,8 @@ def src_localDB(localDB):
             'SMA3' : ['SMA:F880'],
             'SMA4' : ['SMA:F1375','SMA:F1123'],
             'SMA5' : ['SMA:F880'],
-            'SMA6' : ['SMA:F880']}
+            'SMA6' : ['SMA:F880'],
+            'SMA7' : ['SMA:F880']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 

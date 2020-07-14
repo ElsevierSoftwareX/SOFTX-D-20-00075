@@ -1,13 +1,13 @@
-Target,F880,eF880
-EM* MWC 758,0.18,--
-SAO 206462,0.62,--
-EM* LkHa 330,0.21,--
-EM* SR 21,0.40,--
-V* UX Tau A,0.15,--
-EM* SR 24S,0.55,--
-DoAr 44,0.21,--
-EM* LkCa 15,0.41,--
-RX J1615.3-3255,0.43,--
-V* GM Aur,0.64,--
-V* DM Tau,0.21,--
-WSB 60,0.25
+Target,F880,eF880,ObsDate
+EM* MWC 758,0.18,--,averaged
+SAO 206462,0.62,--,averaged
+EM* LkHA 330,0.21,--,averaged
+EM* SR 21,0.40,--,averaged
+V* UX Tau A,0.15,--,averaged
+EM* SR 24S,0.55,--,averaged
+DoAr 44,0.21,--,averaged
+EM* LkCa 15,0.41,--,averaged
+RX J1615.3-3255,0.43,--,averaged
+V* GM Aur,0.64,--,averaged
+V* DM Tau,0.21,--,averaged
+WSB 60,0.25,--,averaged
