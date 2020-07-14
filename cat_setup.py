@@ -18,7 +18,6 @@ def src_localDB(localDB):
             'ALMA4' : localDB+'/database/alma_vdmarel.csv',
             'ALMA5' : localDB+'/database/alma_pinilla.csv',
             'CTIO' : localDB+'/database/lupus_phot.csv',
-            'UKT14' : localDB+'/database/ukt14_phot.csv',
             'UKT142' : localDB+'/database/ukt14_phot2.csv',
             'OVRO' : localDB+'/database/ovro_mm.csv',
             'UKT143' : localDB+'/database/ukt14_phot3.csv',
@@ -113,7 +112,8 @@ def src_localDB(localDB):
             'VARIOUS1' : localDB+'/database/mm_isella.csv',
             'VARIOUS4' : localDB+'/database/mm_banzatti.csv',
             'JCMT1' : localDB+'/database/jcmt_sheret.csv',
-            'JCMT2' : localDB+'/database/jcmt_sandell.csv'}
+            'JCMT2' : localDB+'/database/jcmt_sandell.csv',
+            'JCMT4' : localDB+'/database/ukt14_phot.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -135,7 +135,6 @@ def src_localDB(localDB):
             'ALMA4' : '2018ApJ...854..177V',
             'ALMA5' : '2018ApJ...859...32P',
             'CTIO' : '1994AJ....108.1071H',
-            'UKT14' : '1994MNRAS.267..361M',
             'UKT142' : '1996MNRAS.279..915S',
             'OVRO' : '1997ApJ...490..792M',
             'UKT143' : '1998MNRAS.301.1049D',
@@ -230,7 +229,8 @@ def src_localDB(localDB):
             'VARIOUS1' : '2007A&A...469..213I',
             'VARIOUS4' : '2011A&A...525A..12B',
             'JCMT1' : '2004MNRAS.348.1282S',
-            'JCMT2' : '2011ApJ...727...26S'}
+            'JCMT2' : '2011ApJ...727...26S',
+            'JCMT4' : '1994MNRAS.267..361M'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ATCA' : [3300.0e-6],
@@ -245,7 +245,6 @@ def src_localDB(localDB):
             'ALMA4' : [890.0e-6],
             'ALMA5' : [890e-6,880e-6,850e-6,1300e-6,435e-6],
             'CTIO' : [0.44e-6,0.55e-6,0.71e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6,3.54e-6,4.80e-6],
-            'UKT14' : [2000e-6,1300e-6,1100e-6,850e-6,800e-6,600e-6,450e-6,350e-6],
             'UKT142' : [0.00045,0.0008,0.0011,0.0013,0.002],
             'OVRO' : [1300e-6,2600e-6,2700e-6],
             'UKT143' : [1100e-6,800e-6,450e-6,350e-6],
@@ -340,7 +339,8 @@ def src_localDB(localDB):
             'VARIOUS1' : [870e-6,1300e-6,2800e-6,7000e-6],
             'VARIOUS4' : [870e-6,1300e-6,2700e-6,13400e-6,35700e-6],
             'JCMT1' : [450.0e-6,850.0e-6],
-            'JCMT2' : [850.0e-6,450.0e-6]}
+            'JCMT2' : [850.0e-6,450.0e-6],
+            'JCMT4' : [2000e-6,1300e-6,1100e-6,850e-6,800e-6,600e-6,450e-6,350e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -356,7 +356,6 @@ def src_localDB(localDB):
             'ALMA4' : [1.0],
             'ALMA5' : [1.0,1.0,1.0,1.0,1.0],
             'CTIO' : [0.11,0.14,0.18,0.20,0.13,0.16,0.22,0.36,0.48],
-            'UKT14' : [27.5,19.5,18.5,17.8,16.8,17.5,17.5,18.5],
             'UKT142' : [17.5,16.8,18.5,19.5,27.5],
             'OVRO' : [5,5,5],
             'UKT143' : [18.5,16.8,17.5,18.5],
@@ -451,7 +450,8 @@ def src_localDB(localDB):
             'VARIOUS1' : [3.14,1.95,3.3,1.71],
             'VARIOUS4' : [0.85,0.45,0.91,0.33,0.91],
             'JCMT1' : [7.8,13.8],
-            'JCMT2' : [13.8,7.8]}
+            'JCMT2' : [13.8,7.8],
+            'JCMT4' : [27.5,19.5,18.5,17.8,16.8,17.5,17.5,18.5]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ATCA' : ['F3300'],
@@ -466,7 +466,6 @@ def src_localDB(localDB):
             'ALMA4' : ['F890'],
             'ALMA5' : ['F890','F880','F850','F1300','F435'],
             'CTIO' : ['Bmag','Vmag','Rmag','Imag','Jmag','Hmag','Kmag','Lmag','Mmag'],
-            'UKT14' : ['F2000','F1300','F1100','F850','F800','F600','F450','F350'],
             'UKT142' : ['F450','F800','F1100','F1300','F2000'],
             'OVRO' : ['F1300','F2600','F2700'],
             'UKT143' : ['F1100','F800','F450','F350'],
@@ -561,7 +560,8 @@ def src_localDB(localDB):
             'VARIOUS1' : ['F870','F1300','F2800','F7000'],
             'VARIOUS4' : ['F870','F1300','F2700','F13400','F35700'],
             'JCMT1' : ['F450','F850'],
-            'JCMT2' : ['F850','F450']}
+            'JCMT2' : ['F850','F450'],
+            'JCMT4' : ['F2000','F1300','F1100','F850','F800','F600','F450','F350']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ATCA' : ['e_F3300'],
@@ -576,7 +576,6 @@ def src_localDB(localDB):
             'ALMA4' : ['e_F890'],
             'ALMA5' : ['e_F890','e_F880','e_F850','e_F1300','e_F435'],
             'CTIO' : ['eBmag','eVmag','eRmag','eImag','eJmag','eHmag','eKmag','eLmag','eMmag'],
-            'UKT14' : ['e_F2000','e_F1300','e_F1100','e_F850','e_F800','e_F600','e_F450','e_F350'],
             'UKT142' : ['e_F450','e_F800','e_F1100','e_F1300','e_F2000'],
             'OVRO' : ['e_F1300','e_F2600','e_F2700'],
             'UKT143' : ['e_F1100','e_F800','e_F450','e_F350'],
@@ -671,7 +670,8 @@ def src_localDB(localDB):
             'VARIOUS1' : ['e_F870','e_F1300','e_F2800','e_F7000'],
             'VARIOUS4' : ['eF870','eF1300','eF2700','eF13400','eF35700'],
             'JCMT1' : ['e_F450','e_F850'],
-            'JCMT2' : ['e_F850','e_F450']}
+            'JCMT2' : ['e_F850','e_F450'],
+            'JCMT4' : ['e_F2000','e_F1300','e_F1100','e_F850','e_F800','e_F600','e_F450','e_F350']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ATCA' : ['mJy'],
@@ -686,7 +686,6 @@ def src_localDB(localDB):
             'ALMA4' : ['mJy'],
             'ALMA5' : ['mJy','mJy','mJy','mJy','mJy'],
             'CTIO' : ['mag','mag','mag','mag','mag','mag','mag','mag','mag'],
-            'UKT14' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy'],
             'UKT142' : ['mJy','mJy','mJy','mJy','mJy'],
             'OVRO' : ['mJy','mJy','mJy'],
             'UKT143' : ['Jy','Jy','Jy','Jy'],
@@ -781,7 +780,8 @@ def src_localDB(localDB):
             'VARIOUS1' : ['mJy','mJy','mJy','mJy'],
             'VARIOUS4' : ['mJy','mJy','mJy','mJy','mJy'],
             'JCMT1' : ['Jy','Jy'],
-            'JCMT2' : ['mJy','mJy']}
+            'JCMT2' : ['mJy','mJy'],
+            'JCMT4' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -797,7 +797,6 @@ def src_localDB(localDB):
             'ALMA4' : ['ALMA:F890'],
             'ALMA5' : ['ALMA:F890','ALMA:F880','ALMA:F850','ALMA:F1300','ALMA:F435'],
             'CTIO' : ['Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K','Johnson:L','Johnson:M'],
-            'UKT14' : ['UKT14:F2000','UKT14:F1300','UKT14:F1100','UKT14:F850','UKT14:F800','UKT14:F600','UKT14:F450','UKT14:350'],
             'UKT142' : ['UKT14:F450','UKT14:F800','UKT14:F1100','UKT14:F1300','UKT14:F2000'],
             'OVRO' : ['OVRO:F1300','OVRO:F2600','OVRO:F2700'],
             'UKT143' : ['UKT14:F1100','UKT14:F800','UKT14:F450','UKT14:350'],
@@ -892,7 +891,8 @@ def src_localDB(localDB):
             'VARIOUS1' : ['SMA:F870','PdBI:F1300','PdBI:F2800','VLA:F7000'],
             'VARIOUS4' : ['SMA:F870','IRAM:PdBI:F1300','IRAM:PdBI:F2700','VLA:F13400','VLA:F35700'],
             'JCMT1' : ['JCMT:SCUBA:F450','JCMT:SCUBA:F850'],
-            'JCMT2' : ['JCMT:SCUBA:F850','JCMT:SCUBA:F450']}
+            'JCMT2' : ['JCMT:SCUBA:F850','JCMT:SCUBA:F450'],
+            'JCMT4' : ['JCMT:UKT14:F2000','JCMT:UKT14:F1300','JCMT:UKT14:F1100','JCMT:UKT14:F850','JCMT:UKT14:F800','JCMT:UKT14:F600','JCMT:UKT14:F450','JCMT:UKT14:F350']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
