@@ -25,7 +25,6 @@ def src_localDB(localDB):
             'MCDO' : localDB+'/database/mcdo_opt_padgett.csv',
             'TIMESERIES' : localDB+'/database/grankin_time_series.txt',
             'SMA' : localDB+'/database/sma_lommen.csv',
-            'ATCA3' : localDB+'/database/atca_lommen2.csv',
             'SMA2' : localDB+'/database/sma_andrews.csv',
             'CARMA' : localDB+'/database/carma_isella.csv',
             'SMA3' : localDB+'/database/sma_andrews09.csv',
@@ -113,7 +112,8 @@ def src_localDB(localDB):
             'JCMT6' : localDB+'/database/ukt14_phot3.csv',
             'JCMT7' : localDB+'/database/ukt14_jensen.csv',
             'ATCA' : localDB+'/database/atca_ricci.csv',
-            'ATCA2' : localDB+'/database/atca_lommen.csv'}
+            'ATCA2' : localDB+'/database/atca_lommen.csv',
+            'ATCA3' : localDB+'/database/atca_lommen2.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -142,7 +142,6 @@ def src_localDB(localDB):
             'MCDO' : '2006ApJ...645.1283P',
             'TIMESERIES' : '2007A&A...461..183G',
             'SMA' : '2007A&A...462..211L',
-            'ATCA3' : '2009A&A...495..869L',
             'SMA2' : '2009ApJ...700.1502A',
             'CARMA' : '2009ApJ...701..260I',
             'SMA3' : '2010ApJ...723.1241A',
@@ -230,7 +229,8 @@ def src_localDB(localDB):
             'JCMT6' : '1998MNRAS.301.1049D',
             'JCMT7' : '1996ApJ...458..312J',
             'ATCA' : '2010A&A...521A..66R',
-            'ATCA2' : '2007A&A...462..211L'}
+            'ATCA2' : '2007A&A...462..211L',
+            'ATCA3' : '2009A&A...495..869L'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ALMA2' : [890.0e-6],
@@ -252,7 +252,6 @@ def src_localDB(localDB):
             'MCDO' : [0.55e-6,0.71e-6,0.79e-6],
             'TIMESERIES' : [0.55e-6],
             'SMA' : [1400e-6],
-            'ATCA3' : [6700e-6,7000e-6,7300e-6,16100e-6,16200e-6,15400e-6,34700e-6,62500e-6],
             'SMA2' : [859e-6,882e-6,865e-6,869e-6,883e-6],
             'CARMA' : [1300e-6],
             'SMA3' : [880e-6],
@@ -340,7 +339,8 @@ def src_localDB(localDB):
             'JCMT6' : [1100e-6,800e-6,450e-6,350e-6],
             'JCMT7' : [1100e-6,800e-6,450e-6,350e-6],
             'ATCA' : [3.2944e-3],
-            'ATCA2' : [3.2944e-3]}
+            'ATCA2' : [3.2944e-3],
+            'ATCA3' : [6700e-6,7000e-6,7300e-6,16100e-6,16200e-6,15400e-6,34700e-6,62500e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -363,7 +363,6 @@ def src_localDB(localDB):
             'MCDO' : [0.17,0.22,0.25],
             'TIMESERIES' : [0.1],
             'SMA' : [1.5],
-            'ATCA3' : [20,20,20,20,20,20,20,20],
             'SMA2' : [0.5,0.5,0.5,0.5,0.5],
             'CARMA' : [1.0],
             'SMA3' : [1.0],
@@ -451,7 +450,8 @@ def src_localDB(localDB):
             'JCMT6' : [18.5,16.8,17.5,18.5],
             'JCMT7' : [18.5,16.8,17.5,18.5],
             'ATCA' : [7],
-            'ATCA2' : [35]}
+            'ATCA2' : [35],
+            'ATCA3' : [11,11,19,38,38,14,71,125]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ALMA2' : ['F890'],
@@ -473,7 +473,6 @@ def src_localDB(localDB):
             'MCDO' : ['V','R','I'],
             'TIMESERIES' : ['V'],
             'SMA' : ['F1400'],
-            'ATCA3' : ['F6700','F7000','F7300','F16100','F16200','F15400','F34700','F62500'],
             'SMA2' : ['F859','F882','F865','F869','F883'],
             'CARMA' : ['F1300'],
             'SMA3' : ['F880'],
@@ -561,7 +560,8 @@ def src_localDB(localDB):
             'JCMT6' : ['F1100','F800','F450','F350'],
             'JCMT7' : ['F1100','F800','F450','F350'],
             'ATCA' : ['F3300'],
-            'ATCA2' : ['F3300']}
+            'ATCA2' : ['F3300'],
+            'ATCA3' : ['F6700','F7000','F7300','F16100','F16200','F15400','F34700','F62500']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ALMA2' : ['e_F890'],
@@ -583,7 +583,6 @@ def src_localDB(localDB):
             'MCDO' : ['e_V','e_R','e_I'],
             'TIMESERIES' : ['e_V'],
             'SMA' : ['rms'],
-            'ATCA3' : ['e_F6700','e_F7000','e_F7300','e_F16100','e_F16200','e_F15400','e_F34700','e_F62500'],
             'SMA2' : ['e_F859','e_F882','e_F865','e_F869','e_F883'],
             'CARMA' : ['e_F1300'],
             'SMA3' : ['e_F880'],
@@ -671,7 +670,8 @@ def src_localDB(localDB):
             'JCMT6' : ['e_F1100','e_F800','e_F450','e_F350'],
             'JCMT7' : ['eF1100','eF800','eF450','eF350'],
             'ATCA' : ['e_F3300'],
-            'ATCA2' : ['eF3300']}
+            'ATCA2' : ['eF3300'],
+            'ATCA3' : ['e_F6700','e_F7000','e_F7300','e_F16100','e_F16200','e_F15400','e_F34700','e_F62500']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ALMA2' : ['mJy'],
@@ -693,7 +693,6 @@ def src_localDB(localDB):
             'MCDO' : ['mag','mag','mag'],
             'TIMESERIES' : ['mag'],
             'SMA' : ['mJy'],
-            'ATCA3' : ['mJy','mJy','mJy','mJy','mJy','mJy','mJy','mJy'],
             'SMA2' : ['mJy','mJy','mJy','mJy','mJy'],
             'CARMA' : ['mJy'],
             'SMA3' : ['mJy'],
@@ -781,7 +780,8 @@ def src_localDB(localDB):
             'JCMT6' : ['Jy','Jy','Jy','Jy'],
             'JCMT7' : ['mJy','mJy','mJy','mJy'],
             'ATCA' : ['mJy'],
-            'ATCA2' : ['mJy']}
+            'ATCA2' : ['mJy'],
+            'ATCA3' : ['mJy','mJy','mJy','mJy','mJy','mJy','mJy','mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -804,7 +804,6 @@ def src_localDB(localDB):
             'MCDO' : ['Johnson:V','Cousins:Rc','Cousins:Ic'],
             'TIMESERIES' : ['Johnson:V'],
             'SMA' : ['ATCA:F1400'],
-            'ATCA3' : ['ATCA:F6700','ATCA:F7000','ATCA:F7300','ATCA:F16100','ATCA:F16200','ATCA:F15400','ATCA:F34700','ATCA:F62500'],
             'SMA2' : ['SMA:F859','SMA:F882','SMA:F865','SMA:F869','SMA:F883'],
             'CARMA' : ['CARMA:F1300'],
             'SMA3' : ['SMA:F880'],
@@ -892,7 +891,8 @@ def src_localDB(localDB):
             'JCMT6' : ['JCMT:UKT14:F1100','JCMT:UKT14:F800','JCMT:UKT14:F450','JCMT:UKT14:F350'],
             'JCMT7' : ['JCMT:UKT14:F1100','JCMT:UKT14:F800','JCMT:UKT14:F450','JCMT:UKT14:F350'],
             'ATCA' : ['ATCA:F3300'],
-            'ATCA2' : ['ATCA:F3300']}
+            'ATCA2' : ['ATCA:F3300'],
+            'ATCA3' : ['ATCA:F6700','ATCA:F7000','ATCA:F7300','ATCA:F16100','ATCA:F16200','ATCA:F15400','ATCA:F34700','ATCA:F62500']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
