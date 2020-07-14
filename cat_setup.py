@@ -33,7 +33,6 @@ def src_localDB(localDB):
             'ALMA10' : localDB+'/database/alma_cleeves.csv',
             'ALMA11' : localDB+'/database/alma_huang2.csv',
             'ALMA12' : localDB+'/database/alma_cleeves2.csv',
-            'SMA5' : localDB+'/database/sma_tripathi.csv',
             'ALMA13' : localDB+'/database/alma_cox.csv',
             'ALMA14' : localDB+'/database/alma_cieza.csv',
             'ALMA15' : localDB+'/database/alma_cieza2.csv',
@@ -113,7 +112,8 @@ def src_localDB(localDB):
             'SMA' : localDB+'/database/sma_lommen.csv',
             'SMA2' : localDB+'/database/sma_andrews.csv',
             'SMA3' : localDB+'/database/sma_andrews09.csv',
-            'SMA4' : localDB+'/database/sma_oberg.csv'}
+            'SMA4' : localDB+'/database/sma_oberg.csv',
+            'SMA5' : localDB+'/database/sma_tripathi.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -150,7 +150,6 @@ def src_localDB(localDB):
             'ALMA10' : '2016ApJ...832..110C',
             'ALMA11' : '2017ApJ...835..231H',
             'ALMA12' : '2017ApJ...843L...3C',
-            'SMA5' : '2017ApJ...845...44T',
             'ALMA13' : '2017ApJ...851...83C',
             'ALMA14' : '2018MNRAS.474.4347C',
             'ALMA15' : '2019MNRAS.482..698C',
@@ -230,7 +229,8 @@ def src_localDB(localDB):
             'SMA' : '2007A&A...462..211L',
             'SMA2' : '2009ApJ...700.1502A',
             'SMA3' : '2010ApJ...723.1241A',
-            'SMA4' : '2011ApJ...734...98O'}
+            'SMA4' : '2011ApJ...734...98O',
+            'SMA5' : '2017ApJ...845...44T'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ALMA2' : [890.0e-6],
@@ -260,7 +260,6 @@ def src_localDB(localDB):
             'ALMA10' : [875e-6,1300e-6],
             'ALMA11' : [1162e-6],
             'ALMA12' : [1150e-6],
-            'SMA5' : [880e-6],
             'ALMA13' : [870e-6],
             'ALMA14' : [1300e-6],
             'ALMA15' : [1300e-6],
@@ -340,7 +339,8 @@ def src_localDB(localDB):
             'SMA' : [1400e-6],
             'SMA2' : [859e-6,882e-6,865e-6,869e-6,883e-6],
             'SMA3' : [880e-6],
-            'SMA4' : [1375e-6,1123e-6]}
+            'SMA4' : [1375e-6,1123e-6],
+            'SMA5' : [880e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -371,7 +371,6 @@ def src_localDB(localDB):
             'ALMA10' : [1.0,1.0],
             'ALMA11' : [1.0],
             'ALMA12' : [1.0],
-            'SMA5' : [1.0],
             'ALMA13' : [1.0],
             'ALMA14' : [1.0],
             'ALMA15' : [1.0],
@@ -451,7 +450,8 @@ def src_localDB(localDB):
             'SMA' : [9],
             'SMA2' : [0.5,0.5,0.5,0.5,0.5],
             'SMA3' : [1.0],
-            'SMA4' : [5.5,6.6]}
+            'SMA4' : [5.5,6.6],
+            'SMA5' : [1.7]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ALMA2' : ['F890'],
@@ -481,7 +481,6 @@ def src_localDB(localDB):
             'ALMA10' : ['F875','F1300'],
             'ALMA11' : ['F1162'],
             'ALMA12' : ['F1150'],
-            'SMA5' : ['F880'],
             'ALMA13' : ['F870'],
             'ALMA14' : ['F1300'],
             'ALMA15' : ['F1300'],
@@ -561,7 +560,8 @@ def src_localDB(localDB):
             'SMA' : ['F1400'],
             'SMA2' : ['F859','F882','F865','F869','F883'],
             'SMA3' : ['F880'],
-            'SMA4' : ['F1375','F1123']}
+            'SMA4' : ['F1375','F1123'],
+            'SMA5' : ['F880']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ALMA2' : ['e_F890'],
@@ -591,7 +591,6 @@ def src_localDB(localDB):
             'ALMA10' : ['e_F875','e_F1300'],
             'ALMA11' : ['e_F1162'],
             'ALMA12' : ['e_F1150'],
-            'SMA5' : ['e_F880'],
             'ALMA13' : ['e_F870'],
             'ALMA14' : ['e_F1300'],
             'ALMA15' : ['e_F1300'],
@@ -671,7 +670,8 @@ def src_localDB(localDB):
             'SMA' : ['eF1400'],
             'SMA2' : ['e_F859','e_F882','e_F865','e_F869','e_F883'],
             'SMA3' : ['e_F880'],
-            'SMA4' : ['e_F1375','e_F1123']}
+            'SMA4' : ['e_F1375','e_F1123'],
+            'SMA5' : ['e_F880']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ALMA2' : ['mJy'],
@@ -701,7 +701,6 @@ def src_localDB(localDB):
             'ALMA10' : ['Jy','Jy'],
             'ALMA11' : ['mJy'],
             'ALMA12' : ['Jy'],
-            'SMA5' : ['Jy'],
             'ALMA13' : ['mJy'],
             'ALMA14' : ['mJy'],
             'ALMA15' : ['mJy'],
@@ -781,7 +780,8 @@ def src_localDB(localDB):
             'SMA' : ['mJy'],
             'SMA2' : ['mJy','mJy','mJy','mJy','mJy'],
             'SMA3' : ['mJy'],
-            'SMA4' : ['mJy','mJy']}
+            'SMA4' : ['mJy','mJy'],
+            'SMA5' : ['Jy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -812,7 +812,6 @@ def src_localDB(localDB):
             'ALMA10' : ['ALMA:F875','ALMA:F1300'],
             'ALMA11' : ['ALMA:F1162'],
             'ALMA12' : ['ALMA:F1150'],
-            'SMA5' : ['SMA:F880'],
             'ALMA13' : ['SMA:F870'],
             'ALMA14' : ['ALMA:F1300'],
             'ALMA15' : ['ALMA:F1300'],
@@ -892,7 +891,8 @@ def src_localDB(localDB):
             'SMA' : ['SMA:F1400'],
             'SMA2' : ['SMA:F859','SMA:F882','SMA:F865','SMA:F869','SMA:F883'],
             'SMA3' : ['SMA:F880'],
-            'SMA4' : ['SMA:F1375','SMA:F1123']}
+            'SMA4' : ['SMA:F1375','SMA:F1123'],
+            'SMA5' : ['SMA:F880']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
