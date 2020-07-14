@@ -1,3 +1,3 @@
-Target,F880,eF880
-HD 98800,110,--
-Hen 3-600,75,--
+Target,F880,eF880,ObsDate
+HD 98800,110,--,averaged
+Hen 3-600,75,--,averaged
