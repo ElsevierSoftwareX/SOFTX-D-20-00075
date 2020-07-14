@@ -49,7 +49,6 @@ def src_localDB(localDB):
             'ALMA23' : localDB+'/database/alma_perez.csv',
             'ALMA24' : localDB+'/database/alma_vdplas.csv',
             'ALMA25' : localDB+'/database/alma_rosotti.csv',
-            'ATCA5' : localDB+'/database/atca_wilner.csv',
             'ALMA26' : localDB+'/database/alma_walsh.csv',
             'ALMA27' : localDB+'/database/alma_perez2.csv',
             'ALMA28' : localDB+'/database/alma_walsh2.csv',
@@ -113,7 +112,8 @@ def src_localDB(localDB):
             'ATCA2' : localDB+'/database/atca_lommen.csv',
             'ATCA3' : localDB+'/database/atca_lommen2.csv',
             'ATCA4' : localDB+'/database/atca_ubach2.csv',
-            'SMA' : localDB+'/database/sma_lommen.csv'}
+            'SMA' : localDB+'/database/sma_lommen.csv',
+            'ATCA5' : localDB+'/database/atca_wilner.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -166,7 +166,6 @@ def src_localDB(localDB):
             'ALMA23' : '2020ApJ...889...59P',
             'ALMA24' : '2019A&A...624A..33V',
             'ALMA25' : '2020MNRAS.491.1335R',
-            'ATCA5' : '2003ApJ...596..597W',
             'ALMA26' : '2014ApJ...788L..34P',
             'ALMA27' : '2015ApJ...798...85P',
             'ALMA28' : '2016ApJ...831..200W',
@@ -230,7 +229,8 @@ def src_localDB(localDB):
             'ATCA2' : '2007A&A...462..211L',
             'ATCA3' : '2009A&A...495..869L',
             'ATCA4' : '2017MNRAS.466.4083U',
-            'SMA' : '2007A&A...462..211L'}
+            'SMA' : '2007A&A...462..211L',
+            'ATCA5' : '2003ApJ...596..597W'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ALMA2' : [890.0e-6],
@@ -276,7 +276,6 @@ def src_localDB(localDB):
             'ALMA23' : [1300e-6],
             'ALMA24' : [1400e-6],
             'ALMA25' : [1100e-6],
-            'ATCA5' : [3400e-6],
             'ALMA26' : [993e-6,886e-6],
             'ALMA27' : [1330e-6],
             'ALMA28' : [993e-6,886e-6],
@@ -340,7 +339,8 @@ def src_localDB(localDB):
             'ATCA2' : [3.2944e-3],
             'ATCA3' : [6700e-6,7000e-6,7300e-6,16100e-6,16200e-6,15400e-6,34700e-6,62500e-6],
             'ATCA4' : [6813e-6,16655e-6,30282e-6,54508e-6],
-            'SMA' : [1400e-6]}
+            'SMA' : [1400e-6],
+            'ATCA5' : [3400e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -387,7 +387,6 @@ def src_localDB(localDB):
             'ALMA23' : [0.06],
             'ALMA24' : [0.23],
             'ALMA25' : [0.02],
-            'ATCA5' : [7.0],
             'ALMA26' : [1.0,1.0],
             'ALMA27' : [1.0],
             'ALMA28' : [1.0,1.0],
@@ -451,7 +450,8 @@ def src_localDB(localDB):
             'ATCA2' : [35],
             'ATCA3' : [11,11,19,38,38,14,71,125],
             'ATCA4' : [20,20,20,20],
-            'SMA' : [9]}
+            'SMA' : [9],
+            'ATCA5' : [2.0]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ALMA2' : ['F890'],
@@ -497,7 +497,6 @@ def src_localDB(localDB):
             'ALMA23' : ['F1300'],
             'ALMA24' : ['F1400'],
             'ALMA25' : ['F1100'],
-            'ATCA5' : ['F3400'],
             'ALMA26' : ['F993','F866'],
             'ALMA27' : ['F1330'],
             'ALMA28' : ['F993','F866'],
@@ -561,7 +560,8 @@ def src_localDB(localDB):
             'ATCA2' : ['F3300'],
             'ATCA3' : ['F6700','F7000','F7300','F16100','F16200','F15400','F34700','F62500'],
             'ATCA4' : ['F6813','F16655','F30282','F54508'],
-            'SMA' : ['F1400']}
+            'SMA' : ['F1400'],
+            'ATCA5' : ['F3400']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ALMA2' : ['e_F890'],
@@ -607,7 +607,6 @@ def src_localDB(localDB):
             'ALMA23' : ['eF1300'],
             'ALMA24' : ['eF1400'],
             'ALMA25' : ['eF1100'],
-            'ATCA5' : ['eF3400'],
             'ALMA26' : ['eF993','eF866'],
             'ALMA27' : ['eF1330'],
             'ALMA28' : ['eF993','eF866'],
@@ -671,7 +670,8 @@ def src_localDB(localDB):
             'ATCA2' : ['eF3300'],
             'ATCA3' : ['e_F6700','e_F7000','e_F7300','e_F16100','e_F16200','e_F15400','e_F34700','e_F62500'],
             'ATCA4' : ['e_F6813','e_F16655','e_F30282','e_F54508'],
-            'SMA' : ['eF1400']}
+            'SMA' : ['eF1400'],
+            'ATCA5' : ['eF3400']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ALMA2' : ['mJy'],
@@ -717,7 +717,6 @@ def src_localDB(localDB):
             'ALMA23' : ['mJy'],
             'ALMA24' : ['mJy'],
             'ALMA25' : ['mJy'],
-            'ATCA5' : ['mJy'],
             'ALMA26' : ['Jy','Jy'],
             'ALMA27' : ['Jy'],
             'ALMA28' : ['Jy','Jy'],
@@ -781,7 +780,8 @@ def src_localDB(localDB):
             'ATCA2' : ['mJy'],
             'ATCA3' : ['mJy','mJy','mJy','mJy','mJy','mJy','mJy','mJy'],
             'ATCA4' : ['mJy','mJy','mJy','mJy'],
-            'SMA' : ['mJy']}
+            'SMA' : ['mJy'],
+            'ATCA5' : ['mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -828,7 +828,6 @@ def src_localDB(localDB):
             'ALMA23' : ['ALMA:F1300'],
             'ALMA24' : ['ALMA:F1400'],
             'ALMA25' : ['ALMA:F1100'],
-            'ATCA5' : ['ATCA:F3400'],
             'ALMA26' : ['ALMA:F993','ALMA:F866'],
             'ALMA27' : ['ALMA:F1330'],
             'ALMA28' : ['ALMA:F993','ALMA:F866'],
@@ -892,7 +891,8 @@ def src_localDB(localDB):
             'ATCA2' : ['ATCA:F3300'],
             'ATCA3' : ['ATCA:F6700','ATCA:F7000','ATCA:F7300','ATCA:F16100','ATCA:F16200','ATCA:F15400','ATCA:F34700','ATCA:F62500'],
             'ATCA4' : ['ATCA:F6813','ATCA:F16655','ATCA:F30282','ATCA:F54508'],
-            'SMA' : ['SMA:F1400']}
+            'SMA' : ['SMA:F1400'],
+            'ATCA5' : ['ATCA:F3400']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
