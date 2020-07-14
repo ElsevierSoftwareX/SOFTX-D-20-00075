@@ -59,7 +59,6 @@ def src_localDB(localDB):
             'MIRLIN' : localDB+'/database/keck_mirlin_koerner.csv',
             'ALMA32' : localDB+'/database/alma_ansdell.csv',
             'ALMA33' : localDB+'/database/alma_vterwisga.csv',
-            'SMA8' : localDB+'/database/sma_manoj.csv',
             'OVRO2' : localDB+'/database/ovro_mannings.csv',
             'CARMA2' : localDB+'/database/carma_hamidouche.csv',
             'BIMA' : localDB+'/database/bima_hamidouche.csv',
@@ -113,7 +112,8 @@ def src_localDB(localDB):
             'SMA4' : localDB+'/database/sma_oberg.csv',
             'SMA5' : localDB+'/database/sma_tripathi.csv',
             'SMA6' : localDB+'/database/sma_andrews2.csv',
-            'SMA7' : localDB+'/database/sma_andrews3.csv'}
+            'SMA7' : localDB+'/database/sma_andrews3.csv',
+            'SMA8' : localDB+'/database/sma_manoj.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -176,7 +176,6 @@ def src_localDB(localDB):
             'MIRLIN' : '2000ApJ...533L..37K',
             'ALMA32' : '2018ApJ...859...21A',
             'ALMA33' : '2019A&A...623A.150V',
-            'SMA8' : '2007ApJ...667L.187M',
             'OVRO2' : '2000ApJ...529..391M',
             'CARMA2' : '2010ApJ...722..204H',
             'BIMA' : '2006ApJ...651..321H',
@@ -230,7 +229,8 @@ def src_localDB(localDB):
             'SMA4' : '2011ApJ...734...98O',
             'SMA5' : '2017ApJ...845...44T',
             'SMA6' : '2010ApJ...710..462A',
-            'SMA7' : '2011ApJ...732...42A'}
+            'SMA7' : '2011ApJ...732...42A',
+            'SMA8' : '2007ApJ...667L.187M'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ALMA2' : [890.0e-6],
@@ -286,7 +286,6 @@ def src_localDB(localDB):
             'MIRLIN' : [4.68e-6,7.91e-6,8.81e-6,9.69e-6,10.27e-6,11.70e-6,12.49e-6,17.93e-6,20.81e-6,24.48e-6],
             'ALMA32' : [1330e-6],
             'ALMA33' : [869e-6],
-            'SMA8' : [1300e-6],
             'OVRO2' : [1300e-6,2600e-6],
             'CARMA2' : [1300e-6,2700e-6],
             'BIMA' : [1400e-6],
@@ -340,7 +339,8 @@ def src_localDB(localDB):
             'SMA4' : [1375e-6,1123e-6],
             'SMA5' : [880e-6],
             'SMA6' : [880e-6],
-            'SMA7' : [880e-6]}
+            'SMA7' : [880e-6],
+            'SMA8' : [1300e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -397,7 +397,6 @@ def src_localDB(localDB):
             'MIRLIN' : [10,10,10,10,10,10,10,10,10,10],
             'ALMA32' : [0.5],
             'ALMA33' : [0.5],
-            'SMA8' : [3.1],
             'OVRO2' : [2,5],
             'CARMA2' : [1,1],
             'BIMA' : [0.5],
@@ -451,7 +450,8 @@ def src_localDB(localDB):
             'SMA4' : [5.5,6.6],
             'SMA5' : [1.7],
             'SMA6' : [4.0],
-            'SMA7' : [0.8]}
+            'SMA7' : [0.8],
+            'SMA8' : [3.1]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ALMA2' : ['F890'],
@@ -507,7 +507,6 @@ def src_localDB(localDB):
             'MIRLIN' : ['F1','F2','F3','F4','F5','F6','F7','F8','F9','F10'],
             'ALMA32' : ['F1330'],
             'ALMA33' : ['F869'],
-            'SMA8' : ['F1300'],
             'OVRO2' : ['F1300','F2600'],
             'CARMA2' : ['F1300','F2700'],
             'BIMA' : ['F1400'],
@@ -561,7 +560,8 @@ def src_localDB(localDB):
             'SMA4' : ['F1375','F1123'],
             'SMA5' : ['F880'],
             'SMA6' : ['F880'],
-            'SMA7' : ['F880']}
+            'SMA7' : ['F880'],
+            'SMA8' : ['F1300']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ALMA2' : ['e_F890'],
@@ -617,7 +617,6 @@ def src_localDB(localDB):
             'MIRLIN' : ['eF1','eF2','eF3','eF4','eF5','eF6','eF7','eF8','eF9','eF10'],
             'ALMA32' : ['eF1330'],
             'ALMA33' : ['eF869'],
-            'SMA8' : ['eF1300'],
             'OVRO2' : ['eF1300','eF2600'],
             'CARMA2' : ['eF1300','eF2700'],
             'BIMA' : ['eF1400'],
@@ -671,7 +670,8 @@ def src_localDB(localDB):
             'SMA4' : ['e_F1375','e_F1123'],
             'SMA5' : ['e_F880'],
             'SMA6' : ['eF880'],
-            'SMA7' : ['eF880']}
+            'SMA7' : ['eF880'],
+            'SMA8' : ['eF1300']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ALMA2' : ['mJy'],
@@ -727,7 +727,6 @@ def src_localDB(localDB):
             'MIRLIN' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy'],
             'ALMA32' : ['mJy'],
             'ALMA33' : ['mJy'],
-            'SMA8' : ['mJy'],
             'OVRO2' : ['mJy','mJy'],
             'CARMA2' : ['mJy','mJy'],
             'BIMA' : ['mJy'],
@@ -781,7 +780,8 @@ def src_localDB(localDB):
             'SMA4' : ['mJy','mJy'],
             'SMA5' : ['Jy'],
             'SMA6' : ['mJy'],
-            'SMA7' : ['Jy']}
+            'SMA7' : ['Jy'],
+            'SMA8' : ['mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -838,7 +838,6 @@ def src_localDB(localDB):
             'MIRLIN' : ['MIRLIN:F1','MIRLIN:F2','MIRLIN:F3','MIRLIN:F4','MIRLIN:F5','MIRLIN:F6','MIRLIN:F7','MIRLIN:F8','MIRLIN:F9','MIRLIN:F10'],
             'ALMA32' : ['ALMA:F1330'],
             'ALMA33' : ['ALMA:F869'],
-            'SMA8' : ['SMA:F1300'],
             'OVRO2' : ['OVRO:F1300','OVRO:F2600'],
             'CARMA2' : ['CARMA:F1300','CARMA:F2700'],
             'BIMA' : ['BIMA:1400'],
@@ -892,7 +891,8 @@ def src_localDB(localDB):
             'SMA4' : ['SMA:F1375','SMA:F1123'],
             'SMA5' : ['SMA:F880'],
             'SMA6' : ['SMA:F880'],
-            'SMA7' : ['SMA:F880']}
+            'SMA7' : ['SMA:F880'],
+            'SMA8' : ['SMA:F1300']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
