@@ -906,7 +906,6 @@ def src_onlineDB(query='simbad'):
            'AKARIirc' : 'II/297/irc',
            'AKARIfis' : 'II/298/fis',
            'WISE'      : 'II/311/wise',
-           'SCUBA'     : 'J/ApJS/175/277/maps',
            'IRAS'      : 'II/125/main',
            'SPITZER'   : 'II/332/c2d',
            'SDSSr7'    : 'II/294/sdss7', 
@@ -926,7 +925,8 @@ def src_onlineDB(query='simbad'):
            'GALEX' : 'II/312/ais',
            'ALMA7' : 'J/A+A/626/A11/table13',
            'MSX' : 'V/114/msx6_gp',
-           'Herschel6' : 'J/A+A/619/A52/tablea16'}
+           'Herschel6' : 'J/A+A/619/A52/tablea16',
+           'JCMT3' : 'J/ApJS/175/277/maps'}
 
     # catalog reference dictionary
     catR = {'2MASS'    : '2003yCat.2246....0C',
@@ -934,7 +934,6 @@ def src_onlineDB(query='simbad'):
            'AKARIirc' : '2010A&A...514A...1I',
            'AKARIfis' : '2010yCat.2298....0Y',
            'WISE'      : '2012wise.rept....1C',
-           'SCUBA'     : '2008ApJS..175..277D',
            'IRAS'      : '1994yCat.2125....0J',
            'SPITZER'   : '2003PASP..115..965E',
            'SDSSr7'    : '2009ApJS..182..543A', 
@@ -954,7 +953,8 @@ def src_onlineDB(query='simbad'):
            'GALEX' : '2011Ap&SS.335..161B',
            'ALMA7' : '2019A&A...626A..11C',
            'MSX' : '2003yCat.5114....0E',
-           'Herschel6' : '2018A&A...619A..52B'}
+           'Herschel6' : '2018A&A...619A..52B',
+           'JCMT3' : '2008ApJS..175..277D'}
 
     # catalog wavelength dictionary
     catW = {'2MASS'    : [1.25e-6, 1.65e-6, 2.15e-6],
@@ -962,7 +962,6 @@ def src_onlineDB(query='simbad'):
            'AKARIirc' : [9e-6, 18e-6],
            'AKARIfis' : [65e-6, 90e-6, 140e-6, 160e-6],
            'WISE'      : [3.35e-6, 4.6e-6, 11.6e-6, 22.1e-6],
-           'SCUBA'     : [850e-6, 450e-6],
            'IRAS'      : [12e-6, 25e-6, 60e-6, 100e-6],
            'SPITZER'   : [3.6e-6, 4.5e-6, 5.8e-6, 8.0e-6, 24e-6, 70e-6],
            'SDSSr7'    : [354.3e-9, 477.0e-9, 623.1e-9, 762.5e-9, 913.4e-9], 
@@ -982,7 +981,8 @@ def src_onlineDB(query='simbad'):
            'GALEX' : [0.1539e-6,0.2316e-6],
            'ALMA7' : [1300e-6],
            'MSX' : [4.29e-6,4.35e-6,8.28e-6,12.13e-6,14.65e-6,21.34e-6],
-           'Herschel6' : [70e-6,160e-6,250e-6,350e-6,500e-6]}
+           'Herschel6' : [70e-6,160e-6,250e-6,350e-6,500e-6],
+           'JCMT3' : [850e-6,450e-6]}
 
     # catalog angular resolution / beam size
     catA = {'2MASS'    : [(1.22*w/1.3)*206265 for w in catW['2MASS']],
@@ -990,7 +990,6 @@ def src_onlineDB(query='simbad'):
            'AKARIirc' : [(1.22*w/0.685)*206265 for w in catW['AKARIirc']],
            'AKARIfis' : [(1.22*w/0.685)*206265 for w in catW['AKARIfis']],
            'WISE'      : [(1.22*w/0.4)*206265 for w in catW['WISE']],
-           'SCUBA'     : [13.8, 7.8],
            'IRAS'      : [(1.22*w/0.57)*206265 for w in catW['IRAS']],
            'SPITZER'   : [(1.22*w/0.85)*206265 for w in catW['SPITZER']],
            'SDSSr7'    : [(1.22*w/2.5)*206265 for w in catW['SDSSr7']], 
@@ -1010,7 +1009,8 @@ def src_onlineDB(query='simbad'):
            'GALEX' : [10.,10.],
            'ALMA7' : [1.0],
            'MSX' : [1,1,1,1,1,1],
-           'Herschel6' : [5.03,11.50,17.97,25.16,35.95]}
+           'Herschel6' : [5.03,11.50,17.97,25.16,35.95],
+           'JCMT3' : [13.8,7.8]}
 
     # catalog magnitude name
     catM = {'2MASS'    : ['FLUX_J', 'FLUX_H', 'FLUX_K'],
@@ -1018,7 +1018,6 @@ def src_onlineDB(query='simbad'):
            'AKARIirc' : ['S09', 'S18'],
            'AKARIfis' : ['S65', 'S90', 'S140', 'S160'],
            'WISE'      : ['W1mag', 'W2mag', 'W3mag', 'W4mag'],
-           'SCUBA'     : ['F850', 'F450'],
            'IRAS'      : ['Fnu_12', 'Fnu_25', 'Fnu_60', 'Fnu_100'],
            'SPITZER'   : ['FIR1', 'FIR2', 'FIR3', 'FIR4', 'FMP1', 'FMP2'],
            'SDSSr7'    : ['umag', 'gmag', 'rmag', 'imag', 'zmag'], 
@@ -1038,7 +1037,8 @@ def src_onlineDB(query='simbad'):
            'GALEX' : ['FUV','NUV'],
            'ALMA7' : ['F1300'],
            'MSX' : ['B1','B2','A','C','D','E'],
-           'Herschel6' : ['Stot070','Stot160','Stot250','Stot350','Stot500']}
+           'Herschel6' : ['Stot070','Stot160','Stot250','Stot350','Stot500'],
+           'JCMT3' : ['F850','F450']}
 
     # catalog magnitude error name (or, if an error isn't given in the catalog, provide a 
     # float which will be used as a percentage uncertainty on the retrieved magnitude/flux 
@@ -1048,7 +1048,6 @@ def src_onlineDB(query='simbad'):
            'AKARIirc' : ['e_S09', 'e_S18'],
            'AKARIfis' : ['e_S65', 'e_S90', 'e_S140', 'e_S160'],
            'WISE'      : ['e_W1mag', 'e_W2mag', 'e_W3mag', 'e_W4mag'],
-           'SCUBA'     : [0.3, 1.0],
            'IRAS'      : ['e_Fnu_12', 'e_Fnu_25', 'e_Fnu_60', 'e_Fnu_100'],
            'SPITZER'   : ['e_FIR1', 'e_FIR2', 'e_FIR3', 'e_FIR4', 'e_FMP1', 'e_FMP2'],
            'SDSSr7'    : ['e_umag', 'e_gmag', 'e_rmag', 'e_imag', 'e_zmag'], 
@@ -1068,7 +1067,8 @@ def src_onlineDB(query='simbad'):
            'GALEX' : ['e_FUV','e_NUV'],
            'ALMA7' : ['e_F1300'],
            'MSX' : ['e_B1','e_B2','e_A','e_C','e_D','e_E'],
-           'Herschel6' : ['e_Stot070','e_Stot160','e_Stot250','e_Stot350','e_Stot500']}
+           'Herschel6' : ['e_Stot070','e_Stot160','e_Stot250','e_Stot350','e_Stot500'],
+           'JCMT3' : ['0.3','1.0']}
 
     # catalog magnitude unit name
     catU = {'2MASS'    : ['mag', 'mag', 'mag'],
@@ -1076,7 +1076,6 @@ def src_onlineDB(query='simbad'):
            'AKARIirc' : ['Jy', 'Jy'],
            'AKARIfis' : ['Jy', 'Jy', 'Jy', 'Jy'],
            'WISE'      : ['mag', 'mag', 'mag', 'mag'],
-           'SCUBA'     : ['Jy', 'Jy'],
            'IRAS'      : ['Jy', 'Jy', 'Jy', 'Jy'],
            'SPITZER'   : ['mJy', 'mJy', 'mJy', 'mJy', 'mJy', 'mJy'],
            'SDSSr7'    : ['mag', 'mag', 'mag', 'mag', 'mag'], 
@@ -1096,7 +1095,8 @@ def src_onlineDB(query='simbad'):
            'GALEX' : ['mag','mag'],
            'ALMA7' : ['mJy'],
            'MSX' : ['Jy','Jy','Jy','Jy','Jy','Jy'],
-           'Herschel6' : ['Jy','Jy','Jy','Jy','Jy']}
+           'Herschel6' : ['Jy','Jy','Jy','Jy','Jy'],
+           'JCMT3' : ['Jy','Jy']}
 
     # catalog waveband name
     catB = {'2MASS'    : ['2MASS:J', '2MASS:H', '2MASS:Ks'],
@@ -1104,7 +1104,6 @@ def src_onlineDB(query='simbad'):
            'AKARIirc' : ['AKARI:S9W', 'AKARI:L18W'],
            'AKARIfis' : ['AKARI:N60', 'AKARI:WIDE-S', 'AKARI:WIDE-L', 'AKARI:N160'],
            'WISE'      : ['WISE:W1', 'WISE:W2', 'WISE:W3', 'WISE:W4'],
-           'SCUBA'     : ['SCUBA:850', 'SCUBA:450'],
            'IRAS'      : ['IRAS:12', 'IRAS:25', 'IRAS:60', 'IRAS:100'],
            'SPITZER'   : ['SPITZER:I1', 'SPITZER:I2', 'SPITZER:I3', 'SPITZER:I4', 'SPITZER:M1', 'SPITZER:M2'],
            'SDSSr7'    : ['SDSS:AB:u', 'SDSS:AB:g', 'SDSS:AB:r', 'SDSS:AB:i', 'SDSS:AB:z'], 
@@ -1124,6 +1123,7 @@ def src_onlineDB(query='simbad'):
            'GALEX' : ['GALEX:FUV','GALEX:NUV'],
            'ALMA7' : ['ALMA:F1300'],
            'MSX' : ['MSX6C:B1','MSX6C:B2','MSX6C:A','MSX6C:C','MSX6C:D','MSX6C:E'],
-           'Herschel6' : ['Herschel:PACS:F70','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500']}
+           'Herschel6' : ['Herschel:PACS:F70','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
+           'JCMT3' : ['JCMT:SCUBA:F850','JCMT:SCUBA:F450']}
     
     return catN, catR, catW, catA, catM, catE, catU, catB
