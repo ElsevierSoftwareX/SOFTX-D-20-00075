@@ -10,7 +10,6 @@ def src_localDB(localDB):
             'SAAO' : localDB+'/database/saao_opt_sylvester.csv',
             'MKII' : localDB+'/database/mkii_jhkl_sylvester.csv',
             'UKIRT' : localDB+'/database/ukirt_coulson.csv',
-            'VLA2' : localDB+'/database/vla_skinner.csv',
             'ESO' : localDB+'/database/eso_jhklm_phot.csv',
             'ALMA3' : localDB+'/database/alma_manara.csv',
             'ALMA4' : localDB+'/database/alma_vdmarel.csv',
@@ -113,7 +112,8 @@ def src_localDB(localDB):
             'CARMA2' : localDB+'/database/carma_hamidouche.csv',
             'CARMAVLA' : localDB+'/database/cytau_perez.csv',
             'APEX' : localDB+'/database/apex_laboca_nilsson.csv',
-            'APEX2' : localDB+'/database/laboca_hales.csv'}
+            'APEX2' : localDB+'/database/laboca_hales.csv',
+            'VLA' : localDB+'/database/vla_skinner.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -127,7 +127,6 @@ def src_localDB(localDB):
             'SAAO' : '2000MNRAS.313...73S',
             'MKII' : '2000MNRAS.313...73S',
             'UKIRT' : '1998MNRAS.296..934C',
-            'VLA2' : '1993ApJS...87..217S',
             'ESO' : '1992ApJ...398..254B',
             'ALMA3' : '2019A&A...628A..95M',
             'ALMA4' : '2018ApJ...854..177V',
@@ -230,14 +229,14 @@ def src_localDB(localDB):
             'CARMA2' : '2010ApJ...722..204H',
             'CARMAVLA' : '2015ApJ...813...41P',
             'APEX' : '2010A&A...518A..40N',
-            'APEX2' : '2014AJ....148...47H'}
+            'APEX2' : '2014AJ....148...47H',
+            'VLA' : '1993ApJS...87..217S'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ALMA2' : [890.0e-6],
             'SAAO' : [364e-9,442e-9,540e-9,647e-9,786.5e-9],
             'MKII' : [1.25e-6,1.60e-6,2.18e-6,3.54e-6],
             'UKIRT' : [1.25e-6,1.65e-6,2.20e-6,3.45e-6],
-            'VLA2' : [20000e-6,36000e-6,60000e-6,200000e-6],
             'ESO' : [1.23e-6,1.63e-6,2.19e-6,3.79e-6,4.64e-6,9.69e-6,8.38e-6,12.89e-6],
             'ALMA3' : [1300e-6],
             'ALMA4' : [890.0e-6],
@@ -340,7 +339,8 @@ def src_localDB(localDB):
             'CARMA2' : [1300e-6,2700e-6],
             'CARMAVLA' : [1300e-6,2800e-6,7100e-6,50000e-6],
             'APEX' : [870e-6],
-            'APEX2' : [870e-6]}
+            'APEX2' : [870e-6],
+            'VLA' : [20000e-6,36000e-6,60000e-6,200000e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -348,7 +348,6 @@ def src_localDB(localDB):
             'SAAO' : [0.18,0.22,0.27,0.33,0.40],
             'MKII' : [0.42,0.54,0.73,1.19],
             'UKIRT' : [0.08,0.11,0.15,0.23],
-            'VLA2' : [2.0,1.0,5.0,20.0],
             'ESO' : [0.31,0.41,0.55,0.95,1.17,2.44,2.11,3.24],
             'ALMA3' : [1.0],
             'ALMA4' : [1.0],
@@ -451,14 +450,14 @@ def src_localDB(localDB):
             'CARMA2' : [1.3,0.9],
             'CARMAVLA' : [0.29,0.40,0.07,0.62],
             'APEX' : [19.2],
-            'APEX2' : [19.2]}
+            'APEX2' : [19.2],
+            'VLA' : [2.0,1.0,4.1,20.0]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ALMA2' : ['F890'],
             'SAAO' : ['Umag','Bmag','Vmag','Rcmag','Icmag'],
             'MKII' : ['Jmag','Hmag','Kmag','Lmag'],
             'UKIRT' : ['Jmag','Hmag','Kmag','Lmag'],
-            'VLA2' : ['S2cm','S3.6cm','S6cm','S20cm'],
             'ESO' : ['Jmag','Hmag','Kmag','Lmag','Mmag','N2mag','N1mag','N3mag'],
             'ALMA3' : ['F1300'],
             'ALMA4' : ['F890'],
@@ -561,14 +560,14 @@ def src_localDB(localDB):
             'CARMA2' : ['F1300','F2700'],
             'CARMAVLA' : ['F1300','F2800','F7100','F50000'],
             'APEX' : ['F870'],
-            'APEX2' : ['F870']}
+            'APEX2' : ['F870'],
+            'VLA' : ['S2cm','S3.6cm','S6cm','S20cm']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ALMA2' : ['e_F890'],
             'SAAO' : ['eUmag','eBmag','eVmag','eRcmag','eIcmag'],
             'MKII' : ['eJmag','eHmag','eKmag','eLmag'],
             'UKIRT' : ['eJmag','eHmag','eKmag','eLmag'],
-            'VLA2' : ['e_S2cm','e_S3.6cm','e_S6cm','e_S20cm'],
             'ESO' : ['eJmag','eHmag','eKmag','eLmag','eMmag','eN2mag','eN1mag','eN3mag'],
             'ALMA3' : ['e_F1300'],
             'ALMA4' : ['e_F890'],
@@ -671,14 +670,14 @@ def src_localDB(localDB):
             'CARMA2' : ['eF1300','eF2700'],
             'CARMAVLA' : ['e_F1300','e_F2800','e_F7100','e_F50000'],
             'APEX' : ['e_F870'],
-            'APEX2' : ['eF870']}
+            'APEX2' : ['eF870'],
+            'VLA' : ['e_S2cm','e_S3.6cm','e_S6cm','e_S20cm']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ALMA2' : ['mJy'],
             'SAAO' : ['mag','mag','mag','mag','mag'],
             'MKII' : ['mag','mag','mag','mag'],
             'UKIRT' : ['mag','mag','mag','mag'],
-            'VLA2' : ['mJy','mJy','mJy','mJy'],
             'ESO' : ['mag','mag','mag','mag','mag','mag','mag','mag'],
             'ALMA3' : ['mJy'],
             'ALMA4' : ['mJy'],
@@ -781,7 +780,8 @@ def src_localDB(localDB):
             'CARMA2' : ['mJy','mJy'],
             'CARMAVLA' : ['mJy','mJy','mJy','mJy'],
             'APEX' : ['mJy'],
-            'APEX2' : ['mJy']}
+            'APEX2' : ['mJy'],
+            'VLA' : ['mJy','mJy','mJy','mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -789,7 +789,6 @@ def src_localDB(localDB):
             'SAAO' : ['Johnson:U','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic'],
             'MKII' : ['Johnson:J','Johnson:H','Johnson:K','Johnson:L'],
             'UKIRT' : ['UKIRT:J','UKIRT:H','UKIRT:K','UKIRT:L'],
-            'VLA2' : ['VLA:F2cm','VLA:F3.6cm','VLA:F6cm','VLA:F20cm'],
             'ESO' : ['ESO:J','ESO:H','ESO:K','ESO:L','ESO:M','ESO:N2','ESO:N1','ESO:N3'],
             'ALMA3' : ['ALMA:F1300'],
             'ALMA4' : ['ALMA:F890'],
@@ -892,7 +891,8 @@ def src_localDB(localDB):
             'CARMA2' : ['CARMA:F1300','CARMA:F2700'],
             'CARMAVLA' : ['CARMA:F1300','CARMA:F2800','VLA:F7100','VLA:F50000'],
             'APEX' : ['APEX:LABOCA:F870'],
-            'APEX2' : ['APEX:LABOCA:F870']}
+            'APEX2' : ['APEX:LABOCA:F870'],
+            'VLA' : ['VLA:F20000','VLA:F36000','VLA:F60000','VLA:F200000']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
