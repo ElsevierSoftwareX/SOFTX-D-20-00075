@@ -44,7 +44,6 @@ def src_localDB(localDB):
             'ALMA29' : localDB+'/database/alma_miley.csv',
             'ALMA30' : localDB+'/database/alma_pineda.csv',
             'ALMA31' : localDB+'/database/alma_perez3.csv',
-            'LABOCA3' : localDB+'/database/laboca_hales.csv',
             'SPITZER4' : localDB+'/database/spitzer_currie.csv',
             'DUCATI' : localDB+'/database/johnson_ducati.csv',
             'RADIO' : localDB+'/database/radio_altenhoff.csv',
@@ -113,7 +112,8 @@ def src_localDB(localDB):
             'CARMA' : localDB+'/database/carma_isella.csv',
             'CARMA2' : localDB+'/database/carma_hamidouche.csv',
             'CARMAVLA' : localDB+'/database/cytau_perez.csv',
-            'APEX' : localDB+'/database/apex_laboca_nilsson.csv'}
+            'APEX' : localDB+'/database/apex_laboca_nilsson.csv',
+            'APEX2' : localDB+'/database/laboca_hales.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -161,7 +161,6 @@ def src_localDB(localDB):
             'ALMA29' : '2019MNRAS.485..739M',
             'ALMA30' : '2019ApJ...871...48P',
             'ALMA31' : '2020ApJ...889L..24P',
-            'LABOCA3' : '2014AJ....148...47H',
             'SPITZER4' : '2011ApJ...732...24C',
             'DUCATI' : '2002yCat.2237....0D',
             'RADIO' : '1976A&A....46...11A',
@@ -230,7 +229,8 @@ def src_localDB(localDB):
             'CARMA' : '2009ApJ...701..260I',
             'CARMA2' : '2010ApJ...722..204H',
             'CARMAVLA' : '2015ApJ...813...41P',
-            'APEX' : '2010A&A...518A..40N'}
+            'APEX' : '2010A&A...518A..40N',
+            'APEX2' : '2014AJ....148...47H'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ALMA2' : [890.0e-6],
@@ -271,7 +271,6 @@ def src_localDB(localDB):
             'ALMA29' : [1300e-6],
             'ALMA30' : [870e-6],
             'ALMA31' : [1300e-6],
-            'LABOCA3' : [870e-6],
             'SPITZER4' : [3.6e-6,4.5e-6,5.8e-6,8.0e-6,24e-6],
             'DUCATI' : [0.55e-6,0.36e-6,0.44e-6,0.71e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6,3.54e-6,4.80e-6,10.6e-6],
             'RADIO' : [28044.2e-6,59958.5e-6,214137.5e-6],
@@ -340,7 +339,8 @@ def src_localDB(localDB):
             'CARMA' : [1300e-6],
             'CARMA2' : [1300e-6,2700e-6],
             'CARMAVLA' : [1300e-6,2800e-6,7100e-6,50000e-6],
-            'APEX' : [870e-6]}
+            'APEX' : [870e-6],
+            'APEX2' : [870e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -382,7 +382,6 @@ def src_localDB(localDB):
             'ALMA29' : [1.0],
             'ALMA30' : [0.05],
             'ALMA31' : [0.02],
-            'LABOCA3' : [1.0],
             'SPITZER4' : [1.07,1.33,1.72,2.37,7.11],
             'DUCATI' : [5,5,5,5,5,5,5,5,5,5,5],
             'RADIO' : [10,10,10],
@@ -451,7 +450,8 @@ def src_localDB(localDB):
             'CARMA' : [0.7],
             'CARMA2' : [1.3,0.9],
             'CARMAVLA' : [0.29,0.40,0.07,0.62],
-            'APEX' : [19.2]}
+            'APEX' : [19.2],
+            'APEX2' : [19.2]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ALMA2' : ['F890'],
@@ -492,7 +492,6 @@ def src_localDB(localDB):
             'ALMA29' : ['F1300'],
             'ALMA30' : ['F870'],
             'ALMA31' : ['F1300'],
-            'LABOCA3' : ['F870'],
             'SPITZER4' : ['F3.6','F4.5','F5.8','F8.0','F24'],
             'DUCATI' : ['V','U','B','R','I','J','H','K','L','M','N'],
             'RADIO' : ['F28000','F60000','F210000'],
@@ -561,7 +560,8 @@ def src_localDB(localDB):
             'CARMA' : ['F1300'],
             'CARMA2' : ['F1300','F2700'],
             'CARMAVLA' : ['F1300','F2800','F7100','F50000'],
-            'APEX' : ['F870']}
+            'APEX' : ['F870'],
+            'APEX2' : ['F870']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ALMA2' : ['e_F890'],
@@ -602,7 +602,6 @@ def src_localDB(localDB):
             'ALMA29' : ['eF1300'],
             'ALMA30' : ['eF870'],
             'ALMA31' : ['eF1300'],
-            'LABOCA3' : ['eF870'],
             'SPITZER4' : ['eF3.6','eF4.5','eF5.8','eF8.0','eF24'],
             'DUCATI' : ['eV','eU','eB','eR','eI','eJ','eH','eK','eL','eM','eN'],
             'RADIO' : ['eF28000','eF60000','eF210000'],
@@ -671,7 +670,8 @@ def src_localDB(localDB):
             'CARMA' : ['e_F1300'],
             'CARMA2' : ['eF1300','eF2700'],
             'CARMAVLA' : ['e_F1300','e_F2800','e_F7100','e_F50000'],
-            'APEX' : ['e_F870']}
+            'APEX' : ['e_F870'],
+            'APEX2' : ['eF870']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ALMA2' : ['mJy'],
@@ -712,7 +712,6 @@ def src_localDB(localDB):
             'ALMA29' : ['mJy'],
             'ALMA30' : ['Jy'],
             'ALMA31' : ['mJy'],
-            'LABOCA3' : ['mJy'],
             'SPITZER4' : ['mag','mag','mag','mag','mag'],
             'DUCATI' : ['mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','mag'],
             'RADIO' : ['mJy','mJy','mJy'],
@@ -781,7 +780,8 @@ def src_localDB(localDB):
             'CARMA' : ['mJy'],
             'CARMA2' : ['mJy','mJy'],
             'CARMAVLA' : ['mJy','mJy','mJy','mJy'],
-            'APEX' : ['mJy']}
+            'APEX' : ['mJy'],
+            'APEX2' : ['mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -823,7 +823,6 @@ def src_localDB(localDB):
             'ALMA29' : ['ALMA:F1300'],
             'ALMA30' : ['ALMA:F870'],
             'ALMA31' : ['ALMA:F1300'],
-            'LABOCA3' : ['LABOCA:F870'],
             'SPITZER4' : ['SPITZER:I1','SPITZER:I2','SPITZER:I3','SPITZER:I4','SPITZER:M1'],
             'DUCATI' : ['Johnson:V','Johnson:U','Johnson:B','Cousins:Rc','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K','Johnson:L','Johnson:M','Johnson:N'],
             'RADIO' : ['Radio:10.69GHz','Radio:5GHz','Radio:1.4GHz'],
@@ -892,7 +891,8 @@ def src_localDB(localDB):
             'CARMA' : ['CARMA:F1300'],
             'CARMA2' : ['CARMA:F1300','CARMA:F2700'],
             'CARMAVLA' : ['CARMA:F1300','CARMA:F2800','VLA:F7100','VLA:F50000'],
-            'APEX' : ['APEX:LABOCA:F870']}
+            'APEX' : ['APEX:LABOCA:F870'],
+            'APEX2' : ['APEX:LABOCA:F870']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
