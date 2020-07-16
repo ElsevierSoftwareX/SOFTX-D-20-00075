@@ -48,7 +48,6 @@ def src_localDB(localDB):
             'MIRLIN' : localDB+'/database/keck_mirlin_koerner.csv',
             'ALMA32' : localDB+'/database/alma_ansdell.csv',
             'ALMA33' : localDB+'/database/alma_vterwisga.csv',
-            'BIMA' : localDB+'/database/bima_hamidouche.csv',
             'VARIOUS5' : localDB+'/database/various_hillenbrand.csv',
             'ALMA18' : localDB+'/database/alma_andrews.csv',
             'HERSCHEL1' : localDB+'/database/herschel_phot.csv',
@@ -114,7 +113,8 @@ def src_localDB(localDB):
             'APEX2' : localDB+'/database/laboca_hales.csv',
             'VLA' : localDB+'/database/vla_skinner.csv',
             'VLA2' : localDB+'/database/vla_ribas.csv',
-            'SPITZER4' : localDB+'/database/spitzer_currie.csv'}
+            'SPITZER4' : localDB+'/database/spitzer_currie.csv',
+            'BIMA' : localDB+'/database/bima_hamidouche.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -166,7 +166,6 @@ def src_localDB(localDB):
             'MIRLIN' : '2000ApJ...533L..37K',
             'ALMA32' : '2018ApJ...859...21A',
             'ALMA33' : '2019A&A...623A.150V',
-            'BIMA' : '2006ApJ...651..321H',
             'VARIOUS5' : '1992ApJ...397..613H',
             'ALMA18' : '2018ApJ...869L..41A',
             'HERSCHEL1' : '2016A&A...586A...6P',
@@ -232,7 +231,8 @@ def src_localDB(localDB):
             'APEX2' : '2014AJ....148...47H',
             'VLA' : '1993ApJS...87..217S',
             'VLA2' : '2018ApJ...865...77R',
-            'SPITZER4' : '2011ApJ...732...24C'}
+            'SPITZER4' : '2011ApJ...732...24C',
+            'BIMA' : '2006ApJ...651..321H'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ALMA2' : [890.0e-6],
@@ -277,7 +277,6 @@ def src_localDB(localDB):
             'MIRLIN' : [4.68e-6,7.91e-6,8.81e-6,9.69e-6,10.27e-6,11.70e-6,12.49e-6,17.93e-6,20.81e-6,24.48e-6],
             'ALMA32' : [1330e-6],
             'ALMA33' : [869e-6],
-            'BIMA' : [1400e-6],
             'VARIOUS5' : [0.36e-6,0.44e-6,0.55e-6,0.6938e-6,0.71e-6,0.878e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6,3.54e-6,4.80e-6,1300e-6],
             'ALMA18' : [1254e-6,1293e-6,1283e-6],
             'HERSCHEL1' : [70e-6,100e-6,160e-6],
@@ -343,7 +342,8 @@ def src_localDB(localDB):
             'APEX2' : [870e-6],
             'VLA' : [20000e-6,36000e-6,60000e-6,200000e-6],
             'VLA2' : [8820e-6,49600e-6],
-            'SPITZER4' : [3.6e-6,4.5e-6,5.8e-6,8.0e-6,24e-6]}
+            'SPITZER4' : [3.6e-6,4.5e-6,5.8e-6,8.0e-6,24e-6],
+            'BIMA' : [1400e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -389,7 +389,6 @@ def src_localDB(localDB):
             'MIRLIN' : [10,10,10,10,10,10,10,10,10,10],
             'ALMA32' : [0.5],
             'ALMA33' : [0.5],
-            'BIMA' : [0.5],
             'VARIOUS5' : [0.09,0.11,0.14,0.17,0.18,0.22,0.20,0.05,0.07,0.09,0.15,0.20,28.0],
             'ALMA18' : [0.01,0.01,0.01],
             'HERSCHEL1' : [5.03,7.19,11.50],
@@ -455,7 +454,8 @@ def src_localDB(localDB):
             'APEX2' : [19.2],
             'VLA' : [2.0,1.0,4.1,20.0],
             'VLA2' : [0.12,0.14],
-            'SPITZER4' : [1.07,1.33,1.72,2.37,7.11]}
+            'SPITZER4' : [1.07,1.33,1.72,2.37,7.11],
+            'BIMA' : [0.45]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ALMA2' : ['F890'],
@@ -500,7 +500,6 @@ def src_localDB(localDB):
             'MIRLIN' : ['F1','F2','F3','F4','F5','F6','F7','F8','F9','F10'],
             'ALMA32' : ['F1330'],
             'ALMA33' : ['F869'],
-            'BIMA' : ['F1400'],
             'VARIOUS5' : ['U','B','V','R','Rc','I','Ic','J','H','K','L','M','F1300'],
             'ALMA18' : ['F1254','F1293','F1283'],
             'HERSCHEL1' : ['F70','F100','F160'],
@@ -566,7 +565,8 @@ def src_localDB(localDB):
             'APEX2' : ['F870'],
             'VLA' : ['S2cm','S3.6cm','S6cm','S20cm'],
             'VLA2' : ['F8820','F49600'],
-            'SPITZER4' : ['F3.6','F4.5','F5.8','F8.0','F24']}
+            'SPITZER4' : ['F3.6','F4.5','F5.8','F8.0','F24'],
+            'BIMA' : ['F1400']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ALMA2' : ['e_F890'],
@@ -611,7 +611,6 @@ def src_localDB(localDB):
             'MIRLIN' : ['eF1','eF2','eF3','eF4','eF5','eF6','eF7','eF8','eF9','eF10'],
             'ALMA32' : ['eF1330'],
             'ALMA33' : ['eF869'],
-            'BIMA' : ['eF1400'],
             'VARIOUS5' : ['e_U','e_B','e_V','e_R','e_Rc','e_I','e_Ic','e_J','e_H','e_K','e_L','e_M','e_F1300'],
             'ALMA18' : ['e_F1254','e_F1293','e_F1283'],
             'HERSCHEL1' : ['eF70','eF100','eF160'],
@@ -677,7 +676,8 @@ def src_localDB(localDB):
             'APEX2' : ['eF870'],
             'VLA' : ['e_S2cm','e_S3.6cm','e_S6cm','e_S20cm'],
             'VLA2' : ['eF8820','eF49600'],
-            'SPITZER4' : ['eF3.6','eF4.5','eF5.8','eF8.0','eF24']}
+            'SPITZER4' : ['eF3.6','eF4.5','eF5.8','eF8.0','eF24'],
+            'BIMA' : ['eF1400']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ALMA2' : ['mJy'],
@@ -722,7 +722,6 @@ def src_localDB(localDB):
             'MIRLIN' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy'],
             'ALMA32' : ['mJy'],
             'ALMA33' : ['mJy'],
-            'BIMA' : ['mJy'],
             'VARIOUS5' : ['mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','Jy'],
             'ALMA18' : ['mJy','mJy','mJy'],
             'HERSCHEL1' : ['Jy','Jy','Jy'],
@@ -788,7 +787,8 @@ def src_localDB(localDB):
             'APEX2' : ['mJy'],
             'VLA' : ['mJy','mJy','mJy','mJy'],
             'VLA2' : ['mJy','mJy'],
-            'SPITZER4' : ['mag','mag','mag','mag','mag']}
+            'SPITZER4' : ['mag','mag','mag','mag','mag'],
+            'BIMA' : ['mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -834,7 +834,6 @@ def src_localDB(localDB):
             'MIRLIN' : ['MIRLIN:F1','MIRLIN:F2','MIRLIN:F3','MIRLIN:F4','MIRLIN:F5','MIRLIN:F6','MIRLIN:F7','MIRLIN:F8','MIRLIN:F9','MIRLIN:F10'],
             'ALMA32' : ['ALMA:F1330'],
             'ALMA33' : ['ALMA:F869'],
-            'BIMA' : ['BIMA:1400'],
             'VARIOUS5' : ['Johnson:U','Johnson:B','Johnson:V','Johnson:R','Cousins:Rc','Johnson:I','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K','Johnson:L','Johnson:M','CSO:F1300'],
             'ALMA18' : ['ALMA:F1254','ALMA:F1293','ALMA:F1283'],
             'HERSCHEL1' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160'],
@@ -900,7 +899,8 @@ def src_localDB(localDB):
             'APEX2' : ['APEX:LABOCA:F870'],
             'VLA' : ['VLA:F20000','VLA:F36000','VLA:F60000','VLA:F200000'],
             'VLA2' : ['VLA:F8820','VLA:F49600'],
-            'SPITZER4' : ['SPITZER:I1','SPITZER:I2','SPITZER:I3','SPITZER:I4','SPITZER:M1']}
+            'SPITZER4' : ['SPITZER:I1','SPITZER:I2','SPITZER:I3','SPITZER:I4','SPITZER:M1'],
+            'BIMA' : ['BIMA:F1400']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
@@ -909,7 +909,7 @@ def src_onlineDB(query='simbad'):
     Initialise database of online catalogs to query
     """
     # catalog name dictionary:
-    catN = {'2MASS'    : ['FLUX_BIBCODE_J','FLUX_BIBCODE_H','FLUX_BIBCODE_K'],
+    catN = {'2MASS' : ['FLUX_BIBCODE_J','FLUX_BIBCODE_H','FLUX_BIBCODE_K'],
            'TYCHO2'   : 'I/259/tyc2',
            'AKARIirc' : 'II/297/irc',
            'AKARIfis' : 'II/298/fis',
@@ -937,7 +937,7 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : 'J/ApJS/184/18/table4'}
 
     # catalog reference dictionary
-    catR = {'2MASS'    : '2003yCat.2246....0C',
+    catR = {'2MASS' : '2003yCat.2246....0C',
            'TYCHO2'   : '2000A&A...355L..27H',
            'AKARIirc' : '2010A&A...514A...1I',
            'AKARIfis' : '2010yCat.2298....0Y',
@@ -965,7 +965,7 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : '2009ApJS..184...18G'}
 
     # catalog wavelength dictionary
-    catW = {'2MASS'    : [1.25e-6,1.65e-6,2.15e-6],
+    catW = {'2MASS' : [1.25e-6,1.65e-6,2.15e-6],
            'TYCHO2'   : [426e-9, 532e-9],
            'AKARIirc' : [9e-6, 18e-6],
            'AKARIfis' : [65e-6, 90e-6, 140e-6, 160e-6],
@@ -993,7 +993,7 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : [3.6e-6,4.5e-6,5.8e-6,8.0e-6,24e-6]}
 
     # catalog angular resolution / beam size
-    catA = {'2MASS'    : [0.24,0.32,0.42],
+    catA = {'2MASS' : [0.24,0.32,0.42],
            'TYCHO2'   : [(1.22*w/0.29)*206265 for w in catW['TYCHO2']],
            'AKARIirc' : [(1.22*w/0.685)*206265 for w in catW['AKARIirc']],
            'AKARIfis' : [(1.22*w/0.685)*206265 for w in catW['AKARIfis']],
@@ -1021,7 +1021,7 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : [1.07,1.33,1.72,2.37,7.11]}
 
     # catalog magnitude name
-    catM = {'2MASS'    : ['FLUX_J','FLUX_H','FLUX_K'],
+    catM = {'2MASS' : ['FLUX_J','FLUX_H','FLUX_K'],
            'TYCHO2'   : ['BTmag', 'VTmag'],
            'AKARIirc' : ['S09', 'S18'],
            'AKARIfis' : ['S65', 'S90', 'S140', 'S160'],
@@ -1051,7 +1051,7 @@ def src_onlineDB(query='simbad'):
     # catalog magnitude error name (or, if an error isn't given in the catalog, provide a 
     # float which will be used as a percentage uncertainty on the retrieved magnitude/flux 
     # value retrieved from the catalog
-    catE = {'2MASS'    : ['FLUX_ERROR_J','FLUX_ERROR_H','FLUX_ERROR_K'],
+    catE = {'2MASS' : ['FLUX_ERROR_J','FLUX_ERROR_H','FLUX_ERROR_K'],
            'TYCHO2'   : ['e_BTmag', 'e_VTmag'],
            'AKARIirc' : ['e_S09', 'e_S18'],
            'AKARIfis' : ['e_S65', 'e_S90', 'e_S140', 'e_S160'],
@@ -1079,7 +1079,7 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : ['e_3.6mag','e_4.5mag','e_5.8mag','e_8.0mag','e_24mag']}
 
     # catalog magnitude unit name
-    catU = {'2MASS'    : ['mag','mag','mag'],
+    catU = {'2MASS' : ['mag','mag','mag'],
            'TYCHO2'   : ['mag', 'mag'],
            'AKARIirc' : ['Jy', 'Jy'],
            'AKARIfis' : ['Jy', 'Jy', 'Jy', 'Jy'],
@@ -1107,7 +1107,7 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : ['mag','mag','mag','mag','mag']}
 
     # catalog waveband name
-    catB = {'2MASS'    : ['2MASS:J','2MASS:H','2MASS:Ks'],
+    catB = {'2MASS' : ['2MASS:J','2MASS:H','2MASS:Ks'],
            'TYCHO2'   : ['HIP:BT', 'HIP:VT'],
            'AKARIirc' : ['AKARI:S9W', 'AKARI:L18W'],
            'AKARIfis' : ['AKARI:N60', 'AKARI:WIDE-S', 'AKARI:WIDE-L', 'AKARI:N160'],
