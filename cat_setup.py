@@ -57,7 +57,7 @@ def src_localDB(localDB):
             'Herschel3' : localDB+'/database/herschel_cha.csv',
             'Herschel4' : localDB+'/database/herschel_green.csv',
             'Herschel5' : localDB+'/database/herschel_sicilia_aguilar.csv',
-            'Spitzer5' : localDB+'/database/spitzer_sicilia_aguilar.csv',
+            'SPITZER5' : localDB+'/database/spitzer_sicilia_aguilar.csv',
             'Herschel7' : localDB+'/database/herschel_cieza.csv',
             'Herschel8' : localDB+'/database/herschel_bustamante.csv',
             'KITTPEAK1' : localDB+'/database/mdm_kittpeak_JHKphot.csv',
@@ -175,7 +175,7 @@ def src_localDB(localDB):
             'Herschel3' : '2012A&A...545A.145W',
             'Herschel4' : '2013ApJ...772..117G',
             'Herschel5' : '2013A&A...551A..34S',
-            'Spitzer5' : '2013A&A...551A..34S',
+            'SPITZER5' : '2013A&A...551A..34S',
             'Herschel7' : '2013ApJ...762..100C',
             'Herschel8' : '2015A&A...578A..23B',
             'KITTPEAK1' : '2008ApJ...689..513T',
@@ -286,7 +286,7 @@ def src_localDB(localDB):
             'Herschel3' : [70e-6,160e-6,250e-6,350e-6,500e-6],
             'Herschel4' : [70e-6,100e-6,160e-6,250e-6,350e-6,500e-6],
             'Herschel5' : [100e-6,160e-6],
-            'Spitzer5' : [70e-6],
+            'SPITZER5' : [70e-6],
             'Herschel7' : [70e-6,160e-6,250e-6,350e-6,500e-6],
             'Herschel8' : [70e-6,100e-6,160e-6,250e-6,350e-6,500e-6],
             'KITTPEAK1' : [1.25e-6,1.60e-6,2.18e-6],
@@ -398,7 +398,7 @@ def src_localDB(localDB):
             'Herschel3' : [5.03,11.50,17.97,25.16,35.95],
             'Herschel4' : [5.03,7.19,11.50,17.97,25.16,35.95],
             'Herschel5' : [7.19,11.50],
-            'Spitzer5' : [20.7],
+            'SPITZER5' : [20.7],
             'Herschel7' : [5.03,11.50,17.97,25.16,35.95],
             'Herschel8' : [5.03,7.19,11.50,17.97,25.16,35.95],
             'KITTPEAK1' : [0.13,0.17,0.23],
@@ -509,7 +509,7 @@ def src_localDB(localDB):
             'Herschel3' : ['F_70um','F_160um','F_250um','F_350um','F_500um'],
             'Herschel4' : ['F70','F100','F160','F250','F350','F500'],
             'Herschel5' : ['F100','F160'],
-            'Spitzer5' : ['F70'],
+            'SPITZER5' : ['F70'],
             'Herschel7' : ['F70','F160','F250','F350','F500'],
             'Herschel8' : ['F70','F100','F160','F250','F350','F500'],
             'KITTPEAK1' : ['Jmag','Hmag','Kmag'],
@@ -620,7 +620,7 @@ def src_localDB(localDB):
             'Herschel3' : ['e_70um','e_160um','e_250um','e_350um','e_500um'],
             'Herschel4' : ['eF70','eF100','eF160','eF250','eF350','eF500'],
             'Herschel5' : ['eF100','eF160'],
-            'Spitzer5' : ['eF70'],
+            'SPITZER5' : ['eF70'],
             'Herschel7' : ['eF70','eF160','eF250','eF350','eF500'],
             'Herschel8' : ['eF70','eF100','eF160','eF250','eF350','eF500'],
             'KITTPEAK1' : ['eJmag','eHmag','eKmag'],
@@ -731,7 +731,7 @@ def src_localDB(localDB):
             'Herschel3' : ['Jy','Jy','Jy','Jy','Jy'],
             'Herschel4' : ['Jy','Jy','Jy','Jy','Jy','Jy'],
             'Herschel5' : ['Jy','Jy'],
-            'Spitzer5' : ['Jy'],
+            'SPITZER5' : ['Jy'],
             'Herschel7' : ['mJy','mJy','mJy','mJy','mJy'],
             'Herschel8' : ['Jy','Jy','Jy','Jy','Jy','Jy'],
             'KITTPEAK1' : ['mag','mag','mag'],
@@ -843,7 +843,7 @@ def src_localDB(localDB):
             'Herschel3' : ['Herschel:PACS:F70','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
             'Herschel4' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
             'Herschel5' : ['Herschel:PACS:F100','Herschel:PACS:F160'],
-            'Spitzer5' : ['Spitzer:MIPS:F70'],
+            'SPITZER5' : ['Spitzer:MIPS:F70'],
             'Herschel7' : ['Herschel:PACS:F70','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
             'Herschel8' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
             'KITTPEAK1' : ['Johnson:J','Johnson:H','Johnson:K'],
@@ -924,7 +924,6 @@ def src_onlineDB(query='simbad'):
            'SDSSr12' : 'V/147/sdss12',
            'SDSSr9' : 'V/139/sdss9',
            'APASSr9' : 'II/336/apass9',
-           'VLA1' : 'J/ApJ/775/63/table1',
            'ALMA6' : 'J/ApJ/828/46/alma',
            'XMMOM' : 'II/356/xmmom41s',
            'GAIA' : 'I/345/gaia2',
@@ -934,7 +933,8 @@ def src_onlineDB(query='simbad'):
            'Herschel6' : 'J/A+A/619/A52/tablea16',
            'JCMT3' : 'J/ApJS/175/277/maps',
            'CSOJCMTmm' : 'J/ApJ/671/1800/table1',
-           'APEX3' : 'J/A+A/527/A145/table2'}
+           'APEX3' : 'J/A+A/527/A145/table2',
+           'VLA3' : 'J/ApJ/775/63/table1'}
 
     # catalog reference dictionary
     catR = {'2MASS'    : '2003yCat.2246....0C',
@@ -952,7 +952,6 @@ def src_onlineDB(query='simbad'):
            'SDSSr12' : '2015ApJS..219...12A',
            'SDSSr9' : '2012ApJS..203...21A',
            'APASSr9' : '2015AAS...22533616H',
-           'VLA1' : '2013ApJ...775...63D',
            'ALMA6' : '2016ApJ...828...46A',
            'XMMOM' : '2012MNRAS.426..903P',
            'GAIA' : '2018A&A...616A...1G',
@@ -962,7 +961,8 @@ def src_onlineDB(query='simbad'):
            'Herschel6' : '2018A&A...619A..52B',
            'JCMT3' : '2008ApJS..175..277D',
            'CSOJCMTmm' : '2007ApJ...671.1800A',
-           'APEX3' : '2011A&A...527A.145B'}
+           'APEX3' : '2011A&A...527A.145B',
+           'VLA3' : '2013ApJ...775...63D'}
 
     # catalog wavelength dictionary
     catW = {'2MASS'    : [1.25e-6, 1.65e-6, 2.15e-6],
@@ -980,7 +980,6 @@ def src_onlineDB(query='simbad'):
            'SDSSr12' : [354.3e-9,477.0e-9,623.1e-9,762.5e-9,913.4e-9],
            'SDSSr9' : [354.3e-9,477.0e-9,623.1e-9,762.5e-9,913.4e-9],
            'APASSr9' : [540e-9,442e-9,477.0e-9,623.1e-9,762.5e-9],
-           'VLA1' : [66620.546e-6,39972.328e-6],
            'ALMA6' : [890e-6],
            'XMMOM' : [2120.0e-10,2310.0e-10,2910.0e-10,3440.0e-10,4500.0e-10,5430.0e-10],
            'GAIA' : [0.64050e-6,0.51311e-6,0.77776e-6],
@@ -990,7 +989,8 @@ def src_onlineDB(query='simbad'):
            'Herschel6' : [70e-6,160e-6,250e-6,350e-6,500e-6],
            'JCMT3' : [850e-6,450e-6],
            'CSOJCMTmm' : [350.0e-6,450.0e-6,850.0e-6,1300.0e-6],
-           'APEX3' : [870e-6]}
+           'APEX3' : [870e-6],
+           'VLA3' : [66620.546e-6,39972.328e-6]}
 
     # catalog angular resolution / beam size
     catA = {'2MASS'    : [(1.22*w/1.3)*206265 for w in catW['2MASS']],
@@ -1008,7 +1008,6 @@ def src_onlineDB(query='simbad'):
            'SDSSr12' : [0.036,0.048,0.063,0.077,0.092],
            'SDSSr9' : [0.036,0.048,0.063,0.077,0.092],
            'APASSr9' : [1.0,1.0,1.0,1.0,1.0],
-           'VLA1' : [50.0,50.0],
            'ALMA6' : [1.0],
            'XMMOM' : [1.98,1.80,2.00,1.55,1.39,1.35],
            'GAIA' : [1.,1.,1.],
@@ -1018,7 +1017,8 @@ def src_onlineDB(query='simbad'):
            'Herschel6' : [5.03,11.50,17.97,25.16,35.95],
            'JCMT3' : [13.8,7.8],
            'CSOJCMTmm' : [8.5,7.8,13.8,10],
-           'APEX3' : [19.2]}
+           'APEX3' : [19.2],
+           'VLA3' : [1.0,1.0]}
 
     # catalog magnitude name
     catM = {'2MASS'    : ['FLUX_J', 'FLUX_H', 'FLUX_K'],
@@ -1036,7 +1036,6 @@ def src_onlineDB(query='simbad'):
            'SDSSr12' : ['umag','gmag','rmag','imag','zmag'],
            'SDSSr9' : ['umag','gmag','rmag','imag','zmag'],
            'APASSr9' : ['Vmag','Bmag','g_mag','r_mag','i_mag'],
-           'VLA1' : ['F4.5','F7.5'],
            'ALMA6' : ['F890'],
            'XMMOM' : ['UVW2mAB','UVM2mAB','UVW1mAB','UmAB','BmAB','VmAB'],
            'GAIA' : ['Gmag','BPmag','RPmag'],
@@ -1046,7 +1045,8 @@ def src_onlineDB(query='simbad'):
            'Herschel6' : ['Stot070','Stot160','Stot250','Stot350','Stot500'],
            'JCMT3' : ['F850','F450'],
            'CSOJCMTmm' : ['F0.35','F0.45','F0.85','F1.3'],
-           'APEX3' : ['Ftot']}
+           'APEX3' : ['Ftot'],
+           'VLA3' : ['F4.5','F7.5']}
 
     # catalog magnitude error name (or, if an error isn't given in the catalog, provide a 
     # float which will be used as a percentage uncertainty on the retrieved magnitude/flux 
@@ -1066,7 +1066,6 @@ def src_onlineDB(query='simbad'):
            'SDSSr12' : ['e_umag','e_gmag','e_rmag','e_imag','e_zmag'],
            'SDSSr9' : ['e_umag','e_gmag','e_rmag','e_imag','e_zmag'],
            'APASSr9' : ['e_Vmag','e_Bmag','e_g_mag','e_r_mag','e_i_mag'],
-           'VLA1' : ['e_F4.5','e_F7.5'],
            'ALMA6' : ['e_F890'],
            'XMMOM' : ['e_UVW2mAB','e_UVM2mAB','e_UVW1mAB','e_UmAB','e_BmAB','e_VmAB'],
            'GAIA' : ['e_Gmag','e_BPmag','e_RPmag'],
@@ -1076,7 +1075,8 @@ def src_onlineDB(query='simbad'):
            'Herschel6' : ['e_Stot070','e_Stot160','e_Stot250','e_Stot350','e_Stot500'],
            'JCMT3' : ['0.2','0.5'],
            'CSOJCMTmm' : ['e_F0.35','e_F0.45','e_F0.85','e_F1.3'],
-           'APEX3' : ['0.2']}
+           'APEX3' : ['0.2'],
+           'VLA3' : ['e_F4.5','e_F7.5']}
 
     # catalog magnitude unit name
     catU = {'2MASS'    : ['mag', 'mag', 'mag'],
@@ -1094,7 +1094,6 @@ def src_onlineDB(query='simbad'):
            'SDSSr12' : ['mag','mag','mag','mag','mag'],
            'SDSSr9' : ['mag','mag','mag','mag','mag'],
            'APASSr9' : ['mag','mag','mag','mag','mag'],
-           'VLA1' : ['mJy','mJy'],
            'ALMA6' : ['mJy'],
            'XMMOM' : ['mag','mag','mag','mag','mag','mag'],
            'GAIA' : ['mag','mag','mag'],
@@ -1104,7 +1103,8 @@ def src_onlineDB(query='simbad'):
            'Herschel6' : ['Jy','Jy','Jy','Jy','Jy'],
            'JCMT3' : ['Jy','Jy'],
            'CSOJCMTmm' : ['mJy','mJy','mJy','mJy'],
-           'APEX3' : ['Jy']}
+           'APEX3' : ['Jy'],
+           'VLA3' : ['mJy','mJy']}
 
     # catalog waveband name
     catB = {'2MASS'    : ['2MASS:J', '2MASS:H', '2MASS:Ks'],
@@ -1122,7 +1122,6 @@ def src_onlineDB(query='simbad'):
            'SDSSr12' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
            'SDSSr9' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
            'APASSr9' : ['Johnson:V','Johnson:B','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i'],
-           'VLA1' : ['VLA:4.5GHz','VLA:7.5GHz'],
            'ALMA6' : ['ALMA:F890'],
            'XMMOM' : ['XMMOM:UVW2','XMMOM:UVM2','XMMOM:UVW1','XMMOM:U','XMMOM:B','XMMOM:V'],
            'GAIA' : ['Gaia:G','Gaia:GBP','Gaia:GRP'],
@@ -1132,6 +1131,7 @@ def src_onlineDB(query='simbad'):
            'Herschel6' : ['Herschel:PACS:F70','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
            'JCMT3' : ['JCMT:SCUBA:F850','JCMT:SCUBA:F450'],
            'CSOJCMTmm' : ['CSO:SHARCII:F350','JCMT:SCUBA:F450','JCMT:SCUBA:F850','Compiled:F1300'],
-           'APEX3' : ['APEX:LABOCA:F870']}
+           'APEX3' : ['APEX:LABOCA:F870'],
+           'VLA3' : ['VLA:F66620','VLA:F39972']}
     
     return catN, catR, catW, catA, catM, catE, catU, catB
