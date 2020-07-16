@@ -909,7 +909,7 @@ def src_onlineDB(query='simbad'):
     Initialise database of online catalogs to query
     """
     # catalog name dictionary:
-    catN = {'2MASS'    : ['FLUX_BIBCODE_J', 'FLUX_BIBCODE_H', 'FLUX_BIBCODE_K'],
+    catN = {'2MASS'    : ['FLUX_BIBCODE_J','FLUX_BIBCODE_H','FLUX_BIBCODE_K'],
            'TYCHO2'   : 'I/259/tyc2',
            'AKARIirc' : 'II/297/irc',
            'AKARIfis' : 'II/298/fis',
@@ -965,7 +965,7 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : '2009ApJS..184...18G'}
 
     # catalog wavelength dictionary
-    catW = {'2MASS'    : [1.25e-6, 1.65e-6, 2.15e-6],
+    catW = {'2MASS'    : [1.25e-6,1.65e-6,2.15e-6],
            'TYCHO2'   : [426e-9, 532e-9],
            'AKARIirc' : [9e-6, 18e-6],
            'AKARIfis' : [65e-6, 90e-6, 140e-6, 160e-6],
@@ -993,7 +993,7 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : [3.6e-6,4.5e-6,5.8e-6,8.0e-6,24e-6]}
 
     # catalog angular resolution / beam size
-    catA = {'2MASS'    : [(1.22*w/1.3)*206265 for w in catW['2MASS']],
+    catA = {'2MASS'    : [0.24,0.32,0.42],
            'TYCHO2'   : [(1.22*w/0.29)*206265 for w in catW['TYCHO2']],
            'AKARIirc' : [(1.22*w/0.685)*206265 for w in catW['AKARIirc']],
            'AKARIfis' : [(1.22*w/0.685)*206265 for w in catW['AKARIfis']],
@@ -1021,7 +1021,7 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : [1.07,1.33,1.72,2.37,7.11]}
 
     # catalog magnitude name
-    catM = {'2MASS'    : ['FLUX_J', 'FLUX_H', 'FLUX_K'],
+    catM = {'2MASS'    : ['FLUX_J','FLUX_H','FLUX_K'],
            'TYCHO2'   : ['BTmag', 'VTmag'],
            'AKARIirc' : ['S09', 'S18'],
            'AKARIfis' : ['S65', 'S90', 'S140', 'S160'],
@@ -1051,7 +1051,7 @@ def src_onlineDB(query='simbad'):
     # catalog magnitude error name (or, if an error isn't given in the catalog, provide a 
     # float which will be used as a percentage uncertainty on the retrieved magnitude/flux 
     # value retrieved from the catalog
-    catE = {'2MASS'    : ['FLUX_ERROR_J', 'FLUX_ERROR_H', 'FLUX_ERROR_K'],
+    catE = {'2MASS'    : ['FLUX_ERROR_J','FLUX_ERROR_H','FLUX_ERROR_K'],
            'TYCHO2'   : ['e_BTmag', 'e_VTmag'],
            'AKARIirc' : ['e_S09', 'e_S18'],
            'AKARIfis' : ['e_S65', 'e_S90', 'e_S140', 'e_S160'],
@@ -1079,7 +1079,7 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : ['e_3.6mag','e_4.5mag','e_5.8mag','e_8.0mag','e_24mag']}
 
     # catalog magnitude unit name
-    catU = {'2MASS'    : ['mag', 'mag', 'mag'],
+    catU = {'2MASS'    : ['mag','mag','mag'],
            'TYCHO2'   : ['mag', 'mag'],
            'AKARIirc' : ['Jy', 'Jy'],
            'AKARIfis' : ['Jy', 'Jy', 'Jy', 'Jy'],
@@ -1107,7 +1107,7 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : ['mag','mag','mag','mag','mag']}
 
     # catalog waveband name
-    catB = {'2MASS'    : ['2MASS:J', '2MASS:H', '2MASS:Ks'],
+    catB = {'2MASS'    : ['2MASS:J','2MASS:H','2MASS:Ks'],
            'TYCHO2'   : ['HIP:BT', 'HIP:VT'],
            'AKARIirc' : ['AKARI:S9W', 'AKARI:L18W'],
            'AKARIfis' : ['AKARI:N60', 'AKARI:WIDE-S', 'AKARI:WIDE-L', 'AKARI:N160'],
