@@ -113,7 +113,8 @@ def src_localDB(localDB):
             'APEX' : localDB+'/database/apex_laboca_nilsson.csv',
             'APEX2' : localDB+'/database/laboca_hales.csv',
             'VLA' : localDB+'/database/vla_skinner.csv',
-            'VLA2' : localDB+'/database/vla_ribas.csv'}
+            'VLA2' : localDB+'/database/vla_ribas.csv',
+            'HERSCHEL9' : localDB+'/database/herschel_ribas2.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -230,7 +231,8 @@ def src_localDB(localDB):
             'APEX' : '2010A&A...518A..40N',
             'APEX2' : '2014AJ....148...47H',
             'VLA' : '1993ApJS...87..217S',
-            'VLA2' : '2018ApJ...865...77R'}
+            'VLA2' : '2018ApJ...865...77R',
+            'HERSCHEL9' : '2018ApJ...865...77R'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ALMA2' : [890.0e-6],
@@ -340,7 +342,8 @@ def src_localDB(localDB):
             'APEX' : [870e-6],
             'APEX2' : [870e-6],
             'VLA' : [20000e-6,36000e-6,60000e-6,200000e-6],
-            'VLA2' : [8820e-6,49600e-6]}
+            'VLA2' : [8820e-6,49600e-6],
+            'HERSCHEL9' : [70e-6,100e-6,160e-6,250e-6,350e-6,500e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -451,7 +454,8 @@ def src_localDB(localDB):
             'APEX' : [19.2],
             'APEX2' : [19.2],
             'VLA' : [2.0,1.0,4.1,20.0],
-            'VLA2' : [0.12,0.14]}
+            'VLA2' : [0.12,0.14],
+            'HERSCHEL9' : [5.03,7.19,11.50,17.97,25.16,35.95]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ALMA2' : ['F890'],
@@ -561,7 +565,8 @@ def src_localDB(localDB):
             'APEX' : ['F870'],
             'APEX2' : ['F870'],
             'VLA' : ['S2cm','S3.6cm','S6cm','S20cm'],
-            'VLA2' : ['F8820','F49600']}
+            'VLA2' : ['F8820','F49600'],
+            'HERSCHEL9' : ['F70','F100','F160','F250','F350','F500']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ALMA2' : ['e_F890'],
@@ -671,7 +676,8 @@ def src_localDB(localDB):
             'APEX' : ['e_F870'],
             'APEX2' : ['eF870'],
             'VLA' : ['e_S2cm','e_S3.6cm','e_S6cm','e_S20cm'],
-            'VLA2' : ['eF8820','eF49600']}
+            'VLA2' : ['eF8820','eF49600'],
+            'HERSCHEL9' : ['eF70','eF100','eF160','eF250','eF350','eF500']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ALMA2' : ['mJy'],
@@ -781,7 +787,8 @@ def src_localDB(localDB):
             'APEX' : ['mJy'],
             'APEX2' : ['mJy'],
             'VLA' : ['mJy','mJy','mJy','mJy'],
-            'VLA2' : ['mJy','mJy']}
+            'VLA2' : ['mJy','mJy'],
+            'HERSCHEL9' : ['mJy','mJy','mJy','mJy','mJy','mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -892,7 +899,8 @@ def src_localDB(localDB):
             'APEX' : ['APEX:LABOCA:F870'],
             'APEX2' : ['APEX:LABOCA:F870'],
             'VLA' : ['VLA:F20000','VLA:F36000','VLA:F60000','VLA:F200000'],
-            'VLA2' : ['VLA:F8820','VLA:F49600']}
+            'VLA2' : ['VLA:F8820','VLA:F49600'],
+            'HERSCHEL9' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
