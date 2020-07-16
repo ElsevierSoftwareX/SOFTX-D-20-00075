@@ -1,3 +1,5 @@
-Target,F1300,eF1300,F2700,eF2700
-V* V892 Tau,251,--,39,--,--,--
-V* PV Cep,280,--,32,--
+Target,F1300,eF1300,F2700,eF2700,ObsDate
+V* V892 Tau,251,--,--,--,2007Sep07
+V* V892 Tau,--,--,39,--,2008Jan14
+V* PV Cep,280,--,--,--,2007Sep19
+V* PV Cep,--,--,32,--,averaged
