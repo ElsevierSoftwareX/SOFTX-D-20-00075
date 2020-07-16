@@ -912,7 +912,6 @@ def src_onlineDB(query='simbad'):
            'SPITZER1'  : 'J/ApJS/184/18/table4',
            'SPITZER2'  : 'J/ApJ/678/200/YSOs',
            'SPITZER3'  : 'J/ApJ/675/1375/photom',
-           'LABOCA'    : 'J/A+A/527/A145/table2',
            'ALMA1' : 'J/ApJ/831/125/sources',
            'SDSSr12' : 'V/147/sdss12',
            'SDSSr9' : 'V/139/sdss9',
@@ -926,7 +925,8 @@ def src_onlineDB(query='simbad'):
            'MSX' : 'V/114/msx6_gp',
            'Herschel6' : 'J/A+A/619/A52/tablea16',
            'JCMT3' : 'J/ApJS/175/277/maps',
-           'CSOJCMTmm' : 'J/ApJ/671/1800/table1'}
+           'CSOJCMTmm' : 'J/ApJ/671/1800/table1',
+           'APEX3' : 'J/A+A/527/A145/table2'}
 
     # catalog reference dictionary
     catR = {'2MASS'    : '2003yCat.2246....0C',
@@ -940,7 +940,6 @@ def src_onlineDB(query='simbad'):
            'SPITZER1'  : '2009ApJS..184...18G',
            'SPITZER2'  : '2008ApJ...678..200C',
            'SPITZER3'  : '2008ApJ...675.1375L',
-           'LABOCA'    : '2011A&A...527A.145B',
            'ALMA1' : '2016ApJ...831..125P',
            'SDSSr12' : '2015ApJS..219...12A',
            'SDSSr9' : '2012ApJS..203...21A',
@@ -954,7 +953,8 @@ def src_onlineDB(query='simbad'):
            'MSX' : '2003yCat.5114....0E',
            'Herschel6' : '2018A&A...619A..52B',
            'JCMT3' : '2008ApJS..175..277D',
-           'CSOJCMTmm' : '2007ApJ...671.1800A'}
+           'CSOJCMTmm' : '2007ApJ...671.1800A',
+           'APEX3' : '2011A&A...527A.145B'}
 
     # catalog wavelength dictionary
     catW = {'2MASS'    : [1.25e-6, 1.65e-6, 2.15e-6],
@@ -968,7 +968,6 @@ def src_onlineDB(query='simbad'):
            'SPITZER1'  : [3.6e-6, 4.5e-6, 5.8e-6, 8.0e-6, 24e-6],
            'SPITZER2'  : [3.6e-6, 4.5e-6, 5.8e-6, 8.0e-6, 24e-6],
            'SPITZER3'  : [3.6e-6, 4.5e-6, 5.8e-6, 8.0e-6, 24e-6],
-           'LABOCA'    : [870.0e-6],
            'ALMA1' : [887.0],
            'SDSSr12' : [354.3e-9,477.0e-9,623.1e-9,762.5e-9,913.4e-9],
            'SDSSr9' : [354.3e-9,477.0e-9,623.1e-9,762.5e-9,913.4e-9],
@@ -982,7 +981,8 @@ def src_onlineDB(query='simbad'):
            'MSX' : [4.29e-6,4.35e-6,8.28e-6,12.13e-6,14.65e-6,21.34e-6],
            'Herschel6' : [70e-6,160e-6,250e-6,350e-6,500e-6],
            'JCMT3' : [850e-6,450e-6],
-           'CSOJCMTmm' : [350.0e-6,450.0e-6,850.0e-6,1300.0e-6]}
+           'CSOJCMTmm' : [350.0e-6,450.0e-6,850.0e-6,1300.0e-6],
+           'APEX3' : [870e-6]}
 
     # catalog angular resolution / beam size
     catA = {'2MASS'    : [(1.22*w/1.3)*206265 for w in catW['2MASS']],
@@ -996,7 +996,6 @@ def src_onlineDB(query='simbad'):
            'SPITZER1'  : [(1.22*w/0.85)*206265 for w in catW['SPITZER1']],
            'SPITZER2'  : [(1.22*w/0.85)*206265 for w in catW['SPITZER2']],
            'SPITZER3'  : [(1.22*w/0.85)*206265 for w in catW['SPITZER3']],
-           'LABOCA'    : [21.2],
            'ALMA1' : [1.],
            'SDSSr12' : [0.036,0.048,0.063,0.077,0.092],
            'SDSSr9' : [0.036,0.048,0.063,0.077,0.092],
@@ -1010,7 +1009,8 @@ def src_onlineDB(query='simbad'):
            'MSX' : [1,1,1,1,1,1],
            'Herschel6' : [5.03,11.50,17.97,25.16,35.95],
            'JCMT3' : [13.8,7.8],
-           'CSOJCMTmm' : [8.5,7.8,13.8,10]}
+           'CSOJCMTmm' : [8.5,7.8,13.8,10],
+           'APEX3' : [19.2]}
 
     # catalog magnitude name
     catM = {'2MASS'    : ['FLUX_J', 'FLUX_H', 'FLUX_K'],
@@ -1024,7 +1024,6 @@ def src_onlineDB(query='simbad'):
            'SPITZER1'  : ['_3.6mag', '_4.5mag', '_5.8mag', '_8.0mag', '_24mag'],
            'SPITZER2'  : ['3.6mag', '4.5mag', '5.8mag', '8.0mag', '24mag'],
            'SPITZER3'  : ['__3.6_', '__4.5_', '__5.8_', '__8.0_', '__24_'],
-           'LABOCA'    : ['Ftot'],
            'ALMA1' : ['Fnu'],
            'SDSSr12' : ['umag','gmag','rmag','imag','zmag'],
            'SDSSr9' : ['umag','gmag','rmag','imag','zmag'],
@@ -1038,7 +1037,8 @@ def src_onlineDB(query='simbad'):
            'MSX' : ['B1','B2','A','C','D','E'],
            'Herschel6' : ['Stot070','Stot160','Stot250','Stot350','Stot500'],
            'JCMT3' : ['F850','F450'],
-           'CSOJCMTmm' : ['F0.35','F0.45','F0.85','F1.3']}
+           'CSOJCMTmm' : ['F0.35','F0.45','F0.85','F1.3'],
+           'APEX3' : ['Ftot']}
 
     # catalog magnitude error name (or, if an error isn't given in the catalog, provide a 
     # float which will be used as a percentage uncertainty on the retrieved magnitude/flux 
@@ -1054,7 +1054,6 @@ def src_onlineDB(query='simbad'):
            'SPITZER1'  : ['e_3.6mag', 'e_4.5mag', 'e_5.8mag', 'e_8.0mag', 'e_24mag'],
            'SPITZER2'  : ['e_3.6mag', 'e_4.5mag', 'e_5.8mag', 'e_8.0mag', 'e_24mag'],
            'SPITZER3'  : ['e__3.6_', 'e__4.5_', 'e__5.8_', 'e__8.0_', 'e__24_'],
-           'LABOCA'    : [0.2],
            'ALMA1' : ['e_Fnu'],
            'SDSSr12' : ['e_umag','e_gmag','e_rmag','e_imag','e_zmag'],
            'SDSSr9' : ['e_umag','e_gmag','e_rmag','e_imag','e_zmag'],
@@ -1068,7 +1067,8 @@ def src_onlineDB(query='simbad'):
            'MSX' : ['e_B1','e_B2','e_A','e_C','e_D','e_E'],
            'Herschel6' : ['e_Stot070','e_Stot160','e_Stot250','e_Stot350','e_Stot500'],
            'JCMT3' : ['0.2','0.5'],
-           'CSOJCMTmm' : ['e_F0.35','e_F0.45','e_F0.85','e_F1.3']}
+           'CSOJCMTmm' : ['e_F0.35','e_F0.45','e_F0.85','e_F1.3'],
+           'APEX3' : ['0.2']}
 
     # catalog magnitude unit name
     catU = {'2MASS'    : ['mag', 'mag', 'mag'],
@@ -1082,7 +1082,6 @@ def src_onlineDB(query='simbad'):
            'SPITZER1'  : ['mag', 'mag', 'mag', 'mag', 'mag'],
            'SPITZER2'  : ['mag', 'mag', 'mag', 'mag', 'mag'],
            'SPITZER3'  : ['mag', 'mag', 'mag', 'mag', 'mag'],
-           'LABOCA'    : ['Jy'],
            'ALMA1' : ['mJy'],
            'SDSSr12' : ['mag','mag','mag','mag','mag'],
            'SDSSr9' : ['mag','mag','mag','mag','mag'],
@@ -1096,7 +1095,8 @@ def src_onlineDB(query='simbad'):
            'MSX' : ['Jy','Jy','Jy','Jy','Jy','Jy'],
            'Herschel6' : ['Jy','Jy','Jy','Jy','Jy'],
            'JCMT3' : ['Jy','Jy'],
-           'CSOJCMTmm' : ['mJy','mJy','mJy','mJy']}
+           'CSOJCMTmm' : ['mJy','mJy','mJy','mJy'],
+           'APEX3' : ['Jy']}
 
     # catalog waveband name
     catB = {'2MASS'    : ['2MASS:J', '2MASS:H', '2MASS:Ks'],
@@ -1110,7 +1110,6 @@ def src_onlineDB(query='simbad'):
            'SPITZER1'  : ['SPITZER:I1', 'SPITZER:I2', 'SPITZER:I3', 'SPITZER:I4', 'SPITZER:M1'],
            'SPITZER2'  : ['SPITZER:I1', 'SPITZER:I2', 'SPITZER:I3', 'SPITZER:I4', 'SPITZER:M1'],
            'SPITZER3'  : ['SPITZER:I1', 'SPITZER:I2', 'SPITZER:I3', 'SPITZER:I4', 'SPITZER:M1'],
-           'LABOCA'    : ['APEX:LABOCA:F870'],
            'ALMA1' : ['ALMA:887'],
            'SDSSr12' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
            'SDSSr9' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
@@ -1124,6 +1123,7 @@ def src_onlineDB(query='simbad'):
            'MSX' : ['MSX6C:B1','MSX6C:B2','MSX6C:A','MSX6C:C','MSX6C:D','MSX6C:E'],
            'Herschel6' : ['Herschel:PACS:F70','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
            'JCMT3' : ['JCMT:SCUBA:F850','JCMT:SCUBA:F450'],
-           'CSOJCMTmm' : ['CSO:SHARCII:F350','JCMT:SCUBA:F450','JCMT:SCUBA:F850','Compiled:F1300']}
+           'CSOJCMTmm' : ['CSO:SHARCII:F350','JCMT:SCUBA:F450','JCMT:SCUBA:F850','Compiled:F1300'],
+           'APEX3' : ['APEX:LABOCA:F870']}
     
     return catN, catR, catW, catA, catM, catE, catU, catB
