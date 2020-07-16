@@ -43,7 +43,6 @@ def src_localDB(localDB):
             'ALMA29' : localDB+'/database/alma_miley.csv',
             'ALMA30' : localDB+'/database/alma_pineda.csv',
             'ALMA31' : localDB+'/database/alma_perez3.csv',
-            'SPITZER4' : localDB+'/database/spitzer_currie.csv',
             'DUCATI' : localDB+'/database/johnson_ducati.csv',
             'RADIO' : localDB+'/database/radio_altenhoff.csv',
             'MIRLIN' : localDB+'/database/keck_mirlin_koerner.csv',
@@ -114,7 +113,8 @@ def src_localDB(localDB):
             'APEX2' : localDB+'/database/laboca_hales.csv',
             'VLA' : localDB+'/database/vla_skinner.csv',
             'VLA2' : localDB+'/database/vla_ribas.csv',
-            'HERSCHEL9' : localDB+'/database/herschel_ribas2.csv'}
+            'HERSCHEL9' : localDB+'/database/herschel_ribas2.csv',
+            'SPITZER4' : localDB+'/database/spitzer_currie.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -161,7 +161,6 @@ def src_localDB(localDB):
             'ALMA29' : '2019MNRAS.485..739M',
             'ALMA30' : '2019ApJ...871...48P',
             'ALMA31' : '2020ApJ...889L..24P',
-            'SPITZER4' : '2011ApJ...732...24C',
             'DUCATI' : '2002yCat.2237....0D',
             'RADIO' : '1976A&A....46...11A',
             'MIRLIN' : '2000ApJ...533L..37K',
@@ -232,7 +231,8 @@ def src_localDB(localDB):
             'APEX2' : '2014AJ....148...47H',
             'VLA' : '1993ApJS...87..217S',
             'VLA2' : '2018ApJ...865...77R',
-            'HERSCHEL9' : '2018ApJ...865...77R'}
+            'HERSCHEL9' : '2018ApJ...865...77R',
+            'SPITZER4' : '2011ApJ...732...24C'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ALMA2' : [890.0e-6],
@@ -272,7 +272,6 @@ def src_localDB(localDB):
             'ALMA29' : [1300e-6],
             'ALMA30' : [870e-6],
             'ALMA31' : [1300e-6],
-            'SPITZER4' : [3.6e-6,4.5e-6,5.8e-6,8.0e-6,24e-6],
             'DUCATI' : [0.55e-6,0.36e-6,0.44e-6,0.71e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6,3.54e-6,4.80e-6,10.6e-6],
             'RADIO' : [28044.2e-6,59958.5e-6,214137.5e-6],
             'MIRLIN' : [4.68e-6,7.91e-6,8.81e-6,9.69e-6,10.27e-6,11.70e-6,12.49e-6,17.93e-6,20.81e-6,24.48e-6],
@@ -343,7 +342,8 @@ def src_localDB(localDB):
             'APEX2' : [870e-6],
             'VLA' : [20000e-6,36000e-6,60000e-6,200000e-6],
             'VLA2' : [8820e-6,49600e-6],
-            'HERSCHEL9' : [70e-6,100e-6,160e-6,250e-6,350e-6,500e-6]}
+            'HERSCHEL9' : [70e-6,100e-6,160e-6,250e-6,350e-6,500e-6],
+            'SPITZER4' : [3.6e-6,4.5e-6,5.8e-6,8.0e-6,24e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -384,7 +384,6 @@ def src_localDB(localDB):
             'ALMA29' : [1.0],
             'ALMA30' : [0.05],
             'ALMA31' : [0.02],
-            'SPITZER4' : [1.07,1.33,1.72,2.37,7.11],
             'DUCATI' : [5,5,5,5,5,5,5,5,5,5,5],
             'RADIO' : [10,10,10],
             'MIRLIN' : [10,10,10,10,10,10,10,10,10,10],
@@ -455,7 +454,8 @@ def src_localDB(localDB):
             'APEX2' : [19.2],
             'VLA' : [2.0,1.0,4.1,20.0],
             'VLA2' : [0.12,0.14],
-            'HERSCHEL9' : [5.03,7.19,11.50,17.97,25.16,35.95]}
+            'HERSCHEL9' : [5.03,7.19,11.50,17.97,25.16,35.95],
+            'SPITZER4' : [1.07,1.33,1.72,2.37,7.11]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ALMA2' : ['F890'],
@@ -495,7 +495,6 @@ def src_localDB(localDB):
             'ALMA29' : ['F1300'],
             'ALMA30' : ['F870'],
             'ALMA31' : ['F1300'],
-            'SPITZER4' : ['F3.6','F4.5','F5.8','F8.0','F24'],
             'DUCATI' : ['V','U','B','R','I','J','H','K','L','M','N'],
             'RADIO' : ['F28000','F60000','F210000'],
             'MIRLIN' : ['F1','F2','F3','F4','F5','F6','F7','F8','F9','F10'],
@@ -566,7 +565,8 @@ def src_localDB(localDB):
             'APEX2' : ['F870'],
             'VLA' : ['S2cm','S3.6cm','S6cm','S20cm'],
             'VLA2' : ['F8820','F49600'],
-            'HERSCHEL9' : ['F70','F100','F160','F250','F350','F500']}
+            'HERSCHEL9' : ['F70','F100','F160','F250','F350','F500'],
+            'SPITZER4' : ['F3.6','F4.5','F5.8','F8.0','F24']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ALMA2' : ['e_F890'],
@@ -606,7 +606,6 @@ def src_localDB(localDB):
             'ALMA29' : ['eF1300'],
             'ALMA30' : ['eF870'],
             'ALMA31' : ['eF1300'],
-            'SPITZER4' : ['eF3.6','eF4.5','eF5.8','eF8.0','eF24'],
             'DUCATI' : ['eV','eU','eB','eR','eI','eJ','eH','eK','eL','eM','eN'],
             'RADIO' : ['eF28000','eF60000','eF210000'],
             'MIRLIN' : ['eF1','eF2','eF3','eF4','eF5','eF6','eF7','eF8','eF9','eF10'],
@@ -677,7 +676,8 @@ def src_localDB(localDB):
             'APEX2' : ['eF870'],
             'VLA' : ['e_S2cm','e_S3.6cm','e_S6cm','e_S20cm'],
             'VLA2' : ['eF8820','eF49600'],
-            'HERSCHEL9' : ['eF70','eF100','eF160','eF250','eF350','eF500']}
+            'HERSCHEL9' : ['eF70','eF100','eF160','eF250','eF350','eF500'],
+            'SPITZER4' : ['eF3.6','eF4.5','eF5.8','eF8.0','eF24']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ALMA2' : ['mJy'],
@@ -717,7 +717,6 @@ def src_localDB(localDB):
             'ALMA29' : ['mJy'],
             'ALMA30' : ['Jy'],
             'ALMA31' : ['mJy'],
-            'SPITZER4' : ['mag','mag','mag','mag','mag'],
             'DUCATI' : ['mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','mag'],
             'RADIO' : ['mJy','mJy','mJy'],
             'MIRLIN' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy'],
@@ -788,7 +787,8 @@ def src_localDB(localDB):
             'APEX2' : ['mJy'],
             'VLA' : ['mJy','mJy','mJy','mJy'],
             'VLA2' : ['mJy','mJy'],
-            'HERSCHEL9' : ['mJy','mJy','mJy','mJy','mJy','mJy']}
+            'HERSCHEL9' : ['mJy','mJy','mJy','mJy','mJy','mJy'],
+            'SPITZER4' : ['mag','mag','mag','mag','mag']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -829,7 +829,6 @@ def src_localDB(localDB):
             'ALMA29' : ['ALMA:F1300'],
             'ALMA30' : ['ALMA:F870'],
             'ALMA31' : ['ALMA:F1300'],
-            'SPITZER4' : ['SPITZER:I1','SPITZER:I2','SPITZER:I3','SPITZER:I4','SPITZER:M1'],
             'DUCATI' : ['Johnson:V','Johnson:U','Johnson:B','Cousins:Rc','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K','Johnson:L','Johnson:M','Johnson:N'],
             'RADIO' : ['Radio:10.69GHz','Radio:5GHz','Radio:1.4GHz'],
             'MIRLIN' : ['MIRLIN:F1','MIRLIN:F2','MIRLIN:F3','MIRLIN:F4','MIRLIN:F5','MIRLIN:F6','MIRLIN:F7','MIRLIN:F8','MIRLIN:F9','MIRLIN:F10'],
@@ -900,7 +899,8 @@ def src_localDB(localDB):
             'APEX2' : ['APEX:LABOCA:F870'],
             'VLA' : ['VLA:F20000','VLA:F36000','VLA:F60000','VLA:F200000'],
             'VLA2' : ['VLA:F8820','VLA:F49600'],
-            'HERSCHEL9' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500']}
+            'HERSCHEL9' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
+            'SPITZER4' : ['SPITZER:I1','SPITZER:I2','SPITZER:I3','SPITZER:I4','SPITZER:M1']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
