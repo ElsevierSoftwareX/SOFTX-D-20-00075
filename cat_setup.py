@@ -44,7 +44,6 @@ def src_localDB(localDB):
             'ALMA30' : localDB+'/database/alma_pineda.csv',
             'ALMA31' : localDB+'/database/alma_perez3.csv',
             'DUCATI' : localDB+'/database/johnson_ducati.csv',
-            'RADIO' : localDB+'/database/radio_altenhoff.csv',
             'ALMA32' : localDB+'/database/alma_ansdell.csv',
             'ALMA33' : localDB+'/database/alma_vterwisga.csv',
             'VARIOUS5' : localDB+'/database/various_hillenbrand.csv',
@@ -54,7 +53,6 @@ def src_localDB(localDB):
             'HERSCHEL3' : localDB+'/database/herschel_cha.csv',
             'HERSCHEL4' : localDB+'/database/herschel_green.csv',
             'HERSCHEL5' : localDB+'/database/herschel_sicilia_aguilar.csv',
-            'SPITZER5' : localDB+'/database/spitzer_sicilia_aguilar.csv',
             'HERSCHEL7' : localDB+'/database/herschel_cieza.csv',
             'HERSCHEL8' : localDB+'/database/herschel_bustamante.csv',
             'HERSCHEL9' : localDB+'/database/herschel_ribas2.csv',
@@ -113,8 +111,10 @@ def src_localDB(localDB):
             'VLA' : localDB+'/database/vla_skinner.csv',
             'VLA2' : localDB+'/database/vla_ribas.csv',
             'SPITZER4' : localDB+'/database/spitzer_currie.csv',
+            'SPITZER5' : localDB+'/database/spitzer_sicilia_aguilar.csv',
             'BIMA' : localDB+'/database/bima_hamidouche.csv',
-            'MIRLIN' : localDB+'/database/keck_mirlin_koerner.csv'}
+            'MIRLIN' : localDB+'/database/keck_mirlin_koerner.csv',
+            'MPIfR' : localDB+'/database/radio_altenhoff.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -162,7 +162,6 @@ def src_localDB(localDB):
             'ALMA30' : '2019ApJ...871...48P',
             'ALMA31' : '2020ApJ...889L..24P',
             'DUCATI' : '2002yCat.2237....0D',
-            'RADIO' : '1976A&A....46...11A',
             'ALMA32' : '2018ApJ...859...21A',
             'ALMA33' : '2019A&A...623A.150V',
             'VARIOUS5' : '1992ApJ...397..613H',
@@ -172,7 +171,6 @@ def src_localDB(localDB):
             'HERSCHEL3' : '2012A&A...545A.145W',
             'HERSCHEL4' : '2013ApJ...772..117G',
             'HERSCHEL5' : '2013A&A...551A..34S',
-            'SPITZER5' : '2013A&A...551A..34S',
             'HERSCHEL7' : '2013ApJ...762..100C',
             'HERSCHEL8' : '2015A&A...578A..23B',
             'HERSCHEL9' : '2018ApJ...865...77R',
@@ -231,8 +229,10 @@ def src_localDB(localDB):
             'VLA' : '1993ApJS...87..217S',
             'VLA2' : '2018ApJ...865...77R',
             'SPITZER4' : '2011ApJ...732...24C',
+            'SPITZER5' : '2013A&A...551A..34S',
             'BIMA' : '2006ApJ...651..321H',
-            'MIRLIN' : '2000ApJ...533L..37K'}
+            'MIRLIN' : '2000ApJ...533L..37K',
+            'MPIfR' : '1976A&A....46...11A'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'ALMA2' : [890.0e-6],
@@ -273,7 +273,6 @@ def src_localDB(localDB):
             'ALMA30' : [870e-6],
             'ALMA31' : [1300e-6],
             'DUCATI' : [0.55e-6,0.36e-6,0.44e-6,0.71e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6,3.54e-6,4.80e-6,10.6e-6],
-            'RADIO' : [28044.2e-6,59958.5e-6,214137.5e-6],
             'ALMA32' : [1330e-6],
             'ALMA33' : [869e-6],
             'VARIOUS5' : [0.36e-6,0.44e-6,0.55e-6,0.6938e-6,0.71e-6,0.878e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6,3.54e-6,4.80e-6,1300e-6],
@@ -283,7 +282,6 @@ def src_localDB(localDB):
             'HERSCHEL3' : [70e-6,160e-6,250e-6,350e-6,500e-6],
             'HERSCHEL4' : [70e-6,100e-6,160e-6,250e-6,350e-6,500e-6],
             'HERSCHEL5' : [100e-6,160e-6],
-            'SPITZER5' : [70e-6],
             'HERSCHEL7' : [70e-6,160e-6,250e-6,350e-6,500e-6],
             'HERSCHEL8' : [70e-6,100e-6,160e-6,250e-6,350e-6,500e-6],
             'HERSCHEL9' : [70e-6,100e-6,160e-6,250e-6,350e-6,500e-6],
@@ -342,8 +340,10 @@ def src_localDB(localDB):
             'VLA' : [20000e-6,36000e-6,60000e-6,200000e-6],
             'VLA2' : [8820e-6,49600e-6],
             'SPITZER4' : [3.6e-6,4.5e-6,5.8e-6,8.0e-6,24e-6],
+            'SPITZER5' : [70e-6],
             'BIMA' : [1400e-6],
-            'MIRLIN' : [4.68e-6,7.91e-6,8.81e-6,9.69e-6,10.27e-6,11.70e-6,12.49e-6,17.93e-6,20.81e-6,24.48e-6]}
+            'MIRLIN' : [4.68e-6,7.91e-6,8.81e-6,9.69e-6,10.27e-6,11.70e-6,12.49e-6,17.93e-6,20.81e-6,24.48e-6],
+            'MPIfR' : [28044.2e-6,59958.5e-6,214137.5e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -385,7 +385,6 @@ def src_localDB(localDB):
             'ALMA30' : [0.05],
             'ALMA31' : [0.02],
             'DUCATI' : [5,5,5,5,5,5,5,5,5,5,5],
-            'RADIO' : [10,10,10],
             'ALMA32' : [0.5],
             'ALMA33' : [0.5],
             'VARIOUS5' : [0.09,0.11,0.14,0.17,0.18,0.22,0.20,0.05,0.07,0.09,0.15,0.20,28.0],
@@ -395,7 +394,6 @@ def src_localDB(localDB):
             'HERSCHEL3' : [5.03,11.50,17.97,25.16,35.95],
             'HERSCHEL4' : [5.03,7.19,11.50,17.97,25.16,35.95],
             'HERSCHEL5' : [7.19,11.50],
-            'SPITZER5' : [20.7],
             'HERSCHEL7' : [5.03,11.50,17.97,25.16,35.95],
             'HERSCHEL8' : [5.03,7.19,11.50,17.97,25.16,35.95],
             'HERSCHEL9' : [5.03,7.19,11.50,17.97,25.16,35.95],
@@ -454,8 +452,10 @@ def src_localDB(localDB):
             'VLA' : [2.0,1.0,4.1,20.0],
             'VLA2' : [0.12,0.14],
             'SPITZER4' : [1.07,1.33,1.72,2.37,7.11],
+            'SPITZER5' : [20.7],
             'BIMA' : [0.45],
-            'MIRLIN' : [0.3,0.3,0.4,0.4,0.45,0.45,0.5,0.5,0.55,0.55]}
+            'MIRLIN' : [0.3,0.3,0.4,0.4,0.45,0.45,0.5,0.5,0.55,0.55],
+            'MPIfR' : [80,160,600]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'ALMA2' : ['F890'],
@@ -496,7 +496,6 @@ def src_localDB(localDB):
             'ALMA30' : ['F870'],
             'ALMA31' : ['F1300'],
             'DUCATI' : ['V','U','B','R','I','J','H','K','L','M','N'],
-            'RADIO' : ['F28000','F60000','F210000'],
             'ALMA32' : ['F1330'],
             'ALMA33' : ['F869'],
             'VARIOUS5' : ['U','B','V','R','Rc','I','Ic','J','H','K','L','M','F1300'],
@@ -506,7 +505,6 @@ def src_localDB(localDB):
             'HERSCHEL3' : ['F_70um','F_160um','F_250um','F_350um','F_500um'],
             'HERSCHEL4' : ['F70','F100','F160','F250','F350','F500'],
             'HERSCHEL5' : ['F100','F160'],
-            'SPITZER5' : ['F70'],
             'HERSCHEL7' : ['F70','F160','F250','F350','F500'],
             'HERSCHEL8' : ['F70','F100','F160','F250','F350','F500'],
             'HERSCHEL9' : ['F70','F100','F160','F250','F350','F500'],
@@ -565,8 +563,10 @@ def src_localDB(localDB):
             'VLA' : ['S2cm','S3.6cm','S6cm','S20cm'],
             'VLA2' : ['F8820','F49600'],
             'SPITZER4' : ['F3.6','F4.5','F5.8','F8.0','F24'],
+            'SPITZER5' : ['F70'],
             'BIMA' : ['F1400'],
-            'MIRLIN' : ['F1','F2','F3','F4','F5','F6','F7','F8','F9','F10']}
+            'MIRLIN' : ['F1','F2','F3','F4','F5','F6','F7','F8','F9','F10'],
+            'MPIfR' : ['F28000','F60000','F210000']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'ALMA2' : ['e_F890'],
@@ -607,7 +607,6 @@ def src_localDB(localDB):
             'ALMA30' : ['eF870'],
             'ALMA31' : ['eF1300'],
             'DUCATI' : ['eV','eU','eB','eR','eI','eJ','eH','eK','eL','eM','eN'],
-            'RADIO' : ['eF28000','eF60000','eF210000'],
             'ALMA32' : ['eF1330'],
             'ALMA33' : ['eF869'],
             'VARIOUS5' : ['e_U','e_B','e_V','e_R','e_Rc','e_I','e_Ic','e_J','e_H','e_K','e_L','e_M','e_F1300'],
@@ -617,7 +616,6 @@ def src_localDB(localDB):
             'HERSCHEL3' : ['e_70um','e_160um','e_250um','e_350um','e_500um'],
             'HERSCHEL4' : ['eF70','eF100','eF160','eF250','eF350','eF500'],
             'HERSCHEL5' : ['eF100','eF160'],
-            'SPITZER5' : ['eF70'],
             'HERSCHEL7' : ['eF70','eF160','eF250','eF350','eF500'],
             'HERSCHEL8' : ['eF70','eF100','eF160','eF250','eF350','eF500'],
             'HERSCHEL9' : ['eF70','eF100','eF160','eF250','eF350','eF500'],
@@ -676,8 +674,10 @@ def src_localDB(localDB):
             'VLA' : ['e_S2cm','e_S3.6cm','e_S6cm','e_S20cm'],
             'VLA2' : ['eF8820','eF49600'],
             'SPITZER4' : ['eF3.6','eF4.5','eF5.8','eF8.0','eF24'],
+            'SPITZER5' : ['eF70'],
             'BIMA' : ['eF1400'],
-            'MIRLIN' : ['eF1','eF2','eF3','eF4','eF5','eF6','eF7','eF8','eF9','eF10']}
+            'MIRLIN' : ['eF1','eF2','eF3','eF4','eF5','eF6','eF7','eF8','eF9','eF10'],
+            'MPIfR' : ['eF28000','eF60000','eF210000']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'ALMA2' : ['mJy'],
@@ -718,7 +718,6 @@ def src_localDB(localDB):
             'ALMA30' : ['Jy'],
             'ALMA31' : ['mJy'],
             'DUCATI' : ['mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','mag'],
-            'RADIO' : ['mJy','mJy','mJy'],
             'ALMA32' : ['mJy'],
             'ALMA33' : ['mJy'],
             'VARIOUS5' : ['mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','Jy'],
@@ -728,7 +727,6 @@ def src_localDB(localDB):
             'HERSCHEL3' : ['Jy','Jy','Jy','Jy','Jy'],
             'HERSCHEL4' : ['Jy','Jy','Jy','Jy','Jy','Jy'],
             'HERSCHEL5' : ['Jy','Jy'],
-            'SPITZER5' : ['Jy'],
             'HERSCHEL7' : ['mJy','mJy','mJy','mJy','mJy'],
             'HERSCHEL8' : ['Jy','Jy','Jy','Jy','Jy','Jy'],
             'HERSCHEL9' : ['mJy','mJy','mJy','mJy','mJy','mJy'],
@@ -787,8 +785,10 @@ def src_localDB(localDB):
             'VLA' : ['mJy','mJy','mJy','mJy'],
             'VLA2' : ['mJy','mJy'],
             'SPITZER4' : ['mag','mag','mag','mag','mag'],
+            'SPITZER5' : ['Jy'],
             'BIMA' : ['mJy'],
-            'MIRLIN' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy']}
+            'MIRLIN' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy'],
+            'MPIfR' : ['mJy','mJy','mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -830,7 +830,6 @@ def src_localDB(localDB):
             'ALMA30' : ['ALMA:F870'],
             'ALMA31' : ['ALMA:F1300'],
             'DUCATI' : ['Johnson:V','Johnson:U','Johnson:B','Cousins:Rc','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K','Johnson:L','Johnson:M','Johnson:N'],
-            'RADIO' : ['Radio:10.69GHz','Radio:5GHz','Radio:1.4GHz'],
             'ALMA32' : ['ALMA:F1330'],
             'ALMA33' : ['ALMA:F869'],
             'VARIOUS5' : ['Johnson:U','Johnson:B','Johnson:V','Johnson:R','Cousins:Rc','Johnson:I','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K','Johnson:L','Johnson:M','CSO:F1300'],
@@ -840,7 +839,6 @@ def src_localDB(localDB):
             'HERSCHEL3' : ['Herschel:PACS:F70','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
             'HERSCHEL4' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
             'HERSCHEL5' : ['Herschel:PACS:F100','Herschel:PACS:F160'],
-            'SPITZER5' : ['Spitzer:MIPS:F70'],
             'HERSCHEL7' : ['Herschel:PACS:F70','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
             'HERSCHEL8' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
             'HERSCHEL9' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
@@ -899,8 +897,10 @@ def src_localDB(localDB):
             'VLA' : ['VLA:F20000','VLA:F36000','VLA:F60000','VLA:F200000'],
             'VLA2' : ['VLA:F8820','VLA:F49600'],
             'SPITZER4' : ['SPITZER:I1','SPITZER:I2','SPITZER:I3','SPITZER:I4','SPITZER:M1'],
+            'SPITZER5' : ['Spitzer:MIPS:F70'],
             'BIMA' : ['BIMA:F1400'],
-            'MIRLIN' : ['KeckII:MIRLIN:F1','KeckII:MIRLIN:F2','KeckII:MIRLIN:F3','KeckII:MIRLIN:F4','KeckII:MIRLIN:F5','KeckII:MIRLIN:F6','KeckII:MIRLIN:F7','KeckII:MIRLIN:F8','KeckII:MIRLIN:F9','KeckII:MIRLIN:F10']}
+            'MIRLIN' : ['KeckII:MIRLIN:F1','KeckII:MIRLIN:F2','KeckII:MIRLIN:F3','KeckII:MIRLIN:F4','KeckII:MIRLIN:F5','KeckII:MIRLIN:F6','KeckII:MIRLIN:F7','KeckII:MIRLIN:F8','KeckII:MIRLIN:F9','KeckII:MIRLIN:F10'],
+            'MPIfR' : ['MPIfR:F28044','MPIfR:F59958','MPIfR:F214137']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
