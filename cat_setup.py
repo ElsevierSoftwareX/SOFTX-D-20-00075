@@ -10,7 +10,6 @@ def src_localDB(localDB):
             'UKIRT' : localDB+'/database/ukirt_coulson.csv',
             'ESO' : localDB+'/database/eso_jhklm_phot.csv',
             'CTIO' : localDB+'/database/lupus_phot.csv',
-            'ISOPHOT' : localDB+'/database/isophot.csv',
             'CTIAO' : localDB+'/database/ctiao_opt_phot.csv',
             'PALOMAR' : localDB+'/database/palomar_opt.csv',
             'CTIAO2' : localDB+'/database/ctiao_opt_padgett.csv',
@@ -114,7 +113,8 @@ def src_localDB(localDB):
             'ALMA30' : localDB+'/database/alma_pineda.csv',
             'ALMA31' : localDB+'/database/alma_perez3.csv',
             'ALMA32' : localDB+'/database/alma_ansdell.csv',
-            'ALMA33' : localDB+'/database/alma_vterwisga.csv'}
+            'ALMA33' : localDB+'/database/alma_vterwisga.csv',
+            'ISOPHOT' : localDB+'/database/isophot.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -128,7 +128,6 @@ def src_localDB(localDB):
             'UKIRT' : '1998MNRAS.296..934C',
             'ESO' : '1992ApJ...398..254B',
             'CTIO' : '1994AJ....108.1071H',
-            'ISOPHOT' : '2005A&A...443..541G',
             'CTIAO' : '2005AJ....130.1733W',
             'PALOMAR' : '2005ApJ...623..952E',
             'CTIAO2' : '2006ApJ...645.1283P',
@@ -232,14 +231,14 @@ def src_localDB(localDB):
             'ALMA30' : '2019ApJ...871...48P',
             'ALMA31' : '2020ApJ...889L..24P',
             'ALMA32' : '2018ApJ...859...21A',
-            'ALMA33' : '2019A&A...623A.150V'}
+            'ALMA33' : '2019A&A...623A.150V',
+            'ISOPHOT' : '2005A&A...443..541G'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'SAAO' : [364e-9,442e-9,540e-9,647e-9,786.5e-9],
             'MKII' : [1.25e-6,1.60e-6,2.18e-6,3.54e-6],
             'UKIRT' : [1.25e-6,1.65e-6,2.20e-6,3.45e-6],
             'ESO' : [1.23e-6,1.63e-6,2.19e-6,3.79e-6,4.64e-6,9.69e-6,8.38e-6,12.89e-6],
             'CTIO' : [0.44e-6,0.55e-6,0.71e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6,3.54e-6,4.80e-6],
-            'ISOPHOT' : [4.8e-6,7.7e-6,10e-6,12e-6,12.8e-6,15e-6,20e-6,60e-6,100e-6,0.44e-6,0.55e-6,0.71e-6,0.79e-6],
             'CTIAO' : [0.79e-6,0.71e-6],
             'PALOMAR' : [0.36e-6,0.44e-6,0.55e-6,0.71e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6],
             'CTIAO2' : [0.55e-6,0.71e-6,0.79e-6],
@@ -343,7 +342,8 @@ def src_localDB(localDB):
             'ALMA30' : [870e-6],
             'ALMA31' : [1300e-6],
             'ALMA32' : [1330e-6],
-            'ALMA33' : [869e-6]}
+            'ALMA33' : [869e-6],
+            'ISOPHOT' : [4.8e-6,7.7e-6,10e-6,12e-6,12.8e-6,15e-6,20e-6,60e-6,100e-6,0.44e-6,0.55e-6,0.71e-6,0.79e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'SAAO' : [0.18,0.22,0.27,0.33,0.40],
@@ -351,7 +351,6 @@ def src_localDB(localDB):
             'UKIRT' : [0.08,0.11,0.15,0.23],
             'ESO' : [0.31,0.41,0.55,0.95,1.17,2.44,2.11,3.24],
             'CTIO' : [0.11,0.14,0.18,0.20,0.13,0.16,0.22,0.36,0.48],
-            'ISOPHOT' : [0.12,0.19,0.25,0.30,0.32,0.16,0.22,0.13,0.21,0.1,0.1,0.1,0.1],
             'CTIAO' : [0.1,0.1],
             'PALOMAR' : [0.06,0.07,0.09,0.12,0.14,0.21,0.27,0.37],
             'CTIAO2' : [0.15,0.20,0.22],
@@ -455,14 +454,14 @@ def src_localDB(localDB):
             'ALMA30' : [0.038],
             'ALMA31' : [0.197],
             'ALMA32' : [0.25],
-            'ALMA33' : [0.3]}
+            'ALMA33' : [0.3],
+            'ISOPHOT' : [10,10,10,10,10,23,23,120,120,10,10,10,10]}
     # Magnitude/Flux column name
     ldbM = {'SAAO' : ['Umag','Bmag','Vmag','Rcmag','Icmag'],
             'MKII' : ['Jmag','Hmag','Kmag','Lmag'],
             'UKIRT' : ['Jmag','Hmag','Kmag','Lmag'],
             'ESO' : ['Jmag','Hmag','Kmag','Lmag','Mmag','N2mag','N1mag','N3mag'],
             'CTIO' : ['Bmag','Vmag','Rmag','Imag','Jmag','Hmag','Kmag','Lmag','Mmag'],
-            'ISOPHOT' : ['F4.8','F7.7','F10','F12','F12.8','F15','F20','F60','F100','B','V','Rc','Ic'],
             'CTIAO' : ['Ic','Rc'],
             'PALOMAR' : ['U','B','V','R','I','J','H','K'],
             'CTIAO2' : ['V','R','I'],
@@ -566,14 +565,14 @@ def src_localDB(localDB):
             'ALMA30' : ['F870'],
             'ALMA31' : ['F1300'],
             'ALMA32' : ['F1330'],
-            'ALMA33' : ['F869']}
+            'ALMA33' : ['F869'],
+            'ISOPHOT' : ['F4.8','F7.7','F10','F12','F12.8','F15','F20','F60','F100','B','V','Rc','Ic']}
     # Magnitude/Flux error column name
     ldbE = {'SAAO' : ['eUmag','eBmag','eVmag','eRcmag','eIcmag'],
             'MKII' : ['eJmag','eHmag','eKmag','eLmag'],
             'UKIRT' : ['eJmag','eHmag','eKmag','eLmag'],
             'ESO' : ['eJmag','eHmag','eKmag','eLmag','eMmag','eN2mag','eN1mag','eN3mag'],
             'CTIO' : ['eBmag','eVmag','eRmag','eImag','eJmag','eHmag','eKmag','eLmag','eMmag'],
-            'ISOPHOT' : ['e_F4.8','e_F7.7','e_F10','e_F12','e_F12.8','e_F15','e_F20','e_F60','e_F100','e_B','e_V','e_Rc','e_Ic'],
             'CTIAO' : ['eIc','eRc'],
             'PALOMAR' : ['e_U','e_B','e_V','e_R','e_I','e_J','e_H','e_K'],
             'CTIAO2' : ['e_V','e_R','e_I'],
@@ -677,14 +676,14 @@ def src_localDB(localDB):
             'ALMA30' : ['eF870'],
             'ALMA31' : ['eF1300'],
             'ALMA32' : ['eF1330'],
-            'ALMA33' : ['eF869']}
+            'ALMA33' : ['eF869'],
+            'ISOPHOT' : ['e_F4.8','e_F7.7','e_F10','e_F12','e_F12.8','e_F15','e_F20','e_F60','e_F100','e_B','e_V','e_Rc','e_Ic']}
     # Units for each of the magnitude/flux entries
     ldbU = {'SAAO' : ['mag','mag','mag','mag','mag'],
             'MKII' : ['mag','mag','mag','mag'],
             'UKIRT' : ['mag','mag','mag','mag'],
             'ESO' : ['mag','mag','mag','mag','mag','mag','mag','mag'],
             'CTIO' : ['mag','mag','mag','mag','mag','mag','mag','mag','mag'],
-            'ISOPHOT' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','mag','mag','mag','mag'],
             'CTIAO' : ['mag','mag'],
             'PALOMAR' : ['mag','mag','mag','mag','mag','mag','mag','mag'],
             'CTIAO2' : ['mag','mag','mag'],
@@ -788,7 +787,8 @@ def src_localDB(localDB):
             'ALMA30' : ['Jy'],
             'ALMA31' : ['mJy'],
             'ALMA32' : ['mJy'],
-            'ALMA33' : ['mJy']}
+            'ALMA33' : ['mJy'],
+            'ISOPHOT' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','mag','mag','mag','mag']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'SAAO' : ['Johnson:U','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic'],
@@ -796,7 +796,6 @@ def src_localDB(localDB):
             'UKIRT' : ['UKIRT:J','UKIRT:H','UKIRT:K','UKIRT:L'],
             'ESO' : ['ESO:J','ESO:H','ESO:K','ESO:L','ESO:M','ESO:N2','ESO:N1','ESO:N3'],
             'CTIO' : ['Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K','Johnson:L','Johnson:M'],
-            'ISOPHOT' : ['ISOPHOT:1','ISOPHOT:2','ISOPHOT:3','ISOPHOT:4','ISOPHOT:5','ISOPHOT:6','ISOPHOT:7','ISOPHOT:8','ISOPHOT:9','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic'],
             'CTIAO' : ['Cousins:Ic','Cousins:Rc'],
             'PALOMAR' : ['Johnson:U','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K'],
             'CTIAO2' : ['Johnson:V','Cousins:Rc','Cousins:Ic'],
@@ -900,7 +899,8 @@ def src_localDB(localDB):
             'ALMA30' : ['ALMA:F870'],
             'ALMA31' : ['ALMA:F1300'],
             'ALMA32' : ['ALMA:F1330'],
-            'ALMA33' : ['ALMA:F869']}
+            'ALMA33' : ['ALMA:F869'],
+            'ISOPHOT' : ['ISOPHOT:1','ISOPHOT:2','ISOPHOT:3','ISOPHOT:4','ISOPHOT:5','ISOPHOT:6','ISOPHOT:7','ISOPHOT:8','ISOPHOT:9','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
