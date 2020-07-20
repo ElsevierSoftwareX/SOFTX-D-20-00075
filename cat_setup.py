@@ -6,7 +6,6 @@ def src_localDB(localDB):
     """
     # local path to each local data base file:
     ldbN = {'ALMA17' : localDB+'/database/alma_ricci.csv',
-            'ALMA2' : localDB+'/database/alma_testi.csv',
             'SAAO' : localDB+'/database/saao_opt_sylvester.csv',
             'MKII' : localDB+'/database/mkii_jhkl_sylvester.csv',
             'UKIRT' : localDB+'/database/ukirt_coulson.csv',
@@ -114,7 +113,8 @@ def src_localDB(localDB):
             'SPITZER5' : localDB+'/database/spitzer_sicilia_aguilar.csv',
             'BIMA' : localDB+'/database/bima_hamidouche.csv',
             'MIRLIN' : localDB+'/database/keck_mirlin_koerner.csv',
-            'MPIfR' : localDB+'/database/radio_altenhoff.csv'}
+            'MPIfR' : localDB+'/database/radio_altenhoff.csv',
+            'ALMA2' : localDB+'/database/alma_testi.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -124,7 +124,6 @@ def src_localDB(localDB):
     # bibliographic reference for catalog/paper (these are searchable within
     # NASA ADS and SIMBAD for traceability)
     ldbR = {'ALMA17' : '2014ApJ...791...20R',
-            'ALMA2' : '2016A&A...593A.111T',
             'SAAO' : '2000MNRAS.313...73S',
             'MKII' : '2000MNRAS.313...73S',
             'UKIRT' : '1998MNRAS.296..934C',
@@ -232,10 +231,10 @@ def src_localDB(localDB):
             'SPITZER5' : '2013A&A...551A..34S',
             'BIMA' : '2006ApJ...651..321H',
             'MIRLIN' : '2000ApJ...533L..37K',
-            'MPIfR' : '1976A&A....46...11A'}
+            'MPIfR' : '1976A&A....46...11A',
+            'ALMA2' : '2016A&A...593A.111T'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
-            'ALMA2' : [890.0e-6],
             'SAAO' : [364e-9,442e-9,540e-9,647e-9,786.5e-9],
             'MKII' : [1.25e-6,1.60e-6,2.18e-6,3.54e-6],
             'UKIRT' : [1.25e-6,1.65e-6,2.20e-6,3.45e-6],
@@ -343,11 +342,11 @@ def src_localDB(localDB):
             'SPITZER5' : [70e-6],
             'BIMA' : [1400e-6],
             'MIRLIN' : [4.68e-6,7.91e-6,8.81e-6,9.69e-6,10.27e-6,11.70e-6,12.49e-6,17.93e-6,20.81e-6,24.48e-6],
-            'MPIfR' : [28044.2e-6,59958.5e-6,214137.5e-6]}
+            'MPIfR' : [28044.2e-6,59958.5e-6,214137.5e-6],
+            'ALMA2' : [890.0e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
-            'ALMA2' : [1.0],
             'SAAO' : [0.18,0.22,0.27,0.33,0.40],
             'MKII' : [0.42,0.54,0.73,1.19],
             'UKIRT' : [0.08,0.11,0.15,0.23],
@@ -455,10 +454,10 @@ def src_localDB(localDB):
             'SPITZER5' : [20.7],
             'BIMA' : [0.45],
             'MIRLIN' : [0.3,0.3,0.4,0.4,0.45,0.45,0.5,0.5,0.55,0.55],
-            'MPIfR' : [80,160,600]}
+            'MPIfR' : [80,160,600],
+            'ALMA2' : [0.5]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
-            'ALMA2' : ['F890'],
             'SAAO' : ['Umag','Bmag','Vmag','Rcmag','Icmag'],
             'MKII' : ['Jmag','Hmag','Kmag','Lmag'],
             'UKIRT' : ['Jmag','Hmag','Kmag','Lmag'],
@@ -566,10 +565,10 @@ def src_localDB(localDB):
             'SPITZER5' : ['F70'],
             'BIMA' : ['F1400'],
             'MIRLIN' : ['F1','F2','F3','F4','F5','F6','F7','F8','F9','F10'],
-            'MPIfR' : ['F28000','F60000','F210000']}
+            'MPIfR' : ['F28000','F60000','F210000'],
+            'ALMA2' : ['F890']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
-            'ALMA2' : ['e_F890'],
             'SAAO' : ['eUmag','eBmag','eVmag','eRcmag','eIcmag'],
             'MKII' : ['eJmag','eHmag','eKmag','eLmag'],
             'UKIRT' : ['eJmag','eHmag','eKmag','eLmag'],
@@ -677,10 +676,10 @@ def src_localDB(localDB):
             'SPITZER5' : ['eF70'],
             'BIMA' : ['eF1400'],
             'MIRLIN' : ['eF1','eF2','eF3','eF4','eF5','eF6','eF7','eF8','eF9','eF10'],
-            'MPIfR' : ['eF28000','eF60000','eF210000']}
+            'MPIfR' : ['eF28000','eF60000','eF210000'],
+            'ALMA2' : ['e_F890']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
-            'ALMA2' : ['mJy'],
             'SAAO' : ['mag','mag','mag','mag','mag'],
             'MKII' : ['mag','mag','mag','mag'],
             'UKIRT' : ['mag','mag','mag','mag'],
@@ -788,11 +787,11 @@ def src_localDB(localDB):
             'SPITZER5' : ['Jy'],
             'BIMA' : ['mJy'],
             'MIRLIN' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy'],
-            'MPIfR' : ['mJy','mJy','mJy']}
+            'MPIfR' : ['mJy','mJy','mJy'],
+            'ALMA2' : ['mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
-            'ALMA2' : ['ALMA:F890'],
             'SAAO' : ['Johnson:U','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic'],
             'MKII' : ['Johnson:J','Johnson:H','Johnson:K','Johnson:L'],
             'UKIRT' : ['UKIRT:J','UKIRT:H','UKIRT:K','UKIRT:L'],
@@ -900,7 +899,8 @@ def src_localDB(localDB):
             'SPITZER5' : ['Spitzer:MIPS:F70'],
             'BIMA' : ['BIMA:F1400'],
             'MIRLIN' : ['KeckII:MIRLIN:F1','KeckII:MIRLIN:F2','KeckII:MIRLIN:F3','KeckII:MIRLIN:F4','KeckII:MIRLIN:F5','KeckII:MIRLIN:F6','KeckII:MIRLIN:F7','KeckII:MIRLIN:F8','KeckII:MIRLIN:F9','KeckII:MIRLIN:F10'],
-            'MPIfR' : ['MPIfR:F28044','MPIfR:F59958','MPIfR:F214137']}
+            'MPIfR' : ['MPIfR:F28044','MPIfR:F59958','MPIfR:F214137'],
+            'ALMA2' : ['ALMA:F890']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
@@ -990,7 +990,7 @@ def src_onlineDB(query='simbad'):
            'SPITZER2' : [3.6e-6,4.5e-6,5.8e-6,8.0e-6,24e-6],
            'SPITZER3' : [3.6e-6,4.5e-6,5.8e-6,8.0e-6,24e-6],
            'SPITZER6' : [3.6e-6,4.5e-6,5.8e-6,8.0e-6,24e-6],
-           'ALMA1' : [887.0]}
+           'ALMA1' : [887.0e-6]}
 
     # catalog angular resolution / beam size
     catA = {'2MASS' : [0.24,0.32,0.42],
