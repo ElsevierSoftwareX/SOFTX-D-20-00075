@@ -18,7 +18,6 @@ def src_localDB(localDB):
             'MCDO' : localDB+'/database/mcdo_opt_padgett.csv',
             'TIMESERIES' : localDB+'/database/grankin_time_series.txt',
             'ALMA19' : localDB+'/database/alma_qi.csv',
-            'ALMA10' : localDB+'/database/alma_cleeves.csv',
             'ALMA11' : localDB+'/database/alma_huang2.csv',
             'ALMA12' : localDB+'/database/alma_cleeves2.csv',
             'ALMA14' : localDB+'/database/alma_cieza.csv',
@@ -114,7 +113,8 @@ def src_localDB(localDB):
             'ALMA4' : localDB+'/database/alma_vdmarel.csv',
             'ALMA5' : localDB+'/database/alma_pinilla.csv',
             'ALMA8' : localDB+'/database/alma_huang.csv',
-            'ALMA9' : localDB+'/database/alma_barenfeld.csv'}
+            'ALMA9' : localDB+'/database/alma_barenfeld.csv',
+            'ALMA10' : localDB+'/database/alma_cleeves.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -136,7 +136,6 @@ def src_localDB(localDB):
             'MCDO' : '2006ApJ...645.1283P',
             'TIMESERIES' : '2007A&A...461..183G',
             'ALMA19' : '2015ApJ...813..128Q',
-            'ALMA10' : '2016ApJ...832..110C',
             'ALMA11' : '2017ApJ...835..231H',
             'ALMA12' : '2017ApJ...843L...3C',
             'ALMA14' : '2018MNRAS.474.4347C',
@@ -232,7 +231,8 @@ def src_localDB(localDB):
             'ALMA4' : '2018ApJ...854..177V',
             'ALMA5' : '2018ApJ...859...32P',
             'ALMA8' : '2016ApJ...823L..18H',
-            'ALMA9' : '2016ApJ...827..142B'}
+            'ALMA9' : '2016ApJ...827..142B',
+            'ALMA10' : '2016ApJ...832..110C'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
             'SAAO' : [364e-9,442e-9,540e-9,647e-9,786.5e-9],
@@ -247,7 +247,6 @@ def src_localDB(localDB):
             'MCDO' : [0.55e-6,0.71e-6,0.79e-6],
             'TIMESERIES' : [0.55e-6],
             'ALMA19' : [1073e-6,1373e-6],
-            'ALMA10' : [875e-6,1300e-6],
             'ALMA11' : [1162e-6],
             'ALMA12' : [1150e-6],
             'ALMA14' : [1300e-6],
@@ -343,7 +342,8 @@ def src_localDB(localDB):
             'ALMA4' : [890.0e-6],
             'ALMA5' : [890e-6,880e-6,850e-6,1300e-6,435e-6],
             'ALMA8' : [1400e-6],
-            'ALMA9' : [880e-6]}
+            'ALMA9' : [880e-6],
+            'ALMA10' : [875e-6,1300e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'ALMA17' : [0.4,0.4],
@@ -359,7 +359,6 @@ def src_localDB(localDB):
             'MCDO' : [0.17,0.22,0.25],
             'TIMESERIES' : [0.1],
             'ALMA19' : [1.0,1.0],
-            'ALMA10' : [1.0,1.0],
             'ALMA11' : [1.0],
             'ALMA12' : [1.0],
             'ALMA14' : [1.0],
@@ -455,7 +454,8 @@ def src_localDB(localDB):
             'ALMA4' : [0.3],
             'ALMA5' : [0.40,0.40,0.30,0.40,0.34],
             'ALMA8' : [0.65],
-            'ALMA9' : [0.55]}
+            'ALMA9' : [0.55],
+            'ALMA10' : [0.37,0.54]}
     # Magnitude/Flux column name
     ldbM = {'ALMA17' : ['F887','F3224'],
             'SAAO' : ['Umag','Bmag','Vmag','Rcmag','Icmag'],
@@ -470,7 +470,6 @@ def src_localDB(localDB):
             'MCDO' : ['V','R','I'],
             'TIMESERIES' : ['V'],
             'ALMA19' : ['F1073','F1373'],
-            'ALMA10' : ['F875','F1300'],
             'ALMA11' : ['F1162'],
             'ALMA12' : ['F1150'],
             'ALMA14' : ['F1300'],
@@ -566,7 +565,8 @@ def src_localDB(localDB):
             'ALMA4' : ['F890'],
             'ALMA5' : ['F890','F880','F850','F1300','F435'],
             'ALMA8' : ['F1400'],
-            'ALMA9' : ['F880']}
+            'ALMA9' : ['F880'],
+            'ALMA10' : ['F875','F1300']}
     # Magnitude/Flux error column name
     ldbE = {'ALMA17' : ['e_F887','e_F3224'],
             'SAAO' : ['eUmag','eBmag','eVmag','eRcmag','eIcmag'],
@@ -581,7 +581,6 @@ def src_localDB(localDB):
             'MCDO' : ['e_V','e_R','e_I'],
             'TIMESERIES' : ['e_V'],
             'ALMA19' : ['e_F1073','e_F1373'],
-            'ALMA10' : ['e_F875','e_F1300'],
             'ALMA11' : ['e_F1162'],
             'ALMA12' : ['e_F1150'],
             'ALMA14' : ['e_F1300'],
@@ -677,7 +676,8 @@ def src_localDB(localDB):
             'ALMA4' : ['e_F890'],
             'ALMA5' : ['e_F890','e_F880','e_F850','e_F1300','e_F435'],
             'ALMA8' : ['e_F1400'],
-            'ALMA9' : ['e_F880']}
+            'ALMA9' : ['e_F880'],
+            'ALMA10' : ['e_F875','e_F1300']}
     # Units for each of the magnitude/flux entries
     ldbU = {'ALMA17' : ['mJy','mJy'],
             'SAAO' : ['mag','mag','mag','mag','mag'],
@@ -692,7 +692,6 @@ def src_localDB(localDB):
             'MCDO' : ['mag','mag','mag'],
             'TIMESERIES' : ['mag'],
             'ALMA19' : ['mJy','mJy'],
-            'ALMA10' : ['Jy','Jy'],
             'ALMA11' : ['mJy'],
             'ALMA12' : ['Jy'],
             'ALMA14' : ['mJy'],
@@ -788,7 +787,8 @@ def src_localDB(localDB):
             'ALMA4' : ['mJy'],
             'ALMA5' : ['mJy','mJy','mJy','mJy','mJy'],
             'ALMA8' : ['mJy'],
-            'ALMA9' : ['mJy']}
+            'ALMA9' : ['mJy'],
+            'ALMA10' : ['Jy','Jy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
@@ -804,7 +804,6 @@ def src_localDB(localDB):
             'MCDO' : ['Johnson:V','Cousins:Rc','Cousins:Ic'],
             'TIMESERIES' : ['Johnson:V'],
             'ALMA19' : ['ALMA:F1073','ALMA:F1373'],
-            'ALMA10' : ['ALMA:F875','ALMA:F1300'],
             'ALMA11' : ['ALMA:F1162'],
             'ALMA12' : ['ALMA:F1150'],
             'ALMA14' : ['ALMA:F1300'],
@@ -900,7 +899,8 @@ def src_localDB(localDB):
             'ALMA4' : ['ALMA:F890'],
             'ALMA5' : ['ALMA:F890','ALMA:F880','ALMA:F850','ALMA:F1300','ALMA:F435'],
             'ALMA8' : ['ALMA:F1400'],
-            'ALMA9' : ['ALMA:F880']}
+            'ALMA9' : ['ALMA:F880'],
+            'ALMA10' : ['ALMA:F875','ALMA:F1300']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
