@@ -919,7 +919,6 @@ def src_onlineDB(query='simbad'):
            'SDSSr12' : 'V/147/sdss12',
            'SDSSr9' : 'V/139/sdss9',
            'APASSr9' : 'II/336/apass9',
-           'ALMA6' : 'J/ApJ/828/46/alma',
            'XMMOM' : 'II/356/xmmom41s',
            'GAIA' : 'I/345/gaia2',
            'GALEX' : 'II/312/ais',
@@ -934,7 +933,8 @@ def src_onlineDB(query='simbad'):
            'SPITZER2' : 'J/ApJ/678/200/YSOs',
            'SPITZER3' : 'J/ApJ/675/1375/photom',
            'SPITZER6' : 'J/ApJS/184/18/table4',
-           'ALMA1' : 'J/ApJ/831/125/sources'}
+           'ALMA1' : 'J/ApJ/831/125/sources',
+           'ALMA6' : 'J/ApJ/828/46/alma'}
 
     # catalog reference dictionary
     catR = {'2MASS' : '2003yCat.2246....0C',
@@ -947,7 +947,6 @@ def src_onlineDB(query='simbad'):
            'SDSSr12' : '2015ApJS..219...12A',
            'SDSSr9' : '2012ApJS..203...21A',
            'APASSr9' : '2015AAS...22533616H',
-           'ALMA6' : '2016ApJ...828...46A',
            'XMMOM' : '2012MNRAS.426..903P',
            'GAIA' : '2018A&A...616A...1G',
            'GALEX' : '2011Ap&SS.335..161B',
@@ -962,7 +961,8 @@ def src_onlineDB(query='simbad'):
            'SPITZER2' : '2008ApJ...678..200C',
            'SPITZER3' : '2008ApJ...675.1375L',
            'SPITZER6' : '2009ApJS..184...18G',
-           'ALMA1' : '2016ApJ...831..125P'}
+           'ALMA1' : '2016ApJ...831..125P',
+           'ALMA6' : '2016ApJ...828...46A'}
 
     # catalog wavelength dictionary
     catW = {'2MASS' : [1.25e-6,1.65e-6,2.15e-6],
@@ -975,7 +975,6 @@ def src_onlineDB(query='simbad'):
            'SDSSr12' : [354.3e-9,477.0e-9,623.1e-9,762.5e-9,913.4e-9],
            'SDSSr9' : [354.3e-9,477.0e-9,623.1e-9,762.5e-9,913.4e-9],
            'APASSr9' : [540e-9,442e-9,477.0e-9,623.1e-9,762.5e-9],
-           'ALMA6' : [890e-6],
            'XMMOM' : [2120.0e-10,2310.0e-10,2910.0e-10,3440.0e-10,4500.0e-10,5430.0e-10],
            'GAIA' : [0.64050e-6,0.51311e-6,0.77776e-6],
            'GALEX' : [0.1539e-6,0.2316e-6],
@@ -990,7 +989,8 @@ def src_onlineDB(query='simbad'):
            'SPITZER2' : [3.6e-6,4.5e-6,5.8e-6,8.0e-6,24e-6],
            'SPITZER3' : [3.6e-6,4.5e-6,5.8e-6,8.0e-6,24e-6],
            'SPITZER6' : [3.6e-6,4.5e-6,5.8e-6,8.0e-6,24e-6],
-           'ALMA1' : [887.0e-6]}
+           'ALMA1' : [887.0e-6],
+           'ALMA6' : [890e-6]}
 
     # catalog angular resolution / beam size
     catA = {'2MASS' : [0.24,0.32,0.42],
@@ -1003,7 +1003,6 @@ def src_onlineDB(query='simbad'):
            'SDSSr12' : [0.036,0.048,0.063,0.077,0.092],
            'SDSSr9' : [0.036,0.048,0.063,0.077,0.092],
            'APASSr9' : [1.0,1.0,1.0,1.0,1.0],
-           'ALMA6' : [1.0],
            'XMMOM' : [1.98,1.80,2.00,1.55,1.39,1.35],
            'GAIA' : [1.,1.,1.],
            'GALEX' : [10.,10.],
@@ -1018,7 +1017,8 @@ def src_onlineDB(query='simbad'):
            'SPITZER2' : [1.07,1.33,1.72,2.37,7.11],
            'SPITZER3' : [1.07,1.33,1.72,2.37,7.11],
            'SPITZER6' : [1.07,1.33,1.72,2.37,7.11],
-           'ALMA1' : [0.7]}
+           'ALMA1' : [0.7],
+           'ALMA6' : [0.34]}
 
     # catalog magnitude name
     catM = {'2MASS' : ['FLUX_J','FLUX_H','FLUX_K'],
@@ -1031,7 +1031,6 @@ def src_onlineDB(query='simbad'):
            'SDSSr12' : ['umag','gmag','rmag','imag','zmag'],
            'SDSSr9' : ['umag','gmag','rmag','imag','zmag'],
            'APASSr9' : ['Vmag','Bmag','g_mag','r_mag','i_mag'],
-           'ALMA6' : ['F890'],
            'XMMOM' : ['UVW2mAB','UVM2mAB','UVW1mAB','UmAB','BmAB','VmAB'],
            'GAIA' : ['Gmag','BPmag','RPmag'],
            'GALEX' : ['FUV','NUV'],
@@ -1046,7 +1045,8 @@ def src_onlineDB(query='simbad'):
            'SPITZER2' : ['_3.6mag','_4.5mag','_5.8mag','_8.0mag','_24mag'],
            'SPITZER3' : ['__3.6_','__4.5_','__5.8_','__8.0_','__24_'],
            'SPITZER6' : ['_3.6mag','_4.5mag','_5.8mag','_8.0mag','_24mag'],
-           'ALMA1' : ['Fnu']}
+           'ALMA1' : ['Fnu'],
+           'ALMA6' : ['F890']}
 
     # catalog magnitude error name (or, if an error isn't given in the catalog, provide a 
     # float which will be used as a percentage uncertainty on the retrieved magnitude/flux 
@@ -1061,7 +1061,6 @@ def src_onlineDB(query='simbad'):
            'SDSSr12' : ['e_umag','e_gmag','e_rmag','e_imag','e_zmag'],
            'SDSSr9' : ['e_umag','e_gmag','e_rmag','e_imag','e_zmag'],
            'APASSr9' : ['e_Vmag','e_Bmag','e_g_mag','e_r_mag','e_i_mag'],
-           'ALMA6' : ['e_F890'],
            'XMMOM' : ['e_UVW2mAB','e_UVM2mAB','e_UVW1mAB','e_UmAB','e_BmAB','e_VmAB'],
            'GAIA' : ['e_Gmag','e_BPmag','e_RPmag'],
            'GALEX' : ['e_FUV','e_NUV'],
@@ -1076,7 +1075,8 @@ def src_onlineDB(query='simbad'):
            'SPITZER2' : ['e_3.6mag','e_4.5mag','e_5.8mag','e_8.0mag','e_24mag'],
            'SPITZER3' : ['e__3.6_','e__4.5_','e__5.8_','e__8.0_','e__24_'],
            'SPITZER6' : ['e_3.6mag','e_4.5mag','e_5.8mag','e_8.0mag','e_24mag'],
-           'ALMA1' : ['e_Fnu']}
+           'ALMA1' : ['e_Fnu'],
+           'ALMA6' : ['e_F890']}
 
     # catalog magnitude unit name
     catU = {'2MASS' : ['mag','mag','mag'],
@@ -1089,7 +1089,6 @@ def src_onlineDB(query='simbad'):
            'SDSSr12' : ['mag','mag','mag','mag','mag'],
            'SDSSr9' : ['mag','mag','mag','mag','mag'],
            'APASSr9' : ['mag','mag','mag','mag','mag'],
-           'ALMA6' : ['mJy'],
            'XMMOM' : ['mag','mag','mag','mag','mag','mag'],
            'GAIA' : ['mag','mag','mag'],
            'GALEX' : ['mag','mag'],
@@ -1104,7 +1103,8 @@ def src_onlineDB(query='simbad'):
            'SPITZER2' : ['mag','mag','mag','mag','mag'],
            'SPITZER3' : ['mag','mag','mag','mag','mag'],
            'SPITZER6' : ['mag','mag','mag','mag','mag'],
-           'ALMA1' : ['mJy']}
+           'ALMA1' : ['mJy'],
+           'ALMA6' : ['mJy']}
 
     # catalog waveband name
     catB = {'2MASS' : ['2MASS:J','2MASS:H','2MASS:Ks'],
@@ -1117,7 +1117,6 @@ def src_onlineDB(query='simbad'):
            'SDSSr12' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
            'SDSSr9' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
            'APASSr9' : ['Johnson:V','Johnson:B','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i'],
-           'ALMA6' : ['ALMA:F890'],
            'XMMOM' : ['XMMOM:UVW2','XMMOM:UVM2','XMMOM:UVW1','XMMOM:U','XMMOM:B','XMMOM:V'],
            'GAIA' : ['Gaia:G','Gaia:GBP','Gaia:GRP'],
            'GALEX' : ['GALEX:FUV','GALEX:NUV'],
@@ -1132,6 +1131,7 @@ def src_onlineDB(query='simbad'):
            'SPITZER2' : ['SPITZER:I1','SPITZER:I2','SPITZER:I3','SPITZER:I4','SPITZER:M1'],
            'SPITZER3' : ['SPITZER:I1','SPITZER:I2','SPITZER:I3','SPITZER:I4','SPITZER:M1'],
            'SPITZER6' : ['SPITZER:I1','SPITZER:I2','SPITZER:I3','SPITZER:I4','SPITZER:M1'],
-           'ALMA1' : ['ALMA:F887']}
+           'ALMA1' : ['ALMA:F887'],
+           'ALMA6' : ['ALMA:F890']}
     
     return catN, catR, catW, catA, catM, catE, catU, catB
