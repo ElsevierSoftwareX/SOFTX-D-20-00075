@@ -5,8 +5,7 @@ def src_localDB(localDB):
     Initialise the local data base (local_DB)
     """
     # local path to each local data base file:
-    ldbN = {'ALMA17' : localDB+'/database/alma_ricci.csv',
-            'SAAO' : localDB+'/database/saao_opt_sylvester.csv',
+    ldbN = {'SAAO' : localDB+'/database/saao_opt_sylvester.csv',
             'MKII' : localDB+'/database/mkii_jhkl_sylvester.csv',
             'UKIRT' : localDB+'/database/ukirt_coulson.csv',
             'ESO' : localDB+'/database/eso_jhklm_phot.csv',
@@ -114,7 +113,8 @@ def src_localDB(localDB):
             'ALMA13' : localDB+'/database/alma_cox.csv',
             'ALMA14' : localDB+'/database/alma_cieza.csv',
             'ALMA15' : localDB+'/database/alma_cieza2.csv',
-            'ALMA16' : localDB+'/database/alma_lieman_sifry.csv'}
+            'ALMA16' : localDB+'/database/alma_lieman_sifry.csv',
+            'ALMA17' : localDB+'/database/alma_ricci.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -123,8 +123,7 @@ def src_localDB(localDB):
     
     # bibliographic reference for catalog/paper (these are searchable within
     # NASA ADS and SIMBAD for traceability)
-    ldbR = {'ALMA17' : '2014ApJ...791...20R',
-            'SAAO' : '2000MNRAS.313...73S',
+    ldbR = {'SAAO' : '2000MNRAS.313...73S',
             'MKII' : '2000MNRAS.313...73S',
             'UKIRT' : '1998MNRAS.296..934C',
             'ESO' : '1992ApJ...398..254B',
@@ -232,10 +231,10 @@ def src_localDB(localDB):
             'ALMA13' : '2017ApJ...851...83C',
             'ALMA14' : '2018MNRAS.474.4347C',
             'ALMA15' : '2019MNRAS.482..698C',
-            'ALMA16' : '2016ApJ...828...25L'}
+            'ALMA16' : '2016ApJ...828...25L',
+            'ALMA17' : '2014ApJ...791...20R'}
     # Wavelength of each of the mag/flux entries in the table
-    ldbW = {'ALMA17' : [886.960e-6,3223.575e-6],
-            'SAAO' : [364e-9,442e-9,540e-9,647e-9,786.5e-9],
+    ldbW = {'SAAO' : [364e-9,442e-9,540e-9,647e-9,786.5e-9],
             'MKII' : [1.25e-6,1.60e-6,2.18e-6,3.54e-6],
             'UKIRT' : [1.25e-6,1.65e-6,2.20e-6,3.45e-6],
             'ESO' : [1.23e-6,1.63e-6,2.19e-6,3.79e-6,4.64e-6,9.69e-6,8.38e-6,12.89e-6],
@@ -343,11 +342,11 @@ def src_localDB(localDB):
             'ALMA13' : [870e-6],
             'ALMA14' : [1300e-6],
             'ALMA15' : [1300e-6],
-            'ALMA16' : [1240e-6]}
+            'ALMA16' : [1240e-6],
+            'ALMA17' : [886.960e-6,3223.575e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
-    ldbA = {'ALMA17' : [0.4,0.4],
-            'SAAO' : [0.18,0.22,0.27,0.33,0.40],
+    ldbA = {'SAAO' : [0.18,0.22,0.27,0.33,0.40],
             'MKII' : [0.42,0.54,0.73,1.19],
             'UKIRT' : [0.08,0.11,0.15,0.23],
             'ESO' : [0.31,0.41,0.55,0.95,1.17,2.44,2.11,3.24],
@@ -455,10 +454,10 @@ def src_localDB(localDB):
             'ALMA13' : [0.2],
             'ALMA14' : [0.2],
             'ALMA15' : [0.2],
-            'ALMA16' : [1.0]}
+            'ALMA16' : [1.0],
+            'ALMA17' : [0.4,1.5]}
     # Magnitude/Flux column name
-    ldbM = {'ALMA17' : ['F887','F3224'],
-            'SAAO' : ['Umag','Bmag','Vmag','Rcmag','Icmag'],
+    ldbM = {'SAAO' : ['Umag','Bmag','Vmag','Rcmag','Icmag'],
             'MKII' : ['Jmag','Hmag','Kmag','Lmag'],
             'UKIRT' : ['Jmag','Hmag','Kmag','Lmag'],
             'ESO' : ['Jmag','Hmag','Kmag','Lmag','Mmag','N2mag','N1mag','N3mag'],
@@ -566,10 +565,10 @@ def src_localDB(localDB):
             'ALMA13' : ['F870'],
             'ALMA14' : ['F1300'],
             'ALMA15' : ['F1300'],
-            'ALMA16' : ['F1240']}
+            'ALMA16' : ['F1240'],
+            'ALMA17' : ['F887','F3224']}
     # Magnitude/Flux error column name
-    ldbE = {'ALMA17' : ['e_F887','e_F3224'],
-            'SAAO' : ['eUmag','eBmag','eVmag','eRcmag','eIcmag'],
+    ldbE = {'SAAO' : ['eUmag','eBmag','eVmag','eRcmag','eIcmag'],
             'MKII' : ['eJmag','eHmag','eKmag','eLmag'],
             'UKIRT' : ['eJmag','eHmag','eKmag','eLmag'],
             'ESO' : ['eJmag','eHmag','eKmag','eLmag','eMmag','eN2mag','eN1mag','eN3mag'],
@@ -677,10 +676,10 @@ def src_localDB(localDB):
             'ALMA13' : ['e_F870'],
             'ALMA14' : ['e_F1300'],
             'ALMA15' : ['e_F1300'],
-            'ALMA16' : ['e_F1240']}
+            'ALMA16' : ['e_F1240'],
+            'ALMA17' : ['e_F887','e_F3224']}
     # Units for each of the magnitude/flux entries
-    ldbU = {'ALMA17' : ['mJy','mJy'],
-            'SAAO' : ['mag','mag','mag','mag','mag'],
+    ldbU = {'SAAO' : ['mag','mag','mag','mag','mag'],
             'MKII' : ['mag','mag','mag','mag'],
             'UKIRT' : ['mag','mag','mag','mag'],
             'ESO' : ['mag','mag','mag','mag','mag','mag','mag','mag'],
@@ -788,11 +787,11 @@ def src_localDB(localDB):
             'ALMA13' : ['mJy'],
             'ALMA14' : ['mJy'],
             'ALMA15' : ['mJy'],
-            'ALMA16' : ['mJy']}
+            'ALMA16' : ['mJy'],
+            'ALMA17' : ['mJy','mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
-    ldbB = {'ALMA17' : ['ALMA:F887','ALMA:F3224'],
-            'SAAO' : ['Johnson:U','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic'],
+    ldbB = {'SAAO' : ['Johnson:U','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic'],
             'MKII' : ['Johnson:J','Johnson:H','Johnson:K','Johnson:L'],
             'UKIRT' : ['UKIRT:J','UKIRT:H','UKIRT:K','UKIRT:L'],
             'ESO' : ['ESO:J','ESO:H','ESO:K','ESO:L','ESO:M','ESO:N2','ESO:N1','ESO:N3'],
@@ -900,7 +899,8 @@ def src_localDB(localDB):
             'ALMA13' : ['ALMA:F870'],
             'ALMA14' : ['ALMA:F1300'],
             'ALMA15' : ['ALMA:F1300'],
-            'ALMA16' : ['ALMA:F1240']}
+            'ALMA16' : ['ALMA:F1240'],
+            'ALMA17' : ['ALMA:F887','ALMA:F3224']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
