@@ -911,7 +911,6 @@ def src_onlineDB(query='simbad'):
     # catalog name dictionary:
     catN = {'2MASS' : ['FLUX_BIBCODE_J','FLUX_BIBCODE_H','FLUX_BIBCODE_K'],
            'TYCHO2'   : 'I/259/tyc2',
-           'AKARIirc' : 'II/297/irc',
            'AKARIfis' : 'II/298/fis',
            'WISE'      : 'II/311/wise',
            'IRAS'      : 'II/125/main',
@@ -934,12 +933,12 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : 'J/ApJS/184/18/table4',
            'ALMA1' : 'J/ApJ/831/125/sources',
            'ALMA6' : 'J/ApJ/828/46/alma',
-           'ALMA7' : 'J/A+A/626/A11/table13'}
+           'ALMA7' : 'J/A+A/626/A11/table13',
+           'AKARIirc' : 'II/297/irc'}
 
     # catalog reference dictionary
     catR = {'2MASS' : '2003yCat.2246....0C',
            'TYCHO2'   : '2000A&A...355L..27H',
-           'AKARIirc' : '2010A&A...514A...1I',
            'AKARIfis' : '2010yCat.2298....0Y',
            'WISE'      : '2012wise.rept....1C',
            'IRAS'      : '1994yCat.2125....0J',
@@ -962,12 +961,12 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : '2009ApJS..184...18G',
            'ALMA1' : '2016ApJ...831..125P',
            'ALMA6' : '2016ApJ...828...46A',
-           'ALMA7' : '2019A&A...626A..11C'}
+           'ALMA7' : '2019A&A...626A..11C',
+           'AKARIirc' : '2010A&A...514A...1I'}
 
     # catalog wavelength dictionary
     catW = {'2MASS' : [1.25e-6,1.65e-6,2.15e-6],
            'TYCHO2'   : [426e-9, 532e-9],
-           'AKARIirc' : [9e-6, 18e-6],
            'AKARIfis' : [65e-6, 90e-6, 140e-6, 160e-6],
            'WISE'      : [3.35e-6, 4.6e-6, 11.6e-6, 22.1e-6],
            'IRAS'      : [12e-6, 25e-6, 60e-6, 100e-6],
@@ -990,12 +989,12 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : [3.6e-6,4.5e-6,5.8e-6,8.0e-6,24e-6],
            'ALMA1' : [887.0e-6],
            'ALMA6' : [890e-6],
-           'ALMA7' : [1300e-6]}
+           'ALMA7' : [1300e-6],
+           'AKARIirc' : [9e-6,18e-6]}
 
     # catalog angular resolution / beam size
     catA = {'2MASS' : [0.24,0.32,0.42],
            'TYCHO2'   : [(1.22*w/0.29)*206265 for w in catW['TYCHO2']],
-           'AKARIirc' : [(1.22*w/0.685)*206265 for w in catW['AKARIirc']],
            'AKARIfis' : [(1.22*w/0.685)*206265 for w in catW['AKARIfis']],
            'WISE'      : [(1.22*w/0.4)*206265 for w in catW['WISE']],
            'IRAS'      : [(1.22*w/0.57)*206265 for w in catW['IRAS']],
@@ -1018,12 +1017,12 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : [1.07,1.33,1.72,2.37,7.11],
            'ALMA1' : [0.7],
            'ALMA6' : [0.34],
-           'ALMA7' : [0.3]}
+           'ALMA7' : [0.3],
+           'AKARIirc' : [3.31,6.61]}
 
     # catalog magnitude name
     catM = {'2MASS' : ['FLUX_J','FLUX_H','FLUX_K'],
            'TYCHO2'   : ['BTmag', 'VTmag'],
-           'AKARIirc' : ['S09', 'S18'],
            'AKARIfis' : ['S65', 'S90', 'S140', 'S160'],
            'WISE'      : ['W1mag', 'W2mag', 'W3mag', 'W4mag'],
            'IRAS'      : ['Fnu_12', 'Fnu_25', 'Fnu_60', 'Fnu_100'],
@@ -1046,14 +1045,14 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : ['_3.6mag','_4.5mag','_5.8mag','_8.0mag','_24mag'],
            'ALMA1' : ['Fnu'],
            'ALMA6' : ['F890'],
-           'ALMA7' : ['F1300']}
+           'ALMA7' : ['F1300'],
+           'AKARIirc' : ['S09','S18']}
 
     # catalog magnitude error name (or, if an error isn't given in the catalog, provide a 
     # float which will be used as a percentage uncertainty on the retrieved magnitude/flux 
     # value retrieved from the catalog
     catE = {'2MASS' : ['FLUX_ERROR_J','FLUX_ERROR_H','FLUX_ERROR_K'],
            'TYCHO2'   : ['e_BTmag', 'e_VTmag'],
-           'AKARIirc' : ['e_S09', 'e_S18'],
            'AKARIfis' : ['e_S65', 'e_S90', 'e_S140', 'e_S160'],
            'WISE'      : ['e_W1mag', 'e_W2mag', 'e_W3mag', 'e_W4mag'],
            'IRAS'      : ['e_Fnu_12', 'e_Fnu_25', 'e_Fnu_60', 'e_Fnu_100'],
@@ -1076,12 +1075,12 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : ['e_3.6mag','e_4.5mag','e_5.8mag','e_8.0mag','e_24mag'],
            'ALMA1' : ['e_Fnu'],
            'ALMA6' : ['e_F890'],
-           'ALMA7' : ['e_F1300']}
+           'ALMA7' : ['e_F1300'],
+           'AKARIirc' : ['e_S09','e_S18']}
 
     # catalog magnitude unit name
     catU = {'2MASS' : ['mag','mag','mag'],
            'TYCHO2'   : ['mag', 'mag'],
-           'AKARIirc' : ['Jy', 'Jy'],
            'AKARIfis' : ['Jy', 'Jy', 'Jy', 'Jy'],
            'WISE'      : ['mag', 'mag', 'mag', 'mag'],
            'IRAS'      : ['Jy', 'Jy', 'Jy', 'Jy'],
@@ -1104,12 +1103,12 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : ['mag','mag','mag','mag','mag'],
            'ALMA1' : ['mJy'],
            'ALMA6' : ['mJy'],
-           'ALMA7' : ['mJy']}
+           'ALMA7' : ['mJy'],
+           'AKARIirc' : ['Jy','Jy']}
 
     # catalog waveband name
     catB = {'2MASS' : ['2MASS:J','2MASS:H','2MASS:Ks'],
            'TYCHO2'   : ['HIP:BT', 'HIP:VT'],
-           'AKARIirc' : ['AKARI:S9W', 'AKARI:L18W'],
            'AKARIfis' : ['AKARI:N60', 'AKARI:WIDE-S', 'AKARI:WIDE-L', 'AKARI:N160'],
            'WISE'      : ['WISE:W1', 'WISE:W2', 'WISE:W3', 'WISE:W4'],
            'IRAS'      : ['IRAS:12', 'IRAS:25', 'IRAS:60', 'IRAS:100'],
@@ -1132,6 +1131,7 @@ def src_onlineDB(query='simbad'):
            'SPITZER6' : ['SPITZER:I1','SPITZER:I2','SPITZER:I3','SPITZER:I4','SPITZER:M1'],
            'ALMA1' : ['ALMA:F887'],
            'ALMA6' : ['ALMA:F890'],
-           'ALMA7' : ['ALMA:F1300']}
+           'ALMA7' : ['ALMA:F1300'],
+           'AKARIirc' : ['AKARI:S9W','AKARI:L18W']}
     
     return catN, catR, catW, catA, catM, catE, catU, catB
