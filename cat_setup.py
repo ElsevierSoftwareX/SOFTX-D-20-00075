@@ -912,7 +912,6 @@ def src_onlineDB(query='simbad'):
     catN = {'2MASS' : ['FLUX_BIBCODE_J','FLUX_BIBCODE_H','FLUX_BIBCODE_K'],
            'TYCHO2'   : 'I/259/tyc2',
            'WISE'      : 'II/311/wise',
-           'IRAS'      : 'II/125/main',
            'SDSSr7'    : 'II/294/sdss7', 
            'SDSSr12' : 'V/147/sdss12',
            'SDSSr9' : 'V/139/sdss9',
@@ -934,13 +933,13 @@ def src_onlineDB(query='simbad'):
            'ALMA6' : 'J/ApJ/828/46/alma',
            'ALMA7' : 'J/A+A/626/A11/table13',
            'AKARIirc' : 'II/297/irc',
-           'AKARIfis' : 'II/298/fis'}
+           'AKARIfis' : 'II/298/fis',
+           'IRAS' : 'II/125/main'}
 
     # catalog reference dictionary
     catR = {'2MASS' : '2003yCat.2246....0C',
            'TYCHO2'   : '2000A&A...355L..27H',
            'WISE'      : '2012wise.rept....1C',
-           'IRAS'      : '1994yCat.2125....0J',
            'SDSSr7'    : '2009ApJS..182..543A', 
            'SDSSr12' : '2015ApJS..219...12A',
            'SDSSr9' : '2012ApJS..203...21A',
@@ -962,13 +961,13 @@ def src_onlineDB(query='simbad'):
            'ALMA6' : '2016ApJ...828...46A',
            'ALMA7' : '2019A&A...626A..11C',
            'AKARIirc' : '2010A&A...514A...1I',
-           'AKARIfis' : '2010yCat.2298....0Y'}
+           'AKARIfis' : '2010yCat.2298....0Y',
+           'IRAS' : '1988iras....1.....B'}
 
     # catalog wavelength dictionary
     catW = {'2MASS' : [1.25e-6,1.65e-6,2.15e-6],
            'TYCHO2'   : [426e-9, 532e-9],
            'WISE'      : [3.35e-6, 4.6e-6, 11.6e-6, 22.1e-6],
-           'IRAS'      : [12e-6, 25e-6, 60e-6, 100e-6],
            'SDSSr7'    : [354.3e-9, 477.0e-9, 623.1e-9, 762.5e-9, 913.4e-9], 
            'SDSSr12' : [354.3e-9,477.0e-9,623.1e-9,762.5e-9,913.4e-9],
            'SDSSr9' : [354.3e-9,477.0e-9,623.1e-9,762.5e-9,913.4e-9],
@@ -990,13 +989,13 @@ def src_onlineDB(query='simbad'):
            'ALMA6' : [890e-6],
            'ALMA7' : [1300e-6],
            'AKARIirc' : [9e-6,18e-6],
-           'AKARIfis' : [65e-6,90e-6,140e-6,160e-6]}
+           'AKARIfis' : [65e-6,90e-6,140e-6,160e-6],
+           'IRAS' : [12e-6,25e-6,60e-6,100e-6]}
 
     # catalog angular resolution / beam size
     catA = {'2MASS' : [0.24,0.32,0.42],
            'TYCHO2'   : [(1.22*w/0.29)*206265 for w in catW['TYCHO2']],
            'WISE'      : [(1.22*w/0.4)*206265 for w in catW['WISE']],
-           'IRAS'      : [(1.22*w/0.57)*206265 for w in catW['IRAS']],
            'SDSSr7'    : [(1.22*w/2.5)*206265 for w in catW['SDSSr7']], 
            'SDSSr12' : [0.036,0.048,0.063,0.077,0.092],
            'SDSSr9' : [0.036,0.048,0.063,0.077,0.092],
@@ -1018,13 +1017,13 @@ def src_onlineDB(query='simbad'):
            'ALMA6' : [0.34],
            'ALMA7' : [0.3],
            'AKARIirc' : [3.31,6.61],
-           'AKARIfis' : [24,33,51,59]}
+           'AKARIfis' : [24,33,51,59],
+           'IRAS' : [5.3,11,26,44]}
 
     # catalog magnitude name
     catM = {'2MASS' : ['FLUX_J','FLUX_H','FLUX_K'],
            'TYCHO2'   : ['BTmag', 'VTmag'],
            'WISE'      : ['W1mag', 'W2mag', 'W3mag', 'W4mag'],
-           'IRAS'      : ['Fnu_12', 'Fnu_25', 'Fnu_60', 'Fnu_100'],
            'SDSSr7'    : ['umag', 'gmag', 'rmag', 'imag', 'zmag'], 
            'SDSSr12' : ['umag','gmag','rmag','imag','zmag'],
            'SDSSr9' : ['umag','gmag','rmag','imag','zmag'],
@@ -1046,7 +1045,8 @@ def src_onlineDB(query='simbad'):
            'ALMA6' : ['F890'],
            'ALMA7' : ['F1300'],
            'AKARIirc' : ['S09','S18'],
-           'AKARIfis' : ['S65','S90','S140','S160']}
+           'AKARIfis' : ['S65','S90','S140','S160'],
+           'IRAS' : ['Fnu_12','Fnu_25','Fnu_60','Fnu_100']}
 
     # catalog magnitude error name (or, if an error isn't given in the catalog, provide a 
     # float which will be used as a percentage uncertainty on the retrieved magnitude/flux 
@@ -1054,7 +1054,6 @@ def src_onlineDB(query='simbad'):
     catE = {'2MASS' : ['FLUX_ERROR_J','FLUX_ERROR_H','FLUX_ERROR_K'],
            'TYCHO2'   : ['e_BTmag', 'e_VTmag'],
            'WISE'      : ['e_W1mag', 'e_W2mag', 'e_W3mag', 'e_W4mag'],
-           'IRAS'      : ['e_Fnu_12', 'e_Fnu_25', 'e_Fnu_60', 'e_Fnu_100'],
            'SDSSr7'    : ['e_umag', 'e_gmag', 'e_rmag', 'e_imag', 'e_zmag'], 
            'SDSSr12' : ['e_umag','e_gmag','e_rmag','e_imag','e_zmag'],
            'SDSSr9' : ['e_umag','e_gmag','e_rmag','e_imag','e_zmag'],
@@ -1076,13 +1075,13 @@ def src_onlineDB(query='simbad'):
            'ALMA6' : ['e_F890'],
            'ALMA7' : ['e_F1300'],
            'AKARIirc' : ['e_S09','e_S18'],
-           'AKARIfis' : ['e_S65','e_S90','e_S140','e_S160']}
+           'AKARIfis' : ['e_S65','e_S90','e_S140','e_S160'],
+           'IRAS' : ['e_Fnu_12','e_Fnu_25','e_Fnu_60','e_Fnu_100']}
 
     # catalog magnitude unit name
     catU = {'2MASS' : ['mag','mag','mag'],
            'TYCHO2'   : ['mag', 'mag'],
            'WISE'      : ['mag', 'mag', 'mag', 'mag'],
-           'IRAS'      : ['Jy', 'Jy', 'Jy', 'Jy'],
            'SDSSr7'    : ['mag', 'mag', 'mag', 'mag', 'mag'], 
            'SDSSr12' : ['mag','mag','mag','mag','mag'],
            'SDSSr9' : ['mag','mag','mag','mag','mag'],
@@ -1104,13 +1103,13 @@ def src_onlineDB(query='simbad'):
            'ALMA6' : ['mJy'],
            'ALMA7' : ['mJy'],
            'AKARIirc' : ['Jy','Jy'],
-           'AKARIfis' : ['Jy','Jy','Jy','Jy']}
+           'AKARIfis' : ['Jy','Jy','Jy','Jy'],
+           'IRAS' : ['Jy','Jy','Jy','Jy']}
 
     # catalog waveband name
     catB = {'2MASS' : ['2MASS:J','2MASS:H','2MASS:Ks'],
            'TYCHO2'   : ['HIP:BT', 'HIP:VT'],
            'WISE'      : ['WISE:W1', 'WISE:W2', 'WISE:W3', 'WISE:W4'],
-           'IRAS'      : ['IRAS:12', 'IRAS:25', 'IRAS:60', 'IRAS:100'],
            'SDSSr7'    : ['SDSS:AB:u', 'SDSS:AB:g', 'SDSS:AB:r', 'SDSS:AB:i', 'SDSS:AB:z'], 
            'SDSSr12' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
            'SDSSr9' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
@@ -1132,6 +1131,7 @@ def src_onlineDB(query='simbad'):
            'ALMA6' : ['ALMA:F890'],
            'ALMA7' : ['ALMA:F1300'],
            'AKARIirc' : ['AKARI:S9W','AKARI:L18W'],
-           'AKARIfis' : ['AKARI:N60','AKARI:WIDE-S','AKARI:WIDE-L','AKARI:N160']}
+           'AKARIfis' : ['AKARI:N60','AKARI:WIDE-S','AKARI:WIDE-L','AKARI:N160'],
+           'IRAS' : ['IRAS:F12','IRAS:F25','IRAS:F60','IRAS:F100']}
     
     return catN, catR, catW, catA, catM, catE, catU, catB
