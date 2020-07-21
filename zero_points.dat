@@ -74,3 +74,7 @@ band wvlen F0 ref
 "Gaia:GRP" 0.773 2620.0 'https://www.cosmos.esa.int/web/gaia/iow_20180316/'
 "GALEX:FUV" 0.1529 3631.0 '2012MNRAS.426..903P'
 "GALEX:NUV" 0.2312 3631.0 '2012MNRAS.426..903P'
+"Stromgren:u" 0.35 1300.0 'VizieR META catalog'
+"Stromgren:v" 0.41 4200.0 'VizieR META catalog'
+"Stromgren:b" 0.47 4200.0 'VizieR META catalog'
+"Stromgren:y" 0.55 3600.0 'VizieR META catalog'
