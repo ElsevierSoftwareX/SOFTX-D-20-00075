@@ -6,7 +6,6 @@ def src_localDB(localDB):
     """
     # local path to each local data base file:
     ldbN = {'SAAO' : localDB+'/database/saao_opt_sylvester.csv',
-            'MKII' : localDB+'/database/mkii_jhkl_sylvester.csv',
             'UKIRT' : localDB+'/database/ukirt_coulson.csv',
             'ESO' : localDB+'/database/eso_jhklm_phot.csv',
             'CTIO' : localDB+'/database/lupus_phot.csv',
@@ -114,7 +113,8 @@ def src_localDB(localDB):
             'ALMA31' : localDB+'/database/alma_perez3.csv',
             'ALMA32' : localDB+'/database/alma_ansdell.csv',
             'ALMA33' : localDB+'/database/alma_vterwisga.csv',
-            'ISOPHOT' : localDB+'/database/isophot.csv'}
+            'ISOPHOT' : localDB+'/database/isophot.csv',
+            'MKII' : localDB+'/database/mkii_jhkl_sylvester.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -124,7 +124,6 @@ def src_localDB(localDB):
     # bibliographic reference for catalog/paper (these are searchable within
     # NASA ADS and SIMBAD for traceability)
     ldbR = {'SAAO' : '2000MNRAS.313...73S',
-            'MKII' : '2000MNRAS.313...73S',
             'UKIRT' : '1998MNRAS.296..934C',
             'ESO' : '1992ApJ...398..254B',
             'CTIO' : '1994AJ....108.1071H',
@@ -232,10 +231,10 @@ def src_localDB(localDB):
             'ALMA31' : '2020ApJ...889L..24P',
             'ALMA32' : '2018ApJ...859...21A',
             'ALMA33' : '2019A&A...623A.150V',
-            'ISOPHOT' : '2005A&A...443..541G'}
+            'ISOPHOT' : '2005A&A...443..541G',
+            'MKII' : '2000MNRAS.313...73S'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'SAAO' : [364e-9,442e-9,540e-9,647e-9,786.5e-9],
-            'MKII' : [1.25e-6,1.60e-6,2.18e-6,3.54e-6],
             'UKIRT' : [1.25e-6,1.65e-6,2.20e-6,3.45e-6],
             'ESO' : [1.23e-6,1.63e-6,2.19e-6,3.79e-6,4.64e-6,9.69e-6,8.38e-6,12.89e-6],
             'CTIO' : [0.44e-6,0.55e-6,0.71e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6,3.54e-6,4.80e-6],
@@ -343,11 +342,11 @@ def src_localDB(localDB):
             'ALMA31' : [1300e-6],
             'ALMA32' : [1330e-6],
             'ALMA33' : [869e-6],
-            'ISOPHOT' : [4.8e-6,7.7e-6,10e-6,12e-6,12.8e-6,15e-6,20e-6,60e-6,100e-6,0.44e-6,0.55e-6,0.71e-6,0.79e-6]}
+            'ISOPHOT' : [4.8e-6,7.7e-6,10e-6,12e-6,12.8e-6,15e-6,20e-6,60e-6,100e-6,0.44e-6,0.55e-6,0.71e-6,0.79e-6],
+            'MKII' : [1.25e-6,1.60e-6,2.18e-6,3.54e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'SAAO' : [0.18,0.22,0.27,0.33,0.40],
-            'MKII' : [0.42,0.54,0.73,1.19],
             'UKIRT' : [0.08,0.11,0.15,0.23],
             'ESO' : [0.31,0.41,0.55,0.95,1.17,2.44,2.11,3.24],
             'CTIO' : [0.11,0.14,0.18,0.20,0.13,0.16,0.22,0.36,0.48],
@@ -455,10 +454,10 @@ def src_localDB(localDB):
             'ALMA31' : [0.197],
             'ALMA32' : [0.25],
             'ALMA33' : [0.3],
-            'ISOPHOT' : [10,10,10,10,10,23,23,120,120,10,10,10,10]}
+            'ISOPHOT' : [10,10,10,10,10,23,23,120,120,10,10,10,10],
+            'MKII' : [0.4,0.5,0.7,1.2]}
     # Magnitude/Flux column name
     ldbM = {'SAAO' : ['Umag','Bmag','Vmag','Rcmag','Icmag'],
-            'MKII' : ['Jmag','Hmag','Kmag','Lmag'],
             'UKIRT' : ['Jmag','Hmag','Kmag','Lmag'],
             'ESO' : ['Jmag','Hmag','Kmag','Lmag','Mmag','N2mag','N1mag','N3mag'],
             'CTIO' : ['Bmag','Vmag','Rmag','Imag','Jmag','Hmag','Kmag','Lmag','Mmag'],
@@ -566,10 +565,10 @@ def src_localDB(localDB):
             'ALMA31' : ['F1300'],
             'ALMA32' : ['F1330'],
             'ALMA33' : ['F869'],
-            'ISOPHOT' : ['F4.8','F7.7','F10','F12','F12.8','F15','F20','F60','F100','B','V','Rc','Ic']}
+            'ISOPHOT' : ['F4.8','F7.7','F10','F12','F12.8','F15','F20','F60','F100','B','V','Rc','Ic'],
+            'MKII' : ['Jmag','Hmag','Kmag','Lmag']}
     # Magnitude/Flux error column name
     ldbE = {'SAAO' : ['eUmag','eBmag','eVmag','eRcmag','eIcmag'],
-            'MKII' : ['eJmag','eHmag','eKmag','eLmag'],
             'UKIRT' : ['eJmag','eHmag','eKmag','eLmag'],
             'ESO' : ['eJmag','eHmag','eKmag','eLmag','eMmag','eN2mag','eN1mag','eN3mag'],
             'CTIO' : ['eBmag','eVmag','eRmag','eImag','eJmag','eHmag','eKmag','eLmag','eMmag'],
@@ -677,10 +676,10 @@ def src_localDB(localDB):
             'ALMA31' : ['eF1300'],
             'ALMA32' : ['eF1330'],
             'ALMA33' : ['eF869'],
-            'ISOPHOT' : ['e_F4.8','e_F7.7','e_F10','e_F12','e_F12.8','e_F15','e_F20','e_F60','e_F100','e_B','e_V','e_Rc','e_Ic']}
+            'ISOPHOT' : ['e_F4.8','e_F7.7','e_F10','e_F12','e_F12.8','e_F15','e_F20','e_F60','e_F100','e_B','e_V','e_Rc','e_Ic'],
+            'MKII' : ['eJmag','eHmag','eKmag','eLmag']}
     # Units for each of the magnitude/flux entries
     ldbU = {'SAAO' : ['mag','mag','mag','mag','mag'],
-            'MKII' : ['mag','mag','mag','mag'],
             'UKIRT' : ['mag','mag','mag','mag'],
             'ESO' : ['mag','mag','mag','mag','mag','mag','mag','mag'],
             'CTIO' : ['mag','mag','mag','mag','mag','mag','mag','mag','mag'],
@@ -788,11 +787,11 @@ def src_localDB(localDB):
             'ALMA31' : ['mJy'],
             'ALMA32' : ['mJy'],
             'ALMA33' : ['mJy'],
-            'ISOPHOT' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','mag','mag','mag','mag']}
+            'ISOPHOT' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','mag','mag','mag','mag'],
+            'MKII' : ['mag','mag','mag','mag']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'SAAO' : ['Johnson:U','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic'],
-            'MKII' : ['Johnson:J','Johnson:H','Johnson:K','Johnson:L'],
             'UKIRT' : ['UKIRT:J','UKIRT:H','UKIRT:K','UKIRT:L'],
             'ESO' : ['ESO:J','ESO:H','ESO:K','ESO:L','ESO:M','ESO:N2','ESO:N1','ESO:N3'],
             'CTIO' : ['Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K','Johnson:L','Johnson:M'],
@@ -900,7 +899,8 @@ def src_localDB(localDB):
             'ALMA31' : ['ALMA:F1300'],
             'ALMA32' : ['ALMA:F1330'],
             'ALMA33' : ['ALMA:F869'],
-            'ISOPHOT' : ['ISOPHOT:1','ISOPHOT:2','ISOPHOT:3','ISOPHOT:4','ISOPHOT:5','ISOPHOT:6','ISOPHOT:7','ISOPHOT:8','ISOPHOT:9','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic']}
+            'ISOPHOT' : ['ISOPHOT:1','ISOPHOT:2','ISOPHOT:3','ISOPHOT:4','ISOPHOT:5','ISOPHOT:6','ISOPHOT:7','ISOPHOT:8','ISOPHOT:9','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic'],
+            'MKII' : ['Johnson:J','Johnson:H','Johnson:K','Johnson:L']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
@@ -919,7 +919,6 @@ def src_onlineDB(query='simbad'):
            'XMMOM' : 'II/356/xmmom41s',
            'GAIA' : 'I/345/gaia2',
            'GALEX' : 'II/312/ais',
-           'MSX' : 'V/114/msx6_gp',
            'HERSCHEL6' : 'J/A+A/619/A52/tablea16',
            'JCMT3' : 'J/ApJS/175/277/maps',
            'CSOJCMTmm' : 'J/ApJ/671/1800/table1',
@@ -934,7 +933,8 @@ def src_onlineDB(query='simbad'):
            'ALMA7' : 'J/A+A/626/A11/table13',
            'AKARIirc' : 'II/297/irc',
            'AKARIfis' : 'II/298/fis',
-           'IRAS' : 'II/125/main'}
+           'IRAS' : 'II/125/main',
+           'MSX6C' : 'V/114/msx6_gp'}
 
     # catalog reference dictionary
     catR = {'2MASS' : '2003yCat.2246....0C',
@@ -947,7 +947,6 @@ def src_onlineDB(query='simbad'):
            'XMMOM' : '2012MNRAS.426..903P',
            'GAIA' : '2018A&A...616A...1G',
            'GALEX' : '2011Ap&SS.335..161B',
-           'MSX' : '2003yCat.5114....0E',
            'HERSCHEL6' : '2018A&A...619A..52B',
            'JCMT3' : '2008ApJS..175..277D',
            'CSOJCMTmm' : '2007ApJ...671.1800A',
@@ -962,7 +961,8 @@ def src_onlineDB(query='simbad'):
            'ALMA7' : '2019A&A...626A..11C',
            'AKARIirc' : '2010A&A...514A...1I',
            'AKARIfis' : '2010yCat.2298....0Y',
-           'IRAS' : '1988iras....1.....B'}
+           'IRAS' : '1988iras....1.....B',
+           'MSX6C' : '2003yCat.5114....0E'}
 
     # catalog wavelength dictionary
     catW = {'2MASS' : [1.25e-6,1.65e-6,2.15e-6],
@@ -975,7 +975,6 @@ def src_onlineDB(query='simbad'):
            'XMMOM' : [2120.0e-10,2310.0e-10,2910.0e-10,3440.0e-10,4500.0e-10,5430.0e-10],
            'GAIA' : [0.64050e-6,0.51311e-6,0.77776e-6],
            'GALEX' : [0.1539e-6,0.2316e-6],
-           'MSX' : [4.29e-6,4.35e-6,8.28e-6,12.13e-6,14.65e-6,21.34e-6],
            'HERSCHEL6' : [70e-6,160e-6,250e-6,350e-6,500e-6],
            'JCMT3' : [850e-6,450e-6],
            'CSOJCMTmm' : [350.0e-6,450.0e-6,850.0e-6,1300.0e-6],
@@ -990,7 +989,8 @@ def src_onlineDB(query='simbad'):
            'ALMA7' : [1300e-6],
            'AKARIirc' : [9e-6,18e-6],
            'AKARIfis' : [65e-6,90e-6,140e-6,160e-6],
-           'IRAS' : [12e-6,25e-6,60e-6,100e-6]}
+           'IRAS' : [12e-6,25e-6,60e-6,100e-6],
+           'MSX6C' : [4.29e-6,4.35e-6,8.28e-6,12.13e-6,14.65e-6,21.34e-6]}
 
     # catalog angular resolution / beam size
     catA = {'2MASS' : [0.24,0.32,0.42],
@@ -1003,7 +1003,6 @@ def src_onlineDB(query='simbad'):
            'XMMOM' : [1.98,1.80,2.00,1.55,1.39,1.35],
            'GAIA' : [1.,1.,1.],
            'GALEX' : [10.,10.],
-           'MSX' : [1,1,1,1,1,1],
            'HERSCHEL6' : [5.03,11.50,17.97,25.16,35.95],
            'JCMT3' : [13.8,7.8],
            'CSOJCMTmm' : [8.5,7.8,13.8,10],
@@ -1018,7 +1017,8 @@ def src_onlineDB(query='simbad'):
            'ALMA7' : [0.3],
            'AKARIirc' : [3.31,6.61],
            'AKARIfis' : [24,33,51,59],
-           'IRAS' : [5.3,11,26,44]}
+           'IRAS' : [5.3,11,26,44],
+           'MSX6C' : [3.1,3.1,6.0,8.7,11,15]}
 
     # catalog magnitude name
     catM = {'2MASS' : ['FLUX_J','FLUX_H','FLUX_K'],
@@ -1031,7 +1031,6 @@ def src_onlineDB(query='simbad'):
            'XMMOM' : ['UVW2mAB','UVM2mAB','UVW1mAB','UmAB','BmAB','VmAB'],
            'GAIA' : ['Gmag','BPmag','RPmag'],
            'GALEX' : ['FUV','NUV'],
-           'MSX' : ['B1','B2','A','C','D','E'],
            'HERSCHEL6' : ['Stot070','Stot160','Stot250','Stot350','Stot500'],
            'JCMT3' : ['F850','F450'],
            'CSOJCMTmm' : ['F0.35','F0.45','F0.85','F1.3'],
@@ -1046,7 +1045,8 @@ def src_onlineDB(query='simbad'):
            'ALMA7' : ['F1300'],
            'AKARIirc' : ['S09','S18'],
            'AKARIfis' : ['S65','S90','S140','S160'],
-           'IRAS' : ['Fnu_12','Fnu_25','Fnu_60','Fnu_100']}
+           'IRAS' : ['Fnu_12','Fnu_25','Fnu_60','Fnu_100'],
+           'MSX6C' : ['B1','B2','A','C','D','E']}
 
     # catalog magnitude error name (or, if an error isn't given in the catalog, provide a 
     # float which will be used as a percentage uncertainty on the retrieved magnitude/flux 
@@ -1061,7 +1061,6 @@ def src_onlineDB(query='simbad'):
            'XMMOM' : ['e_UVW2mAB','e_UVM2mAB','e_UVW1mAB','e_UmAB','e_BmAB','e_VmAB'],
            'GAIA' : ['e_Gmag','e_BPmag','e_RPmag'],
            'GALEX' : ['e_FUV','e_NUV'],
-           'MSX' : ['e_B1','e_B2','e_A','e_C','e_D','e_E'],
            'HERSCHEL6' : ['e_Stot070','e_Stot160','e_Stot250','e_Stot350','e_Stot500'],
            'JCMT3' : ['0.2','0.5'],
            'CSOJCMTmm' : ['e_F0.35','e_F0.45','e_F0.85','e_F1.3'],
@@ -1076,7 +1075,8 @@ def src_onlineDB(query='simbad'):
            'ALMA7' : ['e_F1300'],
            'AKARIirc' : ['e_S09','e_S18'],
            'AKARIfis' : ['e_S65','e_S90','e_S140','e_S160'],
-           'IRAS' : ['e_Fnu_12','e_Fnu_25','e_Fnu_60','e_Fnu_100']}
+           'IRAS' : ['e_Fnu_12','e_Fnu_25','e_Fnu_60','e_Fnu_100'],
+           'MSX6C' : ['e_B1','e_B2','e_A','e_C','e_D','e_E']}
 
     # catalog magnitude unit name
     catU = {'2MASS' : ['mag','mag','mag'],
@@ -1089,7 +1089,6 @@ def src_onlineDB(query='simbad'):
            'XMMOM' : ['mag','mag','mag','mag','mag','mag'],
            'GAIA' : ['mag','mag','mag'],
            'GALEX' : ['mag','mag'],
-           'MSX' : ['Jy','Jy','Jy','Jy','Jy','Jy'],
            'HERSCHEL6' : ['Jy','Jy','Jy','Jy','Jy'],
            'JCMT3' : ['Jy','Jy'],
            'CSOJCMTmm' : ['mJy','mJy','mJy','mJy'],
@@ -1104,7 +1103,8 @@ def src_onlineDB(query='simbad'):
            'ALMA7' : ['mJy'],
            'AKARIirc' : ['Jy','Jy'],
            'AKARIfis' : ['Jy','Jy','Jy','Jy'],
-           'IRAS' : ['Jy','Jy','Jy','Jy']}
+           'IRAS' : ['Jy','Jy','Jy','Jy'],
+           'MSX6C' : ['Jy','Jy','Jy','Jy','Jy','Jy']}
 
     # catalog waveband name
     catB = {'2MASS' : ['2MASS:J','2MASS:H','2MASS:Ks'],
@@ -1117,7 +1117,6 @@ def src_onlineDB(query='simbad'):
            'XMMOM' : ['XMMOM:UVW2','XMMOM:UVM2','XMMOM:UVW1','XMMOM:U','XMMOM:B','XMMOM:V'],
            'GAIA' : ['Gaia:G','Gaia:GBP','Gaia:GRP'],
            'GALEX' : ['GALEX:FUV','GALEX:NUV'],
-           'MSX' : ['MSX6C:B1','MSX6C:B2','MSX6C:A','MSX6C:C','MSX6C:D','MSX6C:E'],
            'HERSCHEL6' : ['Herschel:PACS:F70','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
            'JCMT3' : ['JCMT:SCUBA:F850','JCMT:SCUBA:F450'],
            'CSOJCMTmm' : ['CSO:SHARCII:F350','JCMT:SCUBA:F450','JCMT:SCUBA:F850','Compiled:F1300'],
@@ -1132,6 +1131,7 @@ def src_onlineDB(query='simbad'):
            'ALMA7' : ['ALMA:F1300'],
            'AKARIirc' : ['AKARI:S9W','AKARI:L18W'],
            'AKARIfis' : ['AKARI:N60','AKARI:WIDE-S','AKARI:WIDE-L','AKARI:N160'],
-           'IRAS' : ['IRAS:F12','IRAS:F25','IRAS:F60','IRAS:F100']}
+           'IRAS' : ['IRAS:F12','IRAS:F25','IRAS:F60','IRAS:F100'],
+           'MSX6C' : ['MSX6C:B1','MSX6C:B2','MSX6C:A','MSX6C:C','MSX6C:D','MSX6C:E']}
     
     return catN, catR, catW, catA, catM, catE, catU, catB
