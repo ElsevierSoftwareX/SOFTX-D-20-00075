@@ -13,7 +13,7 @@ def src_localDB(localDB):
             'CTIAO2' : localDB+'/database/ctiao_opt_padgett.csv',
             'MCDO' : localDB+'/database/mcdo_opt_padgett.csv',
             'TIMESERIES' : localDB+'/database/grankin_time_series.txt',
-            'SAAO2' : localDB+'/database/saao_lazareff.csv',
+            'SAAO3' : localDB+'/database/saao_lazareff.csv',
             'DUCATI' : localDB+'/database/johnson_ducati.csv',
             'VARIOUS5' : localDB+'/database/various_hillenbrand.csv',
             'HERSCHEL1' : localDB+'/database/herschel_phot.csv',
@@ -114,7 +114,8 @@ def src_localDB(localDB):
             'ALMA33' : localDB+'/database/alma_vterwisga.csv',
             'ISOPHOT' : localDB+'/database/isophot.csv',
             'MKII' : localDB+'/database/mkii_jhkl_sylvester.csv',
-            'SAAO' : localDB+'/database/saao_opt_sylvester.csv'}
+            'SAAO' : localDB+'/database/saao_opt_sylvester.csv',
+            'SAAO2' : localDB+'/database/saao_strom_sylvester.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -131,7 +132,7 @@ def src_localDB(localDB):
             'CTIAO2' : '2006ApJ...645.1283P',
             'MCDO' : '2006ApJ...645.1283P',
             'TIMESERIES' : '2007A&A...461..183G',
-            'SAAO2' : '2017A&A...599A..85L',
+            'SAAO3' : '2017A&A...599A..85L',
             'DUCATI' : '2002yCat.2237....0D',
             'VARIOUS5' : '1992ApJ...397..613H',
             'HERSCHEL1' : '2016A&A...586A...6P',
@@ -232,7 +233,8 @@ def src_localDB(localDB):
             'ALMA33' : '2019A&A...623A.150V',
             'ISOPHOT' : '2005A&A...443..541G',
             'MKII' : '2000MNRAS.313...73S',
-            'SAAO' : '2000MNRAS.313...73S'}
+            'SAAO' : '2000MNRAS.313...73S',
+            'SAAO2' : '2000MNRAS.313...73S'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'UKIRT' : [1.25e-6,1.65e-6,2.20e-6,3.45e-6],
             'ESO' : [1.23e-6,1.63e-6,2.19e-6,3.79e-6,4.64e-6,9.69e-6,8.38e-6,12.89e-6],
@@ -242,7 +244,7 @@ def src_localDB(localDB):
             'CTIAO2' : [0.55e-6,0.71e-6,0.79e-6],
             'MCDO' : [0.55e-6,0.71e-6,0.79e-6],
             'TIMESERIES' : [0.55e-6],
-            'SAAO2' : [364e-9,442e-9,540e-9,647e-9,786.5e-9,1.25e-6,1.60e-6,2.18e-6],
+            'SAAO3' : [364e-9,442e-9,540e-9,647e-9,786.5e-9,1.25e-6,1.60e-6,2.18e-6],
             'DUCATI' : [0.55e-6,0.36e-6,0.44e-6,0.71e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6,3.54e-6,4.80e-6,10.6e-6],
             'VARIOUS5' : [0.36e-6,0.44e-6,0.55e-6,0.6938e-6,0.71e-6,0.878e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6,3.54e-6,4.80e-6,1300e-6],
             'HERSCHEL1' : [70e-6,100e-6,160e-6],
@@ -343,7 +345,8 @@ def src_localDB(localDB):
             'ALMA33' : [869e-6],
             'ISOPHOT' : [4.8e-6,7.7e-6,10e-6,12e-6,12.8e-6,15e-6,20e-6,60e-6,100e-6,0.44e-6,0.55e-6,0.71e-6,0.79e-6],
             'MKII' : [1.25e-6,1.60e-6,2.18e-6,3.54e-6],
-            'SAAO' : [364e-9,442e-9,540e-9,647e-9,786.5e-9]}
+            'SAAO' : [364e-9,442e-9,540e-9,647e-9,786.5e-9],
+            'SAAO2' : [0.35e-6,0.41e-6,0.47e-6,0.55e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'UKIRT' : [0.08,0.11,0.15,0.23],
@@ -354,7 +357,7 @@ def src_localDB(localDB):
             'CTIAO2' : [0.15,0.20,0.22],
             'MCDO' : [0.17,0.22,0.25],
             'TIMESERIES' : [0.1],
-            'SAAO2' : [0.18,0.22,0.27,0.32,0.40,0.63,0.80,1.10],
+            'SAAO3' : [0.18,0.22,0.27,0.32,0.40,0.63,0.80,1.10],
             'DUCATI' : [5,5,5,5,5,5,5,5,5,5,5],
             'VARIOUS5' : [0.09,0.11,0.14,0.17,0.18,0.22,0.20,0.05,0.07,0.09,0.15,0.20,28.0],
             'HERSCHEL1' : [5.03,7.19,11.50],
@@ -455,7 +458,8 @@ def src_localDB(localDB):
             'ALMA33' : [0.3],
             'ISOPHOT' : [10,10,10,10,10,23,23,120,120,10,10,10,10],
             'MKII' : [0.4,0.5,0.7,1.2],
-            'SAAO' : [0.2,0.2,0.3,0.3,0.4]}
+            'SAAO' : [0.2,0.2,0.3,0.3,0.4],
+            'SAAO2' : [0.2,0.2,0.2,0.3]}
     # Magnitude/Flux column name
     ldbM = {'UKIRT' : ['Jmag','Hmag','Kmag','Lmag'],
             'ESO' : ['Jmag','Hmag','Kmag','Lmag','Mmag','N2mag','N1mag','N3mag'],
@@ -465,7 +469,7 @@ def src_localDB(localDB):
             'CTIAO2' : ['V','R','I'],
             'MCDO' : ['V','R','I'],
             'TIMESERIES' : ['V'],
-            'SAAO2' : ['U','B','V','R','I','J','H','K'],
+            'SAAO3' : ['U','B','V','R','I','J','H','K'],
             'DUCATI' : ['V','U','B','R','I','J','H','K','L','M','N'],
             'VARIOUS5' : ['U','B','V','R','Rc','I','Ic','J','H','K','L','M','F1300'],
             'HERSCHEL1' : ['F70','F100','F160'],
@@ -566,7 +570,8 @@ def src_localDB(localDB):
             'ALMA33' : ['F869'],
             'ISOPHOT' : ['F4.8','F7.7','F10','F12','F12.8','F15','F20','F60','F100','B','V','Rc','Ic'],
             'MKII' : ['Jmag','Hmag','Kmag','Lmag'],
-            'SAAO' : ['Umag','Bmag','Vmag','Rcmag','Icmag']}
+            'SAAO' : ['Umag','Bmag','Vmag','Rcmag','Icmag'],
+            'SAAO2' : ['u','v','b','y']}
     # Magnitude/Flux error column name
     ldbE = {'UKIRT' : ['eJmag','eHmag','eKmag','eLmag'],
             'ESO' : ['eJmag','eHmag','eKmag','eLmag','eMmag','eN2mag','eN1mag','eN3mag'],
@@ -576,7 +581,7 @@ def src_localDB(localDB):
             'CTIAO2' : ['e_V','e_R','e_I'],
             'MCDO' : ['e_V','e_R','e_I'],
             'TIMESERIES' : ['e_V'],
-            'SAAO2' : ['eU','eB','eV','eR','eI','eJ','eH','eK'],
+            'SAAO3' : ['eU','eB','eV','eR','eI','eJ','eH','eK'],
             'DUCATI' : ['eV','eU','eB','eR','eI','eJ','eH','eK','eL','eM','eN'],
             'VARIOUS5' : ['e_U','e_B','e_V','e_R','e_Rc','e_I','e_Ic','e_J','e_H','e_K','e_L','e_M','e_F1300'],
             'HERSCHEL1' : ['eF70','eF100','eF160'],
@@ -677,7 +682,8 @@ def src_localDB(localDB):
             'ALMA33' : ['eF869'],
             'ISOPHOT' : ['e_F4.8','e_F7.7','e_F10','e_F12','e_F12.8','e_F15','e_F20','e_F60','e_F100','e_B','e_V','e_Rc','e_Ic'],
             'MKII' : ['eJmag','eHmag','eKmag','eLmag'],
-            'SAAO' : ['eUmag','eBmag','eVmag','eRcmag','eIcmag']}
+            'SAAO' : ['eUmag','eBmag','eVmag','eRcmag','eIcmag'],
+            'SAAO2' : ['e_u','e_v','e_b','e_y']}
     # Units for each of the magnitude/flux entries
     ldbU = {'UKIRT' : ['mag','mag','mag','mag'],
             'ESO' : ['mag','mag','mag','mag','mag','mag','mag','mag'],
@@ -687,7 +693,7 @@ def src_localDB(localDB):
             'CTIAO2' : ['mag','mag','mag'],
             'MCDO' : ['mag','mag','mag'],
             'TIMESERIES' : ['mag'],
-            'SAAO2' : ['mag','mag','mag','mag','mag','mag','mag','mag'],
+            'SAAO3' : ['mag','mag','mag','mag','mag','mag','mag','mag'],
             'DUCATI' : ['mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','mag'],
             'VARIOUS5' : ['mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','Jy'],
             'HERSCHEL1' : ['Jy','Jy','Jy'],
@@ -788,7 +794,8 @@ def src_localDB(localDB):
             'ALMA33' : ['mJy'],
             'ISOPHOT' : ['Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','Jy','mag','mag','mag','mag'],
             'MKII' : ['mag','mag','mag','mag'],
-            'SAAO' : ['mag','mag','mag','mag','mag']}
+            'SAAO' : ['mag','mag','mag','mag','mag'],
+            'SAAO2' : ['mag','mag','mag','mag']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'UKIRT' : ['UKIRT:J','UKIRT:H','UKIRT:K','UKIRT:L'],
@@ -799,7 +806,7 @@ def src_localDB(localDB):
             'CTIAO2' : ['Johnson:V','Cousins:Rc','Cousins:Ic'],
             'MCDO' : ['Johnson:V','Cousins:Rc','Cousins:Ic'],
             'TIMESERIES' : ['Johnson:V'],
-            'SAAO2' : ['Johnson:U','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K'],
+            'SAAO3' : ['Johnson:U','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K'],
             'DUCATI' : ['Johnson:V','Johnson:U','Johnson:B','Cousins:Rc','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K','Johnson:L','Johnson:M','Johnson:N'],
             'VARIOUS5' : ['Johnson:U','Johnson:B','Johnson:V','Johnson:R','Cousins:Rc','Johnson:I','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K','Johnson:L','Johnson:M','CSO:F1300'],
             'HERSCHEL1' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160'],
@@ -900,7 +907,8 @@ def src_localDB(localDB):
             'ALMA33' : ['ALMA:F869'],
             'ISOPHOT' : ['ISOPHOT:1','ISOPHOT:2','ISOPHOT:3','ISOPHOT:4','ISOPHOT:5','ISOPHOT:6','ISOPHOT:7','ISOPHOT:8','ISOPHOT:9','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic'],
             'MKII' : ['Johnson:J','Johnson:H','Johnson:K','Johnson:L'],
-            'SAAO' : ['Johnson:U','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic']}
+            'SAAO' : ['Johnson:U','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic'],
+            'SAAO2' : ['Stromgren:u','Stromgren:v','Stromgren:b','Stromgren:y']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
