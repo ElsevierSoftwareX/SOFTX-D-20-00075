@@ -910,13 +910,6 @@ def src_onlineDB(query='simbad'):
     """
     # catalog name dictionary:
     catN = {'2MASS' : ['FLUX_BIBCODE_J','FLUX_BIBCODE_H','FLUX_BIBCODE_K'],
-           'TYCHO2'   : 'I/259/tyc2',
-           'WISE'      : 'II/311/wise',
-           'SDSSr7'    : 'II/294/sdss7', 
-           'SDSSr12' : 'V/147/sdss12',
-           'SDSSr9' : 'V/139/sdss9',
-           'APASSr9' : 'II/336/apass9',
-           'XMMOM' : 'II/356/xmmom41s',
            'GAIA' : 'I/345/gaia2',
            'GALEX' : 'II/312/ais',
            'HERSCHEL6' : 'J/A+A/619/A52/tablea16',
@@ -934,17 +927,17 @@ def src_onlineDB(query='simbad'):
            'AKARIirc' : 'II/297/irc',
            'AKARIfis' : 'II/298/fis',
            'IRAS' : 'II/125/main',
-           'MSX6C' : 'V/114/msx6_gp'}
+           'MSX6C' : 'V/114/msx6_gp',
+           'TYCHO2' : 'I/259/tyc2',
+           'WISE' : 'II/311/wise',
+           'APASSr9' : 'II/336/apass9',
+           'SDSSr7' : 'II/294/sdss7',
+           'SDSSr9' : 'V/139/sdss9',
+           'SDSSr12' : 'V/147/sdss12',
+           'XMMOM' : 'II/340/xmmom2_1'}
 
     # catalog reference dictionary
     catR = {'2MASS' : '2003yCat.2246....0C',
-           'TYCHO2'   : '2000A&A...355L..27H',
-           'WISE'      : '2012wise.rept....1C',
-           'SDSSr7'    : '2009ApJS..182..543A', 
-           'SDSSr12' : '2015ApJS..219...12A',
-           'SDSSr9' : '2012ApJS..203...21A',
-           'APASSr9' : '2015AAS...22533616H',
-           'XMMOM' : '2012MNRAS.426..903P',
            'GAIA' : '2018A&A...616A...1G',
            'GALEX' : '2011Ap&SS.335..161B',
            'HERSCHEL6' : '2018A&A...619A..52B',
@@ -962,17 +955,17 @@ def src_onlineDB(query='simbad'):
            'AKARIirc' : '2010A&A...514A...1I',
            'AKARIfis' : '2010yCat.2298....0Y',
            'IRAS' : '1988iras....1.....B',
-           'MSX6C' : '2003yCat.5114....0E'}
+           'MSX6C' : '2003yCat.5114....0E',
+           'TYCHO2' : '2000A&A...355L..27H',
+           'WISE' : '2012wise.rept....1C',
+           'APASSr9' : '2015AAS...22533616H',
+           'SDSSr7' : '2009ApJS..182..543A',
+           'SDSSr9' : '2012ApJS..203...21A',
+           'SDSSr12' : '2015ApJS..219...12A',
+           'XMMOM' : '2012MNRAS.426..903P'}
 
     # catalog wavelength dictionary
     catW = {'2MASS' : [1.25e-6,1.65e-6,2.15e-6],
-           'TYCHO2'   : [426e-9, 532e-9],
-           'WISE'      : [3.35e-6, 4.6e-6, 11.6e-6, 22.1e-6],
-           'SDSSr7'    : [354.3e-9, 477.0e-9, 623.1e-9, 762.5e-9, 913.4e-9], 
-           'SDSSr12' : [354.3e-9,477.0e-9,623.1e-9,762.5e-9,913.4e-9],
-           'SDSSr9' : [354.3e-9,477.0e-9,623.1e-9,762.5e-9,913.4e-9],
-           'APASSr9' : [540e-9,442e-9,477.0e-9,623.1e-9,762.5e-9],
-           'XMMOM' : [2120.0e-10,2310.0e-10,2910.0e-10,3440.0e-10,4500.0e-10,5430.0e-10],
            'GAIA' : [0.64050e-6,0.51311e-6,0.77776e-6],
            'GALEX' : [0.1539e-6,0.2316e-6],
            'HERSCHEL6' : [70e-6,160e-6,250e-6,350e-6,500e-6],
@@ -990,17 +983,17 @@ def src_onlineDB(query='simbad'):
            'AKARIirc' : [9e-6,18e-6],
            'AKARIfis' : [65e-6,90e-6,140e-6,160e-6],
            'IRAS' : [12e-6,25e-6,60e-6,100e-6],
-           'MSX6C' : [4.29e-6,4.35e-6,8.28e-6,12.13e-6,14.65e-6,21.34e-6]}
+           'MSX6C' : [4.29e-6,4.35e-6,8.28e-6,12.13e-6,14.65e-6,21.34e-6],
+           'TYCHO2' : [426e-9,532e-9],
+           'WISE' : [3.35e-6,4.6e-6,11.6e-6,22.1e-6],
+           'APASSr9' : [540e-9,442e-9,477.0e-9,623.1e-9,762.5e-9],
+           'SDSSr7' : [354.3e-9,477.0e-9,623.1e-9,762.5e-9,913.4e-9],
+           'SDSSr9' : [354.3e-9,477.0e-9,623.1e-9,762.5e-9,913.4e-9],
+           'SDSSr12' : [354.3e-9,477.0e-9,623.1e-9,762.5e-9,913.4e-9],
+           'XMMOM' : [2120.0e-10,2310.0e-10,2910.0e-10,3440.0e-10,4500.0e-10,5430.0e-10]}
 
     # catalog angular resolution / beam size
     catA = {'2MASS' : [0.24,0.32,0.42],
-           'TYCHO2'   : [(1.22*w/0.29)*206265 for w in catW['TYCHO2']],
-           'WISE'      : [(1.22*w/0.4)*206265 for w in catW['WISE']],
-           'SDSSr7'    : [(1.22*w/2.5)*206265 for w in catW['SDSSr7']], 
-           'SDSSr12' : [0.036,0.048,0.063,0.077,0.092],
-           'SDSSr9' : [0.036,0.048,0.063,0.077,0.092],
-           'APASSr9' : [1.0,1.0,1.0,1.0,1.0],
-           'XMMOM' : [1.98,1.80,2.00,1.55,1.39,1.35],
            'GAIA' : [1.,1.,1.],
            'GALEX' : [10.,10.],
            'HERSCHEL6' : [5.03,11.50,17.97,25.16,35.95],
@@ -1018,17 +1011,17 @@ def src_onlineDB(query='simbad'):
            'AKARIirc' : [3.31,6.61],
            'AKARIfis' : [24,33,51,59],
            'IRAS' : [5.3,11,26,44],
-           'MSX6C' : [3.1,3.1,6.0,8.7,11,15]}
+           'MSX6C' : [3.1,3.1,6.0,8.7,11,15],
+           'TYCHO2' : [0.4,0.5],
+           'WISE' : [2.1,2.9,7.3,14],
+           'APASSr9' : [2.5,2.5,2.5,2.5,2.5],
+           'SDSSr7' : [0.04,0.05,0.06,0.08,0.09],
+           'SDSSr9' : [0.04,0.05,0.06,0.08,0.09],
+           'SDSSr12' : [0.04,0.05,0.06,0.08,0.09],
+           'XMMOM' : [2,2,2,2,1.4,1.4]}
 
     # catalog magnitude name
     catM = {'2MASS' : ['FLUX_J','FLUX_H','FLUX_K'],
-           'TYCHO2'   : ['BTmag', 'VTmag'],
-           'WISE'      : ['W1mag', 'W2mag', 'W3mag', 'W4mag'],
-           'SDSSr7'    : ['umag', 'gmag', 'rmag', 'imag', 'zmag'], 
-           'SDSSr12' : ['umag','gmag','rmag','imag','zmag'],
-           'SDSSr9' : ['umag','gmag','rmag','imag','zmag'],
-           'APASSr9' : ['Vmag','Bmag','g_mag','r_mag','i_mag'],
-           'XMMOM' : ['UVW2mAB','UVM2mAB','UVW1mAB','UmAB','BmAB','VmAB'],
            'GAIA' : ['Gmag','BPmag','RPmag'],
            'GALEX' : ['FUV','NUV'],
            'HERSCHEL6' : ['Stot070','Stot160','Stot250','Stot350','Stot500'],
@@ -1046,19 +1039,19 @@ def src_onlineDB(query='simbad'):
            'AKARIirc' : ['S09','S18'],
            'AKARIfis' : ['S65','S90','S140','S160'],
            'IRAS' : ['Fnu_12','Fnu_25','Fnu_60','Fnu_100'],
-           'MSX6C' : ['B1','B2','A','C','D','E']}
+           'MSX6C' : ['B1','B2','A','C','D','E'],
+           'TYCHO2' : ['BTmag','VTmag'],
+           'WISE' : ['W1mag','W2mag','W3mag','W4mag'],
+           'APASSr9' : ['Vmag','Bmag','g_mag','r_mag','i_mag'],
+           'SDSSr7' : ['umag','gmag','rmag','imag','zmag'],
+           'SDSSr9' : ['umag','gmag','rmag','imag','zmag'],
+           'SDSSr12' : ['umag','gmag','rmag','imag','zmag'],
+           'XMMOM' : ['UVW2mag','UVM2mag','UVW1mag','Umag','Bmag','Vmag']}
 
     # catalog magnitude error name (or, if an error isn't given in the catalog, provide a 
     # float which will be used as a percentage uncertainty on the retrieved magnitude/flux 
     # value retrieved from the catalog
     catE = {'2MASS' : ['FLUX_ERROR_J','FLUX_ERROR_H','FLUX_ERROR_K'],
-           'TYCHO2'   : ['e_BTmag', 'e_VTmag'],
-           'WISE'      : ['e_W1mag', 'e_W2mag', 'e_W3mag', 'e_W4mag'],
-           'SDSSr7'    : ['e_umag', 'e_gmag', 'e_rmag', 'e_imag', 'e_zmag'], 
-           'SDSSr12' : ['e_umag','e_gmag','e_rmag','e_imag','e_zmag'],
-           'SDSSr9' : ['e_umag','e_gmag','e_rmag','e_imag','e_zmag'],
-           'APASSr9' : ['e_Vmag','e_Bmag','e_g_mag','e_r_mag','e_i_mag'],
-           'XMMOM' : ['e_UVW2mAB','e_UVM2mAB','e_UVW1mAB','e_UmAB','e_BmAB','e_VmAB'],
            'GAIA' : ['e_Gmag','e_BPmag','e_RPmag'],
            'GALEX' : ['e_FUV','e_NUV'],
            'HERSCHEL6' : ['e_Stot070','e_Stot160','e_Stot250','e_Stot350','e_Stot500'],
@@ -1076,17 +1069,17 @@ def src_onlineDB(query='simbad'):
            'AKARIirc' : ['e_S09','e_S18'],
            'AKARIfis' : ['e_S65','e_S90','e_S140','e_S160'],
            'IRAS' : ['e_Fnu_12','e_Fnu_25','e_Fnu_60','e_Fnu_100'],
-           'MSX6C' : ['e_B1','e_B2','e_A','e_C','e_D','e_E']}
+           'MSX6C' : ['e_B1','e_B2','e_A','e_C','e_D','e_E'],
+           'TYCHO2' : ['e_BTmag','e_VTmag'],
+           'WISE' : ['e_W1mag','e_W2mag','e_W3mag','e_W4mag'],
+           'APASSr9' : ['e_Vmag','e_Bmag','e_g_mag','e_r_mag','e_i_mag'],
+           'SDSSr7' : ['e_umag','e_gmag','e_rmag','e_imag','e_zmag'],
+           'SDSSr9' : ['e_umag','e_gmag','e_rmag','e_imag','e_zmag'],
+           'SDSSr12' : ['e_umag','e_gmag','e_rmag','e_imag','e_zmag'],
+           'XMMOM' : ['e_UVW2mag','e_UVM2mag','e_UVW1mag','e_Umag','e_Bmag','e_Vmag']}
 
     # catalog magnitude unit name
     catU = {'2MASS' : ['mag','mag','mag'],
-           'TYCHO2'   : ['mag', 'mag'],
-           'WISE'      : ['mag', 'mag', 'mag', 'mag'],
-           'SDSSr7'    : ['mag', 'mag', 'mag', 'mag', 'mag'], 
-           'SDSSr12' : ['mag','mag','mag','mag','mag'],
-           'SDSSr9' : ['mag','mag','mag','mag','mag'],
-           'APASSr9' : ['mag','mag','mag','mag','mag'],
-           'XMMOM' : ['mag','mag','mag','mag','mag','mag'],
            'GAIA' : ['mag','mag','mag'],
            'GALEX' : ['mag','mag'],
            'HERSCHEL6' : ['Jy','Jy','Jy','Jy','Jy'],
@@ -1104,17 +1097,17 @@ def src_onlineDB(query='simbad'):
            'AKARIirc' : ['Jy','Jy'],
            'AKARIfis' : ['Jy','Jy','Jy','Jy'],
            'IRAS' : ['Jy','Jy','Jy','Jy'],
-           'MSX6C' : ['Jy','Jy','Jy','Jy','Jy','Jy']}
+           'MSX6C' : ['Jy','Jy','Jy','Jy','Jy','Jy'],
+           'TYCHO2' : ['mag','mag'],
+           'WISE' : ['mag','mag','mag','mag'],
+           'APASSr9' : ['mag','mag','mag','mag','mag'],
+           'SDSSr7' : ['mag','mag','mag','mag','mag'],
+           'SDSSr9' : ['mag','mag','mag','mag','mag'],
+           'SDSSr12' : ['mag','mag','mag','mag','mag'],
+           'XMMOM' : ['mag','mag','mag','mag','mag','mag']}
 
     # catalog waveband name
     catB = {'2MASS' : ['2MASS:J','2MASS:H','2MASS:Ks'],
-           'TYCHO2'   : ['HIP:BT', 'HIP:VT'],
-           'WISE'      : ['WISE:W1', 'WISE:W2', 'WISE:W3', 'WISE:W4'],
-           'SDSSr7'    : ['SDSS:AB:u', 'SDSS:AB:g', 'SDSS:AB:r', 'SDSS:AB:i', 'SDSS:AB:z'], 
-           'SDSSr12' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
-           'SDSSr9' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
-           'APASSr9' : ['Johnson:V','Johnson:B','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i'],
-           'XMMOM' : ['XMMOM:UVW2','XMMOM:UVM2','XMMOM:UVW1','XMMOM:U','XMMOM:B','XMMOM:V'],
            'GAIA' : ['Gaia:G','Gaia:GBP','Gaia:GRP'],
            'GALEX' : ['GALEX:FUV','GALEX:NUV'],
            'HERSCHEL6' : ['Herschel:PACS:F70','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
@@ -1132,6 +1125,13 @@ def src_onlineDB(query='simbad'):
            'AKARIirc' : ['AKARI:S9W','AKARI:L18W'],
            'AKARIfis' : ['AKARI:N60','AKARI:WIDE-S','AKARI:WIDE-L','AKARI:N160'],
            'IRAS' : ['IRAS:F12','IRAS:F25','IRAS:F60','IRAS:F100'],
-           'MSX6C' : ['MSX6C:B1','MSX6C:B2','MSX6C:A','MSX6C:C','MSX6C:D','MSX6C:E']}
+           'MSX6C' : ['MSX6C:B1','MSX6C:B2','MSX6C:A','MSX6C:C','MSX6C:D','MSX6C:E'],
+           'TYCHO2' : ['HIP:BT','HIP:VT'],
+           'WISE' : ['WISE:W1','WISE:W2','WISE:W3','WISE:W4'],
+           'APASSr9' : ['Johnson:V','Johnson:B','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i'],
+           'SDSSr7' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
+           'SDSSr9' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
+           'SDSSr12' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
+           'XMMOM' : ['XMMOM:UVW2','XMMOM:UVM2','XMMOM:UVW1','XMMOM:U','XMMOM:B','XMMOM:V']}
     
     return catN, catR, catW, catA, catM, catE, catU, catB
