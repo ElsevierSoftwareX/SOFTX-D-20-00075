@@ -150,7 +150,13 @@ if not all(len(l) == th_len for l in it1):
 
 # e) Each target name should be as-in SIMBAD (or as in SIMBAD plus a binary identifier):
 for f in fc:
-    objID = Simbad.query_objectids(f.split(',')[0])
+    try:
+        objID = Simbad.query_objectids(f.split(',')[0])
+    except TimeoutError:
+        print('')
+        print('Connection Error: please ensure you are connected to the internet')
+        print('and try again.')
+        print('')
     if not objID:
         print('')
         print('Warning: object name '+f.split(',')[0]+' not recognised by SIMBAD!')
