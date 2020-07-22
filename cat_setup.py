@@ -5,8 +5,7 @@ def src_localDB(localDB):
     Initialise the local data base (local_DB)
     """
     # local path to each local data base file:
-    ldbN = {'TIMESERIES' : localDB+'/database/grankin_time_series.txt',
-            'HERSCHEL1' : localDB+'/database/herschel_phot.csv',
+    ldbN = {'HERSCHEL1' : localDB+'/database/herschel_phot.csv',
             'HERSCHEL2' : localDB+'/database/herschel_ribas.csv',
             'HERSCHEL3' : localDB+'/database/herschel_cha.csv',
             'HERSCHEL4' : localDB+'/database/herschel_green.csv',
@@ -124,8 +123,7 @@ def src_localDB(localDB):
     
     # bibliographic reference for catalog/paper (these are searchable within
     # NASA ADS and SIMBAD for traceability)
-    ldbR = {'TIMESERIES' : '2007A&A...461..183G',
-            'HERSCHEL1' : '2016A&A...586A...6P',
+    ldbR = {'HERSCHEL1' : '2016A&A...586A...6P',
             'HERSCHEL2' : '2017ApJ...849...63R',
             'HERSCHEL3' : '2012A&A...545A.145W',
             'HERSCHEL4' : '2013ApJ...772..117G',
@@ -236,8 +234,7 @@ def src_localDB(localDB):
             'ESO' : '1992ApJ...398..254B',
             'UKIRT' : '1998MNRAS.296..934C'}
     # Wavelength of each of the mag/flux entries in the table
-    ldbW = {'TIMESERIES' : [0.55e-6],
-            'HERSCHEL1' : [70e-6,100e-6,160e-6],
+    ldbW = {'HERSCHEL1' : [70e-6,100e-6,160e-6],
             'HERSCHEL2' : [70e-6,100e-6,160e-6,250e-6,350e-6,500e-6],
             'HERSCHEL3' : [70e-6,160e-6,250e-6,350e-6,500e-6],
             'HERSCHEL4' : [70e-6,100e-6,160e-6,250e-6,350e-6,500e-6],
@@ -349,8 +346,7 @@ def src_localDB(localDB):
             'UKIRT' : [1.25e-6,1.65e-6,2.20e-6,3.45e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
-    ldbA = {'TIMESERIES' : [0.1],
-            'HERSCHEL1' : [5.03,7.19,11.50],
+    ldbA = {'HERSCHEL1' : [5.03,7.19,11.50],
             'HERSCHEL2' : [5.03,7.19,11.50,17.97,25.16,35.95],
             'HERSCHEL3' : [5.03,11.50,17.97,25.16,35.95],
             'HERSCHEL4' : [5.03,7.19,11.50,17.97,25.16,35.95],
@@ -461,8 +457,7 @@ def src_localDB(localDB):
             'ESO' : [0.3,0.4,0.6,0.9,1.2,2.4,2.1,3.2],
             'UKIRT' : [0.08,0.11,0.15,0.23]}
     # Magnitude/Flux column name
-    ldbM = {'TIMESERIES' : ['V'],
-            'HERSCHEL1' : ['F70','F100','F160'],
+    ldbM = {'HERSCHEL1' : ['F70','F100','F160'],
             'HERSCHEL2' : ['F70','F100','F160','F250','F350','F500'],
             'HERSCHEL3' : ['F_70um','F_160um','F_250um','F_350um','F_500um'],
             'HERSCHEL4' : ['F70','F100','F160','F250','F350','F500'],
@@ -573,8 +568,7 @@ def src_localDB(localDB):
             'ESO' : ['Jmag','Hmag','Kmag','Lmag','Mmag','N2mag','N1mag','N3mag'],
             'UKIRT' : ['Jmag','Hmag','Kmag','Lmag']}
     # Magnitude/Flux error column name
-    ldbE = {'TIMESERIES' : ['e_V'],
-            'HERSCHEL1' : ['eF70','eF100','eF160'],
+    ldbE = {'HERSCHEL1' : ['eF70','eF100','eF160'],
             'HERSCHEL2' : ['eF70','eF100','eF160','eF250','eF350','eF500'],
             'HERSCHEL3' : ['e_70um','e_160um','e_250um','e_350um','e_500um'],
             'HERSCHEL4' : ['eF70','eF100','eF160','eF250','eF350','eF500'],
@@ -685,8 +679,7 @@ def src_localDB(localDB):
             'ESO' : ['eJmag','eHmag','eKmag','eLmag','eMmag','eN2mag','eN1mag','eN3mag'],
             'UKIRT' : ['eJmag','eHmag','eKmag','eLmag']}
     # Units for each of the magnitude/flux entries
-    ldbU = {'TIMESERIES' : ['mag'],
-            'HERSCHEL1' : ['Jy','Jy','Jy'],
+    ldbU = {'HERSCHEL1' : ['Jy','Jy','Jy'],
             'HERSCHEL2' : ['mJy','mJy','mJy','mJy','mJy','mJy'],
             'HERSCHEL3' : ['Jy','Jy','Jy','Jy','Jy'],
             'HERSCHEL4' : ['Jy','Jy','Jy','Jy','Jy','Jy'],
@@ -798,8 +791,7 @@ def src_localDB(localDB):
             'UKIRT' : ['mag','mag','mag','mag']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
-    ldbB = {'TIMESERIES' : ['Johnson:V'],
-            'HERSCHEL1' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160'],
+    ldbB = {'HERSCHEL1' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160'],
             'HERSCHEL2' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
             'HERSCHEL3' : ['Herschel:PACS:F70','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
             'HERSCHEL4' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
