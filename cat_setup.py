@@ -910,7 +910,6 @@ def src_onlineDB(query='simbad'):
     """
     # catalog name dictionary:
     catN = {'2MASS' : ['FLUX_BIBCODE_J','FLUX_BIBCODE_H','FLUX_BIBCODE_K'],
-           'GAIA' : 'I/345/gaia2',
            'GALEX' : 'II/312/ais',
            'HERSCHEL6' : 'J/A+A/619/A52/tablea16',
            'JCMT3' : 'J/ApJS/175/277/maps',
@@ -934,11 +933,11 @@ def src_onlineDB(query='simbad'):
            'SDSSr7' : 'II/294/sdss7',
            'SDSSr9' : 'V/139/sdss9',
            'SDSSr12' : 'V/147/sdss12',
-           'XMMOM' : 'II/340/xmmom2_1'}
+           'XMMOM' : 'II/340/xmmom2_1',
+           'GAIA' : 'I/345/gaia2'}
 
     # catalog reference dictionary
     catR = {'2MASS' : '2003yCat.2246....0C',
-           'GAIA' : '2018A&A...616A...1G',
            'GALEX' : '2011Ap&SS.335..161B',
            'HERSCHEL6' : '2018A&A...619A..52B',
            'JCMT3' : '2008ApJS..175..277D',
@@ -962,11 +961,11 @@ def src_onlineDB(query='simbad'):
            'SDSSr7' : '2009ApJS..182..543A',
            'SDSSr9' : '2012ApJS..203...21A',
            'SDSSr12' : '2015ApJS..219...12A',
-           'XMMOM' : '2012MNRAS.426..903P'}
+           'XMMOM' : '2012MNRAS.426..903P',
+           'GAIA' : '2018A&A...616A...1G'}
 
     # catalog wavelength dictionary
     catW = {'2MASS' : [1.25e-6,1.65e-6,2.15e-6],
-           'GAIA' : [0.64050e-6,0.51311e-6,0.77776e-6],
            'GALEX' : [0.1539e-6,0.2316e-6],
            'HERSCHEL6' : [70e-6,160e-6,250e-6,350e-6,500e-6],
            'JCMT3' : [850e-6,450e-6],
@@ -990,11 +989,11 @@ def src_onlineDB(query='simbad'):
            'SDSSr7' : [354.3e-9,477.0e-9,623.1e-9,762.5e-9,913.4e-9],
            'SDSSr9' : [354.3e-9,477.0e-9,623.1e-9,762.5e-9,913.4e-9],
            'SDSSr12' : [354.3e-9,477.0e-9,623.1e-9,762.5e-9,913.4e-9],
-           'XMMOM' : [2120.0e-10,2310.0e-10,2910.0e-10,3440.0e-10,4500.0e-10,5430.0e-10]}
+           'XMMOM' : [2120.0e-10,2310.0e-10,2910.0e-10,3440.0e-10,4500.0e-10,5430.0e-10],
+           'GAIA' : [0.64050e-6,0.51311e-6,0.77776e-6]}
 
     # catalog angular resolution / beam size
     catA = {'2MASS' : [0.24,0.32,0.42],
-           'GAIA' : [1.,1.,1.],
            'GALEX' : [10.,10.],
            'HERSCHEL6' : [5.03,11.50,17.97,25.16,35.95],
            'JCMT3' : [13.8,7.8],
@@ -1018,11 +1017,11 @@ def src_onlineDB(query='simbad'):
            'SDSSr7' : [0.04,0.05,0.06,0.08,0.09],
            'SDSSr9' : [0.04,0.05,0.06,0.08,0.09],
            'SDSSr12' : [0.04,0.05,0.06,0.08,0.09],
-           'XMMOM' : [2,2,2,2,1.4,1.4]}
+           'XMMOM' : [2,2,2,2,1.4,1.4],
+           'GAIA' : [0.11,0.09,0.13]}
 
     # catalog magnitude name
     catM = {'2MASS' : ['FLUX_J','FLUX_H','FLUX_K'],
-           'GAIA' : ['Gmag','BPmag','RPmag'],
            'GALEX' : ['FUV','NUV'],
            'HERSCHEL6' : ['Stot070','Stot160','Stot250','Stot350','Stot500'],
            'JCMT3' : ['F850','F450'],
@@ -1046,13 +1045,13 @@ def src_onlineDB(query='simbad'):
            'SDSSr7' : ['umag','gmag','rmag','imag','zmag'],
            'SDSSr9' : ['umag','gmag','rmag','imag','zmag'],
            'SDSSr12' : ['umag','gmag','rmag','imag','zmag'],
-           'XMMOM' : ['UVW2mag','UVM2mag','UVW1mag','Umag','Bmag','Vmag']}
+           'XMMOM' : ['UVW2mag','UVM2mag','UVW1mag','Umag','Bmag','Vmag'],
+           'GAIA' : ['Gmag','BPmag','RPmag']}
 
     # catalog magnitude error name (or, if an error isn't given in the catalog, provide a 
     # float which will be used as a percentage uncertainty on the retrieved magnitude/flux 
     # value retrieved from the catalog
     catE = {'2MASS' : ['FLUX_ERROR_J','FLUX_ERROR_H','FLUX_ERROR_K'],
-           'GAIA' : ['e_Gmag','e_BPmag','e_RPmag'],
            'GALEX' : ['e_FUV','e_NUV'],
            'HERSCHEL6' : ['e_Stot070','e_Stot160','e_Stot250','e_Stot350','e_Stot500'],
            'JCMT3' : ['0.2','0.5'],
@@ -1076,11 +1075,11 @@ def src_onlineDB(query='simbad'):
            'SDSSr7' : ['e_umag','e_gmag','e_rmag','e_imag','e_zmag'],
            'SDSSr9' : ['e_umag','e_gmag','e_rmag','e_imag','e_zmag'],
            'SDSSr12' : ['e_umag','e_gmag','e_rmag','e_imag','e_zmag'],
-           'XMMOM' : ['e_UVW2mag','e_UVM2mag','e_UVW1mag','e_Umag','e_Bmag','e_Vmag']}
+           'XMMOM' : ['e_UVW2mag','e_UVM2mag','e_UVW1mag','e_Umag','e_Bmag','e_Vmag'],
+           'GAIA' : ['e_Gmag','e_BPmag','e_RPmag']}
 
     # catalog magnitude unit name
     catU = {'2MASS' : ['mag','mag','mag'],
-           'GAIA' : ['mag','mag','mag'],
            'GALEX' : ['mag','mag'],
            'HERSCHEL6' : ['Jy','Jy','Jy','Jy','Jy'],
            'JCMT3' : ['Jy','Jy'],
@@ -1104,11 +1103,11 @@ def src_onlineDB(query='simbad'):
            'SDSSr7' : ['mag','mag','mag','mag','mag'],
            'SDSSr9' : ['mag','mag','mag','mag','mag'],
            'SDSSr12' : ['mag','mag','mag','mag','mag'],
-           'XMMOM' : ['mag','mag','mag','mag','mag','mag']}
+           'XMMOM' : ['mag','mag','mag','mag','mag','mag'],
+           'GAIA' : ['mag','mag','mag']}
 
     # catalog waveband name
     catB = {'2MASS' : ['2MASS:J','2MASS:H','2MASS:Ks'],
-           'GAIA' : ['Gaia:G','Gaia:GBP','Gaia:GRP'],
            'GALEX' : ['GALEX:FUV','GALEX:NUV'],
            'HERSCHEL6' : ['Herschel:PACS:F70','Herschel:PACS:F160','Herschel:SPIRE:F250','Herschel:SPIRE:F350','Herschel:SPIRE:F500'],
            'JCMT3' : ['JCMT:SCUBA:F850','JCMT:SCUBA:F450'],
@@ -1132,6 +1131,7 @@ def src_onlineDB(query='simbad'):
            'SDSSr7' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
            'SDSSr9' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
            'SDSSr12' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
-           'XMMOM' : ['XMMOM:UVW2','XMMOM:UVM2','XMMOM:UVW1','XMMOM:U','XMMOM:B','XMMOM:V']}
+           'XMMOM' : ['XMMOM:UVW2','XMMOM:UVM2','XMMOM:UVW1','XMMOM:U','XMMOM:B','XMMOM:V'],
+           'GAIA' : ['Gaia:G','Gaia:GBP','Gaia:GRP']}
     
     return catN, catR, catW, catA, catM, catE, catU, catB
