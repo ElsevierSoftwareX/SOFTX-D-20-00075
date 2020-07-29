@@ -52,13 +52,13 @@ if argopt.specScale != '':
 infile = argopt.phot
 if infile.split('.')[-1] == 'dat':
     if 'cleaned' not in infile.split('/')[-1]:
-        wvlen,wband,jy,ejy,flag,unit,beam,ref = read_ascii(infile)
+        wvlen,wband,jy,ejy,flag,unit,beam,odate,ref = read_ascii(infile)
     else:
-        wvlen,wband,f,ef,flag,beam,ref = read_cleaned(infile)
+        wvlen,wband,f,ef,flag,beam,odate,ref = read_cleaned(infile)
         jy = None
 else:
     print('')
-    print('File name error: this function is limited to plotting ascii files output by queryDB.py.')
+    print('File name error: function limited to plotting ascii files output by queryDB.py.')
     print('')
     sys.exit()
 
@@ -191,6 +191,7 @@ if 'cleaned' not in infile.split('/')[-1] or indices != []:
                                                        ef[i],    # flux error in W/m^2
                                                        flag[i],  # flag on flux
                                                        beam[i],  # beam size (may be dummy value)
+                                                       odate[i], # obs date (may be unknown or average)
                                                        ref[i]]])+'\n') # reference for original data
 
 ############
@@ -198,7 +199,7 @@ if 'cleaned' not in infile.split('/')[-1] or indices != []:
 ############
 if argopt.saveplt == True and indices != []:
     # read in cleaned data:
-    wvlen,wband,f,ef,flag,beam,ref = read_cleaned(outfile+str(j)+'.dat')
+    wvlen,wband,f,ef,flag,beam,odate,ref = read_cleaned(outfile+str(j)+'.dat')
     
     pltSED(infile, x_range, f, ef, wvlen, specFiles, specS, interactive=False)
     h = 0

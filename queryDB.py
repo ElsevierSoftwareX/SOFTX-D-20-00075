@@ -97,7 +97,7 @@ else:
 # Initialise outputs:
 ##########
 wvlen, band, mag, emag, units = ['m'], ['--'], ['--'], ['--'], ['--']
-beam, ref = ['arcsec'], ['--']
+beam, odate, ref = ['arcsec'], ['--'], ['--']
 
 ##########
 # Collect SIMBAD names and VizieR catalog matches
@@ -156,8 +156,9 @@ else:
             for t in range(0, 3):
                 if catR[o] in str(objsim[catN[o][t]][0]):
                     addData(objsim[catM[o][t]][0], objsim[catE[o][t]][0], catB[o][t], 
-                            catW[o][t], catA[o][t], catU[o][t], catR[o], opt=o, m=mag, 
-                            em=emag, b1=band, u=units, b2=beam, r=ref, w=wvlen)
+                            catW[o][t], catA[o][t], catU[o][t], 'unknown', catR[o],
+                            m=mag, em=emag, b1=band, u=units, b2=beam, d=odate, r=ref, 
+                            w=wvlen)
                 else:
                     print('No match')
         else:
@@ -220,8 +221,8 @@ else:
                 
                     # And add it to the data to be written to file:
                     addData(resM, resE, catB[o][m], catW[o][m], catA[o][m], catU[o][m],
-                            catR[o], opt='vizier', m=mag, em=emag, b1=band, u=units, 
-                            b2=beam, r=ref, w=wvlen)
+                            'unknown', catR[o], m=mag, em=emag, b1=band,
+                            u=units, b2=beam, d=odate, r=ref, w=wvlen)
             else:
                 print('No match.')
     
@@ -239,7 +240,8 @@ else:
         cmM = {'Vieira03' : ['Vmag', 'B-V', 'U-B', 'V-Rc', 'Rc-Ic']}
         cmE = {'Vieira03' : ['--', '--', '--', '--', '--']}
         cmU = {'Vieira03' : ['mag', 'mag', 'mag', 'mag', 'mag']}
-        cmB = {'Vieira03' : ['Johnson:V', 'Johnson:B', 'Johnson:U', 'Cousins:Rc', 'Cousins:Ic']}
+        cmB = {'Vieira03' : ['Johnson:V','Johnson:B','Johnson:U','Cousins:Rc',
+                             'Cousins:Ic']}
     
         print('Retrieving photometry from Vieira et al. ('+cmR['Vieira03']+') ...')
         if any('PDS' in b for b in altIDs):
@@ -267,9 +269,10 @@ else:
                 cimag = crmag - result[0]['Rc-Ic'][ind]
                 vieira_m = [jvmag, jbmag, jumag, crmag, cimag]
                 for m in range(0, len(vieira_m)):
-                    addData(vieira_m[m], cmE['Vieira03'][m], cmB['Vieira03'][m], cmW['Vieira03'][m],
-                            cmA['Vieira03'][m], cmU['Vieira03'][m], cmR['Vieira03'], opt='V03', 
-                            m=mag, em=emag, b1=band, u=units, b2=beam, r=ref, w=wvlen)
+                    addData(vieira_m[m], cmE['Vieira03'][m], cmB['Vieira03'][m], 
+                            cmW['Vieira03'][m], cmA['Vieira03'][m], cmU['Vieira03'][m], 
+                            'unknown', cmR['Vieira03'], m=mag, em=emag, b1=band,
+                            u=units, b2=beam, d=odate, r=ref, w=wvlen)
             else:
                 print('No match.')
         else:
@@ -304,16 +307,18 @@ for o in ldbN:
         for ind in list(locate(targs, lambda a: a == match[0])):
             resM = []
             resE = []
+            resD = []
             for mm in ldbM[o]:
                 # Retrieve each of the mag/flux measurements...
                 resM.append(entries[ind][mm])
+                resD.append(entries[ind]['ObsDate'])
             for me in ldbE[o]:
                 # ... and their errors
                 resE.append(entries[targs.index(match[0])][me])
             for m in range(0, len(resM)):
                 addData(resM[m], resE[m], ldbB[o][m], ldbW[o][m], ldbA[o][m], ldbU[o][m],
-                        ldbR[o], opt='vizier', m=mag, em=emag, b1=band, u=units, 
-                        b2=beam, r=ref, w=wvlen)
+                        resD[m], ldbR[o], m=mag, em=emag, b1=band, u=units, 
+                        b2=beam, d=odate, r=ref, w=wvlen)
         if len(smatch) != 0:
             # ...AND potential individual component photometry exists in the table:
             for ind in list(locate([' '.join(t.split(' ')[:-1]) for t in targs], lambda a: a == smatch[0])):
@@ -352,7 +357,7 @@ elif os.path.exists(output) == True and qu != 'True':
     f = open(output, mode='a')
     f.write('#New photometry obtained using search radius of '+searchR+'\n')
     for i in range(1, len(wvlen)):
-        oLINE = str(wvlen[i])+' '+str(band[i])+' '+str(mag[i])+' '+str(emag[i])+' -- '+str(units[i])+' '+str(beam[i])+' '+str(ref[i])
+        oLINE = str(wvlen[i])+' '+str(band[i])+' '+str(mag[i])+' '+str(emag[i])+' -- '+str(units[i])+' '+str(beam[i])+' '+str(odate[i])+' '+str(ref[i])
         f.write(oLINE+"\n")
 
 else:
@@ -363,9 +368,9 @@ else:
         f.write(', cone search radius='+searchR+'\n')
     except:
         f.write('. Sky coordinates not retrievable; cone search not used\n')
-    f.write("lam band mag e_mag f_mag u_mag beam ref\n")
+    f.write("lam band mag e_mag f_mag u_mag beam obsDate ref\n")
     for i in range(0, len(wvlen)):
-        oLINE = str(wvlen[i])+' '+str(band[i])+' '+str(mag[i])+' '+str(emag[i])+' -- '+str(units[i])+' '+str(beam[i])+' '+str(ref[i])
+        oLINE = str(wvlen[i])+' '+str(band[i])+' '+str(mag[i])+' '+str(emag[i])+' -- '+str(units[i])+' '+str(beam[i])+' '+str(odate[i])+' '+str(ref[i])
         f.write(oLINE+"\n")
 
 f.close()

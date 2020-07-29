@@ -4,7 +4,7 @@ import numpy as np
 from astropy.io import fits as pyfits
 
 def read_ascii(file):
-    wvlen, band, mag, emag, fmag, unit, beam, ref = [], [], [], [], [], [], [], []
+    wvlen, band, mag, emag, fmag, unit, beam, odate, ref = [],[],[],[],[],[],[],[],[]
     with open(file, 'r') as f_in:
         for line in f_in:
             try:
@@ -26,12 +26,13 @@ def read_ascii(file):
                 fmag.append(line.strip().split(' ')[4])
                 unit.append(line.strip().split(' ')[5])
                 beam.append(line.strip().split(' ')[6])
-                ref.append(line.strip().split(' ')[7])
+                odate.append(line.strip().split(' ')[7])
+                ref.append(line.strip().split(' ')[8])
     
-    return wvlen, band, mag, emag, fmag, unit, beam, ref
+    return wvlen, band, mag, emag, fmag, unit, beam, odate, ref
 
 def read_cleaned(file):
-    wvlen, band, lamFlam, elamFlam, flamFlam, beam, ref = [], [], [], [], [], [], []
+    wvlen, band, lamFlam, elamFlam, flamFlam, beam, odate, ref = [],[],[],[],[],[],[],[]
     with open(file, 'r') as f_in:
         for line in f_in:
             try:
@@ -52,9 +53,10 @@ def read_cleaned(file):
                 elamFlam.append(line.strip().split(' ')[3])
                 flamFlam.append(line.strip().split(' ')[4])
                 beam.append(line.strip().split(' ')[5])
-                ref.append(line.strip().split(' ')[6])
+                odate.append(line.strip().split(' ')[6])
+                ref.append(line.strip().split(' ')[7])
     
-    return wvlen, band, lamFlam, elamFlam, flamFlam, beam, ref
+    return wvlen, band, lamFlam, elamFlam, flamFlam, beam, odate, ref
     
 
 def read_zp(file):

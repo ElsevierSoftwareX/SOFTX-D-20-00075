@@ -135,7 +135,7 @@ def check_fmt(ref, nam, ldb, fluxU, fluxB):
 
 
 
-def addData(catM, catE, catB, catW, catA, catU, catR, opt, m, em, b1, u, b2, r, w):
+def addData(catM, catE, catB, catW, catA, catU, odate, catR, m, em, b1, u, b2, d, r, w):
     """
     m, em, b1, u, b2, r and w are the arrays of existing cataloged data.
     This routine adds data to those arrays.
@@ -145,8 +145,9 @@ def addData(catM, catE, catB, catW, catA, catU, catR, opt, m, em, b1, u, b2, r, 
     w.append(catW)   # wavelength
     b2.append(catA)  # angular resolution / beam size
     u.append(catU)    # unit of measurement (e.g. Jy, mag etc)
-    b1.append(catB)
-    r.append(catR)
+    b1.append(catB) # waveband id
+    r.append(catR)  # reference
+    d.append(odate) # observation date
 
 def addToLocal(outlist, localDB_trunk):
     """
