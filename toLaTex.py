@@ -76,7 +76,7 @@ if jy:
 ############
 # 3. Collect bibref and write to file:
 ############
-outFile = '/'.join(infile.split('/')[:-1])+'/sedbuilder.bib'
+outFile = '/'.join(infile.split('/')[:-1])+'/sedbys_'+infile.split('/')[-1].split('.')[0].split('_')[0]+'.bib'
 with open(outFile.replace('.bib', '.tex'), 'a') as o:
     o.write('Wavelength & $\\lambda F_{\\lambda}$   & Date & Reference\n')
     o.write('$\\mu$m     & $10^{-13}$\,W\\,m$^{-2}$ &      &   \n')

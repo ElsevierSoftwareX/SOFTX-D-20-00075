@@ -1,6 +1,6 @@
 import urllib.request
 import string
-import os
+import os, sys
 from datetime import date
 
 def getBibTeX(bibref,tag_suf,outFile):
@@ -9,20 +9,31 @@ def getBibTeX(bibref,tag_suf,outFile):
     given a bibref. The tag is amended so that it follows
     author last name + year + 'tag_suf'. 
     """
-    baseURL = 'https://ui.adsabs.harvard.edu/abs/'
-    suf = '/exportcitation'
-    lines = urllib.request.urlopen(baseURL+bibref+suf).readlines()
-    lines = [l.decode('utf-8') for l in lines] # remove additional webpage encoding
+    if bibref == '1988iras....1.....B':
+        bibtex = ['>@article{1988iras....1.....B,\n',
+                  '       title={Infrared astronomical satellite (IRAS) catalogs and atlases. Volume 1: Explanatory supplement},\n',
+                  '       keywords = {All Sky Photography, Catalogs, Indexes (Documentation), Infrared Astronomy Satellite, Cosmology, Galaxies, Star Formation, Stellar Evolution, Astrophysics},\n',
+                  '       author={Beichman, CA and Neugebauer, G and Habing, HJ and Clegg, PE and Chester, Thomas J},\n',
+                  '       year=1988,\n',
+                  '       volume = {1},\n', 
+                  '       month = jan,\n', 
+                  '       adsurl = {https://ui.adsabs.harvard.edu/abs/1988iras....1.....B},\n'
+                  '}\n']
+    else:
+        baseURL = 'https://ui.adsabs.harvard.edu/abs/'
+        suf = '/exportcitation'
+        lines = urllib.request.urlopen(baseURL+bibref+suf).readlines()
+        lines = [l.decode('utf-8') for l in lines] # remove additional webpage encoding
     
-    bibtex = []
-    for l in range(0, len(lines)):
-        if 'export-textarea ' in str(lines[l]):
-            bibtex.append(str(lines[l]))
-            t = l+1
+        bibtex = []
+        for l in range(0, len(lines)):
+            if 'export-textarea ' in str(lines[l]):
+                bibtex.append(str(lines[l]))
+                t = l+1
     
-    while '</textarea>' not in str(lines[t+1]):
-        bibtex.append(str(lines[t])) 
-        t += 1
+        while '</textarea>' not in str(lines[t+1]):
+            bibtex.append(str(lines[t])) 
+            t += 1
     
     for item in bibtex:
         if 'author' in item.split('=')[0]:
@@ -34,7 +45,13 @@ def getBibTeX(bibref,tag_suf,outFile):
             yr = item.split('=')[1].split(',')[0]
             yr = yr.replace(' ', '')
     
-    bibtex[0] = bibtex[0].split('>')[1].split('{')[0]+'{'+auth+yr+tag_suf+',\n'
+    try:
+        bibtex[0] = bibtex[0].split('>')[1].split('{')[0]+'{'+auth+yr+tag_suf+',\n'
+    except UnboundLocalError as ule:
+        print(bibtex)
+        print('')
+        print(ule)
+        sys.exit()
     
     with open(outFile, 'a') as o:
         for item in bibtex:
