@@ -1131,7 +1131,7 @@ def src_onlineDB(query='simbad'):
            'SDSSr9' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
            'SDSSr12' : ['SDSS:AB:u','SDSS:AB:g','SDSS:AB:r','SDSS:AB:i','SDSS:AB:z'],
            'XMMOM' : ['XMMOM:UVW2','XMMOM:UVM2','XMMOM:UVW1','XMMOM:U','XMMOM:B','XMMOM:V'],
-           'GAIA' : ['Gaia:G','Gaia:GBP','Gaia:GRP'],
+           'GAIA' : ['Gaia2:G','Gaia2:GBP','Gaia2:GRP'],
            'GALEX' : ['GALEX:AB:FUV','GALEX:AB:NUV']}
     
     return catN, catR, catW, catA, catM, catE, catU, catB
