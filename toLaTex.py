@@ -36,9 +36,9 @@ argopt = parser.parse_args()
 infile = argopt.phot
 if infile.split('.')[-1] == 'dat':
     if 'cleaned' not in infile.split('/')[-1]:
-        wvlen,wband,jy,ejy,flag,unit,beam,ref = read_ascii(infile)
+        wvlen,wband,jy,ejy,flag,unit,beam,odate,ref = read_ascii(infile)
     else:
-        wvlen,wband,f,ef,flag,beam,ref = read_cleaned(infile)
+        wvlen,wband,f,ef,flag,beam,odate,ref = read_cleaned(infile)
         jy = None
 elif os.path.exists(infile):
     print('')
@@ -78,8 +78,8 @@ if jy:
 ############
 outFile = '/'.join(infile.split('/')[:-1])+'/sedbuilder.bib'
 with open(outFile.replace('.bib', '.tex'), 'a') as o:
-    o.write('Wavelength & $\\lambda F_{\\lambda}$ & Reference\n')
-    o.write('$\\mu$m     & $10^{-13}$\,W\\,m$^{-2}$           &   \n')
+    o.write('Wavelength & $\\lambda F_{\\lambda}$   & Date & Reference\n')
+    o.write('$\\mu$m     & $10^{-13}$\,W\\,m$^{-2}$ &      &   \n')
     o.write('\\hline \n')
 
 bibDict = {'bibtag' : 'authorYYYY'}
@@ -96,6 +96,7 @@ inds = np.array(wvlen).argsort()
 sort_wv = np.array(wvlen)[inds]
 sort_f  = np.array(f)[inds]
 sort_ef = np.array(ef)[inds]
+sort_d  = np.array(odate)[inds]
 sort_ref = np.array(ref)[inds]
 
 for r in range(0, len(sort_ref)):
@@ -108,7 +109,7 @@ for r in range(0, len(sort_ref)):
             d = max(int(abs(-13-int(f_exp)))+1, 4)
             f_fmt = '{:0='+str(d)+'.'+str(d-1)+'f}e-13'
             ffr = f_fmt.format(float(sort_f[r])*1e13)
-            o.write(wv+' & $'+ffr.split('e')[0]+'$ & \\citet{'+bibDict[sort_ref[r]]+'} \\\\ \n')
+            o.write(wv+' & $'+ffr.split('e')[0]+'$ & '+sort_d[r]+' & \\citet{'+bibDict[sort_ref[r]]+'} \\\\ \n')
         else:
             # Get flux measurement and its error to same power of ten:
             ef_exp = '{:.3e}'.format(float(sort_ef[r])).split('e')[1]
@@ -118,9 +119,9 @@ for r in range(0, len(sort_ref)):
             ffr = ef_fmt.format(float(sort_f[r])*1e13)
             if efr == ffr:
                 # Catch instances where the value is an upper limit on the flux density.
-                o.write(wv+' & $<'+ffr.split('e')[0]+'$ & \\citet{'+bibDict[sort_ref[r]]+'} \\\\ \n')
+                o.write(wv+' & $<'+ffr.split('e')[0]+'$ & '+sort_d[r]+' & \\citet{'+bibDict[sort_ref[r]]+'} \\\\ \n')
             else:
-                o.write(wv+' & $'+ffr.split('e')[0]+'\\pm'+efr.split('e')[0]+'$ & \\citet{'+bibDict[sort_ref[r]]+'} \\\\ \n')
+                o.write(wv+' & $'+ffr.split('e')[0]+'\\pm'+efr.split('e')[0]+'$ & '+sort_d[r]+' & \\citet{'+bibDict[sort_ref[r]]+'} \\\\ \n')
 
 with open(outFile.replace('.bib', '.tex'), 'a') as o:
     o.write('\\hline \n\n\n')
