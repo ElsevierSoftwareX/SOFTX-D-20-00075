@@ -85,11 +85,11 @@ Additional optional arguments for `inspectSED.py`:
 
 4. **Creating a LaTeX table (and corresponding bibTeX file) from the retrieved photometry**
 
-The `toLaTex.py` script in SEDBYS is designed to create a LaTeX table (saved to a .dat file in the object directory) and corresponding bibTeX file (saved to a corresponding .bib file in the object directory) from the photometry files output by `queryDB.py` or `inspectSED.py`. To generate these files, use e.g.
+The `toLaTex.py` script in SEDBYS is designed to create a LaTeX table (saved to a .tex file in the object directory) and corresponding bibTeX file (saved to a corresponding .bib file in the object directory) from the photometry files output by `queryDB.py` or `inspectSED.py`. To generate these files, use e.g.
 
 `toLaTex.py --phot=HD283571/HD283571_phot.dat`
 
-Example files `sedbys_HD283571.dat` and `sedbys_HD283571.bib` are provided in ![examples/sedbys_HD283571.dat](examples/sedbys_HD283571.dat) and ![examples/sedbys_HD283571.bib](examples/sedbys_HD283571.bib), respectively.
+Example files `sedbys_HD283571.tex` and `sedbys_HD283571.bib` are provided in ![examples/sedbys_HD283571.tex](examples/sedbys_HD283571.tex) and ![examples/sedbys_HD283571.bib](examples/sedbys_HD283571.bib), respectively.
 
 
 5. **Adding new entries to the local and online databases**
