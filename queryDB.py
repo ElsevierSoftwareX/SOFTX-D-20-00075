@@ -187,8 +187,9 @@ else:
                     q_r = min([r['_r'] for r in result[catN[o]]])
                     # Retrieve row number:
                     print('Closest entry has _r =',q_r)
+                    row = None
                     for r in range(0, len(result[catN[o]])):
-                        if result[catN[o]][r]['_r'] == q_r:
+                        if row==None and result[catN[o]][r]['_r'] == q_r:
                             row = r
                 else:
                     row = 0

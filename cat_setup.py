@@ -1061,9 +1061,9 @@ def src_onlineDB(query='simbad'):
     # value retrieved from the catalog
     catE = {'2MASS' : ['FLUX_ERROR_J','FLUX_ERROR_H','FLUX_ERROR_K'],
            'HERSCHEL6' : ['e_Stot070','e_Stot160','e_Stot250','e_Stot350','e_Stot500'],
-           'JCMT3' : ['0.2','0.5'],
+           'JCMT3' : [0.2,0.5],
            'CSOJCMTmm' : ['e_F0.35','e_F0.45','e_F0.85','e_F1.3'],
-           'APEX3' : ['0.2'],
+           'APEX3' : [0.2],
            'VLA3' : ['e_F4.5','e_F7.5'],
            'SPITZER' : ['e_FIR1','e_FIR2','e_FIR3','e_FIR4','e_FMP1','e_FMP2'],
            'SPITZER2' : ['e_3.6mag','e_4.5mag','e_5.8mag','e_8.0mag','e_24mag'],
