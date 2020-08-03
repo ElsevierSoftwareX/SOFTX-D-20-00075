@@ -114,7 +114,8 @@ def src_localDB(localDB):
             'PALOMAR' : localDB+'/database/palomar_opt.csv',
             'VARIOUS2' : localDB+'/database/various_hillenbrand.csv',
             'ESO' : localDB+'/database/eso_jhklm_phot.csv',
-            'UKIRT' : localDB+'/database/ukirt_coulson.csv'}
+            'UKIRT' : localDB+'/database/ukirt_coulson.csv',
+            'ALMA34' : localDB+'/database/alma_osorio.csv'}
     
     for item in ldbN:
         if not os.path.exists(ldbN[item]):
@@ -232,7 +233,8 @@ def src_localDB(localDB):
             'PALOMAR' : '2005ApJ...623..952E',
             'VARIOUS2' : '1992ApJ...397..613H',
             'ESO' : '1992ApJ...398..254B',
-            'UKIRT' : '1998MNRAS.296..934C'}
+            'UKIRT' : '1998MNRAS.296..934C',
+            'ALMA34' : '2016ApJ...825L..10O'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'HERSCHEL1' : [70e-6,100e-6,160e-6],
             'HERSCHEL2' : [70e-6,100e-6,160e-6,250e-6,350e-6,500e-6],
@@ -343,7 +345,8 @@ def src_localDB(localDB):
             'PALOMAR' : [0.36e-6,0.44e-6,0.55e-6,0.71e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6],
             'VARIOUS2' : [0.36e-6,0.44e-6,0.55e-6,0.6938e-6,0.71e-6,0.878e-6,0.79e-6,1.25e-6,1.60e-6,2.18e-6,3.54e-6,4.80e-6,1300e-6],
             'ESO' : [1.23e-6,1.63e-6,2.19e-6,3.79e-6,4.64e-6,9.69e-6,8.38e-6,12.89e-6],
-            'UKIRT' : [1.25e-6,1.65e-6,2.20e-6,3.45e-6]}
+            'UKIRT' : [1.25e-6,1.65e-6,2.20e-6,3.45e-6],
+            'ALMA34' : [1300e-6,2900e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'HERSCHEL1' : [5.03,7.19,11.50],
@@ -455,7 +458,8 @@ def src_localDB(localDB):
             'PALOMAR' : [0.06,0.07,0.09,0.12,0.14,0.21,0.27,0.37],
             'VARIOUS2' : [0.09,0.11,0.14,0.17,0.18,0.22,0.20,0.05,0.07,0.09,0.15,0.20,28.0],
             'ESO' : [0.3,0.4,0.6,0.9,1.2,2.4,2.1,3.2],
-            'UKIRT' : [0.08,0.11,0.15,0.23]}
+            'UKIRT' : [0.08,0.11,0.15,0.23],
+            'ALMA34' : [0.1,0.08]}
     # Magnitude/Flux column name
     ldbM = {'HERSCHEL1' : ['F70','F100','F160'],
             'HERSCHEL2' : ['F70','F100','F160','F250','F350','F500'],
@@ -566,7 +570,8 @@ def src_localDB(localDB):
             'PALOMAR' : ['U','B','V','R','I','J','H','K'],
             'VARIOUS2' : ['U','B','V','R','Rc','I','Ic','J','H','K','L','M','F1300'],
             'ESO' : ['Jmag','Hmag','Kmag','Lmag','Mmag','N2mag','N1mag','N3mag'],
-            'UKIRT' : ['Jmag','Hmag','Kmag','Lmag']}
+            'UKIRT' : ['Jmag','Hmag','Kmag','Lmag'],
+            'ALMA34' : ['F1300','F2900']}
     # Magnitude/Flux error column name
     ldbE = {'HERSCHEL1' : ['eF70','eF100','eF160'],
             'HERSCHEL2' : ['eF70','eF100','eF160','eF250','eF350','eF500'],
@@ -677,7 +682,8 @@ def src_localDB(localDB):
             'PALOMAR' : ['e_U','e_B','e_V','e_R','e_I','e_J','e_H','e_K'],
             'VARIOUS2' : ['e_U','e_B','e_V','e_R','e_Rc','e_I','e_Ic','e_J','e_H','e_K','e_L','e_M','e_F1300'],
             'ESO' : ['eJmag','eHmag','eKmag','eLmag','eMmag','eN2mag','eN1mag','eN3mag'],
-            'UKIRT' : ['eJmag','eHmag','eKmag','eLmag']}
+            'UKIRT' : ['eJmag','eHmag','eKmag','eLmag'],
+            'ALMA34' : ['eF1300','eF2900']}
     # Units for each of the magnitude/flux entries
     ldbU = {'HERSCHEL1' : ['Jy','Jy','Jy'],
             'HERSCHEL2' : ['mJy','mJy','mJy','mJy','mJy','mJy'],
@@ -788,7 +794,8 @@ def src_localDB(localDB):
             'PALOMAR' : ['mag','mag','mag','mag','mag','mag','mag','mag'],
             'VARIOUS2' : ['mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','mag','Jy'],
             'ESO' : ['mag','mag','mag','mag','mag','mag','mag','mag'],
-            'UKIRT' : ['mag','mag','mag','mag']}
+            'UKIRT' : ['mag','mag','mag','mag'],
+            'ALMA34' : ['mJy','mJy']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'HERSCHEL1' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160'],
@@ -900,7 +907,8 @@ def src_localDB(localDB):
             'PALOMAR' : ['Johnson:U','Johnson:B','Johnson:V','Cousins:Rc','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K'],
             'VARIOUS2' : ['Johnson:U','Johnson:B','Johnson:V','Johnson:R','Cousins:Rc','Johnson:I','Cousins:Ic','Johnson:J','Johnson:H','Johnson:K','Johnson:L','Johnson:M','CSO:F1300'],
             'ESO' : ['ESO:J','ESO:H','ESO:K','ESO:L','ESO:M','ESO:N2','ESO:N1','ESO:N3'],
-            'UKIRT' : ['UKIRT:J','UKIRT:H','UKIRT:K','UKIRT:L']}
+            'UKIRT' : ['UKIRT:J','UKIRT:H','UKIRT:K','UKIRT:L'],
+            'ALMA34' : ['ALMA:F1300','ALMA:F2900']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
