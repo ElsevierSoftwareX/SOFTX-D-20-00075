@@ -29,6 +29,10 @@ To ensure that the SEDBYS scripts `queryDB.py` and `inspectSED.py` can be run fr
 (Remember: you will need to source your .bashrc or .cshrc file for these changes to become active).
 
 
+C. Acknowledgements:
+
+If you use SEDBYS in your research, please cite the associated paper: [Davies, C. L., 2020, arXiv:2008.07800](https://ui.adsabs.harvard.edu/abs/2020arXiv200807800D) (the preprint version of this paper is included in this distribution). SEDBYS will collate photometry, spectroscopy and software references for you automatically - please see the paper for further details.
+
 
 2. **Compiling photometric data from the online and local databases**
 
