@@ -1,6 +1,6 @@
 # SEDBYS
 
-[![astropy](http://img.shields.io/badge/powered%20by-AstroPy-orange.svg?style=flat)](http://www.astropy.org/)
+[![astropy](http://img.shields.io/badge/powered%20by-AstroPy-orange.svg?style=flat)](http://www.astropy.org/) [![ascl](https://img.shields.io/badge/ascl-2008.013-blue.svg?colorB=262255)](http://ascl.net/2008.013)
 
 SEDBYS: SED builder for Young Stars
 
