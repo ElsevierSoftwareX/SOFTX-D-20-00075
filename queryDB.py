@@ -9,6 +9,7 @@ import csv
 from more_itertools import locate
 import argparse
 import subprocess
+from pathlib import Path
 
 # for the spectrum search:
 from astropy import units as u
@@ -60,7 +61,7 @@ searchR = argopt.rad
 
 
 # Check that the local database can be found:
-localDB_trunk = check_ldb(argopt.ldb)
+localDB_trunk = check_ldb(argopt.ldb) # returns a pathlib.Path object
 
 qu = argopt.query
 # Read in the details of the VizieR catalogs to be queried: 
@@ -189,7 +190,7 @@ else:
                     print('Closest entry has _r =',q_r)
                     row = None
                     for r in range(0, len(result[catN[o]])):
-                        if row==None and result[catN[o]][r]['_r'] == q_r:
+                        if row == None and result[catN[o]][r]['_r'] == q_r:
                             row = r
                 else:
                     row = 0
@@ -348,19 +349,18 @@ if len(suggestAlt) != 0:
 ##############
 resS = Simbad.query_object(obj)
 
-subprocess.call('mkdir -p '+os.getcwd()+'/'+obj.replace(" ", ""), shell = True)
-output = os.getcwd()+'/'+obj.replace(" ", "")+'/'+obj.replace(" ", "")+'_phot.dat'
-if os.path.exists(output) == True and qu == 'True':
-    print('File '+output.split('/')[-1]+' already exists in '+os.getcwd()+'/'+obj.replace(" ", "")+ '...')
+Path.mkdir(Path(os.getcwd()) / Path(obj.replace(" ", "")), parents=True, exist_ok=True)
+output = Path(os.getcwd()) / Path(obj.replace(" ", "")) / Path(obj.replace(" ", "")+'_phot.dat')
+if output.exists() and qu == 'True':
+    print('File '+str(output.name)+' already exists in '+str(output.parent)+ '...')
     print('Exiting...')
     sys.exit()
-elif os.path.exists(output) == True and qu != 'True':
+elif output.exists() and qu != 'True':
     f = open(output, mode='a')
     f.write('#New photometry obtained using search radius of '+searchR+'\n')
     for i in range(1, len(wvlen)):
         oLINE = str(wvlen[i])+' '+str(band[i])+' '+str(mag[i])+' '+str(emag[i])+' -- '+str(units[i])+' '+str(beam[i])+' '+str(odate[i])+' '+str(ref[i])
         f.write(oLINE+"\n")
-
 else:
     f = open(output, mode='w')
     f.write('#Photometry obtained for '+obj)

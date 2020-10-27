@@ -2,6 +2,7 @@ from numpy import ndarray, where, array, zeros, ones, float64
 import matplotlib.pyplot as plt
 from sed_input import read_spectrum
 import warnings
+from pathlib import Path
 
 warnings.filterwarnings('ignore', category=RuntimeWarning)
 
@@ -61,16 +62,22 @@ def fixaxis(data,err,lolims):
         return data,newerr.T,lolims
 
 def pltSED(infile, x_range, f, ef, wvlen, specFiles=None, specS=None, interactive=False):
+    """
+    Function to plot spectral energy distribution in log-log
+    space.
+    - specS is a vertical scaling to apply to the spectral
+      flux information.
+    """
     fig1 = plt.figure(1, figsize=(6., 4.))
     ax1 = plt.subplot2grid((1,1), (0,0))
     ax1.set_xlabel("${\lambda}$ [${\mu}m$]")
     ax1.set_ylabel("${\lambda}\,F_{\lambda}$ [W m$^{-2}$]")
-    ax1.set_title(infile.split('/')[-1].split('_')[0])
+    ax1.set_title(infile.name.split('_')[0])
     if x_range != 'default':
         ax1.set_xlim(float(x_range[0]), float(x_range[1]))
     if specFiles:
         for sF in range(0, len(specFiles)):
-            wave_s, flux_s, eflux_s, colS = read_spectrum(specFiles[sF])
+            wave_s, flux_s, eflux_s, colS = read_spectrum(Path(specFiles[sF]))
             x1,xerr1,xlolims1=fixaxis(wave_s,None,False)
             y1,yerr1,uplims1=fixaxis([fx*specS[sF] for fx in flux_s],[fx*specS[sF] for fx in eflux_s],False)
             ax1.errorbar(x1,y1,yerr1,xerr1,color=colS,ms=5,ls='-')

@@ -3,6 +3,7 @@ from cat_setup import src_localDB, src_onlineDB
 from astroquery.vizier import Vizier
 import sys, os
 import argparse
+from pathlib import Path
 
 # Describe the script:
 description = \
@@ -77,7 +78,7 @@ oB = "['"+"','".join(fluxB)+"']" # waveband name to match with zeropoints table
 # Formatting and database checks:
 ######
 # 1. Has SEDBYS been correctly set up on the local machine?
-localDB_trunk = check_ldb(argopt.ldb)
+localDB_trunk = check_ldb(argopt.ldb) # returns pathlib.Path object
 
 # 2. Does the parsed catalog exist in VizieR?...
 print('')
@@ -97,10 +98,9 @@ print('')
 print('Ensuring '+argopt.cat+' is not already in the list of queried catalogs...')
 catN = src_onlineDB('simbad')[0], src_onlineDB('simbad')[1]
 ldbN = src_localDB(localDB_trunk)[0], src_localDB(localDB_trunk)[1]
-if argopt.cat in [catN+ldbN]:
-    print('')
-    print('Error: catalog '+argopt.cat+' already included in cat_setup.py!')
-    print('')
+if argopt.cat in [catN[0][i] for i in catN[0]] or argopt.cat in [ldbN[1][j] for j in ldbN[1]]:
+    print('   Error: catalog '+argopt.cat+' already included in cat_setup.py!')
+    print('   ')
     sys.exit()
 else:
     print('   Passed: check complete.')

@@ -1,8 +1,9 @@
 import os, sys
 from buildDB import addToLocal, check_ldb, check_fmt, check_date
 import argparse
-import subprocess
 from astroquery.simbad import Simbad
+from pathlib import Path
+import shutil
 
 import warnings
 
@@ -53,16 +54,16 @@ parser.add_argument("--ldb",dest='ldb',default='',type=str,
 argopt = parser.parse_args()
 
 # 1. Has SEDBYS been correctly set up on the local machine?
-localDB_trunk = check_ldb(argopt.ldb)
+localDB_trunk = check_ldb(Path(argopt.ldb))
 
 ######
 # Re-format the parsed values in preparation to build the python dictionary:
 ######
-print('Locating file '+argopt.fil+'...')
-if not os.path.exists(argopt.fil):
+print('Locating file '+str(Path(argopt.fil))+'...')
+if not Path(argopt.fil).exists():
     # no it doesn't
     # Does it exist in the localDB?
-    if not os.path.exists(localDB_trunk+'/'+argopt.fil):
+    if not Path(localDB_trunk / Path(argopt.fil)).exists():
         # no
         # raise error cos we can't find the file:
         print('')
@@ -71,24 +72,27 @@ if not os.path.exists(argopt.fil):
         sys.exit()
     else:
         # yes, and it is in the correct format to be written to the database
-        file = '/'+argopt.fil
+        file = Path(argopt.fil)
 else:
-    # yes, it does 
+    # yes, it does exist
     # is the local database directory in the file path?
-    if localDB_trunk not in argopt.fil:
+    if localDB_trunk not in Path(argopt.fil).parents:
         # no
         # copy the file to the local DB:
-        nfile = localDB_trunk+'/database/.'.replace('//','/')
-        subprocess.call('cp '+argopt.fil+' '+nfile, shell=True)
-        file = '/database/'+'/'.join(argopt.fil.split('/')[-1:])
+        nfile = localDB_trunk / 'database'
+        try:
+            shutil.copy(Path(argopt.fil), nfile)
+        except shutil.SameFileError:
+            pass
+        file = Path('database') / Path(argopt.fil).name
     else:
         # yes but the local DB part of the file path needs removing
-        file = argopt.fil.replace(localDB_trunk, '')
+        file = Path('database') / Path(Path(argopt.fil).name)
 
 print('   Passed: check complete.')
 
-dID = "'"+argopt.nam+"' : "# label for the dict (make it end in ' : ')
-oP = "localDB+'"+file+"'" # path to local file
+dID = "'"+argopt.nam+"' : "# label for the python dictionary (make it end in ' : ')
+oP = "localDB / 'database' / '"+file.name+"'" # path to local file
 oR = "'"+argopt.ref+"'"   # reference 
 if '[' not in argopt.wav:
     oW = '['+argopt.wav+']' # wavelength or list of wavelengths
@@ -122,7 +126,7 @@ print('Ensuring file contents are correctly formatted...')
 endhere = False
 fc = []
 # a) read in the data:
-with open(localDB_trunk+file) as inp:
+with open(localDB_trunk / file) as inp:
     head = inp.readline()
     for line in inp:
         fc.append(line)

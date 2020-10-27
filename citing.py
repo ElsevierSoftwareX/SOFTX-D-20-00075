@@ -2,6 +2,7 @@ import urllib.request
 import string
 import os, sys
 from datetime import date
+from pathlib import Path
 
 def getBibTeX(bibref,tag_suf,outFile):
     """
@@ -65,7 +66,7 @@ def getBibTeX(bibref,tag_suf,outFile):
 
 
 def bibrefCASSIS(objN):
-    with open(os.getcwd()+'/'+objN.replace(" ", "")+'/sedbys_'+objN.replace(" ","")+'.tex', 'a') as outFile:
+    with open(Path(os.getcwd()) / Path(objN.replace(" ", "")) / Path('sedbys_'+objN.replace(" ","")+'.tex'), 'a') as outFile:
         outFile.write('Acknowledge CASSIS by (1) specifying the AORkey(s) of your data ')
         outFile.write('(provided in the header of each fits file) and the date this ')
         outFile.write('data was retrieved: '+str(date.today()))
@@ -77,7 +78,7 @@ def bibrefCASSIS(objN):
         outFile.write(' (PNPS) of CNRS/INSU co-funded by CEA and CNES and through the')
         outFile.write(' "Programme National Physique et Chimie du Milieu Interstellaire"')
         outFile.write(' (PCMI) of CNRS/INSU with INC/INP co-funded by CEA and CNES.\n\n')
-    with open(os.getcwd()+'/'+objN.replace(" ", "")+'/sedbys_'+objN.replace(" ","")+'.bib', 'a') as outFile:
+    with open(Path(os.getcwd()) / Path(objN.replace(" ", "")) / Path('sedbys_'+objN.replace(" ","")+'.bib'), 'a') as outFile:
         outFile.write('@ARTICLE{Lebouteiller2011zp,\n')
         outFile.write('   author = {{Lebouteiller}, V. and {Barry}, D.~J. and {Spoon}, ')
         outFile.write('H.~W.~W. and\n    {Bernard-Salas}, J. and {Sloan}, G.~C. and ')
@@ -105,9 +106,9 @@ def bibrefCASSIS(objN):
         outFile.write('}\n\n')
 
 def bibrefISO(objN):
-    with open(os.getcwd()+'/'+objN.replace(" ", "")+'/sedbys_'+objN.replace(" ","")+'.tex', 'a') as outFile:
+    with open(Path(os.getcwd()) / Path(objN.replace(" ", "")) / Path('sedbys_'+objN.replace(" ","")+'.tex'), 'a') as outFile:
         outFile.write('Acknowledge the ISO SWS spectral Atlas by citing \citet{Sloan2003tj}.\n\n')
-    with open(os.getcwd()+'/'+objN.replace(" ", "")+'/sedbys_'+objN.replace(" ","")+'.bib', 'a') as outFile:
+    with open(Path(os.getcwd()) / Path(objN.replace(" ", "")) / Path('sedbys_'+objN.replace(" ","")+'.bib'), 'a') as outFile:
         outFile.write('@ARTICLE{Sloan2003tj,\n')
         outFile.write('   author = {{Sloan}, G.~C. and {Kraemer}, Kathleen E. and {Price},')
         outFile.write(' Stephan D. and {Shipman}, Russell F.},\n')

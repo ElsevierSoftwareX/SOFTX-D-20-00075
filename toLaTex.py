@@ -7,6 +7,7 @@ from sed_input import read_ascii, read_cleaned, magToJy, JyToLamFlam
 import argparse
 import sys, os
 import numpy as np
+from pathlib import Path
 
 description = \
 """
@@ -33,14 +34,14 @@ argopt = parser.parse_args()
 ############
 # 1. Read in the photometric data:
 ############
-infile = argopt.phot
-if infile.split('.')[-1] == 'dat':
-    if 'cleaned' not in infile.split('/')[-1]:
+infile = Path(argopt.phot)
+if infile.suffix == '.dat':
+    if 'cleaned' not in infile.name:
         wvlen,wband,jy,ejy,flag,unit,beam,odate,ref = read_ascii(infile)
     else:
         wvlen,wband,f,ef,flag,beam,odate,ref = read_cleaned(infile)
         jy = None
-elif os.path.exists(infile):
+elif infile.exists():
     print('')
     print('Error: this function is limited to plotting ascii files output by queryDB.py.')
     print('')
@@ -76,8 +77,10 @@ if jy:
 ############
 # 3. Collect bibref and write to file:
 ############
-outFile = '/'.join(infile.split('/')[:-1])+'/sedbys_'+infile.split('/')[-1].split('.')[0].split('_')[0]+'.bib'
-with open(outFile.replace('.bib', '.tex'), 'a') as o:
+outBib = infile.parent / Path('sedbys_'+infile.name.split('_')[0]+'.bib')
+outTex = infile.parent / Path('sedbys_'+infile.name.split('_')[0]+'.tex')
+print('Writing data to Tex file',outTex)
+with open(outTex, 'a') as o:
     o.write('Wavelength & $\\lambda F_{\\lambda}$   & Date & Reference\\\\\n')
     o.write('$\\mu$m     & $10^{-13}$\,W\\,m$^{-2}$ &      &   \\\\\n')
     o.write('\\hline \n')
@@ -89,7 +92,7 @@ for r in range(0, len(uniqueRef)):
     # combinations.
     tag_suf = random.choice(string.ascii_lowercase)+random.choice(string.ascii_lowercase)
     # download the bibtex entry and edit the bibtag:
-    bibtag = getBibTeX(uniqueRef[r],tag_suf,outFile)
+    bibtag = getBibTeX(uniqueRef[r],tag_suf,outBib)
     bibDict[uniqueRef[r]] = bibtag
 
 inds = np.array(wvlen).argsort()
@@ -101,7 +104,7 @@ sort_ref = np.array(ref)[inds]
 
 for r in range(0, len(sort_ref)):
     # output a table of wavelength, flux, reference to file:
-    with open(outFile.replace('.bib', '.tex'), 'a') as o:
+    with open(outTex, 'a') as o:
         wv = '{:.2f}'.format(sort_wv[r]*1e6)
         fr = '{:.3e}'.format(sort_f[r])
         if np.isnan(float(sort_ef[r])):
@@ -123,5 +126,5 @@ for r in range(0, len(sort_ref)):
             else:
                 o.write(wv+' & $'+ffr.split('e')[0]+'\\pm'+efr.split('e')[0]+'$ & '+sort_d[r]+' & \\citet{'+bibDict[sort_ref[r]]+'} \\\\ \n')
 
-with open(outFile.replace('.bib', '.tex'), 'a') as o:
+with open(outTex, 'a') as o:
     o.write('\\hline \n\n\n')

@@ -5,6 +5,7 @@ from datetime import date
 import astropy.coordinates as coord
 from astropy import units as u
 from citing import bibrefCASSIS, bibrefISO
+from pathlib import Path
 
 def queryCASSIS(objN, RA, DEC, searchR=str(20)):
     """
@@ -17,7 +18,7 @@ def queryCASSIS(objN, RA, DEC, searchR=str(20)):
       directory in which to save the retrieved files.
     """
     baseURL = 'https://cassis.sirtf.com/'
-    baseDir = os.getcwd()+'/'+objN.replace(" ", "")
+    baseDir = Path(os.getcwd()) / Path(objN.replace(" ", ""))
     ws = '/atlas/cgi/radec.py?ra='+RA+'&dec='+DEC+'&radius='+searchR
     lines = request.urlopen(baseURL+ws).readlines()
     
@@ -33,14 +34,14 @@ def queryCASSIS(objN, RA, DEC, searchR=str(20)):
     try:
         l = len(wantF) # if no results were returned from CASSIS, the try
         #                statement will fail here and the code will skip
-        #                to the except NameError line below.
+        #                to the except UnboundLocalError line below.
         # Ensure that the object directory already exists (and make it
         # if it doesn't exist):
-        subprocess.call('mkdir -p '+baseDir, shell=True)
+        Path.mkdir(baseDir, parents=True, exist_ok=True)
         print(' ---------------------------------------------------------')
         print('| Info: ',l,'low resolution spectra retrieved from CASSIS:')
         print('| the Combined Atlas of Sources with Spitzer IRS Spectra.')
-        print('|',baseURL)
+        print('|',str(baseURL))
         print('| ')
         print('| Saved file(s):')
         i = 1
@@ -50,8 +51,8 @@ def queryCASSIS(objN, RA, DEC, searchR=str(20)):
             # retrieve original name of fits file:
             outFile = gotF[1]._headers[[h[0] for h in gotF[1]._headers].index('Content-disposition')][1].split('=')[1]
             # move the file from the default local directory to the object directory:
-            subprocess.call('mv '+gotF[0]+' '+baseDir+'/'+outFile, shell=True)
-            print('|',i,':',objN+'/'+outFile)
+            Path(gotF[0]).replace(baseDir / Path(outFile))
+            print('|',i,':',str(Path(objN) / Path(outFile)))
             i += 1
         print(' ---------------------------------------------------------')
         bibrefCASSIS(objN)
@@ -79,7 +80,7 @@ def queryISO(objN, oRA, oDEC, searchR=str(20)):
     - searchR is the search radius used to consider an entry
       in the online database as a match (in arcsec).
     """
-    baseDir = os.getcwd()+'/'+objN.replace(" ", "")
+    baseDir = Path(os.getcwd()) / Path(objN.replace(" ", ""))
     baseURL = 'https://users.physics.unc.edu/~gcsloan/library/swsatlas/'
     ws = 'aot1.html'
     lines = request.urlopen(baseURL+ws).readlines()
@@ -93,7 +94,7 @@ def queryISO(objN, oRA, oDEC, searchR=str(20)):
             if '_sws.fit' in str(line):
                 if i == 1:
                     # ensure object directory exists:
-                    subprocess.call('mkdir -p '+baseDir, shell=True)
+                    Path.mkdir(baseDir, parents=True, exist_ok=True)
                     print(' ---------------------------------------------------------')
                     print('| Info: ISO spectra retrieved from:')
                     print("| Gregory C Sloan's SWS Atlas.")
@@ -105,8 +106,8 @@ def queryISO(objN, oRA, oDEC, searchR=str(20)):
                 # Retrieve original name of file:
                 outFile = str(line).split('"')[1]           
                 # move the file from the default download location to the object directory:
-                subprocess.call('mv '+gotF[0]+' '+baseDir+'/'+outFile, shell=True)
-                print('|',i,':',objN+'/'+outFile)
+                Path(gotF[0]).replace(baseDir / Path(outFile))
+                print('|',i,':',str(Path(objN) / Path(outFile)))
                 # return found_match to False:
                 found_match = 'False'
                 i += 1

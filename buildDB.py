@@ -2,41 +2,46 @@ import subprocess, sys, os
 import urllib.request
 from cat_setup import src_localDB, src_onlineDB
 import datetime
+from pathlib import Path
 
 def check_ldb(ldb):
     """
     Function to test whether SEDBYS has been installed and
     set-up correctly. 
+    - ldb is a pathlib.Path object
     """
+    if type(ldb) != type(Path('')):
+        ldb = Path(ldb)
     
     class cd:
         """
         Context manager for changing the current working directory
         """
         def __init__(self, newPath):
-            self.newPath = os.path.expanduser(newPath)
-
+            self.newPath = Path.expanduser(newPath)
+        
         def __enter__(self):
-            self.savedPath = os.getcwd()
+            self.savedPath = Path(os.getcwd())
             os.chdir(self.newPath)
-
+        
         def __exit__(self, etype, value, traceback):
             os.chdir(self.savedPath)
     
-    if ldb == '':
-        localDB_trunk = os.getenv('SED_BUILDER')
-        if localDB_trunk == None:
+    if ldb == Path(''):
+        try:
+            localDB_trunk = Path(os.getenv('SED_BUILDER'))
+        except TypeError:
             print('Error: Local database directory trunk not specified!')
             print('Use option --ldb or set environment variable $SED_BUILDER')
             print('to specify full path to local database trunk.')
             print('')
             sys.exit()
-    elif not os.path.isdir(ldb):
+    elif not Path(ldb).is_dir():
         print('Error: Local database directory trunk does not exist!')
         print('Please fix this before continuing.')
         print('')
         sys.exit()
-    elif not os.path.isdir(ldb+'/database'):
+    elif not Path(ldb / 'database').is_dir():
         print('Error: Local database directory trunk does not point to')
         print(' SEDBYS git repository directory!')
         print('Please fix this beofre continuing.')
@@ -108,7 +113,7 @@ def check_fmt(ref, nam, ldb, fluxU, fluxB):
     print('')
     print('Ensuring filter names are present in look-up table...')
     filNames = []
-    with open(ldb+'/zero_points.dat') as zpF:
+    with open(ldb / 'zero_points.dat') as zpF:
         head1 = zpF.readline()
         head2 = zpF.readline()
         for line in zpF:
@@ -157,12 +162,13 @@ def addToLocal(outlist, localDB_trunk):
      [ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB]
     """
     oldcat = []
-    with open(localDB_trunk+'/cat_setup.py', 'r') as inp:
+    with open(localDB_trunk / 'cat_setup.py', 'r') as inp:
         for line in inp:
             oldcat.append(line)
 
     w = 0
-    with open(localDB_trunk+'/cat_setup_edit.py', 'w') as output:
+    editF = localDB_trunk / 'cat_setup_edit.py'
+    with open(editF, 'w') as output:
         for o in oldcat:
             if '}' not in o:
                 output.write(o)
@@ -176,14 +182,14 @@ def addToLocal(outlist, localDB_trunk):
                     # notice that we're not where we're want to be
                     output.write(o)
     
-    subprocess.call('mv '+localDB_trunk+'/cat_setup_edit.py '+localDB_trunk+'/cat_setup.py', shell=True)
+    editF.replace(localDB_trunk / 'cat_setup.py')
     print('')
     print('cat_setup.py successfully updated.')
     print('')
     print('-------------------------------------------------------------------')
     print('Please add your changes to the SEDBYS git repository e.g.')
     print('')
-    print(' > cd '+localDB_trunk)
+    print(' > cd '+str(localDB_trunk))
     print(' > git pull')
     print(' > git add cat_setup.py')
     print(' > git add database')
@@ -202,13 +208,14 @@ def addToCat(outlist, localDB_trunk):
     how to retrieve and flux-convert the data in the catalog.
     """
     oldcat = []
-    with open(localDB_trunk+'/cat_setup.py', 'r') as inp:
+    with open(localDB_trunk / 'cat_setup.py', 'r') as inp:
         for line in inp:
             oldcat.append(line)
     
     w = 0
     o = 0
-    with open(localDB_trunk+'/cat_setup_edit.py', 'w') as output:
+    editF = localDB_trunk / 'cat_setup_edit.py'
+    with open(editF, 'w') as output:
         # account for the fact that src_onlineDB is not the first 
         # function defined in cat_setup.py
         while 'def src_onlineDB(' not in oldcat[o]:
@@ -228,12 +235,12 @@ def addToCat(outlist, localDB_trunk):
                     # notice that we're not where we're want to be
                     output.write(oldcat[i])
     
-    subprocess.call('mv '+localDB_trunk+'/cat_setup_edit.py '+localDB_trunk+'/cat_setup.py', shell=True)
+    editF.replace(localDB_trunk / 'cat_setup.py')
     print('')
     print('cat_setup.py successfully updated.')
     print('Please add your changes to the SEDBYS git repository e.g.')
     print('')
-    print(' > cd '+localDB_trunk)
+    print(' > cd '+str(localDB_trunk))
     print(' > git pull')
     print(' > git add cat_setup.py')
     print(' > git add database')

@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from matplotlib.pyplot import errorbar, loglog
 import numpy as np
 from plot import pltSED
+from pathlib import Path
 
 description = \
 """
@@ -49,9 +50,9 @@ if argopt.specScale != '':
 ############
 # 1. Read in the photometric data:
 ############
-infile = argopt.phot
-if infile.split('.')[-1] == 'dat':
-    if 'cleaned' not in infile.split('/')[-1]:
+infile = Path(argopt.phot)
+if infile.suffix == '.dat':
+    if 'cleaned' not in infile.name:
         wvlen,wband,jy,ejy,flag,unit,beam,odate,ref = read_ascii(infile)
     else:
         wvlen,wband,f,ef,flag,beam,odate,ref = read_cleaned(infile)
@@ -112,14 +113,12 @@ else:
 
 if argopt.saveplt == True:
     pltSED(infile, x_range, f, ef, wvlen, specFiles, specS, interactive=False)
-    if infile[0] == '/':
-        sedOutF = '/'+'/'.join(infile.split('/')[:-1])+'/'+infile.split('/')[-1].split('_')[0]+'_sed.pdf'
-    else:
-        sedOutF = '/'.join(infile.split('/')[:-1])+'/'+infile.split('/')[-1].split('_')[0]+'_sed.pdf'
+    sedOutF = infile.parent / Path(infile.name.split('_')[0]+'_sed.pdf')
     k = 0
-    while os.path.exists(sedOutF.replace('sed.pdf', 'sed_'+str(k)+'.pdf')):
+    while (sedOutF.parent / Path(sedOutF.name.replace('sed.pdf', 'sed_'+str(k)+'.pdf'))).exists():
         k += 1 # avoids over-writing existing files
-    plt.savefig(sedOutF.replace('sed.pdf', 'sed_'+str(k)+'.pdf'))
+    sedOutF = sedOutF.parent / Path(sedOutF.name.replace('sed.pdf', 'sed_'+str(k)+'.pdf'))
+    plt.savefig(sedOutF)
     
 print('')
 print('-----------------------------------------------')
@@ -127,7 +126,7 @@ print('| The plot displays your input SED data.      |')
 print('|                                             |')
 if argopt.saveplt == True:
     print('| A copy of this plot has been saved to       |')
-    print('| '+sedOutF.replace('sed.pdf', 'sed_'+str(k)+'.pdf'))
+    print('| '+str(sedOutF))
     print('|                                             |')
 print('| Please click on any photometry points you   |')
 print('| wish to remove from the final data set.     |')
@@ -163,20 +162,21 @@ plt.show()
 ############
 # 5. Write retained photometric data to file:
 ############
-if 'cleaned' not in infile.split('/')[-1] or indices != []:
+if 'cleaned' not in infile.name or indices != []:
     print('')
     print('Writing cleaned data to new file:')
-    if 'cleaned' not in infile.split('/')[-1]:
-        outfile = '.'.join(infile.split('.')[:-1])+'_cleaned_'
+    if 'cleaned' not in infile.name:
+        outfile = infile.parent / Path(infile.stem+'_cleaned_')
     else:
-        outfile = '.'.join(infile.split('.')[:-1])[:-1]
+        outfile = infile.parent / Path(infile.stem)
     j = 0
-    while os.path.exists(outfile+str(j)+'.dat'):
+    while Path(str(outfile)+str(j)+'.dat').exists():
         j += 1 # avoids over-writing other attempts to clean data file
-
-    print(outfile+str(j)+'.dat') # name of file to be written
+    
+    outfile = Path(str(outfile)+str(j)+'.dat')
+    print(outfile) # name of file to be written
     print('')
-    with open(outfile+str(j)+'.dat','w') as f_out:
+    with open(outfile,'w') as f_out:
         with open(infile, 'r') as f_in:
             for line in f_in:
                 try:
@@ -199,14 +199,15 @@ if 'cleaned' not in infile.split('/')[-1] or indices != []:
 ############
 if argopt.saveplt == True and indices != []:
     # read in cleaned data:
-    wvlen,wband,f,ef,flag,beam,odate,ref = read_cleaned(outfile+str(j)+'.dat')
+    wvlen,wband,f,ef,flag,beam,odate,ref = read_cleaned(outfile)
     
     pltSED(infile, x_range, f, ef, wvlen, specFiles, specS, interactive=False)
     h = 0
-    while os.path.exists(sedOutF.replace('sed.pdf', 'sed_cleaned_'+str(h)+'.pdf')):
+    while (sedOutF.parent / Path(sedOutF.name.replace('sed_'+str(k)+'.pdf', 'sed_cleaned_'+str(h)+'.pdf'))).exists():
         h += 1 # avoids over-writing existing files
-    plt.savefig(sedOutF.replace('sed.pdf', 'sed_cleaned_'+str(h)+'.pdf'))
+    sedOutF = sedOutF.parent / Path(sedOutF.name.replace('sed_'+str(k)+'.pdf', 'sed_cleaned_'+str(h)+'.pdf'))
+    plt.savefig(sedOutF)
     print('')
-    print('Info: Plot of cleaned SED saved to '+sedOutF.replace('sed.pdf', 'sed_cleaned_'+str(h)+'.pdf'))
+    print('Info: Plot of cleaned SED saved to '+str(sedOutF))
     print('')
 

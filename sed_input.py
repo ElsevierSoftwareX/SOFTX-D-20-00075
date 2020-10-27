@@ -2,8 +2,14 @@ import os
 from math import log
 import numpy as np
 from astropy.io import fits as pyfits
+from pathlib import Path
 
 def read_ascii(file):
+    """
+    Function to read in photometric data from
+    original '_phot.dat' style sedbys file.
+    - file is a pathlib.Path object
+    """
     wvlen, band, mag, emag, fmag, unit, beam, odate, ref = [],[],[],[],[],[],[],[],[]
     with open(file, 'r') as f_in:
         for line in f_in:
@@ -32,6 +38,12 @@ def read_ascii(file):
     return wvlen, band, mag, emag, fmag, unit, beam, odate, ref
 
 def read_cleaned(file):
+    """
+    Function to extract photometric data from
+    "cleaned" '_phot_cleaned.dat' style sedbys
+    file.
+    - file is a pathlib.Path object
+    """
     wvlen, band, lamFlam, elamFlam, flamFlam, beam, odate, ref = [],[],[],[],[],[],[],[]
     with open(file, 'r') as f_in:
         for line in f_in:
@@ -60,6 +72,11 @@ def read_cleaned(file):
     
 
 def read_zp(file):
+    """
+    Function to read in data from zero_points.dat
+    sedbys file. 
+    - file is a pathlib.Path object
+    """
     with open(file) as f_in:
         head = f_in.readline()
         units = f_in.readline()
@@ -74,7 +91,13 @@ def read_zp(file):
     
     return zpWave, zpF0
 
-def magToJy(mag, emag, wband, zpFile=os.environ['SED_BUILDER']+'/zero_points.dat'):
+def magToJy(mag,emag,wband,zpFile=None):
+    """
+    Function to flux convert magnitude data using
+    zero_points.dat file.
+    """
+    if zpFile == None:
+        zpFile = Path(os.environ['SED_BUILDER']) / Path('zero_points.dat')
     zpWave, zpF0 = read_zp(zpFile)
     F0 = zpF0[wband]
     jy = (10**(-float(mag)/2.5))*F0
@@ -110,10 +133,10 @@ def read_spectrum(specfile):
     hdu = pyfits.open(specfile)
     w = [a[0] for a in hdu[0].data]
     f     = [a[1] for a in hdu[0].data]
-    if 'cassis' in specfile:
+    if 'cassis' in specfile.name:
         ef    = [a[2] for a in hdu[0].data]
         colS = 'b'
-    elif 'sws' in specfile:
+    elif 'sws' in specfile.name:
         ef    = [a[3] for a in hdu[0].data]
         colS = 'g'
     
