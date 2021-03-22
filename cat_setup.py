@@ -119,7 +119,8 @@ def src_localDB(localDB):
             'UKIRT' : localDB / 'database' / 'ukirt_coulson.csv',
             'ALMA34' : localDB / 'database' / 'alma_osorio.csv',
             'ALMA35' : localDB / 'database' / 'alma_vdplas2.csv',
-            'JCMT8' : localDB / 'database' / 'jcmt_vdveen.csv'}
+            'JCMT8' : localDB / 'database' / 'jcmt_vdveen.csv',
+            'PAIRITEL1' : localDB / 'database' / 'pairitel_eisner.csv'}
     
     for item in ldbN:
         if not ldbN[item].exists():
@@ -240,7 +241,8 @@ def src_localDB(localDB):
             'UKIRT' : '1998MNRAS.296..934C',
             'ALMA34' : '2016ApJ...825L..10O',
             'ALMA35' : '2017A%26A...597A..32V',
-            'JCMT8' : '1994A&A...285..551V'}
+            'JCMT8' : '1994A&A...285..551V',
+            'PAIRITEL1' : '2007ApJ...669.1072E'}
     # Wavelength of each of the mag/flux entries in the table
     ldbW = {'HERSCHEL1' : [70e-6,100e-6,160e-6],
             'HERSCHEL2' : [70e-6,100e-6,160e-6,250e-6,350e-6,500e-6],
@@ -354,7 +356,8 @@ def src_localDB(localDB):
             'UKIRT' : [1.25e-6,1.65e-6,2.20e-6,3.45e-6],
             'ALMA34' : [1300e-6,2900e-6],
             'ALMA35' : [853e-6,2939e-6,6972e-6,8565e-6,9085e-6,15779e-6,3091e-6,3156e-6,3224e-6,6662e-6,17635e-6,33310e-6,54508e-6,3294e-6,7459e-6,7889e-6,12491e-6,16655e-6],
-            'JCMT8' : [450e-6,800e-6,1100e-6]}
+            'JCMT8' : [450e-6,800e-6,1100e-6],
+            'PAIRITEL1' : [1.25e-6,1.60e-6,2.18e-6]}
     # Angular resolution / beam size of the different observations in case
     # someone needs to limit an SED to e.g exclude extended emission
     ldbA = {'HERSCHEL1' : [5.03,7.19,11.50],
@@ -469,7 +472,8 @@ def src_localDB(localDB):
             'UKIRT' : [0.08,0.11,0.15,0.23],
             'ALMA34' : [0.1,0.08],
             'ALMA35' : [0.2,0.7,0.2,0.1,0.2,0.4,1.3,0.2,0.2,0.2,0.4,0.8,1.2,1.4,0.1,0.1,0.3,0.4],
-            'JCMT8' : [17.5,16.8,18.5]}
+            'JCMT8' : [17.5,16.8,18.5],
+            'PAIRITEL1' : [0.20,0.25,0.35]}
     # Magnitude/Flux column name
     ldbM = {'HERSCHEL1' : ['F70','F100','F160'],
             'HERSCHEL2' : ['F70','F100','F160','F250','F350','F500'],
@@ -583,7 +587,8 @@ def src_localDB(localDB):
             'UKIRT' : ['Jmag','Hmag','Kmag','Lmag'],
             'ALMA34' : ['F1300','F2900'],
             'ALMA35' : ['F853','F2939','F6972','F8565','F9085','F15779','F3091','F3156','F3224','F6662','F17635','F33310','F54508','F3294','F7459','F7889','F12491','F16655'],
-            'JCMT8' : ['F450','F800','F1100']}
+            'JCMT8' : ['F450','F800','F1100'],
+            'PAIRITEL1' : ['Jmag','Hmag','Kmag']}
     # Magnitude/Flux error column name
     ldbE = {'HERSCHEL1' : ['eF70','eF100','eF160'],
             'HERSCHEL2' : ['eF70','eF100','eF160','eF250','eF350','eF500'],
@@ -697,7 +702,8 @@ def src_localDB(localDB):
             'UKIRT' : ['eJmag','eHmag','eKmag','eLmag'],
             'ALMA34' : ['eF1300','eF2900'],
             'ALMA35' : ['eF853','eF2939','eF6972','eF8565','eF9085','eF15779','eF3091','eF3156','eF3224','eF6662','eF17635','eF33310','eF54508','eF3294','eF7459','eF7889','eF12491','eF16655'],
-            'JCMT8' : ['eF450','eF800','eF1100']}
+            'JCMT8' : ['eF450','eF800','eF1100'],
+            'PAIRITEL1' : ['eJmag','eHmag','eKmag']}
     # Units for each of the magnitude/flux entries
     ldbU = {'HERSCHEL1' : ['Jy','Jy','Jy'],
             'HERSCHEL2' : ['mJy','mJy','mJy','mJy','mJy','mJy'],
@@ -811,7 +817,8 @@ def src_localDB(localDB):
             'UKIRT' : ['mag','mag','mag','mag'],
             'ALMA34' : ['mJy','mJy'],
             'ALMA35' : ['mJy','mJy','mJy','mJy','mJy','mJy','mJy','mJy','mJy','mJy','mJy','mJy','mJy','mJy','mJy','mJy','mJy','mJy'],
-            'JCMT8' : ['mJy','mJy','mJy']}
+            'JCMT8' : ['mJy','mJy','mJy'],
+            'PAIRITEL1' : ['mag','mag','mag']}
     # Waveband name (used for matching with the zeropoints table for
     # flux conversion)
     ldbB = {'HERSCHEL1' : ['Herschel:PACS:F70','Herschel:PACS:F100','Herschel:PACS:F160'],
@@ -926,7 +933,8 @@ def src_localDB(localDB):
             'UKIRT' : ['UKIRT:J','UKIRT:H','UKIRT:K','UKIRT:L'],
             'ALMA34' : ['ALMA:F1300','ALMA:F2900'],
             'ALMA35' : ['ALMA:F853','ALMA:F2939','ALMA:F6972','ALMA:F8565','ALMA:F9085','ALMA:F15779','ALMA:F3091','ALMA:F3156','ALMA:F3224','ALMA:F6662','ALMA:F17635','ALMA:F33310','ALMA:F54508','ALMA:F3294','ALMA:F7459','ALMA:F7889','ALMA:F12491','ALMA:F16655'],
-            'JCMT8' : ['JCMT:UKT14:F450','JCMT:UKT14:F800','JCMT:UKT14:F1100']}
+            'JCMT8' : ['JCMT:UKT14:F450','JCMT:UKT14:F800','JCMT:UKT14:F1100'],
+            'PAIRITEL1' : ['Johnson:J','Johnson:H','2MASS:Ks']}
     
     return ldbN, ldbR, ldbW, ldbA, ldbM, ldbE, ldbU, ldbB
 
